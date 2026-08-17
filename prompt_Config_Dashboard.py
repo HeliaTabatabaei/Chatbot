@@ -104,6 +104,13 @@ Reason for cancellation.
 ServiceID (int)
 Service identifier.
 
+RepeatRequest_Id (int)
+Identifier of repeat failure request.
+
+TitleRepeatRequest (string)
+Reason or title of repeat failure.
+
+
 Usage:
 Use this view when the question asks about:
 - number of failures (خرابی)
@@ -241,9 +248,53 @@ Do not generate INSERT, UPDATE, DELETE, DROP, or ALTER statements.
 
 Return only the SQL query without explanation.
 
+
+
 """
+
+
 ############################## نرخ خرابی/تعداد خرابی/ تعداد دستگاه/ میانگین تاخیر/دلایل تکرار خرابی
 METRICS = """
+================================================================
+CRITICAL RULE: OFFICE & SATELLITES FILTERING (اقماری)
+================================================================
+- When the user asks for an office (e.g. "دفتر اهواز"), you MUST NEVER write:
+  ❌ AreaTitle = N'دفتر اهواز'
+  ❌ AreaTitle LIKE N'%اهواز%'
+  (Because satellite offices like Abadan, Mahshahr, Dezful DO NOT have 'اهواز' in their name!)
+
+- Instead, you MUST filter by Area_Id and ParentId using the office ID (Ahvaz ID = 67):
+  ✅ WHERE (f.Area_Id = 67 OR f.ParentId = 67)
+  OR
+  ✅ WHERE f.Area_Id IN (SELECT 67 UNION SELECT DISTINCT Area_Id FROM dbo.ai_request_analysis WHERE ParentId = 67)
+
+----------------------------------------------------------------
+TEMPLATE: REPEATED FAILURES / CAUSES (علت تکرار خرابی)
+----------------------------------------------------------------
+When answering failure reasons for Ahvaz (ID = 67) in Tir 1405:
+
+SELECT 
+    f.AreaTitle,
+    f.FailureReason,         -- or the exact column name for failure cause in your schema
+    COUNT(*) AS RepeatCount
+FROM dbo.ai_request_analysis AS f
+WHERE (f.Area_Id = 67 OR f.ParentId = 67)
+  AND f.PersianDate >= '1405/04/01' 
+  AND f.PersianDate <= '1405/04/31'
+GROUP BY 
+    f.AreaTitle,
+    f.FailureReason
+ORDER BY 
+    RepeatCount DESC;
+
+================================================================
+MANDATORY CONSTRAINTS:
+1. Do NOT put `AreaTitle LIKE` or `AreaTitle =` anywhere in the query.
+2. If the user asks for a table, include `f.AreaTitle` in SELECT and GROUP BY so satellite offices (آبادان، ماهشهر، دزفول) clearly appear in the table rows.
+3. Ahvaz Area_Id is 67. All its satellite offices have `ParentId = 67`.
+================================================================
+
+
 
 Business Metrics Definitions
 
@@ -298,14 +349,14 @@ SELECT
     SELECT COUNT(Requests_Id)
     FROM ai_request_analysis
     WHERE IsCancel = 0
-    AND AreaTitle LIKE N'%تهران%'
+    AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
     AND InsertedDate BETWEEN 14050101 AND 14050131
 ) * 1.0
 /
 (
     SELECT COUNT(DeviceID)
     FROM ai_GetDeviceCount
-    WHERE AreaTitle LIKE N'%تهران%'
+    WHERE  (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
     AND Year = 1405
     AND Month = 1
 )
@@ -348,56 +399,66 @@ MAX(DelayMinute)
 Data source:
 ai_request_analysis
 
-Repeat Failure Count (تعداد خرابی تکراری):
 
-Number of requests that have been registered as repeat requests.
+دقیقاً مطابق همان ساختار و قالب استاندارد شما، متن پرامپت برای **Repeat Failure Rate** به این صورت تنظیم می‌شود:
 
-SQL logic:
+---
 
-COUNT(Requests_Id)
+Repeat Failure Rate (نرخ خرابی‌های تکراری):
+The number of repeat failure requests divided by the total number of damage/failure requests for the same office and time period, expressed as a percentage.
 
-Data source:
+Formula:
+
+Repeat Failure Rate =
+(Repeat Failure Count * 100) / Count all Damage
+
+Repeat Failure Count source:
 ai_request_analysis
+Conditions:
+- RepeatRequest_Id IS NOT NULL
+- State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
 
-Filter:
-
-RepeatRequest_Id <> 0
+Count all Damage source:
+ai_request_analysis
+Conditions:
+- State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
 
 Important:
-- A request is considered a repeat failure when `RepeatRequest_Id <> 0`.
-- Use `Requests_Id` to count repeat failures.
-- Apply office filters using `AreaTitle LIKE N'%...%'`.
-- Apply time filters using `InsertedDate`.
-- If cancelled requests must be excluded, also apply `IsCancel = 0`.
+- Both Repeat Failure Count and Count all Damage come from the same view: ai_request_analysis.
+- State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11) must be applied to both numerator and denominator.
+- Office filtering (such as AreaTitle) and time period filtering (InsertedDate) must be applied identically to both numerator and denominator.
+- Use LIKE for AreaTitle.
+- Multiply the numerator by 100.0 to prevent integer division in SQL Server.
+- Use NULLIF(..., 0) for the denominator to prevent divide-by-zero errors.
+
+Example SQL logic:
+
+SELECT 
+(
+    SELECT COUNT(Requests_Id)
+    FROM ai_request_analysis
+    WHERE RepeatRequest_Id IS NOT NULL
+      AND State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
+      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
+      AND InsertedDate BETWEEN 14050101 AND 14050131
+) * 100.0
+/
+NULLIF(
+(
+    SELECT COUNT(Requests_Id)
+    FROM ai_request_analysis
+    WHERE State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
+      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
+      AND InsertedDate BETWEEN 14050101 AND 14050131
+), 0) AS RepeatFailureRate
 
 
-Repeat Failure Reasons (دلایل تکرار خرابی):
 
-List and count of repeat failures grouped by their registered repeat reason.
 
-SQL logic:
 
-SELECT
-    RepeatRequestTitle,
-    COUNT(Requests_Id) AS RepeatFailureCount
-FROM ai_request_analysis
-WHERE RepeatRequest_Id <> 0
-GROUP BY RepeatRequestTitle
-ORDER BY RepeatFailureCount DESC
 
-Data source:
-ai_request_analysis
 
-Filter:
 
-RepeatRequest_Id <> 0
-
-Important:
-- Only requests with `RepeatRequest_Id <> 0` are repeat failures.
-- Group by the field that contains the repeat-failure reason.
-- Replace `RepeatRequestTitle` with the actual reason/title column name in the view if different.
-- Apply office filters using `AreaTitle LIKE N'%...%'`.
-- Apply time filters using `InsertedDate`.
 """
 ##############################################
 CALENDAR = """
