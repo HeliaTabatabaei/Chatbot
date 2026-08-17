@@ -278,6 +278,7 @@ Rules:
         history: str | None = None,
     ) -> None:
         context = self.buildResponseCondidate(results)#self._build_context(results)
+        #test
         append_qa_to_filetest(context)
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
