@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# Project Specific
+logs/
+*.log
+data/*.json
+data/**/*.json
+!data/example_format.json  # اگر فایل نمونه‌ای دارید که باید باشد، با علامت ! استثنا کنید
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Bytecode conflicts found in your image
+**/*.pyc
+**/__pycache__/
