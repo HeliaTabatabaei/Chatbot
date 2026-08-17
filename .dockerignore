@@ -1,0 +1,31 @@
+# پایتون و کش‌ها
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# محیط مجازی (بسیار سنگین - حتما حذف شود)
+.venv/
+venv/
+ENV/
+env/
+
+# تنظیمات ادیتور
+.vscode/
+.idea/
+
+# فایل‌های داکر و گیت
+.git/
+.gitignore
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# فایل‌های محیطی و حساس (اختیاری - اگر از env_file استفاده می‌کنی)
+#.env
+
+# فایل‌های دیتا و دیتابیس محلی (اگر در پوشه پروژه هستند)
+*.db
+*.sqlite3
+data/

@@ -1,0 +1,52 @@
+
+-----------اجرای برنامه لوکال
+python -m venv venv
+venv\scripts\activate
+pip install -r requirement.txt
+-----------------------
+ریست کردن لوکال: 
+uvicorn main:app --reload
+uvicorn main:app --reload --host 0.0.0.0 or 127.0.0.1 --port 8000 or 8090
+------------------------------------
+
+docker compose exec api find / -name "cable.json" --پیدا کردن مسیر فایل
+EXAMPLE: /app/data/cable.json
+-------------------ریست کردن کانتینر
+docker-compose down
+docker compose build --no-cash
+docker compose up
+or :docker-compose up -d --build
+
+----------اجرای برنامه کانتینر
+docker compose up
+در مرورگر: http://localhost:8000/docs
+-----------تست روشن بودن داکر : 
+docker --version
+docker compose version
+----------فایلهای اصلی داکر
+docker file, docker-compose.yml,requirements.txt
+------------برای دیدن لاگها 
+docker compose up
+docker compose logs -f
+----------برای دیدن اسم سرویس ها
+docker compose ps
+
+--داکر فایلهای جدید پروؤه را مجدد داخل کانتینر کپی میکند
+docker compose up -d --build --force-recreate api
+
+docker compose logs --tail=200 api
+-----------------در qdrant با شماره doc_id چیزی ذخیره شده یا نه 
+powershell: وارد کانتینر میشویم:docker exec -it <container_name> sh     در پروژه ما:docker compose exec qdrant_db sh
+برای پیدا کردن نام کانتینر: docker ps          
+
+
+بعد :curl -X POST http://qdrant:6333/collections/Adonis_docs/points/scroll -H "Content-Type: application/json" -d '{"limit":5,"with_payload":true,"filter":{"must":[{"key":"doc_id","match":{"value":"doc_d034565291df674b"}}]}}'
+
+----------- vscode-----------------------------------
+ctrl+k ctrl+0بستن توابع
+Ctrl + K سپس Ctrl + Jباز کردن همه
+Ctrl + Pرفتن سریع به فایل
+F12رفتن به تعریف تابع
+Shift + F12دیدن همه استفاده‌ها
+Ctrl + Shift + O برای دیدن همه توابع و کلاس‌های فایل
+Ctrl + Shift + ] برای باز کردن تابع فعلی
