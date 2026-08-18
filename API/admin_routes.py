@@ -5,7 +5,7 @@ from   RAG_Management.vectorstore import get_client
 
 from RAG_Management.ingestion import InsertDocsToSql,LogStatus
 
-from RAG_Management.ingestion import DeleteDocPipLine, ingest, ingestQdrant, RebuildSparse, reset_rag, delete_doc_chunks,InsertDocsPipeLine,COLLECTION_NAME
+from RAG_Management.ingestion import DeleteDocPipLine,  ingestQdrant,  reset_rag, InsertDocsPipeLine,COLLECTION_NAME
 import logging
 # from ingestion import COLLECTION_NAME
 #print("--- LOADING ADMIN_ROUTES ---")
@@ -30,31 +30,31 @@ router = APIRouter(prefix="/api/admin", tags=["02-Admin / Vector Store Managemen
 
 ingest_progress = {"status": "idle", "message": "No task running"}
 
-def run_ingest_safely():
-    global ingest_progress
-    ingest_progress["status"] = "running"
-    ingest_progress["message"] = "Ingesting data from DB..."
-    try:
-        # صدا زدن تابع اصلی از فایل ingestion.py
-        ingest()
-        ingest_progress["status"] = "success"
-        ingest_progress["message"] = "Full ingestion completed successfully."
-    except Exception as e:
-        ingest_progress["status"] = "error"
-        ingest_progress["message"] = f"Failed: {str(e)}"
+# def run_ingest_safely():
+#     global ingest_progress
+#     ingest_progress["status"] = "running"
+#     ingest_progress["message"] = "Ingesting data from DB..."
+#     try:
+#         # صدا زدن تابع اصلی از فایل ingestion.py
+#         ingest()
+#         ingest_progress["status"] = "success"
+#         ingest_progress["message"] = "Full ingestion completed successfully."
+#     except Exception as e:
+#         ingest_progress["status"] = "error"
+#         ingest_progress["message"] = f"Failed: {str(e)}"
 
-@router.post("/ingest-all")
-async def trigger_full_ingest(background_tasks: BackgroundTasks):
-    if ingest_progress["status"] == "running":
-        return {"message": "A task is already running. Please wait."}
+# @router.post("/ingest-all")
+# async def trigger_full_ingest(background_tasks: BackgroundTasks):
+#     if ingest_progress["status"] == "running":
+#         return {"message": "A task is already running. Please wait."}
 
-    background_tasks.add_task(ingest())
-    return {"message": "Full ingestion started in background."}
+#     background_tasks.add_task(ingest())
+#     return {"message": "Full ingestion started in background."}
 
-@router.get("/ingest-status")
-async def get_ingest_status():
-    """از این API برای چک کردن وضعیت نهایی استفاده کن"""
-    return ingest_progress
+# @router.get("/ingest-status")
+# async def get_ingest_status():
+#     """از این API برای چک کردن وضعیت نهایی استفاده کن"""
+#     return ingest_progress
 @router.post("/ingest/{doc_id}")
 async def ingest_single_doc(doc_id: int, background_tasks: BackgroundTasks):
     """اینجست یک سند خاص بر اساس شناسه دیتابیس"""
@@ -62,11 +62,11 @@ async def ingest_single_doc(doc_id: int, background_tasks: BackgroundTasks):
     background_tasks.add_task(ingestQdrant, doc_id)
     return {"message": f"Ingestion for doc_id {doc_id} started."}
 
-@router.post("/rebuild-sparse")
-async def rebuild_sparse_index(background_tasks: BackgroundTasks):
-    """بازسازی مدل BM25 و اندیس‌های Sparse"""
-    background_tasks.add_task(RebuildSparse)
-    return {"message": "Sparse index rebuild started."}
+# @router.post("/rebuild-sparse")
+# async def rebuild_sparse_index(background_tasks: BackgroundTasks):
+#     """بازسازی مدل BM25 و اندیس‌های Sparse"""
+#     background_tasks.add_task(RebuildSparse)
+#     return {"message": "Sparse index rebuild started."}
 
 @router.delete("/delete/{doc_id}")
 async def delete_document(doc_id: int):

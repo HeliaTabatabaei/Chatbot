@@ -116,7 +116,8 @@ def build_router_agent() -> RouterAgent:
 
     provider = create_provider(
         provider_name="openai",
-        base_uri="https://api.gapgpt.app/v1",
+        #base_uri="https://api.gapgpt.app/v1",
+        base_uri="https://api.openai.com/v1",
         api_key=os.getenv("OPENAI_API_KEY", ""),
         model=os.getenv("LLM_MODEL", ""),
         embed_model=os.getenv("EMBED_MODEL", ""),
