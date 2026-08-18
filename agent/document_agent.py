@@ -5,7 +5,7 @@ import re
 import time
 from typing import Any
 
-from log import append_qa_to_file
+from log import append_qa_to_file, append_qa_to_filetest
 from providers.base import LLMProvider, StreamCallback
 
 
@@ -171,7 +171,7 @@ Example for missing bank:
         ) -> list[dict[str, Any]]:
 
         output = []
-
+       
         for chunk in chunks:
             docid=chunk.payload.get("doc_id", "")
 
@@ -189,8 +189,8 @@ Example for missing bank:
                         "service_type": chunk.payload.get("service_type", ""),
                         "keywords": chunk.payload.get("keywords", []),
                         "heading": chunk.payload.get("heading_path", ""),
-                        "source_file": self.rag_service.getSourceFilePath(chunk.payload.get("source_file", ""), docid),
-                        "image_paths": self.rag_service.getListofImagepath(chunk.payload.get("imgs_info", []), docid),
+                        #  "source_file": self.rag_service.getSourceFilePath(chunk.payload.get("source_file", ""), docid),
+                         #"image_paths": self.rag_service.getListofImagepath(chunk.payload.get("imgs_info", []), docid),
 
                     }        
                   
@@ -198,6 +198,7 @@ Example for missing bank:
             )
 
         return output
+    
 
 
     def handle_stream(
@@ -219,20 +220,23 @@ Example for missing bank:
         if not results:
             on_chunk({"type": "token", "content": "هیچ سند مرتبطی یافت نشد."})
             return
+        append_qa_to_filetest(results)
         reranked_results = self.rag_service.rerank_results(
             query=message,
             results=results,
             history=history,
         )
         append_qa_to_file(f"Rank Query Time: {time.time() - start:.2f} seconds")
+        append_qa_to_filetest(reranked_results)
         start=time.time()
+        print("$$$$$$$$$$$$$$$",flush=True)
         prepared_chunks =self.prepare_chunks(reranked_results)
-
+        print("pq1",flush=True)
         on_chunk({
             "type": "source_chunks",
             "chunks": prepared_chunks,
         })
-
+        append_qa_to_file("anylis start")
         analysis = self.analyze(
             message=message,
             chunks=prepared_chunks,
