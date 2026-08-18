@@ -11,7 +11,7 @@ from log import append_qa_to_file
 from providers.base import LLMProvider
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
-
+from .dashboard_agent import DashboardAgent
  
 ChunkCallback = Callable[[Any], None]
 
@@ -22,11 +22,13 @@ class RouterAgent:
         llm: LLMProvider,
         chat_agent: ChatAgent,
         document_agent: DocumentAgent,
+        dashboard_agent=DashboardAgent
 
     ):
         self.llm = llm
         self.chat_agent = chat_agent
         self.document_agent = document_agent
+        self.dashboard_agent = dashboard_agent
     # def prepare_final_query(self, history, current_user_message):
     #     if not isinstance(history, list):
     #      return current_user_message
@@ -96,45 +98,59 @@ class RouterAgent:
     def classify(self, query: str, history: str | None = None) -> str:
          
       
+        
         # system_prompt = (
         #     "You are a specialized classifier for a Banking Technical Support system.\n"
         #     "Classify the user query into EXACTLY one of these three labels:\n\n"
 
         #     "1. technical: Questions about ATM hardware, banking equipment, device errors, "
-        #     "troubleshooting, installation, maintenance, printer, pinpad, dispenser,camera "
-        #     "card reader, cash handling, or software configuration.\n\n"
+        #     "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
+        #     "card reader, cash handling, software configuration, AND inquiries about "
+        #     "support contacts, help-desk numbers, and technical assistance procedures.\n\n"
 
         #     "2. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
             
         #     "3. no_authorize: Any questions regarding politics, macroeconomics, "
-        #     "system security bypasses, or sensitive non-technical banking information.\n\n"
+        #     "system security bypasses, sensitive non-technical banking account information, "
+        #     "or personal financial details.\n\n"
 
         #     "Rules:\n"
         #     "- Use the conversation history only to resolve pronouns or context.\n"
         #     "- If the query is political or economic, it MUST be 'no_authorize'.\n"
+        #     "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
         #     "- Return ONLY the label: technical, general, or no_authorize."
         # )
         system_prompt = (
-            "You are a specialized classifier for a Banking Technical Support system.\n"
-            "Classify the user query into EXACTLY one of these three labels:\n\n"
+    "You are a specialized classifier for a Banking Technical Support system.\n"
+    "Classify the user query into EXACTLY one of these four labels:\n\n"
 
-            "1. technical: Questions about ATM hardware, banking equipment, device errors, "
-            "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
-            "card reader, cash handling, software configuration, AND inquiries about "
-            "support contacts, help-desk numbers, and technical assistance procedures.\n\n"
+    "1. dashboard: Questions about dashboards, reports, business intelligence, "
+    "data visualization, KPIs, charts, metrics, SQL queries, data filters, "
+    "reporting tools, SSRS, Power BI, Excel dashboards, and requests to view, "
+    "analyze, summarize, or query bank operational data. Examples: 'تعداد خرابی در تیر ۱۴۰۵', "
+    "'گزارش دفتر اهواز', 'نمودار درخواست‌ها', 'داشبورد عملکرد'.\n\n"
 
-            "2. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
-            
-            "3. no_authorize: Any questions regarding politics, macroeconomics, "
-            "system security bypasses, sensitive non-technical banking account information, "
-            "or personal financial details.\n\n"
+    "2. technical: Questions about ATM hardware, banking equipment, device errors, "
+    "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
+    "card reader, cash handling, software configuration, AND inquiries about "
+    "support contacts, help-desk numbers, and technical assistance procedures. "
+    "This does NOT include dashboard, report, or data-analysis questions.\n\n"
 
-            "Rules:\n"
-            "- Use the conversation history only to resolve pronouns or context.\n"
-            "- If the query is political or economic, it MUST be 'no_authorize'.\n"
-            "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
-            "- Return ONLY the label: technical, general, or no_authorize."
-        )
+    "3. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
+    
+    "4. no_authorize: Any questions regarding politics, macroeconomics, "
+    "system security bypasses, sensitive non-technical banking account information, "
+    "or personal financial details.\n\n"
+
+    "Rules:\n"
+    "- Use the conversation history only to resolve pronouns or context.\n"
+    "- If the query is about dashboards, reports, metrics, KPIs, or data analysis, it MUST be 'dashboard'.\n"
+    "- If the query is political or economic, it MUST be 'no_authorize'.\n"
+    "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
+    "- Technical equipment questions are 'technical' only if they are NOT about dashboards, reports, or data visualization.\n"
+    "- Return ONLY the label: dashboard, technical, general, or no_authorize."
+)
+
 
         history_text = history.strip() if history else "No previous conversation."
 
@@ -162,53 +178,14 @@ class RouterAgent:
         print(f"--- Classification result: {result} ---", flush=True)
 
         # اعتبارسنجی خروجی برای جلوگیری از خطاهای احتمالی
-        valid_labels = {"technical", "general", "no_authorize"}
+        valid_labels = {"technical", "general", "no_authorize","dashboard"}
         
         if result not in valid_labels:
             # در صورت خروجی نامعتبر، برای امنیت بیشتر روی no_authorize یا برای کارکرد روی technical ست کنید
             return "no_authorize" 
 
         return result
-    # def resolve_customer_name(self, user_text: str) -> str | None:
-        
-    #     user_text = str(user_text or "").strip()
-    #     if not user_text:
-    #         return None
-
-    #     try:
-            
-    #         query_vector = self.llm_provider.embed_query(user_text)
-    #         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
-    #                 start=time.time()
-    #                 results = self.rag_service.search(
-    #                     query_vector=query_vector,
-    #                     limit=20,
-    #                     filters=None,
-    #                 )
-
-    #         # ۲. جستجو در کالکشن BankName
-    #         search_result = self.qdrant.query_points(
-    #             collection_name="BankName",
-    #             query=query_vector,
-    #             using="dense",
-    #             limit=1,
-    #             with_payload=True,
-    #             score_threshold=0.80  # آستانه شباهت (قابل تنظیم)
-    #         )
-
-    #         if not search_result.points:
-    #             return None
-
-    #         # ۳. استخراج نام بانک از Payload (فیلد text در تصویر شما موجود است)
-    #         payload = search_result.points[0].payload
-    #         bank_name = payload.get("text")
-            
-    #         return bank_name.strip() if bank_name else None
-
-    #     except Exception as e:
-    #         print(f"Error in resolve_customer_name: {e}", flush=True)
-    #         return None
-
+   
     
     def handle_stream(
         self,
@@ -238,6 +215,13 @@ class RouterAgent:
                 history=history_text
             )
             return
+        elif intent=="dashboard":
+            self.dashboard_agent.handle_stream(
+                    question=query,        
+                    on_chunk=on_chunk,
+                    
+                )    
+            return  
         elif intent=="no_authorize":
             on_chunk({
                             "type": "token",

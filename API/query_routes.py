@@ -11,6 +11,7 @@ import uuid
 import time
 import datetime
 from SQlDB.QueryDB import updateClarifyMessage
+from agent.dashboard_agent import DashboardAgent
 from fastapi import APIRouter, BackgroundTasks
 from fastapi.responses import StreamingResponse
 from qdrant_client import QdrantClient
@@ -149,11 +150,13 @@ def build_router_agent() -> RouterAgent:
         llm_provider=provider,
         rag_service=rag_service,
     )
-
+    # dashboard_llm_service=dashboard_llm_service(llm=provider)
+    dashboard_agent=DashboardAgent(llm_provider=provider)
     return RouterAgent(
         llm=provider,
         chat_agent=chat_agent,
         document_agent=document_agent,
+        dashboard_agent=dashboard_agent
     )
 
 
