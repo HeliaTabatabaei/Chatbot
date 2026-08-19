@@ -1,0 +1,7 @@
+#conversions       :id,userkey,title,chatid,modeleId,createDate
+#WalletTransaction :id,amount,outputToken,inputToken,userkey,createdTime,expireTime,TypeTransaction,requstid
+#WalletUserInfo    :id,walletRemainToken,Userkey,isActive
+#Provider          :id,ProviderName,ProviderApiKey,baseUrl
+#ModelProvider     :id,ProviderId,ModelTitle,Type,Description
+		
+	

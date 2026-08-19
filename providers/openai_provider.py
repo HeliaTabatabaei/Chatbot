@@ -5,7 +5,7 @@ from .base import ChatResponse, LLMProvider, StreamCallback
 
 class OpenAIProvider(LLMProvider):
     def __init__(self, client: OpenAI, chat_model: str, embedding_model: str):
-        print("OpenAIProvider",flush=True)
+        
         self.client = client
         self.chat_model = chat_model
         self.embedding_model = embedding_model

@@ -15,14 +15,14 @@ from agent.dashboard_agent import DashboardAgent
 from fastapi import APIRouter, BackgroundTasks
 from fastapi.responses import StreamingResponse
 from qdrant_client import QdrantClient
-
+from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, provider_URL
 from Models.mainModels import QueryRequestStream, QueryRequestStreamٌwithConversionId
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
 from config import QDRANT_HOST, QDRANT_PORT
 
-from dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
-from log import append_qa_to_file
+from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING,get_recent_history, save_message
+from Utility.log import append_qa_to_file
 from providers.factory import create_provider
 
 from agent.chat_agent import ChatAgent
@@ -46,68 +46,50 @@ STREAM_HEADERS = {
     "X-Accel-Buffering": "no",
 }
 
-     
-def normalize_conversation_id(conversation_id: Optional[str]) -> Tuple[str, bool]:
+ 
+# def get_recent_history(
         
-        try:
-            if conversation_id is None:
-                raise ValueError
+#         conversation_id: str,
+#         query:str,
+#         user_key:str,
+#         limit: int = 6
+#     ):
+#         conversation_id, is_new_chat = normalize_conversation_id(conversation_id)
 
-            conversation_id = str(conversation_id).strip()
-
-            if conversation_id in ("", "undefined", "null", "None"):
-                raise ValueError
-
-            normalized = str(uuid.UUID(conversation_id))
-            return normalized, False
-
-        except (ValueError, TypeError, AttributeError):
-            return str(uuid.uuid4()), True
-
-
-def get_recent_history(
         
-        conversation_id: str,
-        query:str,
-        user_key:str,
-        limit: int = 6
-    ):
-        conversation_id, is_new_chat = normalize_conversation_id(conversation_id)
-
-        print(conversation_id,flush=True)
-        with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
-            if not is_new_chat:
-                cursor.execute(
-                    "SELECT 1 FROM dbo.Conversations WHERE chatId = ?",
-                    (conversation_id,)
-                )
-                if not cursor.fetchone():
-                    is_new_chat = True
+#         with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
+#             if not is_new_chat:
+#                 cursor.execute(
+#                     "SELECT 1 FROM dbo.Conversations WHERE chatId = ?",
+#                     (conversation_id,)
+#                 )
+#                 if not cursor.fetchone():
+#                     is_new_chat = True
 
 
-            if is_new_chat:
-                conversation_id=save_conversation(
-                    cursor=cursor,
-                    conversation_id=conversation_id,
-                    title=query,
-                    user_key=user_key,
-                    model_id=1
-                )
+#             if is_new_chat:
+#                 conversation_id=save_conversation(
+#                     cursor=cursor,
+#                     conversation_id=conversation_id,
+#                     title=query,
+#                     user_key=user_key,
+#                     model_id=1
+#                 )
 
-            history = get_conversation_history(
-                cursor=cursor,
-                conversation_id=conversation_id,
-                limit=6
-            )
+#             history = get_conversation_history(
+#                 cursor=cursor,
+#                 conversation_id=conversation_id,
+#                 limit=6
+#             )
 
-            save_message(
-                cursor=cursor,
-                conversation_id=conversation_id,
-                role="user",
-                content=query
-            )
-            # "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-            return history,conversation_id
+#             save_message(
+#                 cursor=cursor,
+#                 conversation_id=conversation_id,
+#                 role="user",
+#                 content=query
+#             )
+#             # "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
+#             return history,conversation_id
 
 def build_router_agent() -> RouterAgent:
     """
@@ -117,10 +99,10 @@ def build_router_agent() -> RouterAgent:
     provider = create_provider(
         provider_name="openai",
         #base_uri="https://api.gapgpt.app/v1",
-        base_uri="https://api.openai.com/v1",
-        api_key=os.getenv("OPENAI_API_KEY", ""),
-        model=os.getenv("LLM_MODEL", ""),
-        embed_model=os.getenv("EMBED_MODEL", ""),
+        base_uri=provider_URL,
+        api_key=OPENAI_API_KEY,
+        model=LLM_MODEL,
+        embed_model=EMBED_MODEL,
     )
 
     if not QDRANT_HOST:
