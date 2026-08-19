@@ -7,7 +7,7 @@ from config import connection_string
 
 def InsertIntoWallet(total_tokens, output_tokens, input_tokens, user_key, llm_response_id):
     try:
-        print(connection_string)
+        
 
         with DatabaseConnection(connection_string) as cursor:
             query = """

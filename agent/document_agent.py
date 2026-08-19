@@ -5,9 +5,9 @@ import re
 import time
 from typing import Any
 
-from log import append_qa_to_file, append_qa_to_filetest
+from Utility.log import append_qa_to_file, append_qa_to_filetest
 from providers.base import LLMProvider, StreamCallback
-
+from Prompt.prompt_Analiys import system_promptAnaliys
 
 class DocumentAgent:
     def __init__(self, llm_provider: LLMProvider, rag_service):
@@ -26,68 +26,8 @@ class DocumentAgent:
         chunks: list[dict[str, Any]],
         history : str | None = None
     ) -> dict[str, Any]:
+        system_prompt =system_promptAnaliys
 
-        system_prompt = """
-You are a technical support decision-maker for banking equipment.
-Your goal is to decide whether to answer a technical query, ask for clarification, or reject the query based on provided documents.
-
---- CONTEXT DATA ---
-
-1. Previous conversation history:
-{history}
-
-2. User question:
-{query}
-
-3. Retrieved documents (Chunks):
-{chunks}
-
---- MANDATORY DECISION RULES ---
-
-1. Bank Specificity Check:
-   - A document is "Bank-Specific" if its `customer_name` (or metadata/text) identifies a specific bank (e.g., refaah, sepah, melli).
-   - A document is "General" if its `customer_name` is: General, All, Common, Unknown, None, or empty.
-   - RULE: If retrieved chunks are Bank-Specific, but the bank name is NOT mentioned in the current query or history, you MUST return "clarify" and ask for the bank name.
-   - EXCEPTION: If all relevant chunks are "General", do NOT ask for the bank name.
-
-2. Decision Labels:
-   - "answer": Use when documents clearly contain the solution and required technical context (model, bank, error code) is present in query, history, or chunks are general.
-   - "clarify": Use when:
-        a) Documents are bank-specific but bank is unknown.
-        b) Documents are relevant but lack specific details like device model or error code needed to distinguish between two solutions.
-        c) The query is ambiguous.
-   - "insufficient": Use when documents are irrelevant, or the query is non-technical (e.g., political, social, or unrelated to banking hardware).
-
-3. Handling OCR and Images:
-   - If a chunk contains `ocr_text` or `visual_description`, treat it as high-priority technical evidence.
-   - Do NOT ignore image-based data when making a decision.
-
-4. Constraints:
-   - Do NOT ask for clarification if the question is short but the solution is obvious from the documents.
-   - Never invent technical solutions. If the info isn't in the chunks, it's "insufficient".
-   - If the user asks for things like passwords, security bypasses, or political/economic opinions, return "insufficient" or ask for a technical context.
-
---- OUTPUT FORMAT (JSON ONLY) ---
-
-Return a valid JSON object with these keys:
-
-{{
-  "decision": "answer | clarify | insufficient",
-  "confidence": 0-100,
-  "missing_information": [
-    "List specific missing technical info (e.g., bank name, ATM model, error code)"
-  ],
-  "clarification_question": "A polite, technical Persian question to get the missing info, or null."
-}}
-
-Example for missing bank:
-{{
-  "decision": "clarify",
-  "confidence": 95,
-  "missing_information": ["bank_name"],
-  "clarification_question": "لطفاً بفرمایید دستگاه یا سرویس مورد نظر مربوط به کدام بانک است؟"
-}}
-"""
         messages = [
             {
                 "role": "system",
@@ -115,7 +55,7 @@ Example for missing bank:
             messages=messages,
             temperature=0,
         )
-        print(f"response: {response}", flush=True)
+      
         raw_content = (response.content or "").strip()
         usage = getattr(response, "usage", {}) or {}
         # تلاش برای استخراج دقیق بلاک JSON
@@ -131,7 +71,7 @@ Example for missing bank:
             
             valid_decisions = {"answer", "clarify", "insufficient"}
             decision = result.get("decision")
-            print(f"Parsed decision: {decision}", flush=True)
+            
             
             if decision not in valid_decisions:
                 decision = "insufficient"
@@ -189,8 +129,8 @@ Example for missing bank:
                         "service_type": chunk.payload.get("service_type", ""),
                         "keywords": chunk.payload.get("keywords", []),
                         "heading": chunk.payload.get("heading_path", ""),
-                        #  "source_file": self.rag_service.getSourceFilePath(chunk.payload.get("source_file", ""), docid),
-                         #"image_paths": self.rag_service.getListofImagepath(chunk.payload.get("imgs_info", []), docid),
+                        "source_file": self.rag_service.getSourceFilePath(chunk.payload.get("source_file", ""), docid),
+                        "image_paths": self.rag_service.getListofImagepath(chunk.payload.get("imgs_info", []), docid),
 
                     }        
                   
@@ -229,9 +169,9 @@ Example for missing bank:
         append_qa_to_file(f"Rank Query Time: {time.time() - start:.2f} seconds")
         append_qa_to_filetest(reranked_results)
         start=time.time()
-        print("$$$$$$$$$$$$$$$",flush=True)
+        
         prepared_chunks =self.prepare_chunks(reranked_results)
-        print("pq1",flush=True)
+        
         on_chunk({
             "type": "source_chunks",
             "chunks": prepared_chunks,
