@@ -9,8 +9,8 @@ from qdrant_client import models
 from Models.mainModels import SearchFilters
 from SQlDB.IngestionQuery import load_chunks_from_dbByDocId
 from config import COLLECTION_NAME, BaseUrl,COLLECTION_NAME_Meta
-from log import append_qa_to_filetest
-from prompts_config import SYSTEM_PROMPT, USER_PROMPT
+from Utility.log import append_qa_to_filetest
+from Prompt.prompts_config import SYSTEM_PROMPT, USER_PROMPT
 from providers.base import LLMProvider, StreamCallback
 
 

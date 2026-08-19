@@ -6,7 +6,7 @@ class DatabaseConnection:
         self.cursor = None
 
     def __enter__(self):
-        print('1111111111111111111111111111')
+        
         self.conn = pyodbc.connect(self.connection_string)
         self.cursor = self.conn.cursor()
         return self.cursor

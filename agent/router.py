@@ -5,14 +5,15 @@ from typing import Any, Callable, Optional, Tuple
 import uuid
 
 from SQlDB.db import DatabaseConnection
-from SQlDB.message import update_and_get_bank_name
-from dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
-from log import append_qa_to_file
+# from SQlDB.message import update_and_get_bank_name
+from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
+from Utility.log import append_qa_to_file
 from providers.base import LLMProvider
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
 from .dashboard_agent import DashboardAgent
- 
+from Prompt.prompt_RewriteQuery import rewriteQueryPrompt 
+from Prompt.prompt_Classify import system_promptClassify
 ChunkCallback = Callable[[Any], None]
 
 
@@ -29,60 +30,11 @@ class RouterAgent:
         self.chat_agent = chat_agent
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
-    # def prepare_final_query(self, history, current_user_message):
-    #     if not isinstance(history, list):
-    #      return current_user_message
-
-    # # ۱. پیدا کردن آخرین پیام دستیار و موقعیت (Index) آن در تاریخچه
-    #     last_assistant_idx = -1
-    #     last_assistant_msg = None
-        
-    #     for idx, msg in enumerate(history):
-    #         if isinstance(msg, dict) and msg.get("role") == "assistant":
-    #             last_assistant_idx = idx
-    #             last_assistant_msg = msg
-
-    #     # اگر پیام دستیاری پیدا نشد، همان پیام فعلی را برگردان
-    #     if not last_assistant_msg:
-    #             return current_user_message
-
-    #     assistant_content = str(last_assistant_msg.get("content") or "").strip()
-        
-    #     # بررسی اینکه آیا دستیار سوال پرسیده بود (پشتیبانی از هر دو علامت سوال فارسی و انگلیسی)
-    #     is_question = "؟" in assistant_content or "?" in assistant_content
-    #     is_short_answer = len(current_user_message.strip().split()) < 5
-
-    #     if is_question and is_short_answer:
-    #         # ۲. پیدا کردن سوال اصلی کاربر (اولین پیامِ کاربرِ قبل از پیام دستیار)
-    #         original_user_msg = None
-    #         for idx in range(last_assistant_idx - 1, -1, -1):
-    #             if isinstance(history[idx], dict) and history[idx].get("role") == "user":
-    #                 original_user_msg = history[idx]
-    #                 break
-
-    #         if original_user_msg:
-    #             previous_query = str(original_user_msg.get("content") or "").strip()
-    #             # ترکیب سوال اصلی با پاسخ شفاف‌سازی کاربر
-    #             return f"{previous_query} {current_user_message}".strip()
-
-    #     return current_user_message
+   
     def rewrite_query(self, query: str, history_text: str) -> str:
        if not history_text:
          return query
-       prompt = f"""
-       شما یک بازنویس کوئری هستید. وظیفه شما فقط شفاف‌سازی ضمیرها و الحاق نام بانک/موضوع به پیام کاربر است.
-       
-       قوانین:
-       - به هیچ وجه فرض نکن راهکارهای قبلی انجام شده یا شکست خورده است.
-       - اگر کاربر گفت "درست نشد" یا "نشد"، سوال را به صورت کلی بازنویسی کن.
-       - مثال: 
-           تاریخچه: "عکس زرد است" -> کاربر: "نشد" 
-           بازنویسی: "راه حل مشکل زرد بودن عکس در بانک فلان چیست؟" (فقط همین)
-       - از عباراتی مثل "چه راهکار دیگری وجود دارد" یا "با وجود انجام فلان کار" استفاده نکن.
-       
-       تاریخچه: {history_text}
-       آخرین پیام: {query}
-       کوئری مستقل:"""
+       prompt = rewriteQueryPrompt
        
        messages = [
         {"role": "system", "content": prompt},
@@ -99,58 +51,9 @@ class RouterAgent:
          
       
         
-        # system_prompt = (
-        #     "You are a specialized classifier for a Banking Technical Support system.\n"
-        #     "Classify the user query into EXACTLY one of these three labels:\n\n"
+      
 
-        #     "1. technical: Questions about ATM hardware, banking equipment, device errors, "
-        #     "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
-        #     "card reader, cash handling, software configuration, AND inquiries about "
-        #     "support contacts, help-desk numbers, and technical assistance procedures.\n\n"
-
-        #     "2. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
-            
-        #     "3. no_authorize: Any questions regarding politics, macroeconomics, "
-        #     "system security bypasses, sensitive non-technical banking account information, "
-        #     "or personal financial details.\n\n"
-
-        #     "Rules:\n"
-        #     "- Use the conversation history only to resolve pronouns or context.\n"
-        #     "- If the query is political or economic, it MUST be 'no_authorize'.\n"
-        #     "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
-        #     "- Return ONLY the label: technical, general, or no_authorize."
-        # )
-        system_prompt = (
-    "You are a specialized classifier for a Banking Technical Support system.\n"
-    "Classify the user query into EXACTLY one of these four labels:\n\n"
-
-    "1. dashboard: Questions about dashboards, reports, business intelligence, "
-    "data visualization, KPIs, charts, metrics, SQL queries, data filters, "
-    "reporting tools, SSRS, Power BI, Excel dashboards, and requests to view, "
-    "analyze, summarize, or query bank operational data. Examples: 'تعداد خرابی در تیر ۱۴۰۵', "
-    "'گزارش دفتر اهواز', 'نمودار درخواست‌ها', 'داشبورد عملکرد'.\n\n"
-
-    "2. technical: Questions about ATM hardware, banking equipment, device errors, "
-    "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
-    "card reader, cash handling, software configuration, AND inquiries about "
-    "support contacts, help-desk numbers, and technical assistance procedures. "
-    "This does NOT include dashboard, report, or data-analysis questions.\n\n"
-
-    "3. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
-    
-    "4. no_authorize: Any questions regarding politics, macroeconomics, "
-    "system security bypasses, sensitive non-technical banking account information, "
-    "or personal financial details.\n\n"
-
-    "Rules:\n"
-    "- Use the conversation history only to resolve pronouns or context.\n"
-    "- If the query is about dashboards, reports, metrics, KPIs, or data analysis, it MUST be 'dashboard'.\n"
-    "- If the query is political or economic, it MUST be 'no_authorize'.\n"
-    "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
-    "- Technical equipment questions are 'technical' only if they are NOT about dashboards, reports, or data visualization.\n"
-    "- Return ONLY the label: dashboard, technical, general, or no_authorize."
-)
-
+        system_prompt=system_promptClassify
 
         history_text = history.strip() if history else "No previous conversation."
 
@@ -174,8 +77,7 @@ class RouterAgent:
 
         result = (response.content or "").strip().lower()
 
-        # برای دیباگ در کنسول
-        print(f"--- Classification result: {result} ---", flush=True)
+        
 
         # اعتبارسنجی خروجی برای جلوگیری از خطاهای احتمالی
         valid_labels = {"technical", "general", "no_authorize","dashboard"}
@@ -197,7 +99,7 @@ class RouterAgent:
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-        #append_qa_to_file(history_text)
+        append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
         append_qa_to_file(f"rewrite_query : {rewrite_query}")

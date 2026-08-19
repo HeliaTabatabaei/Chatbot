@@ -2,7 +2,7 @@ from typing import Optional, Tuple
 import uuid
 
 from SQlDB.db import DatabaseConnection
-from dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
+from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
 
 
 class MemoryService:

@@ -3,7 +3,7 @@ import re
 from typing import Any, Callable, Dict
 
 from SQlDB.DashboardQuery import run_sql
-from prompt_Config_Dashboard import CALENDAR, EXAMPLES, METRICS, SCHEMA
+from Prompt.prompt_Config_Dashboard import CALENDAR, EXAMPLES, METRICS, SCHEMA
 
 class dashboard_llm_service:
     
@@ -188,6 +188,7 @@ class dashboard_llm_service:
             "sql": sql_query,
             "data": data,
             "answer": answer
+            
         }
 
     # def generate_sql(self, user_question: str) -> str:

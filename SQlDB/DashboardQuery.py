@@ -13,11 +13,7 @@ def run_sql(query: str) -> list[dict]:
         {"OfficeName": "دفتر اصفهان", "DeviceCount": 12}
     ]
     """
-    # cursor.execute("SELECT DB_NAME() AS CurrentDatabase")
-    # current_db = cursor.fetchone()[0]
-    # print(f"Connected database: {current_db}")
-    # print("SQL to execute:")
-    # print(query)
+   
     with DatabaseConnection(connection_string_Dashboard) as cursor:
         cursor.execute(query)
 
