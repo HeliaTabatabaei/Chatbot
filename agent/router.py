@@ -104,9 +104,10 @@ class RouterAgent:
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-        append_qa_to_file(history_text)
+        # append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
+        append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
         append_qa_to_file(f"check question type Time: {time.time() - start1:.2f} seconds")
@@ -136,7 +137,7 @@ class RouterAgent:
         query_vector = self.llm.embed_query(rewrite_query)
         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
         self.document_agent.handle_stream(
-            message=query,        
+            message=rewrite_query,        
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
