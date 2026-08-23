@@ -28,9 +28,6 @@ from providers.factory import create_provider
 from agent.chat_agent import ChatAgent
 from agent.document_agent import DocumentAgent
 from agent.router import RouterAgent
-
-# اگر RAGService در پروژه‌ات در فایل دیگری است،
-# فقط همین import را اصلاح کن.
 from service.rag_service import RAGService
 
 
@@ -328,11 +325,12 @@ async def query_history_endpoint(
     append_qa_to_file(f"GetHistory Time: {time.time() - start:.2f} seconds")
     answer_parts = []
     final_usage = {}
-    final_response_id = "1111"
-    source_payload = {"chunks": [], "conversation_id": c_id}
+    final_response_id = "1111"#شناسه پیش‌فرض پاسخ
+    sql_query = None
+    source_payload = {"chunks": [], "conversation_id": c_id}#برای نگه‌داشتن chunkهای منبع و conversation_id
 
     def on_chunk(chunk: Any) -> None:
-        nonlocal final_usage, final_response_id, source_payload
+        nonlocal final_usage, final_response_id, source_payload,sql_query#اینها توسط on_chunk میتوانند تغییر کنن
 
         if not isinstance(chunk, dict):
             return
@@ -346,7 +344,9 @@ async def query_history_endpoint(
         #         if content:
         #             answer_parts.append(content)
                 
-                
+        elif chunk.get("type") == "sql":
+            sql_query = chunk.get("content", "")
+        
         elif chunk.get("type") == "meta":
             final_usage = chunk.get("usage", {})
             final_response_id = chunk.get("response_id", final_response_id)
@@ -405,6 +405,7 @@ async def query_history_endpoint(
         "status": "success",
         "conversation_id": c_id,
         "answer": final_answer,
+        "sql": sql_query,
         "usage": final_usage,
         "response_id": final_response_id,
         "source": source_payload

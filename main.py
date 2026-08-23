@@ -12,16 +12,16 @@ from fastapi.security import HTTPBearer
 from fastapi.staticfiles import StaticFiles
 from fastapi_swagger import patch_fastapi
 
-from API.admin_routes import router as admin_router
 
 from Models.mainModels import  QueryRequest,     SearchResult
 import uvicorn
 
 from fastapi.middleware.cors import CORSMiddleware
-
+#-----------
+from API.admin_routes import router as admin_router
 from API.Wallet_routes import router as wallet_router
-
 from API.query_routes import router as query_router
+#--------------------
 import json
 from pathlib import Path
 from fastapi import HTTPException
@@ -48,9 +48,9 @@ BASE_DIR = Path(__file__).resolve().parent # تعریف مسیر پایه پرو
 MEDIA_ROOT = BASE_DIR / "data"  # مسیر دقیق پوشه داده‌ها
 
 app.mount("/media", StaticFiles(directory=str(MEDIA_ROOT)), name="media")
+
 app.include_router(admin_router)
 app.include_router(wallet_router)
-
 app.include_router(query_router)
 
 sessions = {}
