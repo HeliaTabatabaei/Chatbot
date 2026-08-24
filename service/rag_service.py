@@ -127,27 +127,52 @@ class RAGService:
 
    
         
-    def _build_rerank_condidate(self,results: list[Any]) :
-            candidates: list[dict[str, Any]] = []
-            if not results:
-                    return json.dumps([], ensure_ascii=False, indent=2)
+    # def _build_rerank_condidate(self,results: list[Any]) :
+    #         candidates: list[dict[str, Any]] = []
+    #         if not results:
+    #                 return json.dumps([], ensure_ascii=False, indent=2)
         
             
-            for result in results:
-                payload = self._get_payload(result)
+    #         for result in results:
+    #             payload = self._get_payload(result)
                
-                candidates.append({
+    #             candidates.append({
+    #             "id": str(self._get_result_id(result)),
+    #             "text": payload.get("maintext", ""),
+    #             "customer_name": payload.get("customer_name", ""),
+    #             "device_type": payload.get("device_type", ""),
+    #             "device_model": payload.get("device_model", ""),
+    #             "service_type": payload.get("service_type", ""),
+    #             "service_name": payload.get("service_name", ""),
+    #             "service_group": payload.get("service_group", ""),
+    #             "keywords": payload.get("keywords", []),
+    #             "heading": payload.get("heading_path", ""),
+                
+    #     })
+   
+    #         return   json.dumps(candidates, ensure_ascii=False, indent=2)      
+    def _build_rerank_condidate(self, results: list[Any]):
+        candidates: list[dict[str, Any]] = []
+        if not results:
+            return candidates
+
+        for result in results:
+            payload = self._get_payload(result)
+
+            candidates.append({
                 "id": str(self._get_result_id(result)),
                 "text": payload.get("maintext", ""),
                 "customer_name": payload.get("customer_name", ""),
-                "vendor_name": payload.get("vendor_name", ""),
+                "device_type": payload.get("device_type", ""),
+                "device_model": payload.get("device_model", ""),
                 "service_type": payload.get("service_type", ""),
+                "service_name": payload.get("service_name", ""),
+                "service_group": payload.get("service_group", ""),
                 "keywords": payload.get("keywords", []),
                 "heading": payload.get("heading_path", ""),
-                
-        })
-   
-            return   json.dumps(candidates, ensure_ascii=False, indent=2)      
+            })
+
+        return candidates
     def buildResponseCondidate(self,results: list[Any]) :
         candidates: list[dict[str, Any]] = []
         if not results:
@@ -162,8 +187,11 @@ class RAGService:
             "text": payload.get("maintext", ""),
             "meta": {
                 "customer_name": payload.get("customer_name", ""),
-                "vendor_name": payload.get("vendor_name", ""),
+                "device_type": payload.get("device_type", ""),
+                "device_model": payload.get("device_model", ""),
                 "service_type": payload.get("service_type", ""),
+                "service_name": payload.get("service_name", ""),
+                "service_group": payload.get("service_group", ""),
                 "keywords": payload.get("keywords", []),
                 "heading": payload.get("heading_path", ""),
                 "source_file": self.getSourceFilePath(payload.get("source_file", ""), docid),
@@ -278,6 +306,7 @@ Rules:
         history: str | None = None,
     ) -> None:
         context = self.buildResponseCondidate(results)#self._build_context(results)
+        #test
         append_qa_to_filetest(context)
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},

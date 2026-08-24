@@ -152,7 +152,7 @@ class DocumentAgent:
         start=time.time()
         results = self.rag_service.search(
             query_vector=query_vector,
-            limit=20,
+            limit=10,
             filters=None,
         ) 
         append_qa_to_file(f"Rag search: {time.time() - start:.2f} seconds")

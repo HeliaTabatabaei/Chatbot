@@ -7,7 +7,7 @@ import uuid
 from SQlDB.db import DatabaseConnection
 # from SQlDB.message import update_and_get_bank_name
 from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
-from Utility.log import append_qa_to_file
+from Utility.log import append_qa_to_file,append_qa_to_filetest
 from providers.base import LLMProvider
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
@@ -32,19 +32,24 @@ class RouterAgent:
         self.dashboard_agent = dashboard_agent
    
     def rewrite_query(self, query: str, history_text: str) -> str:
-       if not history_text:
-         return query
-       prompt = rewriteQueryPrompt
-       
-       messages = [
-        {"role": "system", "content": prompt},
-    ]
-    
-       response = self.llm.chat(
-        messages=messages,
-        temperature=0, 
-    )
-       return response.content.strip()
+        if not history_text:
+            return query
+
+        prompt = rewriteQueryPrompt.format(
+        history_text=history_text,
+        query=query,
+       )
+
+
+        messages = [
+            {"role": "system", "content": prompt},
+        ]
+
+        response = self.llm.chat(
+            messages=messages,
+            temperature=0,
+        )
+        return response.content.strip()
 
 
     def classify(self, query: str, history: str | None = None) -> str:
@@ -99,12 +104,10 @@ class RouterAgent:
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-        append_qa_to_file(history_text)
+        # append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
-        append_qa_to_file(f"rewrite_query : {rewrite_query}")
-        append_qa_to_file(f"rewriteQuery: {time.time() - start1:.2f} seconds")
-
+        append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
         append_qa_to_file(f"check question type Time: {time.time() - start1:.2f} seconds")
@@ -134,7 +137,7 @@ class RouterAgent:
         query_vector = self.llm.embed_query(rewrite_query)
         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
         self.document_agent.handle_stream(
-            message=query,        
+            message=rewrite_query,        
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
