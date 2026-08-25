@@ -125,15 +125,14 @@ class DocumentAgent:
                     ),
                     "meta": {
                         "customer_name": chunk.payload.get("customer_name", ""),
-                        "vendor_name": chunk.payload.get("vendor_name", ""),
+                        "device_type": chunk.payload.get("device_type", ""),
+                        "device_model": chunk.payload.get("device_model", ""),
                         "service_type": chunk.payload.get("service_type", ""),
+                        "service_group": chunk.payload.get("service_group", ""),
+                        "service_name": chunk.payload.get("service_name", ""),
                         "keywords": chunk.payload.get("keywords", []),
-                        "heading": chunk.payload.get("heading_path", ""),
-                        "source_file": self.rag_service.getSourceFilePath(chunk.payload.get("source_file", ""), docid),
-                        "image_paths": self.rag_service.getListofImagepath(chunk.payload.get("imgs_info", []), docid),
-
+                        "heading": chunk.payload.get("heading_path", "") 
                     }        
-                  
                 }
             )
 
