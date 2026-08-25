@@ -80,7 +80,7 @@ class RAGService:
         self,
         query_vector: list[float],
         limit: int = 5,
-        filters: Optional[SearchFilters] = None,
+        filters:  dict[str, Any] | None = None,
     ) -> list[Any]:
         query_filter = self.build_filter(filters)
 
@@ -89,7 +89,7 @@ class RAGService:
             query=query_vector,
             using="dense",
             limit=limit,
-            query_filter=query_filter,
+            query_filter=filters,
         )
 
         return getattr(hits, "points", []) or []

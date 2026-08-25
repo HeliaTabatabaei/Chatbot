@@ -152,7 +152,7 @@ async def stream_queryHistory_endpoint(
     history,c_id= get_recent_history( conversation_id= request.conversation_id,
                 query=request.query,
                 user_key=user_key,
-                limit = 3)
+                limit = 10)
 
     chunks: Queue[Any] = Queue()
     

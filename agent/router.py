@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from logging import Filter
 import time
 from typing import Any, Callable, Optional, Tuple
 import uuid
@@ -9,11 +10,17 @@ from SQlDB.db import DatabaseConnection
 from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
 from Utility.log import append_qa_to_file,append_qa_to_filetest
 from providers.base import LLMProvider
+from service.customer_config import load_customers, resolve_customer_from_query
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
 from .dashboard_agent import DashboardAgent
 from Prompt.prompt_RewriteQuery import rewriteQueryPrompt 
 from Prompt.prompt_Classify import system_promptClassify
+from qdrant_client.models import (
+    FieldCondition,
+    Filter,
+    MatchValue,
+)
 ChunkCallback = Callable[[Any], None]
 
 
@@ -107,6 +114,7 @@ class RouterAgent:
         # append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
+        
         append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
@@ -136,10 +144,31 @@ class RouterAgent:
         start=time.time()
         query_vector = self.llm.embed_query(rewrite_query)
         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
+        query_filter = None
+        customers = load_customers()
+        
+        resolved_customer = resolve_customer_from_query(
+        query=rewrite_query,
+        customers=customers,
+        )
+        if resolved_customer:
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="customer_name",
+                        match=MatchValue(
+                            value=resolved_customer["qdrant_customer_name"],
+                        ),
+                    )
+                ]
+            )
+        append_qa_to_file(query_filter)      
+        append_qa_to_file(resolved_customer)   
         self.document_agent.handle_stream(
             message=rewrite_query,        
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
             history=history_text,
+            query_filter=query_filter
         )
