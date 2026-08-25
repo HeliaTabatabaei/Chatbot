@@ -78,9 +78,9 @@ def ingestQdrant(docid):
           
             index=1
             
-       # text = chunk["embedding_text"].strip()
+        text = chunk["embedding_text"].strip()
         maintext= chunk["main_text"].strip()
-        text=generate_optimized_embedding_text(chunk)
+       # text=generate_optimized_embedding_text(chunk)
         id=chunk["id"]
         if not text:
             continue
