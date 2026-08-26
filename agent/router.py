@@ -176,22 +176,10 @@ class RouterAgent:
         query=rewrite_query,
         customers=customers,
         )
-        # if resolved_customer:
-        #     query_filter = Filter(
-        #         should=[#or
-        #         FieldCondition(
-        #             key="customer_name",
-        #             match=MatchValue(value=resolved_customer["qdrant_customer_name"]),
-        #         ),
-        #         FieldCondition(
-        #             key="customer_name",
-        #             match=MatchValue(value="General"),
-        #         ),
-        #     ]
-        #     )
-        #     query_filter = Filter(
-        query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
-        append_qa_to_file(query_filter)      
+        if resolved_customer:
+     
+            query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
+            append_qa_to_file(query_filter)      
         # append_qa_to_file(resolved_customer)   
         self.document_agent.handle_stream(
             message=rewrite_query,        
