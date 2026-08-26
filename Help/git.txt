@@ -66,3 +66,9 @@ git checkout --theirs .
 git add .
 git commit -m "Resolve conflicts: keep remote version"
 
+
+
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+

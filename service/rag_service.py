@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from logging import Filter
 import os
 from typing import Any, Optional
 
@@ -13,7 +14,12 @@ from Utility.log import append_qa_to_filetest
 from Prompt.prompts_config import SYSTEM_PROMPT, USER_PROMPT
 from providers.base import LLMProvider, StreamCallback
 
-
+from qdrant_client.models import (
+    FieldCondition,
+    Filter,
+    MatchAny,
+    MatchValue,
+)
 class RAGService:
     def __init__(
         self,
@@ -30,66 +36,21 @@ class RAGService:
     def embed_query(self, text: str) -> list[float]:
         return self.llm.embed_query(text)
 
-    @staticmethod
-    def build_filter(
-        filters: Optional[SearchFilters],
-    ) -> Optional[models.Filter]:
-        if not filters:
-            return None
-
-        conditions: list[models.FieldCondition] = []
-
-        if getattr(filters, "doc_ids", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="doc_id",
-                    match=models.MatchAny(any=filters.doc_ids),
-                )
-            )
-
-        if getattr(filters, "tags", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="tags",
-                    match=models.MatchAny(any=filters.tags),
-                )
-            )
-
-        if getattr(filters, "date_from", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="date",
-                    range=models.Range(gte=filters.date_from),
-                )
-            )
-
-        if getattr(filters, "date_to", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="date",
-                    range=models.Range(lte=filters.date_to),
-                )
-            )
-
-        if not conditions:
-            return None
-
-        return models.Filter(must=conditions)
 
     def search(
         self,
         query_vector: list[float],
         limit: int = 5,
-        filters: Optional[SearchFilters] = None,
+        filters:  dict[str, Any] | None = None,
     ) -> list[Any]:
-        query_filter = self.build_filter(filters)
+      
 
         hits = self.qdrant_client.query_points(
             collection_name=self.collection_name,
             query=query_vector,
             using="dense",
             limit=limit,
-            query_filter=query_filter,
+            query_filter=filters,
         )
 
         return getattr(hits, "points", []) or []
@@ -399,4 +360,5 @@ Rules:
         if not isinstance(parsed, list):
             raise ValueError("Reranker response must be a JSON array")
 
-        return parsed
+            return parsed
+   

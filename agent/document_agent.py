@@ -147,12 +147,13 @@ class DocumentAgent:
         query_vector: Any,
         temperature: float = 0.1,
         history: list[dict[str, Any]] | None = None,
+        query_filter: list[dict[str, Any]] | None = None,
     ) -> None:
         start=time.time()
         results = self.rag_service.search(
             query_vector=query_vector,
             limit=10,
-            filters=None,
+            filters=query_filter,
         ) 
         append_qa_to_file(f"Rag search: {time.time() - start:.2f} seconds")
         start=time.time()
