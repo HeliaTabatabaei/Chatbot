@@ -182,7 +182,8 @@ class RouterAgent:
             append_qa_to_file(query_filter)      
         # append_qa_to_file(resolved_customer)   
         self.document_agent.handle_stream(
-            message=rewrite_query,        
+            message=rewrite_query,
+            original_query=  query,      
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
