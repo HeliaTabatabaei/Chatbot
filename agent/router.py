@@ -170,6 +170,18 @@ class RouterAgent:
         query_vector = self.llm.embed_query(rewrite_query)
         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
         query_filter = None
+        # customers = load_customers()
+        
+        # resolved_customer = resolve_customer_from_query(
+        # query=rewrite_query,
+        # customers=customers,
+        # )
+        # if resolved_customer:
+     
+        #     query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
+        #     append_qa_to_file(query_filter)      
+        # # append_qa_to_file(resolved_customer)  
+        query_filter = None
         customers = load_customers()
         
         resolved_customer = resolve_customer_from_query(
@@ -177,10 +189,18 @@ class RouterAgent:
         customers=customers,
         )
         if resolved_customer:
-     
-            query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
-            append_qa_to_file(query_filter)      
-        # append_qa_to_file(resolved_customer)   
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="customer_name",
+                        match=MatchValue(
+                            value=resolved_customer["qdrant_customer_name"],
+                        ),
+                    )
+                ]
+            )
+        append_qa_to_file(query_filter)      
+        append_qa_to_file(resolved_customer)    
         self.document_agent.handle_stream(
             message=rewrite_query,
             original_query=  query,      
