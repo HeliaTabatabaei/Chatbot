@@ -5,7 +5,7 @@
 - **Created:** 2023-05-29T11:30:00Z
 - **Modified:** 2025-09-23T06:05:00Z
 - **Document Name:** 1-IT0403-506-01_RefahSoft_EastcomWin10.docx
-- **Source File:** C:\Users\asus\Desktop\test_chunkStudio_revision_08022026\input\1-IT0403-506-01_RefahSoft_EastcomWin10.docx
+- **Source File:** C:\Users\aa.eskandari\Desktop\input\1-IT0403-506-01_RefahSoft_EastcomWin10.docx
 
 ---
 
@@ -19,12 +19,14 @@
  "rId": "rId8",
  "image_path": "img_folder/image_001_image1.jpg",
  "caption": "جلد دستورالعمل نصب نرم افزار Eastcom Win 10 برای بانک رفاه",
- "ocr_text": "دستورالعمل\nنصب نرم افزار\nEastcom Win 10 - بانک رفاه\nشماره نسخه: L-T0403-5-06-01\nمهر 1404\nشرکت توسعه خدمات الکترونیکی آدونیس (سهامی خاص)",
+ "ocr_text": "دستورالعمل\nنصب نرم افزار\nEastcom Win 10 - بانک رفاه\nشماره نسخه : 1-IT0403-506-01\nمهر\n1404\nشرکت توسعه خدمات الکترونیکی آدونیس (سهامی خاص)",
  "visual_description": [
- "صفحه جلد سند با عنوان «دستورالعمل نصب نرم افزار» و زیرعنوان «Eastcom Win 10 - بانک رفاه»",
- "نمایش شماره نسخه «L-T0403-5-06-01» و تاریخ «مهر 1404»",
- "وجود لوگو و نام «شرکت توسعه خدمات الکترونیکی آدونیس (سهامی خاص)» در پایین صفحه",
- "طرح خطی دستگاه خودپرداز در گوشه پایین چپ"
+ "صفحه جلد یک سند راهنما با عنوان «دستورالعمل نصب نرم افزار»",
+ "ذکر نام محصول/نرم افزار: Eastcom Win 10 و عبارت «بانک رفاه»",
+ "نمایش شماره نسخه: 1-IT0403-506-01",
+ "وجود تاریخ/مهر: 1404",
+ "نام سازمان: شرکت توسعه خدمات الکترونیکی آدونیس (سهامی خاص)",
+ "طرح گرافیکی شامل تصویر خطی یک دستگاه خودپرداز در پایین سمت چپ"
  ],
  "image_type": "scan"
 }
@@ -40,7 +42,7 @@
 
 **مهر 1404**
 
-![لوگوی شرکت توسعه خدمات الکترونیکی آدونیس](img_folder/image_002_image2.png)
+![لوگوی شرکت آدونیس و عبارت شرکت توسعه خدمات الکترونیکی](img_folder/image_002_image2.png)
 
 **Image analysis**
 
@@ -49,11 +51,12 @@
  "image_name": "image2.png",
  "rId": "rId9",
  "image_path": "img_folder/image_002_image2.png",
- "caption": "لوگوی شرکت توسعه خدمات الکترونیکی آدونیس",
- "ocr_text": "شرکت توسعه خدمات الکترونیکی آدونیس",
+ "caption": "لوگوی شرکت آدونیس و عبارت شرکت توسعه خدمات الکترونیکی",
+ "ocr_text": "آدونیس شرکت توسعه خدمات الکترونیکی",
  "visual_description": [
- "لوگو شامل متن فارسی و یک نماد گرافیکی شبیه حرف A با قوس های آبی در سمت راست است",
- "پس زمینه تصویر مشکی است و نوشته ها به رنگ های خاکستری و آبی نمایش داده شده اند"
+ "لوگوی گرافیکی شامل حرف A بزرگ خاکستری با یک قوس آبی پیرامونی",
+ "متن فارسی در یک خط: «آدونیس» و «شرکت توسعه خدمات الکترونیکی»",
+ "پس زمینه یک دست مشکی"
  ],
  "image_type": "diagram"
 }
@@ -126,9 +129,13 @@
 [پیوست 1 : چک لیست نصب نرم افزار 42](#_Toc207707407)
 
 [واحد مانیتورینگ بانک رفاه 43](#_Toc207707408)
+
+[پیوست 1 43](#_Toc207707409)
+
+[چک‌لیست نصب نرم‌افزار 43](#_Toc207707410)
 <!-- TABLE_OF_CONTENTS_END -->
 
-![متن فارسی خوشنویسی شده روی پس زمینه سفید](img_folder/image_003_image4.png)
+![متن خوشنویسی «به نام خدا» روی پس زمینه سفید](img_folder/image_003_image4.png)
 
 **Image analysis**
 
@@ -137,10 +144,10 @@
  "image_name": "image4.png",
  "rId": "rId17",
  "image_path": "img_folder/image_003_image4.png",
- "caption": "متن فارسی خوشنویسی شده روی پس زمینه سفید",
- "ocr_text": "بنام خدا",
+ "caption": "متن خوشنویسی «به نام خدا» روی پس زمینه سفید",
+ "ocr_text": "به نام خدا",
  "visual_description": [
- "عبارت «بنام خدا» به صورت خوشنویسی سیاه روی زمینه سفید نمایش داده شده است."
+ "عبارت فارسی با خط خوشنویسی مشکی روی زمینه سفید نمایش داده شده است."
  ],
  "image_type": "scan"
 }
@@ -182,7 +189,7 @@
 
 فایل PooyaForwardServer.properties که در فولدر NDCSecure در درایوC قرار دارد را با استفاده از نرم افزارNoepad باز کنید و همانند شکل زیر اطلاعات Port و سریال NDCSecure دستگاه را از آن استخراج نمایید؛ پس از نصب نرم افزار، در صورت استفاده از پورتی به غیراز پورت اعلام شده، اطلاعاتPort برداشته شده را اعمال نمایید:
 
-![نمایش فایل تنظیمات PooyaForwardServer با پورت ها، آدرس سرور و مسیرهای سرویس Agent](img_folder/image_004_image5.png)
+![نمایش فایل تنظیمات PooyaForwardServer.properties در Notepad++ با پورت ها و آدرس های سرویس](img_folder/image_004_image5.png)
 
 **Image analysis**
 
@@ -191,10 +198,17 @@
  "image_name": "image5.png",
  "rId": "rId18",
  "image_path": "img_folder/image_004_image5.png",
- "caption": "نمایش فایل تنظیمات PooyaForwardServer با پورت ها، آدرس سرور و مسیرهای سرویس Agent",
+ "caption": "نمایش فایل تنظیمات PooyaForwardServer.properties در Notepad++ با پورت ها و آدرس های سرویس",
  "ocr_text": "PooyaForwardServer.properties\n\nListeneringPort = 9005\n\nServer = 10.15.0.66:9600\nProtocolHeader = 2B\n\nLogFile = c:/ndcsecure/log/ndcSecure\n\nAgentPropertiesServiceAddress = http://10.15.45.100:9600/atmAgent/properties\nAgentGetLastVersionServiceAddress = http://10.15.45.100:9600/atmAgent/getLastVersion\nSerialNumber = 994429903926 N",
  "visual_description": [
- "اسکرین شات Notepad++ از فایل PooyaForwardServer.properties با تنظیمات ListeneringPort، Server IP:Port، ProtocolHeader، LogFile و URLهای سرویس های Agent"
+ "اسکرین شات Notepad++ از فایل PooyaForwardServer.properties با ۱۲ خط",
+ "پارامتر ListeneringPort برابر 9005 نمایش داده شده است",
+ "Server برابر 10.15.0.66:9600 تنظیم شده است",
+ "ProtocolHeader مقدار 2B دارد",
+ "مسیر LogFile برابر c:/ndcsecure/log/ndcSecure است",
+ "آدرس AgentPropertiesServiceAddress برابر http://10.15.45.100:9600/atmAgent/properties است",
+ "آدرس AgentGetLastVersionServiceAddress برابر http://10.15.45.100:9600/atmAgent/getLastVersion است",
+ "SerialNumber برابر 994429903926 N نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -217,7 +231,7 @@
 3. تنظیمات Boot را به نوعی تغییر دهید تا فلش یا هارد اکسترنال در اولویت باشند.
 4. پس از Restart شدن PC و انتخاب Acronis 2017 در صفحه ای که نمایش داده می شود، گزینه ی Acronis True Image را انتخاب نمایید.
 
-![منوی بوت Acronis True Image با گزینه های ۳۲/۶۴بیتی و Start Windows](img_folder/image_005_image6.png)
+![منوی بوت Acronis True Image با گزینه های ۳۲/۶۴ بیتی و اجرای ویندوز](img_folder/image_005_image6.png)
 
 **Image analysis**
 
@@ -226,13 +240,13 @@
  "image_name": "image6.tmp",
  "rId": "rId19",
  "image_path": "img_folder/image_005_image6.png",
- "caption": "منوی بوت Acronis True Image با گزینه های ۳۲/۶۴بیتی و Start Windows",
- "ocr_text": "Starting Acronis Loader..._\n\nAcronis\nTrue Image\n\nAcronis True Image\nAcronis System Report\nAcronis True Image (64-bit)\nAcronis System Report (64-bit)\nStart Windows\n\nYou can turn on MouseKeys to control the mouse pointer using the numeric keypad.\nPress ALT + left SHIFT + NUM LOCK or CTRL+ALT+F10 and control the pointer\nusing the numeric keypad.\n\nEN\n\nAcronis\nLoading, please wait...",
+ "caption": "منوی بوت Acronis True Image با گزینه های ۳۲/۶۴ بیتی و اجرای ویندوز",
+ "ocr_text": "Starting Acronis Loader...\nAcronis\nTrue Image\nAcronis True Image\nAcronis System Report\nAcronis True Image (64-bit)\nAcronis System Report (64-bit)\nStart Windows\nYou can turn on MouseKeys to control the mouse pointer using the numeric keypad.\nPress ALT + left SHIFT + NUM LOCK or CTRL+ALT+M for F10 and control the pointer\nusing the numeric keypad.\nEN\nAcronis\nLoading, please wait...",
  "visual_description": [
- "صفحه منوی بوت Acronis True Image با لیست گزینه ها در سمت راست و پس زمینه آبی",
- "گزینه های قابل انتخاب: Acronis True Image، Acronis System Report، نسخه های (64-bit)، و Start Windows",
+ "صفحه منوی بوت/راه انداز Acronis True Image با فهرست گزینه های قابل انتخاب",
+ "نمایش گزینه ها: Acronis True Image، Acronis System Report، نسخه های (64-bit)، و Start Windows",
  "نمایش پیام های وضعیت «Starting Acronis Loader...» و «Loading, please wait...»",
- "نمایش متن راهنمای فعال سازی MouseKeys و زبان/کیبورد «EN» در پایین"
+ "نمایش راهنمای MouseKeys و زبان صفحه کلید «EN» در پایین صفحه"
  ],
  "image_type": "screenshot"
 }
@@ -242,7 +256,7 @@
 
 در قسمت مربوط به Tools & Utilities بر روی Add New Disk کلیک کنید:
 
-![اسکرین شات ابزارهای Acronis با گزینه های Clone Disk و Add New Disk که با دایره قرمز مشخص شده اند](img_folder/image_006_image7.jpg)
+![اسکرین شات Acronis True Image Home 2011 با انتخاب Tools & Utilities و گزینه Add New Disk](img_folder/image_006_image7.jpg)
 
 **Image analysis**
 
@@ -251,16 +265,15 @@
  "image_name": "image7.jpeg",
  "rId": "rId20",
  "image_path": "img_folder/image_006_image7.jpg",
- "caption": "اسکرین شات ابزارهای Acronis با گزینه های Clone Disk و Add New Disk که با دایره قرمز مشخص شده اند",
- "ocr_text": "Acronis True Image Home 2011\nFile Help\nBackup\nRecovery\nTools & Utilities\nSearch\nHome\nBackup\nRecovery\nLog\nTools & Utilities\nProtection tools\nAcronis Startup Recovery Manager\nAllows you to recover data at boot time.\nManage Acronis Secure Zone\nA special partition for storing backups on your disk.\nUtilities\nClone Disk\nCopy partitions from one disk to another.\nAdd New Disk\nAdd a new hard disk drive to your system.\nAcronis DriveCleanser",
+ "caption": "اسکرین شات Acronis True Image Home 2011 با انتخاب Tools & Utilities و گزینه Add New Disk",
+ "ocr_text": "Acronis True Image Home 2011\nFile\nHelp\nBackup\nRecovery\nTools & Utilities\nSearch\nHome\nBackup\nRecovery\nLog\nTools & Utilities\nProtection tools\nAcronis Startup Recovery Manager\nAllows you to recover data at boot time.\nManage Acronis Secure Zone\nA special partition for storing backups on your disk.\nUtilities\nClone Disk\nCopy partitions from one disk to another.\nAdd New Disk\nAdd a new hard disk drive to your system.\nAcronis DriveCleanser",
  "visual_description": [
- "پنجره برنامه Acronis True Image Home 2011 با نوار منو File و Help",
- "نوار بالایی شامل گزینه های Backup، Recovery و Tools & Utilities و کادر Search",
- "پنل سمت چپ شامل Home، Backup، Recovery، Log و Tools & Utilities",
- "بخش Protection tools شامل Acronis Startup Recovery Manager و Manage Acronis Secure Zone",
- "بخش Utilities شامل Clone Disk و Add New Disk و Acronis DriveCleanser",
- "دو دایره قرمز گزینه های Tools & Utilities در پنل چپ و Add New Disk در بخش Utilities را مشخص کرده اند",
- "یک فلش قرمز کوچک کنار گزینه Clone Disk دیده می شود"
+ "رابط کاربری برنامه Acronis True Image Home 2011 نمایش داده شده است",
+ "پنل سمت چپ شامل گزینه های Home، Backup، Recovery، Log و Tools & Utilities است",
+ "بخش اصلی صفحه عنوان Protection tools و Utilities را نشان می دهد",
+ "گزینه های Acronis Startup Recovery Manager و Manage Acronis Secure Zone فهرست شده اند",
+ "گزینه های Clone Disk و Add New Disk با توضیحات زیر هرکدام نمایش داده شده اند",
+ "دو دایره قرمز دور Tools & Utilities در پنل چپ و Add New Disk در بخش Utilities کشیده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -268,7 +281,7 @@
 
 در مرحله ی زیر گزینه Initalize disk in MBR layout را انتخاب و روی دکمه ی Next کلیک کنید:
 
-![پنجره Add New Disk Wizard برای انتخاب روش مقداردهی اولیه دیسک MBR یا GPT](img_folder/image_007_image8.png)
+![انتخاب روش مقداردهی اولیه دیسک در ویزارد افزودن دیسک جدید با گزینه های MBR و GPT](img_folder/image_007_image8.png)
 
 **Image analysis**
 
@@ -277,17 +290,14 @@
  "image_name": "image8.png",
  "rId": "rId21",
  "image_path": "img_folder/image_007_image8.png",
- "caption": "پنجره Add New Disk Wizard برای انتخاب روش مقداردهی اولیه دیسک MBR یا GPT",
+ "caption": "انتخاب روش مقداردهی اولیه دیسک در ویزارد افزودن دیسک جدید با گزینه های MBR و GPT",
  "ocr_text": "Add New Disk Wizard\nAdd New Disk Wizard\nRequired steps:\nDisk selection\nInitialization options\nPartition creation\nFinish\nSelect the required disk initialization method\nInitialize disk in MBR layout\nDisk will use Master Boot Record (MBR) layout.\nInitialize disk in GPT layout\nDisk will use GUID Partition Table (GPT) layout.\nYour host operating system must support GUID Partition Table (GPT) partitioning style.\nNext >\nCancel",
  "visual_description": [
- "نمایش «Add New Disk Wizard» با مرحله «Initialization options» فعال",
- "دو گزینه رادیویی برای مقداردهی اولیه دیسک: MBR و GPT",
- "گزینه «Initialize disk in MBR layout» انتخاب شده است",
- "کادر قرمز دور بخش مربوط به گزینه MBR کشیده شده است",
- "متن توضیحی برای MBR: استفاده از Master Boot Record (MBR)",
- "متن توضیحی برای GPT: استفاده از GUID Partition Table (GPT) و نیاز به پشتیبانی سیستم عامل میزبان",
- "دکمه های «Next >» و «Cancel» در پایین پنجره قابل مشاهده اند",
- "فهرست مراحل سمت چپ شامل: Disk selection، Initialization options، Partition creation، Finish"
+ "پنجره «Add New Disk Wizard» با نوار مراحل در سمت چپ نمایش داده شده است.",
+ "بخش «Initialization options» فعال است و مرحله «Disk selection» تیک خورده است.",
+ "دو گزینه رادیویی برای مقداردهی اولیه دیسک وجود دارد: «Initialize disk in MBR layout» و «Initialize disk in GPT layout».",
+ "گزینه «Initialize disk in MBR layout» انتخاب شده و با کادر قرمز دور آن مشخص شده است.",
+ "دکمه های پایین پنجره شامل «Next >» و «Cancel» هستند."
  ],
  "image_type": "screenshot"
 }
@@ -295,7 +305,7 @@
 
 در پنجره زیر، روی هارد دستگاه کلیک و سپس دکمه ی Next کلیک نمایید:
 
-![پنجره Add New Disk Wizard با انتخاب Disk 1 و دکمه Next > مشخص شده است](img_folder/image_008_image9.jpg)
+![پنجره Add New Disk Wizard برای انتخاب دیسک و ادامه با دکمه Next](img_folder/image_008_image9.jpg)
 
 **Image analysis**
 
@@ -304,15 +314,16 @@
  "image_name": "image9.jpeg",
  "rId": "rId22",
  "image_path": "img_folder/image_008_image9.jpg",
- "caption": "پنجره Add New Disk Wizard با انتخاب Disk 1 و دکمه Next > مشخص شده است",
- "ocr_text": "Add New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nSelect your hard disk from the list below.\nDisk properties\nDrive\nCapacity\nModel\nInterface\nDisk 1\n40 GB\nATA VMware Virtual I\nIDE(2) Primary Slave\n40 GB\nC:\n39.99 GB NTFS\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nNext >\nCancel",
+ "caption": "پنجره Add New Disk Wizard برای انتخاب دیسک و ادامه با دکمه Next",
+ "ocr_text": "Add New Disk Wizard\nRequired steps\nDisk selection\nPartition creation\nFinish\nSelect your hard disk from the list below.\nDisk properties\nDrive\nCapacity\nModel\nInterface\nDisk 1\n40 GB\nATA VMware Virtual I\nIDE(2) Primary Slave\n40 GB\nC:\n39.99 GB NTFS\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات از پنجره Add New Disk Wizard با مراحل Disk selection، Partition creation و Finish در سمت چپ",
- "جدول دیسک ها با ستون های Drive، Capacity، Model و Interface نمایش داده شده است",
- "ردیف انتخاب شده: Disk 1 با ظرفیت 40 GB، مدل ATA VMware Virtual I و رابط IDE(2) Primary Slave",
- "نمایش یک پارتیشن C: با 39.99 GB NTFS و نوار ظرفیت در پایین",
- "دکمه های Next > و Cancel در پایین سمت راست قرار دارند",
- "سه علامت گذاری قرمز شامل دو دایره دور Disk 1 و Next > و یک پیکان قرمز در بالا دیده می شود"
+ "اسکرین شات ویزارد Add New Disk Wizard با مراحل سمت چپ: Disk selection، Partition creation، Finish",
+ "جدول انتخاب دیسک با ستون های Drive، Capacity، Model، Interface و یک ردیف Disk 1",
+ "ردیف Disk 1 با ظرفیت 40 GB و مدل ATA VMware Virtual I و رابط IDE(2) Primary Slave نمایش داده شده است",
+ "پایین پنجره نمای پارتیشن C: با 39.99 GB NTFS و نوار ظرفیت دیده می شود",
+ "راهنمای رنگی شامل Primary // Logical // Dynamic، Acronis Secure Zone، Unallocated // Unsupported وجود دارد",
+ "دکمه های Next > و Cancel در پایین راست قرار دارند",
+ "دایره ها و فلش های قرمز روی Disk 1 و دکمه Next > تاکید کرده اند"
  ],
  "image_type": "screenshot"
 }
@@ -321,7 +332,7 @@
 
 با انجام این کار پیغامی همانند شکل زیر روی صفحه ظاهر می گردد. روی OK کلیک کنید تا به مرحله بعد بروید؛ توجه داشته باشید پس از انجام این کار هارد دستگاه فرمت خواهد شد:
 
-![پنجره تایید حذف پارتیشن ها در Add New Disk Wizard هنگام انتخاب دیسک مقصد](img_folder/image_009_image10.jpg)
+![پنجره ویزارد افزودن دیسک و پیام تایید حذف پارتیشن ها با دکمه OK مشخص شده](img_folder/image_009_image10.jpg)
 
 **Image analysis**
 
@@ -330,14 +341,15 @@
  "image_name": "image10.jpeg",
  "rId": "rId23",
  "image_path": "img_folder/image_009_image10.jpg",
- "caption": "پنجره تایید حذف پارتیشن ها در Add New Disk Wizard هنگام انتخاب دیسک مقصد",
+ "caption": "پنجره ویزارد افزودن دیسک و پیام تایید حذف پارتیشن ها با دکمه OK مشخص شده",
  "ocr_text": "Add New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nSelect your hard disk from the list below.\nDisk properties\nDrive\nCapacity\nModel\nInterface\nDisk 1\n40 GB ATA VMware Virtual I\nIDE(2) Primary Slave\nConfirmation\nThe destination hard disk drive you have chosen contains\nsome partitions that could contain useful data. Click OK to\nconfirm deletion of all the partitions on the destination hard\ndisk drive.\nOK\nCancel\n40 GB\nC:\n39.99 GB NTFS\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات از Add New Disk Wizard با مراحل Disk selection، Partition creation و Finish",
- "جدول Disk properties شامل Disk 1 با ظرفیت 40 GB، مدل ATA VMware Virtual I و رابط IDE(2) Primary Slave",
- "دیالوگ Confirmation هشدار می دهد با زدن OK همه پارتیشن های دیسک مقصد حذف می شوند",
- "دکمه OK با دایره قرمز مشخص شده است",
- "نوار پایین وضعیت پارتیشن: C: با 39.99 GB NTFS روی دیسک 40 GB"
+ "اسکرین شات از Add New Disk Wizard با مراحل Disk selection، Partition creation و Finish در نوار کناری",
+ "لیست دیسک ها شامل Disk 1 با ظرفیت 40 GB و مدل ATA VMware Virtual I و رابط IDE(2) Primary Slave",
+ "پنجره Confirmation درباره وجود پارتیشن های قبلی و تایید حذف همه پارتیشن ها روی دیسک مقصد",
+ "دکمه OK در پنجره تایید با دایره قرمز هایلایت شده و کنار آن دکمه Cancel دیده می شود",
+ "نمای پارتیشن پایین شامل C: با 39.99 GB NTFS و راهنمای رنگی Primary/Logical/Dynamic و Acronis Secure Zone و Unallocated/Unsupported",
+ "دکمه های Next > و Cancel در پایین سمت راست پنجره ویزارد"
  ],
  "image_type": "screenshot"
 }
@@ -345,7 +357,7 @@
 
 در پنجره ی زیر، روی دکمه ی Next کلیک کنید:
 
-![صفحهٔ Create partitions در Add New Disk Wizard با دیسک ۱ و فضای Unallocated ۴۰GB](img_folder/image_010_image11.jpg)
+![پنجره Add New Disk Wizard برای ساخت پارتیشن با دیسک Unallocated و دکمه Next مشخص شده است.](img_folder/image_010_image11.jpg)
 
 **Image analysis**
 
@@ -354,16 +366,14 @@
  "image_name": "image11.jpeg",
  "rId": "rId24",
  "image_path": "img_folder/image_010_image11.jpg",
- "caption": "صفحهٔ Create partitions در Add New Disk Wizard با دیسک ۱ و فضای Unallocated ۴۰GB",
- "ocr_text": "Add New Disk Wizard\nAdd New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nCreate partitions\nCreate new partition\nProperties\nPartition\nFlags\nCapacity\nFree Space\nType\nDisk 1\nUnallocated\n40 GB\nUnallocated\n40 GB\nUnallocated\n40 GB\nPrimary / Logical / Dynamic\nAcronis Secure Zone\nUnallocated / Unsupported\nNext >\nCancel",
+ "caption": "پنجره Add New Disk Wizard برای ساخت پارتیشن با دیسک Unallocated و دکمه Next مشخص شده است.",
+ "ocr_text": "Add New Disk Wizard\nAdd New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nCreate partitions\nCreate new partition\nProperties\nPartition\nFlags\nCapacity\nFree Space\nType\nDisk 1\nUnallocated\n40 GB\nUnallocated\n40 GB\nUnallocated\n40 GB\nPrimary #/ Logical #/ Dynamic\nAcronis Secure Zone\nUnallocated #/ Unsupported\nNext >\nCancel",
  "visual_description": [
- "پنجره نرم افزار با عنوان Add New Disk Wizard نمایش داده شده است",
- "مرحله Partition creation در نوار سمت چپ انتخاب شده و مراحل Disk selection و Finish نیز دیده می شوند",
- "عنوان بخش اصلی Create partitions است و دکمه های Create new partition و Properties وجود دارند",
- "در جدول، Disk 1 دارای یک ردیف Unallocated با ظرفیت 40 GB و Type برابر Unallocated است",
- "نمودار پایین نیز یک بخش Unallocated با اندازه 40 GB را نشان می دهد",
- "راهنمای رنگ ها: Primary/Logical/Dynamic، Acronis Secure Zone، و Unallocated/Unsupported نمایش داده شده است",
- "دکمه Next > با یک دایره قرمز مشخص شده و دکمه Cancel کنار آن قرار دارد"
+ "اسکرین شات «Add New Disk Wizard» در مرحله «Create partitions» نمایش داده شده است.",
+ "در پنل مراحل سمت چپ: «Disk selection»، «Partition creation»، «Finish» قابل مشاهده است.",
+ "جدول پارتیشن ها برای «Disk 1» یک ردیف «Unallocated» با ظرفیت «40 GB» نشان می دهد.",
+ "دکمه «Next >» در پایین راست با دایره قرمز علامت گذاری شده و کنار آن «Cancel» قرار دارد.",
+ "نوار راهنما/legend شامل گزینه های «Primary #/ Logical #/ Dynamic»، «Acronis Secure Zone»، «Unallocated #/ Unsupported» است."
  ],
  "image_type": "screenshot"
 }
@@ -371,7 +381,7 @@
 
 درنهایت روی دکمه ی Proceed کلیک نمایید:
 
-![پنجرهٔ Add New Disk Wizard با نمایش وضعیت قبل و بعد پارتیشن و دکمه Proceed](img_folder/image_011_image12.jpg)
+![نمای خلاصه جادوگر افزودن دیسک جدید و دکمه Proceed مشخص شده است.](img_folder/image_011_image12.jpg)
 
 **Image analysis**
 
@@ -380,15 +390,16 @@
  "image_name": "image12.jpeg",
  "rId": "rId25",
  "image_path": "img_folder/image_011_image12.jpg",
- "caption": "پنجرهٔ Add New Disk Wizard با نمایش وضعیت قبل و بعد پارتیشن و دکمه Proceed",
- "ocr_text": "Add New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nSummary\nLocation: Disk 1\nBefore:\n40 GB\nC:\n39.99 GB NTFS\nAfter:\n40 GB\nUnallocated\n40 GB\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nProceed\nCancel",
+ "caption": "نمای خلاصه جادوگر افزودن دیسک جدید و دکمه Proceed مشخص شده است.",
+ "ocr_text": "Add New Disk Wizard\nAdd New Disk Wizard\nRequired steps:\nDisk selection\nPartition creation\nFinish\nSummary\nLocation: Disk 1\nBefore:\n40 GB\nC:\n39.99 GB NTFS\nAfter:\n40 GB\nUnallocated\n40 GB\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nProceed\nCancel",
  "visual_description": [
- "اسکرین شات ویزارد Add New Disk Wizard با مراحل Disk selection، Partition creation و Finish در ستون چپ",
- "در بخش Summary، Location برابر Disk 1 نمایش داده شده است",
- "وضعیت Before شامل یک پارتیشن C: با 39.99 GB NTFS روی دیسک 40 GB است",
- "وضعیت After دیسک 40 GB را به صورت Unallocated (40 GB) نشان می دهد",
- "راهنمای رنگ/نوع شامل Primary // Logical // Dynamic، Acronis Secure Zone و Unallocated // Unsupported است",
- "دکمه Proceed با دایره قرمز مشخص شده و دکمه Cancel کنار آن قرار دارد"
+ "پنجره نرم افزار با عنوان Add New Disk Wizard نمایش داده شده است.",
+ "نوار مراحل Required steps شامل Disk selection، Partition creation و Finish است.",
+ "بخش Summary با Location: Disk 1 دیده می شود.",
+ "در قسمت Before پارتیشن C: با 39.99 GB NTFS روی دیسک 40 GB نمایش دارد.",
+ "در قسمت After وضعیت Unallocated با 40 GB نمایش داده شده است.",
+ "راهنمای رنگی شامل Primary/Logical/Dynamic، Acronis Secure Zone و Unallocated/Unsupported دیده می شود.",
+ "دکمه Proceed با یک دایره قرمز مشخص شده و کنار آن Cancel قرار دارد."
  ],
  "image_type": "screenshot"
 }
@@ -398,7 +409,7 @@
 
 5. در پنجره ی برنامه Acronis 2017، از منوی Recovery گزینه ی Disk & Partition Recovery را انتخاب کنید:
 
-![اسکرین شات نرم افزار Acronis True Image Home 2011 با تب Recovery مشخص شده با دایره قرمز](img_folder/image_012_image13.jpg)
+![نمای صفحه اصلی Acronis True Image Home 2011 با گزینه های Backup و Recovery](img_folder/image_012_image13.jpg)
 
 **Image analysis**
 
@@ -407,15 +418,15 @@
  "image_name": "image13.jpeg",
  "rId": "rId26",
  "image_path": "img_folder/image_012_image13.jpg",
- "caption": "اسکرین شات نرم افزار Acronis True Image Home 2011 با تب Recovery مشخص شده با دایره قرمز",
- "ocr_text": "Acronis True Image Home 2011\nBackup\nRecovery\nTools & Utilities\nSearch\nHome\nBackup\nRecovery\nLog\nTools & Utilities\nWelcome to Acronis True Image Home 2011\nWhat would you like to do?\nBack Up\nMy Disks | Files & Folders\nRecover\nMy Disks | Files & Folders\nMy favorites\nDisk and Partition\nHelp\nOptions",
+ "caption": "نمای صفحه اصلی Acronis True Image Home 2011 با گزینه های Backup و Recovery",
+ "ocr_text": "Acronis True Image Home 2011\nBackup\nRecovery\nTools & Utilities\nSearch\nHome\nBackup\nRecovery\nLog\nTools & Utilities\nWelcome to Acronis True Image Home 2011\nWhat would you like to do?\nBack Up\nMy Disks | Files & Folders\nRecover\nMy Disks | Files & Folders\nMy favorites\nHelp\nOptions",
  "visual_description": [
- "رابط کاربری Acronis True Image Home 2011 نمایش داده شده است",
- "تب Recovery در نوار بالا با دایره قرمز مشخص شده است",
- "منوی سمت چپ شامل Home، Backup، Recovery، Log و Tools & Utilities است",
- "بخش مرکزی گزینه های Back Up و Recover برای My Disks | Files & Folders را نشان می دهد",
- "بخش My favorites شامل Disk and Partition، Help و Options است",
- "کادر Search در بالای سمت راست دیده می شود"
+ "اسکرین شات از نرم افزار Acronis True Image Home 2011",
+ "دکمه Recovery در نوار بالایی با یک بیضی قرمز مشخص شده است",
+ "پنل سمت چپ شامل Home، Backup، Recovery، Log و Tools & Utilities است",
+ "بخش مرکزی گزینه های Back Up و Recover با توضیح My Disks | Files & Folders را نشان می دهد",
+ "سمت راست پایین بخش My favorites شامل Help و Options است",
+ "کادر جستجو (Search) در بالا سمت راست دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -423,7 +434,7 @@
 
 6. در پنجره ای که گشوده می شود، روی دکمه ی Browse کلید کنید تا امکان انتخاب Image موردنظر از روی فلش یا هارد اکسترنال فراهم آید:
 
-![پنجره Recovery Wizard برای انتخاب فایل پشتیبان و دکمه Browse مشخص شده است.](img_folder/image_013_image14.jpg)
+![پنجره Recovery Wizard برای انتخاب بکاپ و دکمه Browse مشخص شده است](img_folder/image_013_image14.jpg)
 
 **Image analysis**
 
@@ -432,16 +443,16 @@
  "image_name": "image14.jpeg",
  "rId": "rId27",
  "image_path": "img_folder/image_013_image14.jpg",
- "caption": "پنجره Recovery Wizard برای انتخاب فایل پشتیبان و دکمه Browse مشخص شده است.",
+ "caption": "پنجره Recovery Wizard برای انتخاب بکاپ و دکمه Browse مشخص شده است",
  "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nFinish\nSelect a backup from which to recover\nComments\nNo items to display\nPath:\nBrowse\nNext >\nCancel",
  "visual_description": [
- "پنجره نرم افزاری با عنوان Recovery Wizard نمایش داده شده است.",
- "نوار مراحل در سمت چپ شامل Archive selection، Recovery method، What to recover و Finish است.",
- "متن بالای پنجره: Select a backup from which to recover.",
- "یک جدول/پنل با ستون Comments و پیام No items to display دیده می شود.",
- "در پایین فیلد Path: و دکمه Browse وجود دارد.",
- "دکمه Browse با یک بیضی قرمز علامت گذاری شده است.",
- "دکمه های Next > و Cancel در پایین راست قرار دارند."
+ "پنجره نرم افزاری با عنوان Recovery Wizard نمایش داده شده است",
+ "در نوار سمت چپ مراحل Required steps شامل Archive selection، Recovery method، What to recover و Finish دیده می شود",
+ "عنوان بخش اصلی: Select a backup from which to recover",
+ "جدول/لیست با ستون Comments و متن No items to display خالی است",
+ "فیلد Path: در پایین وجود دارد",
+ "دکمه Browse با یک دایره قرمز مشخص شده است",
+ "دکمه های Next > و Cancel در پایین سمت راست دیده می شوند"
  ],
  "image_type": "screenshot"
 }
@@ -449,7 +460,7 @@
 
 7. پس از انتخاب Image موردنظر، روی دکمه ی Next کلیک کنید:
 
-![پنجره Recovery Wizard برای انتخاب بکاپ در Acronis با پیام راهنما به فارسی](img_folder/image_014_image15.jpg)
+![پنجره Recovery Wizard برای انتخاب فایل بکاپ آکرونیس و مسیر ذخیره نمایش داده شده است.](img_folder/image_014_image15.jpg)
 
 **Image analysis**
 
@@ -458,14 +469,15 @@
  "image_name": "image15.jpg",
  "rId": "rId28",
  "image_path": "img_folder/image_014_image15.jpg",
- "caption": "پنجره Recovery Wizard برای انتخاب بکاپ در Acronis با پیام راهنما به فارسی",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nFinish\nSelect a backup from which to recover\nDetails\nName\nCreated\nImages\nAcronis_REFAH_Win10_ATM_AllModel_v1.0.3\nAcronis : جدیدترین پکیج عملیاتی را انتخاب نمایید.\nPath: E:\\Unprotected\\ATM\\PilotRefah\\Package 1.0.3\\Acronis_F\nBrowse\nNext >\nCancel",
+ "caption": "پنجره Recovery Wizard برای انتخاب فایل بکاپ آکرونیس و مسیر ذخیره نمایش داده شده است.",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nFinish\nSelect a backup from which to recover\nDetails\nName\nCreated\nImages\nAcronis_REFAH_Win10_ATM_AllModel_v1.0.3\nAcronis جدیدترین پکیج عملیاتی را انتخاب نمایید.\nPath: E:\\Unprotected\\ATM\\Pilot\\Refah\\Package 1.0.3\\Acronis_F\nBrowse\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات از پنجره نرم افزار Recovery Wizard با مراحل سمت چپ شامل Archive selection، Recovery method، What to recover و Finish",
- "لیست Images شامل مورد Acronis_REFAH_Win10_ATM_AllModel_v1.0.3 نمایش داده شده است",
- "یک متن راهنما به فارسی داخل کادر قرمز در ردیف Acronis دیده می شود",
- "فیلد Path با مسیر درایو E:\\Unprotected\\ATM\\PilotRefah\\Package 1.0.3\\Acronis_F نمایش داده شده است",
- "دکمه های Browse، Next > و Cancel در پایین پنجره وجود دارند"
+ "پنجره نرم افزار Recovery Wizard با مرحله «Select a backup from which to recover» نمایش داده شده است.",
+ "ستون های لیست شامل «Name» و «Created» هستند و بخش «Images» دیده می شود.",
+ "یک مورد با نام «Acronis_REFAH_Win10_ATM_AllModel_v1.0.3» در لیست وجود دارد.",
+ "یک خط فارسی داخل کادر قرمز در لیست نمایش داده شده است.",
+ "در پایین پنجره مسیر «Path: E:\\Unprotected\\ATM\\Pilot\\Refah\\Package 1.0.3\\Acronis_F» و دکمه «Browse» دیده می شود.",
+ "دکمه های «Next >» و «Cancel» در پایین سمت راست وجود دارند."
  ],
  "image_type": "screenshot"
 }
@@ -473,7 +485,7 @@
 
 8. در پنجره ی زیر، روی دکمه ی Next کلیک کنید:
 
-![پنجره Recovery Wizard برای انتخاب روش بازیابی و دکمه Next](img_folder/image_015_image16.png)
+![پنجره Recovery Wizard با انتخاب روش بازیابی و دکمه Next مشخص شده است](img_folder/image_015_image16.png)
 
 **Image analysis**
 
@@ -482,14 +494,12 @@
  "image_name": "image16.png",
  "rId": "rId29",
  "image_path": "img_folder/image_015_image16.png",
- "caption": "پنجره Recovery Wizard برای انتخاب روش بازیابی و دکمه Next",
+ "caption": "پنجره Recovery Wizard با انتخاب روش بازیابی و دکمه Next مشخص شده است",
  "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nFinish\nChoose recovery method.\nRecover whole disks and partitions\nRecover chosen files and folders\nSelect files and folders to recover from the original disk backup.\nNext >\nCancel",
  "visual_description": [
- "نمایش پنجره نرم افزار با عنوان Recovery Wizard",
- "ستون سمت چپ مراحل Required steps شامل Archive selection، Recovery method، What to recover و Finish",
- "بخش اصلی با عنوان Choose recovery method و دو گزینه رادیویی برای Recover whole disks and partitions و Recover chosen files and folders",
- "متن توضیحی: Select files and folders to recover from the original disk backup.",
- "دکمه های Next > و Cancel در پایین پنجره"
+ "اسکرین شات ویزارد بازیابی با مراحل سمت چپ: Archive selection، Recovery method، What to recover، Finish",
+ "صفحه «Choose recovery method.» شامل دو گزینه رادیویی: بازیابی کل دیسک ها و پارتیشن ها یا فایل ها و پوشه های انتخابی",
+ "دکمه «Next >» در پایین با کادر قرمز مشخص شده و کنار آن «Cancel» قرار دارد"
  ],
  "image_type": "screenshot"
 }
@@ -497,7 +507,7 @@
 
 9. در صورت نصب اولیه نرم افزار، رویDisk 1 کلیک کنید تا علامت 🗸 در کنار آن به نمایش درآید؛ با انجام این کار سه گزینه ای که در زیر آن قرار دارند نیز فعال خواهد شد (علامت 🗸 همانند شکل، در کنارشان به نمایش گذاشته خواهد شد). سپس روی دکمه ی Next کلیک نمایید:
 
-![اسکرین شات ابزار Recovery Wizard با انتخاب پارتیشن ها و دکمه Next](img_folder/image_016_image17.jpg)
+![صفحه Recovery Wizard برای انتخاب پارتیشن های Disk 1 و ادامه با Next](img_folder/image_016_image17.jpg)
 
 **Image analysis**
 
@@ -506,15 +516,14 @@
  "image_name": "image17.jpeg",
  "rId": "rId30",
  "image_path": "img_folder/image_016_image17.jpg",
- "caption": "اسکرین شات ابزار Recovery Wizard با انتخاب پارتیشن ها و دکمه Next",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C:\nSettings of Partition D:\nSettings of Disk 1\nFinish\nSelect the items to recover.\nDisk 1\nPartition\nFla...\nCa...\nUsed S...\nType\nNTFS (System Reserved) (C:)\nPri, Act\n100 MB\n24.14 MB\nNTFS\nNTFS (Unlabeled) (D:)\nPri\n32 GB\n10.59 GB\nNTFS\nMBR and Track 0\nNext >\nCancel",
+ "caption": "صفحه Recovery Wizard برای انتخاب پارتیشن های Disk 1 و ادامه با Next",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nSettings of Disk 1\nFinish\nSelect the items to recover.\nPartition\nFla...\nCa...\nUsed S...\nType\nDisk 1\nNTFS (System Reserved) (C:)\nNTFS (Unlabeled) (D:)\nMBR and Track 0\nPri,Act\n100 MB\n24.14 MB\nNTFS\nPri\n32 GB\n10.59 GB\nNTFS\nMBR and Track 0\nNext >\nCancel",
  "visual_description": [
- "پنجره Recovery Wizard با فهرست مراحل در ستون چپ نمایش داده شده است",
- "در بخش Select the items to recover گزینه Disk 1 و چند آیتم زیرمجموعه با چک باکس دیده می شود",
- "لیست پارتیشن ها شامل NTFS (System Reserved) (C:) و NTFS (Unlabeled) (D:) و MBR and Track 0 است",
- "ستون های جدول شامل Partition، Fla...، Ca...، Used S... و Type است",
- "دکمه های Next > و Cancel در پایین سمت راست قرار دارند",
- "علامت گذاری قرمز و عدد ۳ کنار دکمه Next > دیده می شود"
+ "پنجره نرم افزار Recovery Wizard با مرحله «Select the items to recover.» نمایش داده شده است",
+ "فهرست دیسک و پارتیشن ها شامل «Disk 1»، «NTFS (System Reserved) (C:)»، «NTFS (Unlabeled) (D:)» و «MBR and Track 0» است",
+ "ستون های جدول شامل Partition، Fla...، Ca...، Used S... و Type هستند",
+ "دکمه های «Next >» و «Cancel» در پایین پنجره دیده می شوند",
+ "علامت گذاری قرمز دور «Disk 1» و دکمه «Next >» وجود دارد"
  ],
  "image_type": "screenshot"
 }
@@ -523,7 +532,7 @@
 در صورت نصب مجدد نرم افزار، لازم است همانند تصویر زیر تیک گزینه ی
 MBR and Track 0 را بردارید و سپس ادامه مراحل را ادامه دهید:
 
-![اسکرین شات ویزارد بازیابی با فهرست پارتیشن های دیسک و گزینه های انتخاب](img_folder/image_017_image18.jpg)
+![اسکرین شات ویزارد بازیابی با لیست پارتیشن های Disk 1 و گزینه انتخاب موارد](img_folder/image_017_image18.jpg)
 
 **Image analysis**
 
@@ -532,15 +541,19 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image18.jpg",
  "rId": "rId31",
  "image_path": "img_folder/image_017_image18.jpg",
- "caption": "اسکرین شات ویزارد بازیابی با فهرست پارتیشن های دیسک و گزینه های انتخاب",
+ "caption": "اسکرین شات ویزارد بازیابی با لیست پارتیشن های Disk 1 و گزینه انتخاب موارد",
  "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nFinish\nSelect the items to recover.\nChoose Columns\nPartition\nFla...\nCa...\nUsed S...\nType\nDisk 1\nNTFS (System Reserved) (C:)\nPri,Act.\n100 MB\n26.35 MB\nNTFS\nNTFS (Unlabeled) (D:)\nPri\n105 GB\n10.78 GB\nNTFS\nMBR and Track 0\nMBR and Track 0\nNext >\nCancel",
  "visual_description": [
- "پنجره Recovery Wizard با مراحل سمت چپ و مرحله What to recover انتخاب شده",
- "لیست Disk 1 شامل سه مورد: NTFS (System Reserved) (C:)، NTFS (Unlabeled) (D:)، و MBR and Track 0",
- "ستون های جدول شامل Partition، Fla...، Ca...، Used S... و Type است",
- "دکمه Choose Columns در بالای جدول دیده می شود",
- "فلش قرمز به سمت ردیف های لیست پارتیشن ها اشاره می کند",
- "دکمه های Next > و Cancel در پایین پنجره قرار دارند"
+ "پنجره نرم افزار با عنوان Recovery Wizard نمایش داده شده است",
+ "مرحله فعال در ستون چپ: What to recover",
+ "متن بالای صفحه: Select the items to recover.",
+ "دکمه Choose Columns در بالا-راست لیست وجود دارد",
+ "جدول شامل ستون های Partition، Fla...، Ca...، Used S...، Type است",
+ "Disk 1 با آیتم های NTFS (System Reserved) (C:) و NTFS (Unlabeled) (D:) و MBR and Track 0 نمایش داده شده است",
+ "برای C: مقدار 100 MB و 26.35 MB و نوع NTFS دیده می شود",
+ "برای D: مقدار 105 GB و 10.78 GB و نوع NTFS دیده می شود",
+ "دکمه های Next > و Cancel در پایین پنجره وجود دارند",
+ "یک فلش قرمز به سمت بخش لیست پارتیشن ها اشاره می کند"
  ],
  "image_type": "screenshot"
 }
@@ -548,7 +561,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 10. این قسمت مخصوص انجام تنظیمات درایو Reserved Partitionمی باشد؛ ابتدا روی لینک New Location کلیک کنید
 
-![پنجره Recovery Wizard برای تعیین تنظیمات بازیابی پارتیشن C و انتخاب محل جدید](img_folder/image_018_image19.jpg)
+![پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن C و انتخاب محل جدید](img_folder/image_018_image19.jpg)
 
 **Image analysis**
 
@@ -557,15 +570,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image19.jpeg",
  "rId": "rId32",
  "image_path": "img_folder/image_018_image19.jpg",
- "caption": "پنجره Recovery Wizard برای تعیین تنظیمات بازیابی پارتیشن C و انتخاب محل جدید",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition C\nPartition location (required)\nNot selected\nNew location\nPartition type\nNot selected\nChange default\nPartition size\nFree space before: Not specified\nPartition size: Not specified\nFree space after: Not specified\nChange default\nNext >\nCancel",
+ "caption": "پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن C و انتخاب محل جدید",
+ "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition C\nPartition location (required)\nNot selected\nNew location\nPartition type\nNot selected\nChange default\nPartition size\nFree space before: Not specified\nPartition size: Not specified\nFree space after: Not specified\nChange default\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات نرم افزار Recovery Wizard با مرحله «Specify recover settings of Partition C» فعال است",
- "نوار سمت چپ مراحل Required steps و فهرست مراحل شامل Archive selection، Recovery method، What to recover نمایش داده شده",
- "گزینه «New location» با بیضی قرمز مشخص شده است",
- "برای Partition location و Partition type وضعیت «Not selected» نمایش داده می شود",
- "بخش Partition size شامل Free space before/after و Partition size با مقدار «Not specified» است",
- "دکمه های «Next >» (غیرفعال) و «Cancel» در پایین پنجره دیده می شوند"
+ "نمایش پنجره نرم افزار Recovery Wizard با مراحل سمت چپ و مرحله «Settings of Partition C» انتخاب شده",
+ "در بخش «Partition location (required)» وضعیت «Not selected» و دکمه «New location» مشخص است و با بیضی قرمز دور آن علامت گذاری شده",
+ "در بخش «Partition type» مقدار «Not selected» و لینک «Change default» دیده می شود",
+ "در بخش «Partition size» مقادیر Free space before/Partition size/Free space after همگی «Not specified» هستند و لینک «Change default» وجود دارد",
+ "دکمه های پایین پنجره شامل «Next >» (غیرفعال) و «Cancel» هستند"
  ],
  "image_type": "screenshot"
 }
@@ -575,7 +587,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 در صورت نمایش درایوهای دیگر، مطابق شکل، فقط می باید درایو C را انتخاب نمایید.
 
-![پنجره تعیین مقصد پارتیشن در Recovery Wizard با نمایش دیسک ها و فضای Unallocated](img_folder/image_019_image20.png)
+![پنجره Recovery Wizard و انتخاب مقصد پارتیشن با فهرست دیسک ها و فضای خالی](img_folder/image_019_image20.png)
 
 **Image analysis**
 
@@ -584,16 +596,15 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image20.png",
  "rId": "rId33",
  "image_path": "img_folder/image_019_image20.png",
- "caption": "پنجره تعیین مقصد پارتیشن در Recovery Wizard با نمایش دیسک ها و فضای Unallocated",
- "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition\nE\nSettings of Partition\nC\nFinish\nPartition Destination\nNew partition location\nDisk properties\nChoose Columns\nPartition\nFlags\nCapa...\nFree S.\nDisk 1\nUnallocated\n200 GB\nDisk 2\nNTFS (BOOT) (D:)\nPri,Act.\n4.995 GB\n1.566\nNTFS (ADONIS UTILITY HDD) (E:)\nPri\n926.5 GB\n576.9\nAccept\nCancel\nNext >\nCancel\nEN",
+ "caption": "پنجره Recovery Wizard و انتخاب مقصد پارتیشن با فهرست دیسک ها و فضای خالی",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition\nE\nSettings of Partition\nC\nFinish\nPartition Destination\nNew partition location\nDisk properties\nChoose Columns\nPartition\nFlags\nCapa...\nFree S...\nDisk 1\nUnallocated\n200 GB\nDisk 2\nNTFS (BOOT) (D:)\nPri,Act\n4.995 GB\n1.566\nNTFS (ADONIS UTILITY HDD) (E:)\nPri\n926.5 GB\n576.9\nAccept\nCancel\nNext >\nCancel\nEN",
  "visual_description": [
- "اسکرین شات از نرم افزار Recovery Wizard با مرحله Settings of Partition فعال",
- "پنجره Partition Destination برای انتخاب New partition location نمایش داده شده است",
- "لیست Disk properties شامل Disk 1 با وضعیت Unallocated و ظرفیت 200 GB است",
- "Disk 2 شامل پارتیشن NTFS (BOOT) (D:) با Flagهای Pri,Act. و ظرفیت 4.995 GB است",
- "Disk 2 شامل پارتیشن NTFS (ADONIS UTILITY HDD) (E:) با Flag Pri و ظرفیت 926.5 GB است",
- "دکمه های Accept و Cancel در پنجره Partition Destination قابل مشاهده اند",
- "در پایین پنجره اصلی دکمه های Next > و Cancel وجود دارد"
+ "اسکرین شات یک ویزارد بازیابی با مراحل سمت چپ و مرحله Settings of Partition",
+ "پنجره Partition Destination برای انتخاب محل پارتیشن جدید نمایش داده شده است",
+ "فهرست دیسک ها شامل Disk 1 با Unallocated برابر 200 GB",
+ "Disk 2 شامل پارتیشن NTFS (BOOT) (D:) با Flags: Pri,Act و ظرفیت 4.995 GB و مقدار Free 1.566",
+ "Disk 2 شامل پارتیشن NTFS (ADONIS UTILITY HDD) (E:) با Flags: Pri و ظرفیت 926.5 GB و مقدار Free 576.9",
+ "دکمه های Accept و Cancel در پنجره انتخاب مقصد پارتیشن قابل مشاهده اند"
  ],
  "image_type": "screenshot"
 }
@@ -601,7 +612,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 12. پس انجام اقدامات فوق و انتخاب Reserved Partition پنجره زیر نمایش داده می شود. همانند تصویر زیر، مقدار Partition Size باید معادل 100MB باشد. در این صورت روی دکمه ی Next کلیک کنید تا به مرحله ی 14 بعد بروید. (ولی اگر مقدار Partition Size، معادل 100MB نیست لازم است جهت اعمال تغییرات، روی گزینه Change Default کلیک نمایید.)
 
-![پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن C و اندازه پارتیشن](img_folder/image_020_image21.png)
+![پنجره Recovery Wizard برای تنظیمات پارتیشن C و اندازه پارتیشن با گزینه Next.](img_folder/image_020_image21.png)
 
 **Image analysis**
 
@@ -610,15 +621,15 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image21.png",
  "rId": "rId34",
  "image_path": "img_folder/image_020_image21.png",
- "caption": "پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن C و اندازه پارتیشن",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition C\nPartition location (required)\nNTFS (Unlabeled) (C:)\nNew location\nPartition type\nPrimary, Mark the partition as active\nChange default\nPartition size\nPartition size: 100 MB\nChange default\nNext >\nCancel",
+ "caption": "پنجره Recovery Wizard برای تنظیمات پارتیشن C و اندازه پارتیشن با گزینه Next.",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition C\nPartition location (required)\nNTFS (Unlabeled) (C:)\nNew location\nPartition type\nPrimary, Mark the partition as active\nChange default\nPartition size\npartition size: 100 MB\nFree space after: 89.9 GB\nNext >\nCancel",
  "visual_description": [
- "پنجره نرم افزار Recovery Wizard با مرحله «Specify recover settings of Partition C» نمایش داده شده است.",
- "در بخش Partition location مقدار «NTFS (Unlabeled) (C:)» دیده می شود و گزینه «New location» وجود دارد.",
- "در بخش Partition type متن «Primary, Mark the partition as active» و لینک «Change default» نمایش داده شده است.",
- "در بخش Partition size مقدار «Partition size: 100 MB» نمایش داده شده و لینک «Change default» کنار آن قرار دارد.",
- "دکمه های «Next >» و «Cancel» در پایین پنجره دیده می شوند.",
- "در سمت چپ فهرست مراحل Required steps با موارد Archive selection، Recovery method، What to recover، Settings of Partition C/D، MBR of Disk 1، Finish نمایش داده شده است."
+ "اسکرین شات از پنجره Recovery Wizard با مراحل سمت چپ و مرحله فعال «Settings of Partition C».",
+ "متن «Specify recover settings of Partition C» در بخش اصلی دیده می شود.",
+ "بخش Partition location مقدار «NTFS (Unlabeled) (C:)» را نشان می دهد و لینک «New location» دارد.",
+ "بخش Partition type مقدار «Primary, Mark the partition as active» و لینک «Change default» دارد.",
+ "بخش Partition size شامل عبارت «partition size: 100 MB» است و با کادر قرمز مشخص شده.",
+ "دکمه «Next >» در پایین با بیضی قرمز مشخص شده و دکمه «Cancel» کنار آن قرار دارد."
  ],
  "image_type": "screenshot"
 }
@@ -626,7 +637,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 13. در پنجره زیر حجم درایو مربوطه را به 100MB تغییر داده و روی دکمه ی Accept و سپس Next کلیک نمایید:
 
-![پنجره Recovery Wizard با تنظیمات اندازه پارتیشن و فیلد Partition size](img_folder/image_021_image22.jpg)
+![پنجره تنظیم اندازه پارتیشن در Recovery Wizard برای پارتیشن D](img_folder/image_021_image22.jpg)
 
 **Image analysis**
 
@@ -635,15 +646,15 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image22.jpg",
  "rId": "rId35",
  "image_path": "img_folder/image_021_image22.jpg",
- "caption": "پنجره Recovery Wizard با تنظیمات اندازه پارتیشن و فیلد Partition size",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition Size\nYou can change the size of the partition.\nUsed space\nFree space\nUnallocated space\nPartition size:\n100\nMB\nFree space before:\n0\nMB\nFree space after:\n0\nMB\nAccept\nCancel\nNext >\nCancel",
+ "caption": "پنجره تنظیم اندازه پارتیشن در Recovery Wizard برای پارتیشن D",
+ "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition Size\nYou can change the size of the partition.\nUsed space\nFree space\nUnallocated space\nPartition size:\n100\nMB\nFree space before:\n0\nMB\nFree space after:\n0\nMB\nAccept\nCancel\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات نرم افزار Recovery Wizard با مرحله «Settings of Partition D» انتخاب شده در نوار کناری",
- "پنجره «Partition Size» با نوار لغزنده تغییر اندازه پارتیشن نمایش داده شده است",
- "گزینه های نمایش «Used space»، «Free space»، «Unallocated space» به صورت چک باکس وجود دارد",
- "فیلد «Partition size» مقدار 100 MB را نشان می دهد و یک فلش قرمز به آن اشاره می کند",
- "فیلدهای «Free space before» و «Free space after» هر دو مقدار 0 MB دارند",
- "دکمه های «Accept» و «Cancel» داخل پنجره و «Next >» و «Cancel» در پایین صفحه دیده می شوند"
+ "اسکرین شات نرم افزار Recovery Wizard با مرحله «Settings of Partition D» انتخاب شده",
+ "نمایش مسیر پارتیشن: «NTFS (Unlabeled) (D:)» و لینک «New location»",
+ "پنجره «Partition Size» شامل نوار لغزنده تغییر اندازه پارتیشن",
+ "فیلد «Partition size» مقدار 100 MB و فیلدهای «Free space before/after» مقدار 0 MB",
+ "دکمه های «Accept» و «Cancel» در پنجره و «Next >» و «Cancel» در پایین صفحه",
+ "یک فلش قرمز به فیلد «Partition size» اشاره می کند"
  ],
  "image_type": "screenshot"
 }
@@ -651,7 +662,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 14. روی New Location کلیک، پارتیشن حاوی ویندوز را انتخاب (Accept) و درنهایت روی گزینه ی Next کلیک کنید:
 
-![پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D و انتخاب محل جدید](img_folder/image_022_image23.jpg)
+![پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D و انتخاب New location](img_folder/image_022_image23.jpg)
 
 **Image analysis**
 
@@ -660,23 +671,22 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image23.jpeg",
  "rId": "rId36",
  "image_path": "img_folder/image_022_image23.jpg",
- "caption": "پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D و انتخاب محل جدید",
+ "caption": "پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D و انتخاب New location",
  "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNot selected\nNew location\nPartition type\nNot selected\nChange default\nPartition size\nFree space before: Not specified\nPartition size: Not specified\nFree space after: Not specified\nChange default\nNext >\nCancel",
  "visual_description": [
- "پنجره نرم افزار با عنوان Recovery Wizard نمایش داده شده است",
- "در ستون چپ فهرست مراحل شامل Archive selection، Recovery method، What to recover، Settings of Partition C و Settings of Partition D دیده می شود",
- "بخش اصلی صفحه عنوان Specify recover settings of Partition D دارد",
- "گزینه Partition location (required) مقدار Not selected دارد و دکمه New location کنار آن دیده می شود",
- "بخش Partition type مقدار Not selected دارد و لینک Change default نمایش داده شده است",
- "بخش Partition size شامل Free space before/Partition size/Free space after با مقدار Not specified است",
- "دکمه های پایین پنجره شامل Next > (غیرفعال) و Cancel هستند",
- "یک دایره قرمز دور متن New location کشیده شده است"
+ "اسکرین شات پنجره نرم افزار با عنوان Recovery Wizard",
+ "منوی مراحل در سمت چپ شامل Archive selection تا Finish و انتخاب Settings of Partition D",
+ "بخش اصلی با عنوان Specify recover settings of Partition D و فیلد Partition location (required) با وضعیت Not selected",
+ "لینک New location در بالا سمت راست با یک بیضی قرمز دور آن مشخص شده است",
+ "قسمت Partition type با وضعیت Not selected و لینک Change default",
+ "قسمت Partition size با سه مقدار Not specified و لینک Change default",
+ "دکمه های پایین پنجره شامل Next > و Cancel"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره Recovery Wizard برای انتخاب محل پارتیشن جدید و فضای Unallocated روی Disk 1](img_folder/image_023_image24.jpg)
+![پنجره انتخاب محل پارتیشن جدید با گزینه Unallocated و دکمه Accept مشخص شده است.](img_folder/image_023_image24.jpg)
 
 **Image analysis**
 
@@ -685,15 +695,13 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image24.jpeg",
  "rId": "rId37",
  "image_path": "img_folder/image_023_image24.jpg",
- "caption": "پنجره Recovery Wizard برای انتخاب محل پارتیشن جدید و فضای Unallocated روی Disk 1",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nPartition Destination\nNew partition location\nDisk properties\nPartition\nFla...\nCapa...\nFree S...\nType\nDisk 1\nSystem Reserved) (C)\n101.9 MB\n75.86 MB\nNTFS\nUnallocated\n39.9 GB\nUnallocated\nAccept\nCancel\nNext >\nCancel",
+ "caption": "پنجره انتخاب محل پارتیشن جدید با گزینه Unallocated و دکمه Accept مشخص شده است.",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nPartition Destination\nNew partition location\nDisk properties\nPartition\nFla...\nCapa...\nFree S...\nType\nDisk 1\nReserved) (C)\nPri,Act\n101.9 MB\n75.86 MB\nNTFS\nUnallocated\n39.9 GB\nUnallocated\nAccept\nCancel\nNext >\nCancel",
  "visual_description": [
- "پنجره «Partition Destination» با عنوان «New partition location» نمایش داده شده است",
- "جدول «Disk properties» ستون های Partition، Fla...، Capa...، Free S... و Type را نشان می دهد",
- "ردیف «Unallocated» با ظرفیت 39.9 GB و نوع Unallocated انتخاب شده است",
- "دکمه های «Accept» و «Cancel» در پایین پنجره وجود دارد",
- "در سمت چپ مراحل «Recovery Wizard» شامل Archive selection، Recovery method، What to recover، Settings of Partition C، Settings of Partition D، MBR of Disk 1 و Finish دیده می شود",
- "روی تصویر با بیضی قرمز «Unallocated» و دکمه «Accept» علامت گذاری شده است"
+ "اسکرین شات نرم افزار Recovery Wizard با مراحل سمت چپ و مرحله Settings of Partition D انتخاب شده",
+ "پنجره Partition Destination شامل بخش New partition location و جدول Disk properties است",
+ "در جدول، ردیف Unallocated با ظرفیت 39.9 GB و Type برابر Unallocated انتخاب شده است",
+ "دکمه های Accept و Cancel در پایین پنجره دیده می شوند و Accept با علامت گذاری قرمز مشخص شده است"
  ],
  "image_type": "screenshot"
 }
@@ -701,7 +709,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 15. همانند تصویر زیر، مقدار Partition Size باید معادل 105GB باشد. در این صورت روی دکمه ی Next کلیک کنید تا به مرحله ی 17 بروید. (ولی اگر مقدار Partition Size، معادل 105GB نیست لازم است جهت اعمال تغییرات، روی گزینه Change Default کلیک نمایید.)
 
-![پنجره Recovery Wizard برای تنظیم بازیابی پارتیشن D با گزینه های مکان، نوع و اندازه پارتیشن](img_folder/image_024_image25.jpg)
+![پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D با گزینه Change default مشخص شده](img_folder/image_024_image25.jpg)
 
 **Image analysis**
 
@@ -710,15 +718,16 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image25.jpg",
  "rId": "rId38",
  "image_path": "img_folder/image_024_image25.jpg",
- "caption": "پنجره Recovery Wizard برای تنظیم بازیابی پارتیشن D با گزینه های مکان، نوع و اندازه پارتیشن",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition type\nPrimary\nChange default\nPartition size\nFree space before: 0 bytes\nPartition size: 105GB\nFree space after: 0 bytes\nChange default\nNext >\nCancel",
+ "caption": "پنجره Recovery Wizard برای تنظیمات بازیابی پارتیشن D با گزینه Change default مشخص شده",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition type\nPrimary\nChange default\nPartition size\nFree space before: 0 bytes\nPartition size:\nFree space after: 0 bytes\nChange default\nNext >\nCancel",
  "visual_description": [
- "رابط کاربری Recovery Wizard با منوی مراحل در ستون چپ نمایش داده شده است",
- "صفحه «Specify recover settings of Partition D» نشان دهنده پارتیشن NTFS (Unlabeled) (D:) است",
- "نوع پارتیشن به صورت Primary نمایش داده شده است",
- "اندازه پارتیشن 105GB و فضای خالی قبل و بعد 0 bytes درج شده است",
- "لینک های «New location» و «Change default» در سمت راست دیده می شوند و یکی با بیضی قرمز مشخص شده است",
- "دکمه های «Next >» و «Cancel» در پایین پنجره قرار دارند"
+ "صفحه Settings of Partition D در Recovery Wizard نمایش داده شده است",
+ "پارتیشن انتخابی: NTFS (Unlabeled) (D:)",
+ "Partition type برابر Primary است",
+ "بخش Partition size شامل Free space before: 0 bytes و Free space after: 0 bytes است",
+ "لینک های New location و Change default در سمت راست دیده می شوند",
+ "روی عبارت Change default در پایین سمت راست با بیضی قرمز تاکید شده است",
+ "دکمه های Next > و Cancel در پایین پنجره وجود دارند"
  ],
  "image_type": "screenshot"
 }
@@ -726,7 +735,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 16. در پنجره ای که گشوده می شود ظرفیت درایو حاوی ویندوز را به 105 گیگابایت تغییر دهید و سپس به ترتیب روی Accept و Next کلیک نمایید:
 
-![پنجره Recovery Wizard برای تنظیم اندازه پارتیشن D و نمایش اندازه ۱۰۵ گیگابایت](img_folder/image_025_image26.jpg)
+![پنجره Recovery Wizard با تنظیم اندازه پارتیشن D و نمایش اندازه ۱۰۵ گیگابایت](img_folder/image_025_image26.jpg)
 
 **Image analysis**
 
@@ -735,14 +744,16 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image26.jpg",
  "rId": "rId39",
  "image_path": "img_folder/image_025_image26.jpg",
- "caption": "پنجره Recovery Wizard برای تنظیم اندازه پارتیشن D و نمایش اندازه ۱۰۵ گیگابایت",
- "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition Size\nYou can change the size of the partition.\nUsed space\nFree space\nUnallocated space\nPartition size:\n105 GB\nFree space before:\nMB\nFree space after:\nMB\nAccept\nCancel\nNext >\nCancel",
+ "caption": "پنجره Recovery Wizard با تنظیم اندازه پارتیشن D و نمایش اندازه ۱۰۵ گیگابایت",
+ "ocr_text": "Recovery Wizard\nRecovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk1\nFinish\nSpecify recover settings of Partition D\nPartition location (required)\nNTFS (Unlabeled) (D:)\nNew location\nPartition Size\nYou can change the size of the partition.\nUsed space\nFree space\nUnallocated space\nPartition size:\n105 GB\nFree space before:\n0\nMB\nFree space after:\n0\nMB\nAccept\nCancel\nNext >\nCancel",
  "visual_description": [
- "نمایش نرم افزار Recovery Wizard با مراحل سمت چپ و مرحله فعال Settings of Partition D",
- "پنجرهٔ Partition Size شامل اسلایدر تغییر اندازه پارتیشن و گزینه های Used space/Free space/Unallocated space",
- "فیلد Partition size مقدار 105 GB را نشان می دهد",
- "دکمه های Accept و Cancel در پنجره Partition Size و دکمه Next > در پایین ویزارد دیده می شوند",
- "Partition location: NTFS (Unlabeled) (D:) با لینک New location نمایش داده شده است"
+ "اسکرین شات نرم افزار Recovery Wizard در مرحله Specify recover settings of Partition D",
+ "پارتیشن انتخاب شده NTFS (Unlabeled) (D:) نمایش داده شده است",
+ "پنجره Partition Size با نوار لغزنده تغییر اندازه پارتیشن وجود دارد",
+ "گزینه های Used space، Free space و Unallocated space به صورت چک باکس دیده می شوند",
+ "مقدار Partition size برابر 105 GB نمایش داده شده است",
+ "فیلدهای Free space before و Free space after هر دو 0 MB هستند",
+ "دکمه های Accept و Cancel در پنجره تنظیم اندازه و دکمه Next > در پنجره اصلی دیده می شوند"
  ],
  "image_type": "screenshot"
 }
@@ -750,7 +761,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 17. در این مرحله، همانند شکل زیر، روی دکمه ی Next کلیک کنید:
 
-![پنجره Recovery Wizard برای انتخاب دیسک هدف جهت بازیابی MBR با دکمه Next](img_folder/image_026_image27.jpg)
+![پنجره Recovery Wizard برای انتخاب دیسک هدف جهت بازیابی MBR و دکمه Next](img_folder/image_026_image27.jpg)
 
 **Image analysis**
 
@@ -759,14 +770,15 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image27.jpeg",
  "rId": "rId40",
  "image_path": "img_folder/image_026_image27.jpg",
- "caption": "پنجره Recovery Wizard برای انتخاب دیسک هدف جهت بازیابی MBR با دکمه Next",
+ "caption": "پنجره Recovery Wizard برای انتخاب دیسک هدف جهت بازیابی MBR و دکمه Next",
  "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk 1\nFinish\nOptional steps:\nOptions\nSelect target disk for MBR recovery\nDisk properties\nDrive\nCapacity\nModel\nInterface\nDisk 1\n40 GB\nATA VMware Virtual I\nIDE(2) Primary Slave\nRecover disk signature\n40 GB\nC:\nUnallocated\n39.9 GB\nPrimary // Logical // Dynamic\nAcronis Secure Zone\nUnallocated // Unsupported\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات ویزارد بازیابی با عنوان Select target disk for MBR recovery",
- "لیست دیسک ها شامل Disk 1 با ظرفیت 40 GB و مدل ATA VMware Virtual I و رابط IDE(2) Primary Slave",
- "گزینه Recover disk signature به صورت چک باکس نمایش داده شده است",
- "نمایش نوار وضعیت پارتیشن: C: و Unallocated 39.9 GB",
- "دکمه های Next > و Cancel در پایین پنجره وجود دارد و Next > دور آن خط قرمز کشیده شده است"
+ "اسکرین شات نرم افزار Recovery Wizard با مرحله «Select target disk for MBR recovery»",
+ "فهرست دیسک ها شامل «Disk 1» با ظرفیت 40 GB، مدل «ATA VMware Virtual I» و رابط «IDE(2) Primary Slave»",
+ "نوار مراحل سمت چپ شامل Archive selection تا Finish و مرحله «MBR of Disk 1»",
+ "گزینه چک باکس «Recover disk signature» قابل مشاهده است",
+ "نمایش وضعیت پارتیشن: «C:» و «Unallocated 39.9 GB»",
+ "دکمه «Next >» با یک بیضی قرمز مشخص شده است و «Cancel» کنار آن قرار دارد"
  ],
  "image_type": "screenshot"
 }
@@ -784,15 +796,13 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "rId": "rId41",
  "image_path": "img_folder/image_027_image28.jpg",
  "caption": "پنجره Recovery Wizard با خلاصه عملیات بازیابی و دکمه Proceed مشخص شده",
- "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk1\nFinish\nSummary\nOperations\nNumber of operations: 4\n1. Recovering MBR\nHard disk: 1\n2. Deleting partition\nHard disk: 1\nDrive letter: C:\nFile system: NTFS\nVolume label:\nSize: 39.99 GB\n3. Recovering partition sector by sector\nHard disk: 1\nDrive letter: C:\nFile system: NTFS\nVolume label: System Reserved\nSize: 100 MB -> 101.9 MB\n4. Recovering partition sector by sector\nHard disk: 1\nDrive letter: D: -> E:\nFile system: NTFS\nVolume label:\nSize: 32 GB -> 32.01 GB\nOptional steps:\nOptions\nOptions\nProceed\nCancel",
+ "ocr_text": "Recovery Wizard\nRequired steps:\nArchive selection\nRecovery method\nWhat to recover\nSettings of Partition C\nSettings of Partition D\nMBR of Disk1\nFinish\nSummary\nOperations\nNumber of operations: 4\n1. Recovering MBR\nHard disk: 1\n2. Deleting partition\nHard disk: 1\nDrive letter: C:\nFile system: NTFS\nVolume label:\nSize: 39.99 GB\n3. Recovering partition sector by sector\nHard disk: 1\nDrive letter: C:\nFile system: NTFS\nVolume label: System Reserved\nSize: 100 MB -> 101.9 MB\n4. Recovering partition sector by sector\nHard disk: 1\nDrive letter: D: -> E:\nFile system: NTFS\nVolume label:\nOptional steps:\nOptions\nOptions\nProceed\nCancel",
  "visual_description": [
- "اسکرین شات از ابزار Recovery Wizard با پنل مراحل در سمت چپ و بخش Summary در سمت راست",
- "در Summary تعداد عملیات 4 نمایش داده شده است",
- "عملیات شامل Recovering MBR برای Hard disk: 1 است",
- "عملیات Deleting partition برای درایو C: با File system: NTFS و Size: 39.99 GB نمایش داده شده است",
- "عملیات Recovering partition sector by sector برای C: با Volume label: System Reserved و Size: 100 MB -> 101.9 MB نمایش داده شده است",
- "عملیات Recovering partition sector by sector برای D: -> E: با File system: NTFS و Size: 32 GB -> 32.01 GB نمایش داده شده است",
- "دکمه Proceed در پایین پنجره با بیضی قرمز علامت گذاری شده است"
+ "اسکرین شات ویزارد بازیابی با مرحله Finish انتخاب شده و صفحه Summary",
+ "فهرست عملیات شامل Recovering MBR، Deleting partition و دو عملیات Recovering partition sector by sector",
+ "نمایش Hard disk: 1 و سیستم فایل NTFS برای درایوهای C و D->E",
+ "اندازه ها شامل 39.99 GB و System Reserved با 100 MB -> 101.9 MB",
+ "دکمه Proceed با دایره قرمز مشخص شده و دکمه های Options و Cancel در پایین دیده می شوند"
  ],
  "image_type": "screenshot"
 }
@@ -800,7 +810,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 19. نمایش پیغام Recover operation succeeded بیانگر پایان موفقیت آمیز عملیات خواهد بود، روی دکمه OK کلیک نمایید. و درنهایت از قسمت File گزینه Exit را انتخاب کنید تا از برنامه Acronis خارج شوید.
 
-![پیام موفقیت عملیات بازیابی در Acronis True Image Home 2011](img_folder/image_028_image29.jpg)
+![نمای نرم افزار Acronis با پیام موفقیت عملیات بازیابی و دکمه OK](img_folder/image_028_image29.jpg)
 
 **Image analysis**
 
@@ -809,13 +819,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image29.jpeg",
  "rId": "rId42",
  "image_path": "img_folder/image_028_image29.jpg",
- "caption": "پیام موفقیت عملیات بازیابی در Acronis True Image Home 2011",
+ "caption": "نمای نرم افزار Acronis با پیام موفقیت عملیات بازیابی و دکمه OK",
  "ocr_text": "Acronis True Image Home 2011\nBackup\nRecovery\nTools & Utilities\nSearch\nHome\nBackup\nRecovery\nLog\nTools & Utilities\nData recovery and backup management\nDisk Recovery\nRecover your computer from a backup.\nRefresh backups\nBrowse for backup...\nInformation\nRecover operation succeeded.\nOK\nCreated\nCom...\nRating\nPasargad_Windows7_20150624\nPasargad_Windows7_20150624 6/24/15 1:06:27 PM",
  "visual_description": [
- "اسکرین شات نرم افزار Acronis True Image Home 2011 در بخش Recovery",
- "پنجره Information پیام «Recover operation succeeded.» و دکمه «OK» را نشان می دهد",
- "صفحه Disk Recovery با گزینه های Refresh backups و Browse for backup... نمایش داده شده است",
- "لیست بکاپ شامل «Pasargad_Windows7_20150624» با زمان «6/24/15 1:06:27 PM» دیده می شود"
+ "اسکرین شات برنامه Acronis True Image Home 2011 با پنل ناوبری Home/Backup/Recovery/Log/Tools & Utilities",
+ "بخش «Data recovery and backup management» و گزینه «Disk Recovery» نمایش داده شده است",
+ "پنجره پیام «Information» با متن «Recover operation succeeded.» و دکمه «OK» روی صفحه قرار دارد",
+ "در لیست بکاپ ها مورد «Pasargad_Windows7_20150624» با زمان «6/24/15 1:06:27 PM» دیده می شود",
+ "دو بیضی قرمز دور متن پیام موفقیت و دکمه OK کشیده شده اند"
  ],
  "image_type": "screenshot"
 }
@@ -823,7 +834,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 20. با بسته شدن برنامه Acronis، صفحه ی زیرنمایان خواهد شد؛ با فشار کلیدهای Ctrl+Alt+Delete دستگاه را Restart نمایید:
 
-![نمایش پیام های بوت و وضعیت LVM/RAID در کنسول لینوکسی](img_folder/image_029_image30.jpg)
+![نمایش پیام های بوت شامل نبود RAID و خطاهای LinuxMountManager هنگام خواندن LVM](img_folder/image_029_image30.jpg)
 
 **Image analysis**
 
@@ -832,15 +843,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image30.jpeg",
  "rId": "rId43",
  "image_path": "img_folder/image_029_image30.jpg",
- "caption": "نمایش پیام های بوت و وضعیت LVM/RAID در کنسول لینوکسی",
- "ocr_text": "Loading, please wait...\nNo RAID disks\nReading all physical volumes. This may take a while...\nNo volume groups found\nNo volume groups found\nNo volume groups found\nin LinuxMountManager::Directory::EnableNotification(), type = 138\nin LinuxMountManager::Directory::EnableNotification(), type = 128\nin LinuxMountManager::Directory::EnableNotification(), type = 128\nin LinuxMountManager::Directory::EnableNotification(), type = 128\nin LinuxMountManager::Directory::EnableNotification(), type = 128\nin LinuxMountManager::Directory::EnableNotification(), type = 128",
+ "caption": "نمایش پیام های بوت شامل نبود RAID و خطاهای LinuxMountManager هنگام خواندن LVM",
+ "ocr_text": "Loading, please wait...\nNo RAID disks\nReading all physical volumes. This may take a while...\nNo volume groups found\nNo volume groups found\nNo volume groups found\nin LinuxMountManager::Directory::EnableNotification(), type = 138\nin LinuxMountManager::Directory::En\nableNotification(), type = 128\nin LinuxMountManager::Directory::EnableNotification(), type = 128\nmuxMountManager::Directory::EnableNotification(), type = 128\nin Li\notification(), type = 128\nin LinuxMountManager::Directory::EnableN\nin LinuxMountManager::Directory::EnableNotification(), type = 128",
  "visual_description": [
- "صفحه کنسول با متن سفید روی زمینه سیاه",
+ "صفحه سیاه با متن سفید شبیه خروجی کنسول/بوت",
  "پیام «No RAID disks» نمایش داده شده است",
  "پیام «Reading all physical volumes. This may take a while...» نمایش داده شده است",
- "چندین بار پیام «No volume groups found» نمایش داده شده است",
- "چندین خط خطا/لاگ شامل «LinuxMountManager::Directory::EnableNotification()» با type=138 و type=128 دیده می شود",
- "نشانگر/بلوک سفید در بالای سمت راست صفحه دیده می شود"
+ "چند بار پیام «No volume groups found» تکرار شده است",
+ "چند خط خطا/لاگ شامل «LinuxMountManager::Directory::EnableNotification()» با type=128 و یک مورد type=138 دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -856,7 +866,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 حتماً لازم است ساعت و تاریخ را از طریق مراجعه به صفحه تنظیمات بایوس تنظیم کرده باشید.
 
-![صفحه ورود کاربر آدونیس با فیلدهای ID و کد تایید و دکمه های ورود و خروج](img_folder/image_030_image31.png)
+![صفحه ورود کاربر آدونیس با فیلدهای ID و Verification Code و گزینه نمایش رمز](img_folder/image_030_image31.png)
 
 **Image analysis**
 
@@ -865,16 +875,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image31.png",
  "rId": "rId44",
  "image_path": "img_folder/image_030_image31.png",
- "caption": "صفحه ورود کاربر آدونیس با فیلدهای ID و کد تایید و دکمه های ورود و خروج",
- "ocr_text": "Adonis Login Page\nUSER LOGIN\nID\nVerification Code\nShow Password\nLog in\n- OR -\nExit\nآدونیس\nADONIS",
+ "caption": "صفحه ورود کاربر آدونیس با فیلدهای ID و Verification Code و گزینه نمایش رمز",
+ "ocr_text": "Adonis Login Page\nUSER LOGIN\nID\nVerification Code\nShow Password\nLog in\n-OR-\nExit\nآدونیس\nADONIS",
  "visual_description": [
- "پنجره برنامه با عنوان «Adonis Login Page» نمایش داده شده است",
- "تیتر «USER LOGIN» در بالای فرم قرار دارد",
- "دو کادر ورودی با برچسب های «ID» و «Verification Code» وجود دارد",
- "یک چک باکس با متن «Show Password» دیده می شود",
- "دکمه آبی «Log in» و زیر آن جداکننده «- OR -» قرار دارد",
- "دکمه خاکستری «Exit» در پایین فرم است",
- "لوگوی «آدونیس / ADONIS» در سمت چپ صفحه دیده می شود"
+ "پنجره نرم افزار با عنوان «Adonis Login Page» نمایش داده شده است",
+ "بخش «USER LOGIN» شامل دو کادر ورودی با برچسب های «ID» و «Verification Code» است",
+ "یک چک باکس با متن «Show Password» زیر کادرها قرار دارد",
+ "دو دکمه «Log in» و «Exit» با متن «-OR-» بین آنها دیده می شود",
+ "لوگوی «آدونیس ADONIS» در سمت چپ پنجره قرار دارد"
  ],
  "image_type": "screenshot"
 }
@@ -882,7 +890,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 2. **تنظیمات سخت افزار:** در پنجره ی زیر، جهت نصب کانفیگ سخت افزاری مناسب دستگاه، گزینه ی 2-EastCom Config را انتخاب کنید:
 
-![صفحه تنظیمات ATM با گزینه های پیکربندی و دستور وارد کردن شماره و زدن Enter](img_folder/image_031_image32.png)
+![صفحه تنظیمات ATM بانک رفاه با منوی گزینه ها و دستور وارد کردن شماره](img_folder/image_031_image32.png)
 
 **Image analysis**
 
@@ -891,13 +899,13 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image32.png",
  "rId": "rId45",
  "image_path": "img_folder/image_031_image32.png",
- "caption": "صفحه تنظیمات ATM با گزینه های پیکربندی و دستور وارد کردن شماره و زدن Enter",
- "ocr_text": "Mark Administrator: ::Bank Refah ATM Config::\n\n:::Set ATM Config::\n\n1- Wincor Config 2- EastCom Config\n\n3- EPP Config 4- Tools\n\n5- Set Config and Reset\n\nType Number and Press Enter:",
+ "caption": "صفحه تنظیمات ATM بانک رفاه با منوی گزینه ها و دستور وارد کردن شماره",
+ "ocr_text": "Mark Administrator: ..::Bank Refah ATM Config::.\n\n..::Set ATM Config::.\n\n1- Wincor Config 2- EastCom Config\n\n3- EPP Config 4- Tools\n\n5- Set Config and Reset\n\nType Number and Press Enter:",
  "visual_description": [
- "اسکرین شات یک پنجره کنسولی با پس زمینه آبی و منوی متنی «Bank Refah ATM Config»",
- "گزینه های منو شامل: 1- Wincor Config، 2- EastCom Config، 3- EPP Config، 4- Tools، 5- Set Config and Reset",
+ "اسکرین شات محیط متنی با پس زمینه آبی و منوی پیکربندی ATM",
+ "گزینه های منو شامل Wincor Config، EastCom Config، EPP Config، Tools و Set Config and Reset است",
  "گزینه «5- Set Config and Reset» با کادر قرمز برجسته شده است",
- "در پایین صفحه پیام «Type Number and Press Enter:» به همراه مکان نمای ورودی دیده می شود"
+ "در پایین صفحه پیام «Type Number and Press Enter:» برای دریافت ورودی نمایش داده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -907,7 +915,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 3. از بین گزینه های یک تا چهار، گزینه ی مناسب را با توجه به سخت افزار نصب شده روی دستگاه، جهت نصب کانفیگ نرم افزاری انتخاب کنید:
 
-![صفحه تنظیمات EastCom در کنسول پیکربندی ATM بانک رفاه با گزینه های انتخاب مدل](img_folder/image_032_image33.png)
+![نمایشگر تنظیمات Bank Refah ATM برای انتخاب پیکربندی EastCom](img_folder/image_032_image33.png)
 
 **Image analysis**
 
@@ -916,14 +924,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image33.png",
  "rId": "rId46",
  "image_path": "img_folder/image_032_image33.png",
- "caption": "صفحه تنظیمات EastCom در کنسول پیکربندی ATM بانک رفاه با گزینه های انتخاب مدل",
- "ocr_text": "Administrator - -Bank Refah ATM Config:\n\n:::Set EastCom Config:::\n\n1- PC280- V2CU- 1DBCR 2- PC2000- V2XU- 1DBCR\n\n3- PC285- V2CU- TP13- 1DBCR 4- PC285- V2CU- TP28- 1DBCR\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:",
+ "caption": "نمایشگر تنظیمات Bank Refah ATM برای انتخاب پیکربندی EastCom",
+ "ocr_text": "Administrator - ::Bank Refah ATM Config::\n\n:::Set EastCom Config::\n\n1- PC280- V2CU- 1DBCR 2- PC2000- V2XU- 1DBCR\n\n3- PC285- V2CU- TP13- 1DBCR 4- PC285- V2CU- TP28- 1DBCR\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:",
  "visual_description": [
- "پنجره کنسول با پس زمینه آبی و متن سفید نمایش داده می شود",
- "بخش عنوان «:::Set EastCom Config:::» در مرکز صفحه دیده می شود",
- "چهار گزینه شماره دار برای انتخاب پیکربندی شامل PC280/PC2000/PC285 با V2CU یا V2XU و 1DBCR نمایش داده شده است",
- "پیغام «Type x and Press Enter to go Main Menu» برای بازگشت به منوی اصلی وجود دارد",
- "در پایین صفحه ورودی «Type Number and Press Enter:» برای دریافت انتخاب کاربر نمایش داده می شود"
+ "پنجره کنسولی با پس زمینه آبی و متن سفید نمایش داده شده است",
+ "عنوان پنجره: Administrator - ::Bank Refah ATM Config::",
+ "بخش :::Set EastCom Config::: شامل چهار گزینه شماره گذاری شده برای انتخاب تنظیمات است",
+ "گزینه ها شامل رشته های PC280/PC2000/PC285 و V2CU/V2XU و 1DBCR هستند",
+ "دستور «Type x and Press Enter to go Main Menu» و اعلان ورودی «Type Number and Press Enter:» دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -931,7 +939,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 
 عملیات نصب آغاز خواهد شد:
 
-![نمایش منوی تنظیمات ATM و پنجره InstallShield برای نصب ProBase/C](img_folder/image_033_image34.jpg)
+![نصب ProBase/C با InstallShield در محیط تنظیمات ATM](img_folder/image_033_image34.jpg)
 
 **Image analysis**
 
@@ -940,12 +948,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image34.jpg",
  "rId": "rId47",
  "image_path": "img_folder/image_033_image34.jpg",
- "caption": "نمایش منوی تنظیمات ATM و پنجره InstallShield برای نصب ProBase/C",
- "ocr_text": "Administrator: *** Set ATM Config ***\n[ *** :: ADONIS ESD COMPANY :: *** ]\n[ *** :: Bank Refah ATM Config :: *** ]\n[ *** Set ATM Config *** ]\n1- PC1500-2050-2150- OPL- V2CU- 1DBCR- 4C\n3- PC2050-2150- V2CU- 1DBCR- 6C\n5- EC2001 EPP Config\n7- EPPV5 Config\n9- Set Config and\nType Number and Press Enter:\nProbase/C - InstallShield Wizard\nPreparing Setup\nInstalling Probase/C <13.00.12>\nWINCOR\nNIXD\nEXPERIENCE\nPreparing ProBase Installation ....\nCancel",
+ "caption": "نصب ProBase/C با InstallShield در محیط تنظیمات ATM",
+ "ocr_text": "Administrator: *** Set ATM Config ***\n[ *** : ADONIS ESD COMPANY : *** ]\n[ *** : Bank Refah ATM Config : *** ]\n[ *** Set ATM Config *** ]\nProbase/C - InstallShield Wizard\nPreparing Setup\nInstalling Probase/C <13.00.12>\nWINCOR\nNIXD\nEXPERIENCE\nPreparing ProBase Installation ....\nCancel",
  "visual_description": [
- "پنجره کنسولی با عنوان Set ATM Config و فهرست گزینه های شماره دار پیکربندی ATM نمایش داده شده است",
- "پنجره نصب InstallShield با وضعیت Preparing Setup برای Installing Probase/C <13.00.12> روی صفحه باز است",
- "دیالوگ مرکزی نصب متن Preparing ProBase Installation .... و دکمه Cancel دارد"
+ "پنجره «Probase/C - InstallShield Wizard» روی دسکتاپ ویندوز باز است و مرحله «Preparing Setup» نمایش داده می شود.",
+ "پنجره نصب نسخه «Installing Probase/C <13.00.12>» قابل مشاهده است.",
+ "در پنجره نصب لوگوی «WINCOR NIXD» و پیام «Preparing ProBase Installation ....» نمایش داده می شود.",
+ "دکمه «Cancel» در پایین پنجره نصب وجود دارد.",
+ "در پس زمینه پنجره کنسولی با عنوان «Administrator: *** Set ATM Config ***» و گزینه های منویی «Set ATM Config» دیده می شود."
  ],
  "image_type": "screenshot"
 }
@@ -955,7 +965,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 5. گزینه ی 3-EPP Config را انتخاب کنید.
 6. در پنجره ی زیر، باتوجه به نوع صفحه کلید دستگاه، از بین گزینه های 1 تا 4 گزینه مناسب را انتخاب کنید.
 
-![منوی تنظیم EPP در ابزار Bank Refah ATM Config با گزینه های EC2001، EC2003، EPPV5-V6 و JustTide](img_folder/image_034_image35.png)
+![صفحه پیکربندی EPP در نرم افزار Bank Refah ATM Config با گزینه های انتخاب مدل](img_folder/image_034_image35.png)
 
 **Image analysis**
 
@@ -964,14 +974,13 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image35.png",
  "rId": "rId48",
  "image_path": "img_folder/image_034_image35.png",
- "caption": "منوی تنظیم EPP در ابزار Bank Refah ATM Config با گزینه های EC2001، EC2003، EPPV5-V6 و JustTide",
- "ocr_text": "Administrator: :Bank Refah ATM Config:\n\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n:::Set EPP Config:::\n\n1- EC2001 EPP Config 2- EC2003 EPP Config\n\n3- EPPV5-V6 Config 4- EPP JustTide Config\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:",
+ "caption": "صفحه پیکربندی EPP در نرم افزار Bank Refah ATM Config با گزینه های انتخاب مدل",
+ "ocr_text": "Administrator - ::Bank Refah ATM Config::\n\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n:::Set EPP Config:::\n\n1- EC2001 EPP Config 2- EC2003 EPP Config\n\n3- EPPV5-V6 Config 4- EPP JustTide Config\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:",
  "visual_description": [
- "اسکرین شات کنسول متنی با پس زمینه آبی و قاب پنجره ویندوز",
- "عنوان پنجره: Administrator: :Bank Refah ATM Config:",
- "بخش منو با عنوان :::Set EPP Config:::",
- "چهار گزینه شماره دار برای تنظیمات EPP: EC2001، EC2003، EPPV5-V6، EPP JustTide",
- "راهنمای ورودی: Type x and Press Enter to go Main Menu و Type Number and Press Enter:"
+ "پنجره کنسولی با پس زمینه آبی و عنوان «Administrator - ::Bank Refah ATM Config::» نمایش داده شده است",
+ "بخش «:::Set EPP Config:::» چهار گزینه شماره دار برای پیکربندی EPP دارد: EC2001، EC2003، EPPV5-V6 و EPP JustTide",
+ "پیام راهنما برای بازگشت به منوی اصلی با وارد کردن x و زدن Enter نمایش داده شده است",
+ "در پایین صفحه درخواست ورودی «Type Number and Press Enter:» دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -984,7 +993,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 7. **تنظیمات شبکه:** جهت انجام تنظیمات شبکه دستگاه، از منوی اول، گزینه ی 4-Tools را انتخاب کنید.
 8. گزینه ی 1- Windows IP Config را انتخاب نمایید:
 
-![صفحه ابزار پیکربندی ATM با گزینه های IP ویندوز، مانیتورینگ و نصب درایور گرافیک PC5G](img_folder/image_035_image36.png)
+![صفحه تنظیمات ابزارهای ATM بانک رفاه با گزینه نصب درایور گرافیکی PC5G](img_folder/image_035_image36.png)
 
 **Image analysis**
 
@@ -993,14 +1002,14 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image36.png",
  "rId": "rId49",
  "image_path": "img_folder/image_035_image36.png",
- "caption": "صفحه ابزار پیکربندی ATM با گزینه های IP ویندوز، مانیتورینگ و نصب درایور گرافیک PC5G",
- "ocr_text": "Administrator: ::Bank Refah ATM Config::\n\n:::Set Tools Config::\n\n1- Windows IP Config 2- Set Monitoring Config\n\n3- Install PC5G Graphic Driver\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:1",
+ "caption": "صفحه تنظیمات ابزارهای ATM بانک رفاه با گزینه نصب درایور گرافیکی PC5G",
+ "ocr_text": "Administrator: ::Bank Refah ATM Config::\n\n:::Set Tools Config::\n\n1- Windows IP Config 2- Set Monitoring Config\n3- Install PC5G Graphic Driver\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:1",
  "visual_description": [
- "پنجره کنسولی با عنوان «Administrator: ::Bank Refah ATM Config::» نمایش داده شده است",
- "بخش منو با عنوان «:::Set Tools Config::» شامل سه گزینه شماره دار است",
- "گزینه «3- Install PC5G Graphic Driver» داخل کادر قرمز هایلایت شده است",
- "پیام راهنما برای بازگشت به منوی اصلی: «Type x and Press Enter to go Main Menu»",
- "ورودی کاربر در پایین صفحه: «Type Number and Press Enter:1»"
+ "پنجره کنسول با عنوان «Administrator: ::Bank Refah ATM Config::» نمایش داده شده است",
+ "منوی «:::Set Tools Config::» شامل سه گزینه شماره دار است",
+ "گزینه «3- Install PC5G Graphic Driver» با کادر قرمز برجسته شده است",
+ "متن راهنما «Type x and Press Enter to go Main Menu» در پایین منو دیده می شود",
+ "در خط ورودی نوشته شده «Type Number and Press Enter:1»"
  ],
  "image_type": "screenshot"
 }
@@ -1009,7 +1018,7 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
 * **Perferred DNS Server : 10.15.0.100**
 * **Alternate DNS Server : 10.15.0.101**
 
-![پنجره تنظیمات IPv4 در ویندوز با DNS دستی و دو آدرس DNS مشخص شده](img_folder/image_036_image37.png)
+![پنجره تنظیمات IPv4 در ویندوز برای تعیین دستی آدرس های DNS](img_folder/image_036_image37.png)
 
 **Image analysis**
 
@@ -1018,16 +1027,16 @@ MBR and Track 0 را بردارید و سپس ادامه مراحل را ادا�
  "image_name": "image37.png",
  "rId": "rId50",
  "image_path": "img_folder/image_036_image37.png",
- "caption": "پنجره تنظیمات IPv4 در ویندوز با DNS دستی و دو آدرس DNS مشخص شده",
- "ocr_text": "Network Connections\nControl Panel > All Control Panel Items > Network Connections\nSearch Network Connections\nOrganize\nDisable this network device\nDiagnose this connection\nRename this connection\nView status of this connection\nEthernet0 Properties\nNetworking\nInternet Protocol Version 4 (TCP/IPv4) Properties\nGeneral\nYou can get IP settings assigned automatically if your network supports this capability. Otherwise, you need to ask your network administrator for the appropriate IP settings.\nObtain an IP address automatically\nUse the following IP address:\nIP address:\nSubnet mask:\nDefault gateway:\nObtain DNS server address automatically\nUse the following DNS server addresses:\nPreferred DNS server:\n10 . 15 . 0 . 100\nAlternate DNS server:\n10 . 15 . 0 . 101\nValidate settings upon exit\nAdvanced...\nOK\nCancel",
+ "caption": "پنجره تنظیمات IPv4 در ویندوز برای تعیین دستی آدرس های DNS",
+ "ocr_text": "Network Connections\nControl Panel > All Control Panel Items > Network Connections\nSearch Network Connections\nOrganize\nDisable this network device\nDiagnose this connection\nRename this connection\nView status of this connection\nEthernet0 Properties\nNetworking\nInternet Protocol Version 4 (TCP/IPv4) Properties\nGeneral\nYou can get IP settings assigned automatically if your network supports this capability. Otherwise, you need to ask your network administrator for the appropriate IP settings.\nObtain an IP address automatically\nUse the following IP address:\nIP address:\nSubnet mask:\nDefault gateway:\nObtain DNS server address automatically\nUse the following DNS server addresses:\nPreferred DNS server:\n10 . 15 . 0 . 100\nAlternate DNS server:\n10 . 15 . 0 . 101\nValidate settings upon exit\nAdvanced...\nOK\nCancel\n1 item\n1 item selected",
  "visual_description": [
- "اسکرین شات از Control Panel > Network Connections با پنجره Internet Protocol Version 4 (TCP/IPv4) Properties باز",
- "گزینه Use the following IP address انتخاب شده ولی فیلدهای IP address/Subnet mask/Default gateway خالی هستند",
- "گزینه Use the following DNS server addresses فعال است",
- "Preferred DNS server برابر 10.15.0.100 نمایش داده شده است",
- "Alternate DNS server برابر 10.15.0.101 نمایش داده شده است",
- "چک باکس Validate settings upon exit نمایش داده می شود و تیک نخورده است",
- "دکمه های Advanced..., OK و Cancel در پایین پنجره دیده می شوند"
+ "اسکرین شات از Control Panel > Network Connections در ویندوز",
+ "پنجره Internet Protocol Version 4 (TCP/IPv4) Properties باز است",
+ "گزینه «Use the following IP address» انتخاب شده اما فیلدهای IP/Subnet/Gateway خالی هستند",
+ "گزینه «Use the following DNS server addresses» فعال است",
+ "Preferred DNS server برابر 10.15.0.100 وارد شده است",
+ "Alternate DNS server برابر 10.15.0.101 وارد شده است",
+ "دکمه های OK، Cancel و Advanced... قابل مشاهده اند"
  ],
  "image_type": "screenshot"
 }
@@ -1040,7 +1049,7 @@ DNS در تمام دستگاه ها ثابت است.
 
 در نرم افزار مانیتورینگ، Client IP و Terminal ID انحصاری و مختص همان دستگاه و Server IP مقداری ثابت و معادل 10.15.45.10 می باشد.
 
-![فرم SetRegistryConfigs برای تنظیم Client IP، Server IP و Terminal ID با دکمه Submit](img_folder/image_037_image38.png)
+![پنجره تنظیمات رجیستری آدونیس برای واردکردن Client IP، Server IP و Terminal ID](img_folder/image_037_image38.png)
 
 **Image analysis**
 
@@ -1049,27 +1058,24 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image38.png",
  "rId": "rId51",
  "image_path": "img_folder/image_037_image38.png",
- "caption": "فرم SetRegistryConfigs برای تنظیم Client IP، Server IP و Terminal ID با دکمه Submit",
- "ocr_text": "Administrator: :Bank Refah ATM Configi...\nSetRegistryConfigs\nADONIS\nClient IP\nPlease Select...\nServer IP\n10.15.45.10\nTerminal ID\nSubmit\nدر هر ترمینال این اطلاعات\nمتفاوت می باشد.",
+ "caption": "پنجره تنظیمات رجیستری آدونیس برای واردکردن Client IP، Server IP و Terminal ID",
+ "ocr_text": "Administrator: ::Bank Refah ATM Configi...\nSetRegistryConfigs\nآدونیس\nADONIS\nClient IP\nPlease Select...\nServer IP\n10.15.45.10\nTerminal ID\nSubmit\nدر هر ترمینال این اطلاعات\nمتفاوت می باشد.",
  "visual_description": [
- "پنجره ای با عنوان SetRegistryConfigs شامل لوگوی ADONIS و فیلدهای Client IP، Server IP و Terminal ID است",
- "فیلد Client IP یک لیست کشویی با متن «Please Select...» دارد",
- "فیلد Server IP مقدار «10.15.45.10» را نشان می دهد",
- "فیلد Terminal ID خالی است",
- "دکمه سبز «Submit» در پایین فرم قرار دارد",
- "دو کادر قرمز دور بخش های Client IP و Terminal ID کشیده شده است",
- "یک فلش قرمز از کادرها به متن فارسی سمت راست اشاره می کند",
- "پس زمینه یک محیط کنسولی آبی با متن های نقطه ای و عبارت «Type Number and Press Enter:» است"
+ "اسکرین شات یک محیط ویندوز با پنجره «SetRegistryConfigs» روی پس زمینه کنسول آبی",
+ "لوگوی ADONIS و متن فارسی «آدونیس» در بالای فرم دیده می شود",
+ "فیلد «Client IP» دارای یک منوی کشویی با متن «Please Select...» است",
+ "فیلد «Server IP» مقدار «10.15.45.10» را نشان می دهد",
+ "فیلد «Terminal ID» خالی است",
+ "دکمه «Submit» به رنگ سبز در پایین فرم قرار دارد",
+ "دو کادر قرمز دور بخش های «Client IP» و «Terminal ID» کشیده شده و یک فلش قرمز به متن فارسی «در هر ترمینال این اطلاعات متقاوت می باشد.» اشاره می کند"
  ],
  "image_type": "screenshot"
 }
 ```
 
-در هر ترمینال این اطلاعات متقاوت می باشد.
-
 11. پس از اعمال تنظیمات، با کلیک روی دکمه ی Submit این پنجره پس از 5 ثانیه بسته خواهد شد:
 
-![پنجره تنظیمات رجیستری ادونیس برای ثبت IP کلاینت، IP سرور و شناسه ترمینال](img_folder/image_038_image39.png)
+![پنجره تنظیمات رجیستری با فیلدهای IP کلاینت، IP سرور و شناسه ترمینال](img_folder/image_038_image39.png)
 
 **Image analysis**
 
@@ -1078,13 +1084,14 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image39.png",
  "rId": "rId52",
  "image_path": "img_folder/image_038_image39.png",
- "caption": "پنجره تنظیمات رجیستری ادونیس برای ثبت IP کلاینت، IP سرور و شناسه ترمینال",
- "ocr_text": "Administrator: \"Bank Refah ATM Config\".\n\nSetRegistryConfigs\n\nشرکت توسعه خدمات انفورماتیک\nادونیس\nADONIS\n\nClient IP 10.48.220.139\nServer IP 10.15.45.10\nTerminal ID 21169\n\nاطلاعات وارد شده با موفقیت ثبت شد\nپس از 5 ثانیه به صورت خودکار این پنجره بسته خواهد شد",
+ "caption": "پنجره تنظیمات رجیستری با فیلدهای IP کلاینت، IP سرور و شناسه ترمینال",
+ "ocr_text": "Administrator: \"Bank Refah ATM Config..\"\nSetRegistryConfigs\nADONIS\nClient IP\n10.48.220.139\nServer IP\n10.15.45.10\nTerminal ID\n21169\nاطلاعات وارد شده با موفقیت ثبت شد\nپس از 5 ثانیه به صورت خودکار این پنجره بسته خواهد شد",
  "visual_description": [
- "اسکرین شات از یک پنجره برنامه با عنوان SetRegistryConfigs روی پس زمینه کنسول آبی",
- "سه فیلد ورودی با برچسب های Client IP، Server IP و Terminal ID نمایش داده شده است",
- "مقادیر فیلدها: Client IP=10.48.220.139، Server IP=10.15.45.10، Terminal ID=21169",
- "پیام وضعیت فارسی سبز: «اطلاعات وارد شده با موفقیت ثبت شد» و پیام قرمز درباره بسته شدن خودکار پس از ۵ ثانیه"
+ "اسکرین شات برنامه با پنجره SetRegistryConfigs روی پس زمینه آبی کنسولی",
+ "سه فیلد ورودی شامل Client IP، Server IP و Terminal ID نمایش داده شده است",
+ "مقادیر وارد شده: Client IP برابر 10.48.220.139، Server IP برابر 10.15.45.10 و Terminal ID برابر 21169",
+ "پیام فارسی موفقیت ثبت اطلاعات و بسته شدن خودکار پنجره پس از 5 ثانیه در پایین پنجره دیده می شود",
+ "عنوان پنجره اصلی در نوار بالا: Administrator: \"Bank Refah ATM Config..\""
  ],
  "image_type": "screenshot"
 }
@@ -1098,7 +1105,7 @@ DNS در تمام دستگاه ها ثابت است.
 
 13. **کارت گرافیک:** درصورتی که PC دستگاه از نوع 5G (285DZ) می باشد، به منظور نصب درایور کارت گرافیک، در منوی اول، گزینه ی4-Tools و سپس 3-Install PC5G Graphic Driveرا انتخاب کنید، **در غیر این صورت به مرحله ی بعد بروید**:
 
-![صفحه ابزار پیکربندی ATM با گزینه های IP ویندوز، مانیتورینگ و نصب درایور گرافیک PC5G](img_folder/image_035_image36.png)
+![صفحه تنظیمات ابزارهای ATM بانک رفاه با گزینه نصب درایور گرافیکی PC5G](img_folder/image_035_image36.png)
 
 **Image analysis**
 
@@ -1107,20 +1114,20 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image36.png",
  "rId": "rId49",
  "image_path": "img_folder/image_035_image36.png",
- "caption": "صفحه ابزار پیکربندی ATM با گزینه های IP ویندوز، مانیتورینگ و نصب درایور گرافیک PC5G",
- "ocr_text": "Administrator: ::Bank Refah ATM Config::\n\n:::Set Tools Config::\n\n1- Windows IP Config 2- Set Monitoring Config\n\n3- Install PC5G Graphic Driver\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:1",
+ "caption": "صفحه تنظیمات ابزارهای ATM بانک رفاه با گزینه نصب درایور گرافیکی PC5G",
+ "ocr_text": "Administrator: ::Bank Refah ATM Config::\n\n:::Set Tools Config::\n\n1- Windows IP Config 2- Set Monitoring Config\n3- Install PC5G Graphic Driver\n\nType x and Press Enter to go Main Menu\n\nType Number and Press Enter:1",
  "visual_description": [
- "پنجره کنسولی با عنوان «Administrator: ::Bank Refah ATM Config::» نمایش داده شده است",
- "بخش منو با عنوان «:::Set Tools Config::» شامل سه گزینه شماره دار است",
- "گزینه «3- Install PC5G Graphic Driver» داخل کادر قرمز هایلایت شده است",
- "پیام راهنما برای بازگشت به منوی اصلی: «Type x and Press Enter to go Main Menu»",
- "ورودی کاربر در پایین صفحه: «Type Number and Press Enter:1»"
+ "پنجره کنسول با عنوان «Administrator: ::Bank Refah ATM Config::» نمایش داده شده است",
+ "منوی «:::Set Tools Config::» شامل سه گزینه شماره دار است",
+ "گزینه «3- Install PC5G Graphic Driver» با کادر قرمز برجسته شده است",
+ "متن راهنما «Type x and Press Enter to go Main Menu» در پایین منو دیده می شود",
+ "در خط ورودی نوشته شده «Type Number and Press Enter:1»"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره نصب Intel Graphics Driver با دکمه Next مشخص شده](img_folder/image_039_image40.png)
+![پنجره نصب Intel Graphics Driver با دکمه های Next و Cancel و گزینه اجرای WinSAT](img_folder/image_039_image40.png)
 
 **Image analysis**
 
@@ -1129,22 +1136,20 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image40.png",
  "rId": "rId53",
  "image_path": "img_folder/image_039_image40.png",
- "caption": "پنجره نصب Intel Graphics Driver با دکمه Next مشخص شده",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nWelcome to the Setup Program\nintel\nThis setup program will install the following components:\n- Intel® Graphics Driver\nIt is strongly recommended that you exit all programs before continuing. Click Next to continue.\nAutomatically run WinSAT and enable the Windows Aero desktop theme (if supported).\n< Back\nNext >\nCancel\nIntel® Installation Framework",
+ "caption": "پنجره نصب Intel Graphics Driver با دکمه های Next و Cancel و گزینه اجرای WinSAT",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nWelcome to the Setup Program\nThis setup program will install the following components:\n- Intel® Graphics Driver\nIt is strongly recommended that you exit all programs before continuing. Click Next to continue.\nAutomatically run WinSAT and enable the Windows Aero desktop theme (if supported).\n< Back\nNext >\nCancel\nIntel® Installation Framework",
  "visual_description": [
- "پنجره نصب با عنوان Intel® Installation Framework نمایش داده شده است",
- "متن بالای پنجره: Intel® Graphics Driver و Welcome to the Setup Program",
- "فهرست مؤلفه نصب شونده شامل Intel® Graphics Driver است",
- "یک گزینه تیک دار برای Automatically run WinSAT و فعال سازی Windows Aero (در صورت پشتیبانی) دیده می شود",
- "دکمه های < Back، Next > و Cancel در پایین پنجره وجود دارند",
- "دکمه Next > با کادر قرمز برجسته شده است",
- "لوگوی intel در سمت راست بخش بالایی پنجره قرار دارد"
+ "اسکرین شات پنجره «Intel® Installation Framework» برای نصب «Intel® Graphics Driver»",
+ "متن معرفی نصب و فهرست مؤلفه قابل نصب: «Intel® Graphics Driver»",
+ "یک چک باکس با برچسب اجرای خودکار WinSAT و فعال سازی Windows Aero (در صورت پشتیبانی)",
+ "دکمه های پایین پنجره: «< Back» غیرفعال، «Next >» و «Cancel»",
+ "لوگوی intel در سمت راست سربرگ آبی"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره توافق نامه مجوز نصب درایور گرافیک اینتل با دکمه های Yes و No](img_folder/image_040_image41.png)
+![پنجره توافق نامه مجوز نصب Intel Graphics Driver با دکمه های Yes و No](img_folder/image_040_image41.png)
 
 **Image analysis**
 
@@ -1153,20 +1158,20 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image41.png",
  "rId": "rId54",
  "image_path": "img_folder/image_040_image41.png",
- "caption": "پنجره توافق نامه مجوز نصب درایور گرافیک اینتل با دکمه های Yes و No",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nLicense Agreement\n(intel)\nYou must accept all of the terms of the license agreement in order to continue the setup program. Do you accept the terms?\nINTEL SOFTWARE LICENSE AGREEMENT (OEM / IHV / ISV Distribution & Single User)\nIMPORTANT - READ BEFORE COPYING, INSTALLING OR USING.\nDo not use or load this software and any associated materials (collectively, the “Software”) until you have carefully read the following terms and conditions. By loading or using the Software, you agree to the terms of this Agreement. If you do not wish to so agree, do not install or use the Software.\nPlease Also Note:\n• If you are an Original Equipment Manufacturer (OEM), Independent Hardware Vendor (IHV), or Independent Software Vendor (ISV), this complete LICENSE AGREEMENT applies.\n• If you are an End-User, then only Exhibit A, the INTEL SOFTWARE LICENSE AGREEMENT,\n< Back\nYes\nNo\nIntel® Installation Framework",
+ "caption": "پنجره توافق نامه مجوز نصب Intel Graphics Driver با دکمه های Yes و No",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nLicense Agreement\nintel\nYou must accept all of the terms of the license agreement in order to continue the setup program. Do you accept the terms?\nINTEL SOFTWARE LICENSE AGREEMENT (OEM / IHV / ISV Distribution & Single User)\nIMPORTANT - READ BEFORE COPYING, INSTALLING OR USING.\nDo not use or load this software and any associated materials (collectively, the “Software”) until you have carefully read the following terms and conditions. By loading or using the Software, you agree to the terms of this Agreement. If you do not wish to so agree, do not install or use the Software.\nPlease Also Note:\n• If you are an Original Equipment Manufacturer (OEM), Independent Hardware Vendor (IHV), or Independent Software Vendor (ISV), this complete LICENSE AGREEMENT applies;\n• If you are an End-User, then only Exhibit A, the INTEL SOFTWARE LICENSE AGREEMENT,\n< Back\nYes\nNo\nIntel® Installation Framework",
  "visual_description": [
- "پنجره نصب Intel® Graphics Driver در Intel® Installation Framework نمایش داده شده است",
- "بخش License Agreement شامل متن قرارداد مجوز و نوار اسکرول عمودی است",
- "سه دکمه پایین پنجره: < Back، Yes و No",
+ "پنجره نصب با عنوان Intel® Graphics Driver و بخش License Agreement نمایش داده شده است",
+ "متن توافق نامه مجوز داخل کادر اسکرول دار قرار دارد",
+ "سه دکمه پایین پنجره: < Back، Yes، No",
  "دکمه Yes با کادر قرمز برجسته شده است",
- "لوگوی intel در گوشه بالای سمت راست نوار آبی قرار دارد"
+ "لوگوی intel در بالای سمت راست دیده می شود"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره نصب درایور گرافیک اینتل با بخش Readme و دکمه Next](img_folder/image_041_image42.png)
+![پنجره نصب درایور گرافیک اینتل با نمایش اطلاعات Readme و دکمه Next](img_folder/image_041_image42.png)
 
 **Image analysis**
 
@@ -1175,20 +1180,21 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image42.png",
  "rId": "rId55",
  "image_path": "img_folder/image_041_image42.png",
- "caption": "پنجره نصب درایور گرافیک اینتل با بخش Readme و دکمه Next",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nReadme File Information\nRefer to the Readme file below to view the system requirements and installation information.\nRelease Version: Planned Release\nDriver Version:\nBuild Date:\nPlatform / Operating System(s):\n7th Generation Intel(R) Core(TM) processor family (codename Haswell)\nMicrosoft Windows* 10-64\n8th Generation Intel(R) Core(TM) processor family (codename Broadwell)\nMicrosoft Windows* 7-32\n< Back\nNext >\nCancel\nIntel® Installation Framework",
+ "caption": "پنجره نصب درایور گرافیک اینتل با نمایش اطلاعات Readme و دکمه Next",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nReadme File Information\nintel\nRefer to the Readme file below to view the system requirements and installation information.\nRelease Version: Planned Release\nDriver Version: 7* - 1* - 1a - 1 V1\nBuild Date: Nov 7, 2*2*\nPlatform / Operating System(s):\n7th Generation Intel(R) Core(TM) processor family (codename Haswell)\nMicrosoft Windows* 1*-2*\n8th Generation Intel(R) Core(TM) processor family (codename Broadwell)\nMicrosoft Windows* V-2*\n< Back\nNext >\nCancel\nIntel® Installation Framework",
  "visual_description": [
- "پنجره نصب Intel® Graphics Driver با عنوان Readme File Information نمایش داده شده است",
- "یک کادر متن/لیست قابل اسکرول شامل اطلاعات نسخه انتشار، نسخه درایور، تاریخ ساخت و پلتفرم ها وجود دارد",
- "سه دکمه پایین پنجره: < Back، Next >، Cancel",
- "دکمه Next > با کادر قرمز مشخص شده است",
- "لوگوی intel در سمت راست بالای پنجره دیده می شود"
+ "پنجره نرم افزار با عنوان Intel® Installation Framework نمایش داده شده است",
+ "سربرگ Intel® Graphics Driver و بخش Readme File Information قابل مشاهده است",
+ "یک کادر متنی اسکرول دار شامل نسخه انتشار، نسخه درایور، تاریخ ساخت و پلتفرم/سیستم عامل ها نمایش دارد",
+ "لوگوی intel در سمت راست بالا قرار دارد",
+ "در پایین سه دکمه < Back، Next > و Cancel وجود دارد",
+ "دکمه Next > با یک کادر قرمز مشخص/هایلایت شده است"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره نصب درایور گرافیک اینتل با نمایش مسیر و نسخه در حال نصب](img_folder/image_042_image43.png)
+![پنجره نصب Intel Graphics Driver با نمایش مسیر Uninstall.exe و نسخه درایور](img_folder/image_042_image43.png)
 
 **Image analysis**
 
@@ -1197,20 +1203,20 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image43.png",
  "rId": "rId56",
  "image_path": "img_folder/image_042_image43.png",
- "caption": "پنجره نصب درایور گرافیک اینتل با نمایش مسیر و نسخه در حال نصب",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Progress\nPlease wait while the following setup operations are performed:\nCreating Process: C:\\Program Files (x86)\\Intel\\Intel(R) Processor Graphics\\uninstall\\Uninstall.exe\nInstalling Driver: Intel(R) HD Graphics\nVersion: 7.14.10.1281\nNext >\nIntel® Installation Framework",
+ "caption": "پنجره نصب Intel Graphics Driver با نمایش مسیر Uninstall.exe و نسخه درایور",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Progress\nPlease wait while the following setup operations are performed:\nCreating Process: C:\\Program Files (x86)\\Intel\\Intel(R) Processor Graphics\\uninstall\\Uninstall.exe\nInstalling Driver: Intel(R) HD Graphics\nVersion: 7.\\ 1.\\ 0.\\ 1\\ 1\nNext >\nIntel® Installation Framework",
  "visual_description": [
- "پنجره Intel Installation Framework با عنوان Intel® Graphics Driver و بخش Setup Progress نمایش داده شده است",
- "مسیر فایل Uninstall.exe در C:\\Program Files (x86)\\Intel\\Intel(R) Processor Graphics\\uninstall\\Uninstall.exe قابل مشاهده است",
- "عملیات Installing Driver برای Intel(R) HD Graphics نمایش داده شده است",
- "نسخه درایور به صورت Version: 7.14.10.1281 درج شده است",
+ "پنجره نصب با عنوان Intel® Graphics Driver و بخش Setup Progress نمایش داده شده است",
+ "متن عملیات شامل Creating Process و مسیر C:\\Program Files (x86)\\Intel\\Intel(R) Processor Graphics\\uninstall\\Uninstall.exe است",
+ "خط Installing Driver: Intel(R) HD Graphics دیده می شود",
+ "نسخه درایور به صورت Version: 7.\\ 1.\\ 0.\\ 1\\ 1 نمایش داده شده است",
  "دکمه Next > در پایین سمت راست غیرفعال (خاکستری) است"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره نصب درایور گرافیک اینتل با نمایش پیشرفت و حذف فایل ها و کلیدهای رجیستری](img_folder/image_043_image44.png)
+![پنجره نصب/حذف درایور گرافیک اینتل با نمایش عملیات حذف فایل ها و کلیدهای رجیستری](img_folder/image_043_image44.png)
 
 **Image analysis**
 
@@ -1219,18 +1225,20 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image44.png",
  "rId": "rId57",
  "image_path": "img_folder/image_043_image44.png",
- "caption": "پنجره نصب درایور گرافیک اینتل با نمایش پیشرفت و حذف فایل ها و کلیدهای رجیستری",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Progress\nPlease wait while the following setup operations are performed:\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel(R) Graphics and\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Graphi\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) HD Graphics Control Panel.lnk\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Graphics and Media Control Panel.lnk\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Iris(R)\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Iris(R) Graph\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Iris(R) Graphics Control Panel.lnk\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Iris(R) Graphics Control Panel.lnk\nDeleting Registry Key: HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix\nDeleting Registry Key: HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix\nClick Next to continue.\nNext >\nIntel® Installation Framework",
+ "caption": "پنجره نصب/حذف درایور گرافیک اینتل با نمایش عملیات حذف فایل ها و کلیدهای رجیستری",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Progress\nPlease wait while the following setup operations are performed:\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel(R) Graphics and ...\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Graphics ...\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) HD Graphics Control Panel.lnk\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Graphics and Media Control Panel.lnk\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Iris(R) ...\nDeleting File: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Intel\\Intel(R) Iris(R) Graph...\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Iris(R) Graphics Control Panel.lnk\nDeleting File: C:\\Users\\Public\\Desktop\\Intel(R) Iris(R) Graphics Control Panel.lnk\nDeleting Registry Key: HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix\nDeleting Registry Key: HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix\nClick Next to continue.\nNext >\nIntel® Installation Framework",
  "visual_description": [
- "پنجره نصب با عنوان Intel® Graphics Driver و بخش Setup Progress نمایش داده شده است",
- "لیست عملیات شامل حذف فایل های مسیرهای ProgramData و Desktop و حذف کلیدهای رجیستری HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix است",
- "دکمه «Next >» در پایین سمت راست وجود دارد"
+ "پنجره Intel® Graphics Driver با بخش Setup Progress نمایش داده شده است",
+ "لیست عملیات شامل حذف فایل های .lnk از مسیرهای ProgramData و Users\\Public\\Desktop است",
+ "حذف کلید رجیستری HKLM\\SOFTWARE\\Intel\\GFX\\Internal\\AudioFix در متن دیده می شود",
+ "دکمه «Next >» در پایین سمت راست با کادر قرمز مشخص شده است",
+ "لوگوی intel در بالای سمت راست صفحه وجود دارد"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره پایان نصب درایور Intel Graphics با انتخاب گزینه راه اندازی مجدد بعداً و دکمه Finish](img_folder/image_044_image45.png)
+![پایان نصب درایور گرافیک اینتل و انتخاب گزینه عدم ری استارت با دکمه Finish](img_folder/image_044_image45.png)
 
 **Image analysis**
 
@@ -1239,13 +1247,13 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image45.png",
  "rId": "rId58",
  "image_path": "img_folder/image_044_image45.png",
- "caption": "پنجره پایان نصب درایور Intel Graphics با انتخاب گزینه راه اندازی مجدد بعداً و دکمه Finish",
- "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Is Complete\nYou must restart this computer for the changes to take effect. Would you like to restart the\ncomputer now?\nYes, I want to restart this computer now.\nNo, I will restart this computer later.\nClick Finish, then remove any installation media from the drives.\nFinish\nIntel® Installation Framework\nگزینه دوم را انتخاب نمایید",
+ "caption": "پایان نصب درایور گرافیک اینتل و انتخاب گزینه عدم ری استارت با دکمه Finish",
+ "ocr_text": "Intel® Installation Framework\nIntel® Graphics Driver\nSetup Is Complete\nYou must restart this computer for the changes to take effect. Would you like to restart the computer now?\nYes, I want to restart this computer now.\nNo, I will restart this computer later.\nClick Finish, then remove any installation media from the drives.\nFinish\nگزینه دوم را انتخاب نمایید",
  "visual_description": [
- "اسکرین شات پنجره Intel® Graphics Driver با وضعیت «Setup Is Complete»",
- "دو گزینه رادیویی برای راه اندازی مجدد: «Yes, I want to restart this computer now.» و «No, I will restart this computer later.»",
- "گزینه دوم انتخاب شده است (دایره پر شده)",
- "یک فلش قرمز به گزینه دوم اشاره می کند و متن فارسی «گزینه دوم را انتخاب نمایید» دیده می شود",
+ "پنجره نصب Intel® Graphics Driver با وضعیت «Setup Is Complete» نمایش داده شده است",
+ "دو گزینه رادیویی برای راه اندازی مجدد: «Yes...now» و «No...later» وجود دارد",
+ "فلش قرمز به گزینه «No, I will restart this computer later.» اشاره می کند",
+ "متن فارسی «گزینه دوم را انتخاب نمایید» کنار فلش قرمز دیده می شود",
  "دکمه «Finish» در پایین سمت راست با کادر قرمز مشخص شده است"
  ],
  "image_type": "screenshot"
@@ -1256,7 +1264,7 @@ DNS در تمام دستگاه ها ثابت است.
 
 14. در منوی اول، با انتخاب گزینه 5-Set Config and Reset تنظیمات را ذخیره و دستگاه را Restart نمایید:
 
-![صفحه تنظیمات ATM با گزینه های پیکربندی و دستور وارد کردن شماره و زدن Enter](img_folder/image_031_image32.png)
+![صفحه تنظیمات ATM بانک رفاه با منوی گزینه ها و دستور وارد کردن شماره](img_folder/image_031_image32.png)
 
 **Image analysis**
 
@@ -1265,13 +1273,13 @@ DNS در تمام دستگاه ها ثابت است.
  "image_name": "image32.png",
  "rId": "rId45",
  "image_path": "img_folder/image_031_image32.png",
- "caption": "صفحه تنظیمات ATM با گزینه های پیکربندی و دستور وارد کردن شماره و زدن Enter",
- "ocr_text": "Mark Administrator: ::Bank Refah ATM Config::\n\n:::Set ATM Config::\n\n1- Wincor Config 2- EastCom Config\n\n3- EPP Config 4- Tools\n\n5- Set Config and Reset\n\nType Number and Press Enter:",
+ "caption": "صفحه تنظیمات ATM بانک رفاه با منوی گزینه ها و دستور وارد کردن شماره",
+ "ocr_text": "Mark Administrator: ..::Bank Refah ATM Config::.\n\n..::Set ATM Config::.\n\n1- Wincor Config 2- EastCom Config\n\n3- EPP Config 4- Tools\n\n5- Set Config and Reset\n\nType Number and Press Enter:",
  "visual_description": [
- "اسکرین شات یک پنجره کنسولی با پس زمینه آبی و منوی متنی «Bank Refah ATM Config»",
- "گزینه های منو شامل: 1- Wincor Config، 2- EastCom Config، 3- EPP Config، 4- Tools، 5- Set Config and Reset",
+ "اسکرین شات محیط متنی با پس زمینه آبی و منوی پیکربندی ATM",
+ "گزینه های منو شامل Wincor Config، EastCom Config، EPP Config، Tools و Set Config and Reset است",
  "گزینه «5- Set Config and Reset» با کادر قرمز برجسته شده است",
- "در پایین صفحه پیام «Type Number and Press Enter:» به همراه مکان نمای ورودی دیده می شود"
+ "در پایین صفحه پیام «Type Number and Press Enter:» برای دریافت ورودی نمایش داده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -1295,7 +1303,7 @@ O = Right
 
 برای انجام عملیات انتخاب نیز از کلید I استفاده نمایید.
 
-.![تصویر دو صفحه کلید با علامت گذاری کلیدهای جهت و کلیدهای F12 و Num Lock](img_folder/image_045_image46.jpg)
+.![نمایش محل کلیدهای جهت نما و کلیدهای Shift و F12 و Num Lock روی کیبورد](img_folder/image_045_image46.jpg)
 
 **Image analysis**
 
@@ -1304,15 +1312,15 @@ O = Right
  "image_name": "image46.jpg",
  "rId": "rId59",
  "image_path": "img_folder/image_045_image46.jpg",
- "caption": "تصویر دو صفحه کلید با علامت گذاری کلیدهای جهت و کلیدهای F12 و Num Lock",
- "ocr_text": "Esc\nF1\nF2\nF3\nF4\nF5\nF6\nF7\nF8\nF9\nF10\nF11\nF12\nprt sc\nsysrq\nscroll\nbreak\npause\nCapsLock\nShift\nCtrl\nAlt\nEnter\nInsert\nDelete\nHome\nEnd\nPage Up\nPage Down\nNum\nLock\nDIANA",
+ "caption": "نمایش محل کلیدهای جهت نما و کلیدهای Shift و F12 و Num Lock روی کیبورد",
+ "ocr_text": "Esc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Num\nLock Print\nScrn SysRq Scroll\nLock Pause\nBreak Insert\nHome Page\nUp Page\nDown End Enter Ctrl Delete Shift Alt Tab CapsLock\nDiANA\nEsc F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Prt Sc\nSysRq Scroll\nLock Pause\nBreak Num\nLock Enter Ctrl Shift Alt Tab CapsLock",
  "visual_description": [
- "دو عکس از صفحه کلید با حروف فارسی روی کلیدها نمایش داده شده است",
- "کلیدهای جهت دار با کادر قرمز و فلش های سبز مشخص شده اند",
- "کلید F12 با دایره قرمز و شماره گذاری ۱ مشخص شده است",
- "کلید Num Lock با دایره قرمز و شماره گذاری ۳ مشخص شده است",
- "کلید Shift سمت چپ با دایره قرمز و شماره گذاری ۲ مشخص شده است",
- "در تصویر پایین نام DIANA روی بدنه بالای صفحه کلید دیده می شود"
+ "دو تصویر از کیبورد با علائم دایره و کادر قرمز روی برخی کلیدها",
+ "در هر دو تصویر، کادر قرمز دور مجموعه کلیدهای I/J/K/L و فلش های جهت دار سبز روی آنها قرار دارد",
+ "کلید F12 در هر دو تصویر با دایره قرمز مشخص شده است",
+ "کلید Shift سمت چپ در هر دو تصویر با دایره قرمز مشخص شده است",
+ "در تصویر پایین، کلید Num Lock نیز با دایره قرمز مشخص شده است",
+ "متن برند «DiANA» در بخش میانی تصویر پایین دیده می شود"
  ],
  "image_type": "photo"
 }
@@ -1336,7 +1344,7 @@ O = Right
 | **Atm@Supp0rt** | **Password** |
 <!-- TABLE_END -->
 
-**![صفحه ورود ویندوز با نام کاربری Other user و لوگوهای ADONIS و بانک رفاه کارگران](img_folder/image_046_image47.jpg)
+**![صفحه ورود ویندوز با نام کاربری Other user و لوگوهای بانک رفاه و آدونیس](img_folder/image_046_image47.jpg)
 
 **Image analysis**
 
@@ -1345,13 +1353,15 @@ O = Right
  "image_name": "image47.jpeg",
  "rId": "rId60",
  "image_path": "img_folder/image_046_image47.jpg",
- "caption": "صفحه ورود ویندوز با نام کاربری Other user و لوگوهای ADONIS و بانک رفاه کارگران",
+ "caption": "صفحه ورود ویندوز با نام کاربری Other user و لوگوهای بانک رفاه و آدونیس",
  "ocr_text": "بانک رفاه کارگران\nREFAH KARGARAN BANK\nشرکت توسعه خدمات الکترونیکی\nآدونیس\nADONIS\nOther user\noperation\nSign-in options",
  "visual_description": [
- "صفحه ورود شامل آیکون کاربر، عنوان Other user و یک کادر ورود با برچسب operation است",
- "فیلد گذرواژه با کاراکترهای نقطه ای ماسک شده نمایش داده می شود",
- "گزینه متنی Sign-in options زیر کادر ورود قرار دارد",
- "دو لوگو در بالا: «بانک رفاه کارگران / REFAH KARGARAN BANK» و «آدونیس / ADONIS» همراه با متن فارسی شرکت"
+ "نمای صفحه ورود سیستم با آیکون کاربر و عنوان \"Other user\"",
+ "یک فیلد نام کاربری با متن \"operation\" نمایش داده شده است",
+ "یک فیلد رمز عبور با کاراکترهای مخفی (نقطه ها) دیده می شود",
+ "گزینه متنی \"Sign-in options\" زیر فیلدها قرار دارد",
+ "دو لوگو در بالا: \"REFAH KARGARAN BANK\" و \"ADONIS\" همراه با متن فارسی",
+ "نشانگر ماوس در سمت راست تصویر قابل مشاهده است"
  ],
  "image_type": "screenshot"
 }
@@ -1364,7 +1374,7 @@ O = Right
 <!-- TABLE_START -->
 | | |
 | --- | --- |
-|![منوی راست کلیک ویندوز با گزینه Display settings هایلایت شده](img_folder/image_047_image48.png)
+|![نتایج جستجوی ویندوز برای تنظیمات نمایشگر با گزینه Display settings هایلایت شده](img_folder/image_047_image48.png)
 
 **Image analysis**
 
@@ -1373,16 +1383,18 @@ O = Right
  "image_name": "image48.png",
  "rId": "rId61",
  "image_path": "img_folder/image_047_image48.png",
- "caption": "منوی راست کلیک ویندوز با گزینه Display settings هایلایت شده",
- "ocr_text": "View\nSort by\nRefresh\nPaste\nPaste shortcut\nGraphics Properties...\nGraphics Options\nNew\nDisplay settings\nPersonalize",
+ "caption": "نتایج جستجوی ویندوز برای تنظیمات نمایشگر با گزینه Display settings هایلایت شده",
+ "ocr_text": "Filters\nBest match\nDisplay settings\nSystem settings\nSettings\nChange the primary display\nChange the orientation of the display\nDuplicate or extend to a connected display\nChoose when to turn off the screen when plugged in\nEase of Access display settings\nEase of Access brightness setting\ndisplay settings",
  "visual_description": [
- "تصویر یک منوی زمینه (context menu) ویندوز را نشان می دهد",
- "گزینه «Display settings» با کادر قرمز برجسته شده است",
- "در منو گزینه های View، Sort by، Refresh، Paste، Paste shortcut، Graphics Properties...، Graphics Options، New، Personalize دیده می شود"
+ "اسکرین شات منوی جستجوی ویندوز با بخش Best match",
+ "گزینه «Display settings» با زیرعنوان «System settings» در کادر قرمز و پس زمینه آبی هایلایت شده است",
+ "فهرست گزینه های تنظیمات شامل تغییر نمایشگر اصلی، تغییر جهت نمایشگر و Duplicate/extend به نمایشگر متصل",
+ "گزینه های Ease of Access برای تنظیمات نمایش و روشنایی در لیست دیده می شود",
+ "نوار کناری سمت چپ با آیکون های منو و خانه و تنظیمات قابل مشاهده است"
  ],
  "image_type": "screenshot"
 }
-``` |![اسکرین شات جستجوی ویندوز با انتخاب گزینه Display settings در نتایج](img_folder/image_048_image49.png)
+``` |![منوی راست کلیک ویندوز با گزینه Display settings مشخص شده](img_folder/image_048_image49.png)
 
 **Image analysis**
 
@@ -1391,12 +1403,13 @@ O = Right
  "image_name": "image49.png",
  "rId": "rId62",
  "image_path": "img_folder/image_048_image49.png",
- "caption": "اسکرین شات جستجوی ویندوز با انتخاب گزینه Display settings در نتایج",
- "ocr_text": "Best match\nDisplay settings\nSystem settings\nSettings\nChange the primary display\nChange the orientation of the display\nDuplicate or extend to a connected display\nChoose when to turn off the screen when plugged in\nEase of Access display settings\nEase of Access brightness setting\ndisplay settings\nFilters",
+ "caption": "منوی راست کلیک ویندوز با گزینه Display settings مشخص شده",
+ "ocr_text": "View\nSort by\nRefresh\nPaste\nPaste shortcut\nGraphics Properties...\nGraphics Options\nNew\nDisplay settings\nPersonalize",
  "visual_description": [
- "نتیجه جستجو با عنوان «Display settings» و زیرعنوان «System settings» با کادر قرمز و پس زمینه آبی هایلایت شده است",
- "فهرست نتایج شامل گزینه های تغییر نمایشگر اصلی، جهت نمایش، تکرار یا گسترش نمایشگر و تنظیم خاموشی صفحه است",
- "گزینه «Filters» در بالای سمت راست دیده می شود"
+ "اسکرین شات منوی راست کلیک دسکتاپ ویندوز با گزینه های View، Sort by، Refresh",
+ "گزینه Display settings با کادر قرمز ضخیم برجسته شده است",
+ "گزینه های Graphics Properties... و Graphics Options در منو دیده می شوند",
+ "گزینه های New و Personalize در پایین منو نمایش داده شده اند"
  ],
  "image_type": "screenshot"
 }
@@ -1405,7 +1418,7 @@ O = Right
 
 در پنجره ی زیر، روی دکمه یIdentify کلیک کنید تا شماره مانیتور به نمایش گذاشته شود:
 
-![صفحه تنظیمات Display ویندوز با دکمه Identify برای شناسایی نمایشگرها](img_folder/image_049_image50.png)
+![نمایش تنظیمات Display ویندوز با دکمه Identify مشخص شده برای شناسایی نمایشگرها](img_folder/image_049_image50.png)
 
 **Image analysis**
 
@@ -1414,14 +1427,14 @@ O = Right
  "image_name": "image50.png",
  "rId": "rId63",
  "image_path": "img_folder/image_049_image50.png",
- "caption": "صفحه تنظیمات Display ویندوز با دکمه Identify برای شناسایی نمایشگرها",
- "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet mode\nMultitasking\nShared experiences\nClipboard\nRemote Desktop\nDisplay\nSelect and rearrange displays\nSelect a display below to change the settings for it. Press and hold (or select) a display, then drag to rearrange it.\nIdentify\nDetect\nColor\nNight light\nOff\nNight light settings\nWindows HD Color",
+ "caption": "نمایش تنظیمات Display ویندوز با دکمه Identify مشخص شده برای شناسایی نمایشگرها",
+ "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet mode\nMultitasking\nShared experiences\nClipboard\nRemote Desktop\nDisplay\nSelect and rearrange displays\nSelect a display below to change the settings for it. Press and hold (or select) a display, then drag to rearrange it.\nIdentify\nDetect...\nColor\nNight light\nOff\nNight light settings\nWindows HD Color",
  "visual_description": [
- "اسکرین شات از Settings ویندوز در مسیر System > Display",
- "بخش «Select and rearrange displays» با دو نمایشگر شماره گذاری شده 1 و 2 نمایش داده شده است",
- "دکمه های «Identify» و «Detect» در سمت راست ناحیه نمایشگرها دیده می شوند و Identify با کادر قرمز مشخص شده است",
- "بخش «Color» شامل گزینه «Night light» با وضعیت Off و لینک «Night light settings» است",
- "عنوان «Windows HD Color» در پایین صفحه دیده می شود"
+ "پنجره Settings ویندوز در بخش System > Display نمایش داده شده است",
+ "دو نمایشگر مجازی با برچسب های 1 و 2 برای چیدمان نمایشگرها دیده می شود",
+ "دکمه Identify با یک کادر قرمز هایلایت شده است",
+ "دکمه Detect... در کنار Identify قرار دارد",
+ "بخش Color شامل گزینه Night light با وضعیت Off نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -1441,11 +1454,12 @@ O = Right
  "caption": "پنجره تنظیمات Display ویندوز برای انتخاب و جابه جایی نمایشگرها",
  "ocr_text": "Display\nSelect and rearrange displays\nSelect a display below to change the settings for it. Press and hold (or select) a display, then drag to rearrange it.\nIdentify\nDetect\nColor",
  "visual_description": [
- "اسکرین شات صفحه تنظیمات Display ویندوز",
- "بخش «Select and rearrange displays» با دو نمایشگر شماره گذاری شده (۱ و ۲) نمایش داده شده است",
- "نمایشگر ۲ با پس زمینه آبی انتخاب شده است",
- "دکمه های «Identify» و «Detect» در پایین سمت راست دیده می شوند",
- "عنوان بخش «Color» در پایین صفحه دیده می شود"
+ "اسکرین شات صفحه Display در تنظیمات ویندوز",
+ "بخش «Select and rearrange displays» با دو مستطیل نمایشگر کنار هم دیده می شود",
+ "نمایشگر سمت راست با رنگ آبی انتخاب شده و شماره «2» دارد",
+ "نمایشگر سمت چپ خاکستری و دارای شماره «1» است",
+ "دو دکمه «Identify» و «Detect» در پایین سمت راست دیده می شوند",
+ "عنوان بخش «Color» در پایین صفحه قابل مشاهده است"
  ],
  "image_type": "screenshot"
 }
@@ -1453,7 +1467,7 @@ O = Right
 
 پس از انتخاب مانیتور شماره 2 (SOP)،گزینه ی Make my main dispaly را فعال کنید (تیک آن را بزنید):
 
-![صفحه تنظیمات Display ویندوز با گزینه انتخاب نمایشگر اصلی](img_folder/image_051_image52.png)
+![تنظیمات Display ویندوز با گزینه Make this my main display و حالت Extend these displays](img_folder/image_051_image52.png)
 
 **Image analysis**
 
@@ -1462,17 +1476,14 @@ O = Right
  "image_name": "image52.png",
  "rId": "rId65",
  "image_path": "img_folder/image_051_image52.png",
- "caption": "صفحه تنظیمات Display ویندوز با گزینه انتخاب نمایشگر اصلی",
- "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet mode\nMultitasking\nShared experiences\nClipboard\nRemote Desktop\nDisplay\nScale and layout\nChange the size of text, apps, and other items\n1…% (Recommended)\nAdvanced scaling settings\nResolution\n… x … (Recommended)\nOrientation\nLandscape\nMultiple displays\nMultiple displays\nExtend these displays\nMake this my main display\nAdvanced display settings\nGraphics settings",
+ "caption": "تنظیمات Display ویندوز با گزینه Make this my main display و حالت Extend these displays",
+ "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet mode\nMultitasking\nShared experiences\nClipboard\nRemote Desktop\nDisplay\nScale and layout\nChange the size of text, apps, and other items\n1x-?x (Recommended)\nAdvanced scaling settings\nResolution\n?x - ?x (Recommended)\nOrientation\nLandscape\nMultiple displays\nMultiple displays\nExtend these displays\nMake this my main display\nAdvanced display settings\nGraphics settings",
  "visual_description": [
- "اسکرین شات از Windows Settings بخش System > Display",
- "پنل چپ شامل فهرست گزینه ها مانند Display، Sound و Notifications & actions است",
- "در بخش Scale and layout یک منوی کشویی درصد مقیاس (Recommended) نمایش داده شده است",
- "در بخش Resolution یک منوی کشویی رزولوشن با برچسب (Recommended) وجود دارد",
+ "اسکرین شات از Settings ویندوز در بخش System > Display",
  "گزینه Orientation روی Landscape تنظیم شده است",
- "در بخش Multiple displays منوی کشویی روی Extend these displays قرار دارد",
- "چک باکس «Make this my main display» تیک خورده و با کادر قرمز مشخص شده است",
- "لینک های Advanced display settings و Graphics settings قابل مشاهده هستند"
+ "در بخش Multiple displays، منوی کشویی روی Extend these displays قرار دارد",
+ "چک باکس Make this my main display علامت خورده و با کادر قرمز مشخص شده است",
+ "لینک های Advanced scaling settings، Advanced display settings و Graphics settings قابل مشاهده اند"
  ],
  "image_type": "screenshot"
 }
@@ -1484,7 +1495,7 @@ O = Right
 
 **50 VENDOR MENU🡪 00 EPP FCTS 🡪 01 CHANGE EPP**
 
-![فهرست گزینه های تغییر EPP با چند انتخاب شماره گذاری شده](img_folder/image_052_image53.jpg)
+![فهرست گزینه های تغییر EPP روی صفحه نمایش](img_folder/image_052_image53.jpg)
 
 **Image analysis**
 
@@ -1493,11 +1504,12 @@ O = Right
  "image_name": "image53.jpg",
  "rId": "rId66",
  "image_path": "img_folder/image_052_image53.jpg",
- "caption": "فهرست گزینه های تغییر EPP با چند انتخاب شماره گذاری شده",
- "ocr_text": "CHANGE EPP\n0 CHANGE TO EPP U5-V6\n01 CHANGE TO EPP EC2001\n02 CHANGE TO EPP EC2003\n03 CHANGE TO EPP JustTide",
+ "caption": "فهرست گزینه های تغییر EPP روی صفحه نمایش",
+ "ocr_text": "CHANGE EPP\n0> CHANGE TO EPP U5-V6\n01 CHANGE TO EPP EC2001\n02 CHANGE TO EPP EC2003\n03 CHANGE TO EPP JustTide",
  "visual_description": [
- "متن منویی روی صفحه با عنوان CHANGE EPP نمایش داده شده است",
- "چهار گزینه شماره گذاری شده برای تغییر به EPP با نام های U5-V6، EC2001، EC2003 و JustTide دیده می شود"
+ "نمایشگر متنی با عنوان «CHANGE EPP»",
+ "لیست چهار گزینه شماره گذاری شده برای تغییر به EPP شامل U5-V6، EC2001، EC2003 و JustTide",
+ "نشانگر انتخاب به صورت «0>» در ابتدای گزینه اول دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -1514,7 +1526,7 @@ O = Right
 نکته مهم: توجه داشته باشید که EPP مدل SunSon حتماً باید از طریق
 کابل EPP to Softkey به Softkey متصل گردد چراکه در غیر این صورت عملکرد آن با اشکال مواجه خواهد شد.
 
-تنظیم Computer Name
+# تنظیم Computer Name
 
 با انجام مراحل زیر، Computer Name را تنظیم نمایید:
 
@@ -1531,11 +1543,12 @@ O = Right
  "rId": "rId67",
  "image_path": "img_folder/image_053_image54.jpg",
  "caption": "نمای کنترل پنل ویندوز با گزینه System مشخص شده",
- "ocr_text": "Control Panel > All Control Panel Items\nSearch Control Panel\nView by: Large icons\nAdjust your computer's settings\nKeyboard\nMouse\nParental Controls\nPhone and Modem\nRecovery\nSound\nSystem\nUser Accounts\nWindows Defender\nLocation and Other Sensors\nNetwork and Sharing Center\nPerformance Information and Tools\nPower Options\nRegion and Language\nSpeech Recognition\nTaskbar and Start Menu\nWindows Anytime Upgrade\nWindows Firewall\nMail\nNotification Area Icons\nPersonalization\nPrograms and Features\nRemoteApp and Desktop Connections\nSync Center\nTroubleshooting\nWindows CardSpace\nWindows Update",
+ "ocr_text": "Control Panel > All Control Panel Items\nSearch Control Panel\nAdjust your computer's settings\nView by: Large icons\nKeyboard\nMouse\nParental Controls\nPhone and Modem\nRecovery\nSound\nSystem\nUser Accounts\nWindows Defender\nLocation and Other Sensors\nNetwork and Sharing Center\nPerformance Information and Tools\nPower Options\nRegion and Language\nSpeech Recognition\nTaskbar and Start Menu\nWindows Anytime Upgrade\nWindows Firewall\nMail\nNotification Area Icons\nPersonalization\nPrograms and Features\nRemoteApp and Desktop Connections\nSync Center\nTroubleshooting\nWindows CardSpace\nWindows Update",
  "visual_description": [
- "اسکرین شات از Control Panel در نمای All Control Panel Items با View by: Large icons",
- "گزینه «System» با کادر قرمز در ستون چپ هایلایت شده است",
- "نوار مسیر بالا «Control Panel > All Control Panel Items» و کادر جستجوی «Search Control Panel» دیده می شود"
+ "اسکرین شات از پنجره Control Panel در حالت All Control Panel Items",
+ "گزینه View by روی Large icons تنظیم شده است",
+ "آیتم «System» با کادر قرمز در ستون چپ هایلایت شده است",
+ "کادر جستجو با متن «Search Control Panel» در بالا سمت راست دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -1543,7 +1556,7 @@ O = Right
 
 3. در پنجره ای که گشوده می شود، رویRename This PC کلیک کنید:
 
-![صفحه About تنظیمات ویندوز با مشخصات دستگاه و نسخه ویندوز ۱۰ و دکمه Rename this PC](img_folder/image_054_image55.png)
+![صفحه About در تنظیمات ویندوز با مشخصات دستگاه و گزینه Rename this PC](img_folder/image_054_image55.png)
 
 **Image analysis**
 
@@ -1552,13 +1565,15 @@ O = Right
  "image_name": "image55.png",
  "rId": "rId68",
  "image_path": "img_folder/image_054_image55.png",
- "caption": "صفحه About تنظیمات ویندوز با مشخصات دستگاه و نسخه ویندوز ۱۰ و دکمه Rename this PC",
- "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet\nMultitasking\nProjecting to this PC\nShared experiences\nClipboard\nAbout\nYour PC is monitored and protected.\nSee details in Windows Security\nDevice specifications\nDevice name\tDESKTOP-PJKJ1KT\nProcessor\tIntel(R) Pentium(R) CPU G2020 @ 2.90GHz\t2.90 GHz\nInstalled RAM\t3.00 GB\nDevice ID\tE6897620-BD1F-4576-90D2-1A983754341E\nProduct ID\t00425-00000-00002-AA324\nSystem type\t32-bit operating system, x64-based processor\nPen and touch\tNo pen or touch input is available for this display\nCopy\nRename this PC\nWindows specifications\nEdition\tWindows 10 Enterprise LTSC\nVersion\t21H2\nInstalled on\t4/9/2024\nOS build\t19044.1288\nExperience\tWindows Feature Experience Pack 120.2212.3920.0",
+ "caption": "صفحه About در تنظیمات ویندوز با مشخصات دستگاه و گزینه Rename this PC",
+ "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet\nMultitasking\nProjecting to this PC\nShared experiences\nClipboard\nAbout\nYour PC is monitored and protected.\nSee details in Windows Security\nDevice specifications\nDevice name\nDESKTOP-PJKJ1KT\nProcessor\nIntel(R) Pentium(R) CPU G2020 @ 2.90GHz 2.90 GHz\nInstalled RAM\n3.00 GB\nDevice ID\nE6897620-BD1F-4576-90D2-1A983754341E\nProduct ID\n00425-00000-00002-AA324\nSystem type\n32-bit operating system, x64-based processor\nPen and touch\nNo pen or touch input is available for this display\nCopy\nRename this PC\nWindows specifications\nEdition\nWindows 10 Enterprise LTSC\nVersion\n21H2\nInstalled on\n4/9/2024\nOS build\n19044.1288\nExperience\nWindows Feature Experience Pack 120.2212.3920.0",
  "visual_description": [
- "اسکرین شات از Settings > System > About در ویندوز",
- "بخش Device specifications شامل نام دستگاه، پردازنده Intel Pentium G2020 @ 2.90GHz، رم 3.00 GB و System type است",
- "بخش Windows specifications شامل Edition: Windows 10 Enterprise LTSC، Version: 21H2 و OS build: 19044.1288 است",
- "یک فلش قرمز به سمت دکمه «Rename this PC» اشاره می کند"
+ "اسکرین شات از Settings ویندوز در مسیر System > About",
+ "بخش Device specifications شامل نام دستگاه، پردازنده، RAM و شناسه ها نمایش داده شده است",
+ "System type برابر 32-bit operating system, x64-based processor نمایش داده شده است",
+ "دکمه های Copy و Rename this PC قابل مشاهده اند",
+ "یک فلش قرمز به سمت دکمه Rename this PC اشاره می کند",
+ "بخش Windows specifications شامل Edition، Version، Installed on، OS build و Experience نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -1568,7 +1583,7 @@ O = Right
 
 ATM- شماره ترمینال دستگاه
 
-![اسکرین شات تغییر نام رایانه با مثال شماره ترمینال و دکمه های Next و Cancel](img_folder/image_055_image56.jpg)
+![پنجره تغییر نام کامپیوتر با مثال فارسی و دکمه های Next و Cancel](img_folder/image_055_image56.jpg)
 
 **Image analysis**
 
@@ -1577,15 +1592,14 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image56.jpg",
  "rId": "rId69",
  "image_path": "img_folder/image_055_image56.jpg",
- "caption": "اسکرین شات تغییر نام رایانه با مثال شماره ترمینال و دکمه های Next و Cancel",
- "ocr_text": "Rename your PC\nRename your PC\nYou can use a combination of letters, hyphens, and numbers.\nCurrent PC name: DESKTOP-PJKJ1KT\nATM-21169\nمثال:\nتوجه داشته باشید که شماره ترمینال هر دستگاه مختص همان ترمینال می باشد.\nNext\nCancel",
+ "caption": "پنجره تغییر نام کامپیوتر با مثال فارسی و دکمه های Next و Cancel",
+ "ocr_text": "Rename your PC\nRename your PC\nYou can use a combination of letters, hyphens, and numbers.\nCurrent PC name: DESKTOP-PJKJ1KT\nATM-21169\nمثال :\nتوجه داشته باشید که شماره ترمینال هر\nدستگاه مختص همان ترمینال می باشد.\nNext\nCancel",
  "visual_description": [
- "پنجره تنظیمات با عنوان Rename your PC نمایش داده شده است",
- "متن راهنما درباره استفاده از حروف، خط تیره و اعداد دیده می شود",
- "نام فعلی رایانه به صورت Current PC name: DESKTOP-PJKJ1KT نمایش داده شده است",
- "یک کادر ورودی شامل مقدار ATM-21169 با علامت× برای پاک کردن دیده می شود",
- "متن فارسی شامل «مثال:» و توضیح درباره اختصاصی بودن شماره ترمینال نمایش داده شده است",
- "دکمه های Next و Cancel در پایین پنجره وجود دارند و دور Next کادر قرمز کشیده شده است"
+ "اسکرین شات پنجره Windows با عنوان «Rename your PC» روی پس زمینه آبی",
+ "نمایش نام فعلی رایانه: DESKTOP-PJKJ1KT",
+ "فیلد ورودی نام جدید با مقدار «ATM-21169»",
+ "دو دکمه «Next» و «Cancel» در سمت راست؛ دکمه Next با کادر قرمز مشخص شده",
+ "متن فارسی توضیحی در سمت چپ پایین درباره اختصاصی بودن شماره ترمینال"
  ],
  "image_type": "screenshot"
 }
@@ -1597,7 +1611,7 @@ ATM- شماره ترمینال دستگاه
 
 5. روی دکمه ی Next و سپس Restart later کلیک کنید:
 
-![پنجره تنظیمات ویندوز درباره سیستم و اعلان تغییر نام رایانه با گزینه های راه اندازی مجدد](img_folder/image_056_image57.png)
+![اسکرین شات تنظیمات About ویندوز با پنجره تغییر نام رایانه و دکمه های Restart](img_folder/image_056_image57.png)
 
 **Image analysis**
 
@@ -1606,15 +1620,18 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image57.png",
  "rId": "rId70",
  "image_path": "img_folder/image_056_image57.png",
- "caption": "پنجره تنظیمات ویندوز درباره سیستم و اعلان تغییر نام رایانه با گزینه های راه اندازی مجدد",
- "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet\nMultitasking\nProjecting to this PC\nShared experiences\nClipboard\nAbout\nYour PC is monitored and protected.\nSee details in Windows Security\nRename your PC\nRename your PC\nAfter you restart, your PC name will change to: ATM-ترمینال\nRestart now\nRestart later\nSystem type\n32-bit operating system, x64-based processor\nPen and touch\nNo pen or touch input is available for this display\nCopy\nRename this PC\nWindows specifications\nEdition\nWindows 10 Enterprise LTSC\nVersion\n21H2\nInstalled on\n۱۴۰۳/۰۱/۲۱\nOS build\n19044.1288\nExperience\nWindows Feature Experience Pack 120.2212.3920.0\n03:35 ب.ظ",
+ "caption": "اسکرین شات تنظیمات About ویندوز با پنجره تغییر نام رایانه و دکمه های Restart",
+ "ocr_text": "Settings\nHome\nFind a setting\nSystem\nDisplay\nSound\nNotifications & actions\nFocus assist\nPower & sleep\nStorage\nTablet\nMultitasking\nProjecting to this PC\nShared experiences\nClipboard\nAbout\nYour PC is monitored and protected.\nSee details in Windows Security\nRename your PC\nRename your PC\nAfter you restart, your PC name will change to: ATM-ترمینال\nRestart now\nRestart later\nSystem type\n32-bit operating system, x64-based processor\nPen and touch\nNo pen or touch input is available for this display\nCopy\nRename this PC\nWindows specifications\nEdition\nWindows 10 Enterprise LTSC\nVersion\n21H2\nInstalled on\n۱۴۰۲/۰۸/۲۱\nOS build\n19044.1288\nExperience\nWindows Feature Experience Pack 120.2212.3920.0\nvm\n03:35 ب.ظ.",
  "visual_description": [
- "اسکرین شات از Windows Settings بخش About در دسته System",
- "پنجره محاوره ای «Rename your PC» با نام جدید «ATM-ترمینال» و دکمه های «Restart now» و «Restart later» نمایش داده شده است",
- "مشخصات سیستم: «32-bit operating system, x64-based processor»",
- "مشخصات ویندوز: Windows 10 Enterprise LTSC، نسخه 21H2، OS build 19044.1288",
- "Windows Feature Experience Pack نسخه 120.2212.3920.0 نمایش داده شده است",
- "تاریخ نصب به صورت شمسی «۱۴۰۳/۰۱/۲۱» در صفحه دیده می شود"
+ "صفحه Settings ویندوز در بخش System > About نمایش داده شده است",
+ "پنجره محاوره ای «Rename your PC» روی صفحه باز است",
+ "در پنجره محاوره ای متن تغییر نام به «ATM-ترمینال» پس از ری استارت نمایش داده می شود",
+ "دو دکمه «Restart now» و «Restart later» در پنجره محاوره ای وجود دارد",
+ "در بخش مشخصات سیستم: «32-bit operating system, x64-based processor» دیده می شود",
+ "در بخش Pen and touch: «No pen or touch input is available for this display» نمایش داده شده است",
+ "در بخش Windows specifications موارد Edition: Windows 10 Enterprise LTSC و Version: 21H2 قابل مشاهده است",
+ "OS build مقدار 19044.1288 نمایش داده شده است",
+ "Windows Feature Experience Pack مقدار 120.2212.3920.0 نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -1624,7 +1641,7 @@ ATM- شماره ترمینال دستگاه
 
 به کنترل پنل بروید و روی Date and Time کلیک کنید:
 
-![پنجره تنظیمات تاریخ و زمان ویندوز با نمایش تاریخ شمسی و منطقه زمانی تهران](img_folder/image_057_image58.png)
+![پنجره تنظیمات Date and Time ویندوز با نمایش تاریخ، ساعت و منطقه زمانی تهران](img_folder/image_057_image58.png)
 
 **Image analysis**
 
@@ -1633,17 +1650,14 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image58.tmp",
  "rId": "rId71",
  "image_path": "img_folder/image_057_image58.png",
- "caption": "پنجره تنظیمات تاریخ و زمان ویندوز با نمایش تاریخ شمسی و منطقه زمانی تهران",
- "ocr_text": "Date and Time\nDate and Time Additional Clocks Internet Time\nDate:\nدوشنبه، ۱۷ اردیبهشت ۱۴۰۳\nTime:\n11:24:01 ق.ظ\nChange date and time...\nTime zone\n(UTC+03:30) Tehran\nChange time zone...\nDaylight Saving Time ends on ۱۴۰۳ فروردین ۳۱, شنبه, at 12:00 ق.ظ. The clock\nis not set to adjust for this change.\nNotify me when the clock changes\nOK Cancel Apply",
+ "caption": "پنجره تنظیمات Date and Time ویندوز با نمایش تاریخ، ساعت و منطقه زمانی تهران",
+ "ocr_text": "Date and Time\nDate and Time Additional Clocks Internet Time\nDate:\nدوشنبه, ۱۷ اردیبهشت ۱۴۰۳\nTime:\nق.ظ 11:24:01\nChange date and time...\nTime zone\n(UTC+03:30) Tehran\nChange time zone...\nDaylight Saving Time ends on ۱۴۰۳ فروردین ۳۱, شنبه at 12:00 ق.ظ. The clock\nis not set to adjust for this change.\nNotify me when the clock changes\nOK\nCancel\nApply",
  "visual_description": [
  "اسکرین شات پنجره Date and Time ویندوز با تب های Date and Time، Additional Clocks و Internet Time",
- "نمایش تاریخ: دوشنبه، ۱۷ اردیبهشت ۱۴۰۳",
- "نمایش زمان: 11:24:01 ق.ظ",
- "منطقه زمانی تنظیم شده: (UTC+03:30) Tehran",
- "دکمه های Change date and time... و Change time zone... قابل مشاهده اند",
- "پیام درباره پایان Daylight Saving Time در ۱۴۰۳ فروردین ۳۱ و عدم تنظیم ساعت برای این تغییر",
- "گزینه Notify me when the clock changes تیک خورده است",
- "دکمه های OK، Cancel و Apply در پایین پنجره دیده می شوند"
+ "نمایش تاریخ «دوشنبه, ۱۷ اردیبهشت ۱۴۰۳» و زمان «ق.ظ 11:24:01»",
+ "نمایش منطقه زمانی «(UTC+03:30) Tehran» و دکمه های Change date and time... و Change time zone...",
+ "متن مربوط به Daylight Saving Time و گزینه تیک دار «Notify me when the clock changes»",
+ "دکمه های پایین پنجره: OK، Cancel و Apply"
  ],
  "image_type": "screenshot"
 }
@@ -1659,7 +1673,7 @@ ATM- شماره ترمینال دستگاه
 
 1. روی My Computer راست کلیک کنید و از منویی که گشوده می شود، Manage را برگزینید:
 
-![منوی راست کلیک ویندوز با گزینه های مدیریت و اتصال درایو شبکه](img_folder/image_058_image59.png)
+![منوی راست کلیک در ویندوز با گزینه های مدیریت و شبکه](img_folder/image_058_image59.png)
 
 **Image analysis**
 
@@ -1668,12 +1682,12 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image59.png",
  "rId": "rId72",
  "image_path": "img_folder/image_058_image59.png",
- "caption": "منوی راست کلیک ویندوز با گزینه های مدیریت و اتصال درایو شبکه",
+ "caption": "منوی راست کلیک در ویندوز با گزینه های مدیریت و شبکه",
  "ocr_text": "Open\nManage\nMap network drive...\nDisconnect network drive...\nCreate shortcut\nDelete\nRename\nProperties",
  "visual_description": [
- "منوی زمینه در ویندوز نمایش داده شده است",
- "گزینه «Manage» هایلایت شده است",
- "گزینه های «Map network drive...» و «Disconnect network drive...» در منو دیده می شوند"
+ "منوی زمینه ای ویندوز نمایش داده شده و گزینه Manage با پس زمینه آبی هایلایت است",
+ "گزینه های مربوط به درایو شبکه شامل Map network drive... و Disconnect network drive... دیده می شود",
+ "گزینه های Open، Create shortcut، Delete، Rename و Properties در فهرست موجود است"
  ],
  "image_type": "screenshot"
 }
@@ -1681,7 +1695,7 @@ ATM- شماره ترمینال دستگاه
 
 2. در سمت چپ پنجره ای که باز می شود همانند شکل زیر روی Disk Management کلیک کنید:
 
-![نمای مدیریت دیسک ویندوز با نمایش فضای Unallocated در Disk 0](img_folder/image_059_image60.png)
+![نمای Disk Management با بخش Unallocated و انتخاب Disk Management در پنل چپ](img_folder/image_059_image60.png)
 
 **Image analysis**
 
@@ -1690,14 +1704,15 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image60.tmp",
  "rId": "rId73",
  "image_path": "img_folder/image_059_image60.png",
- "caption": "نمای مدیریت دیسک ویندوز با نمایش فضای Unallocated در Disk 0",
- "ocr_text": "Computer Management\nFile Action View Help\nComputer Management (Local)\nSystem Tools\nTask Scheduler\nEvent Viewer\nShared Folders\nLocal Users and Groups\nPerformance\nDevice Manager\nStorage\nDisk Management\nServices and Applications\nVolume\nLayout\nType\nFile System\nStatus\n(C:)\nSimple\nBasic\nNTFS\nHealthy (Boot, Page Fi\nADONIS (D:)\nSimple\nBasic\nNTFS\nHealthy (Primary Parti\nSystem Reserved\nSimple\nBasic\nHealthy (System, Active\nActions\nDisk Management\nMore Actions\nDisk 0\nBasic\n232.88 GB\nOnline\nSyst\n103\n103\nUna\n(C:)\n60.79 GB NT\nHealthy (Boo\n171.90 GB\nUnallocated\nDisk 1\nRemovable\n29.72 GB\nOnline\nADONIS (D:)\n29.71 GB NTFS\nHealthy (Primary Partition)\nUnallocated\nPrimary partition",
+ "caption": "نمای Disk Management با بخش Unallocated و انتخاب Disk Management در پنل چپ",
+ "ocr_text": "Computer Management\nFile Action View Help\nComputer Management (Local)\nSystem Tools\nTask Scheduler\nEvent Viewer\nShared Folders\nLocal Users and Groups\nPerformance\nDevice Manager\nStorage\nDisk Management\nServices and Applications\nVolume\nLayout\nType\nFile System\nStatus\n(C:)\nSimple\nBasic\nNTFS\nHealthy (Boot, Page Fi\nADONIS (D:)\nSimple\nBasic\nNTFS\nHealthy (Primary Partiti\nSystem Reserved\nSimple\nBasic\nNTFS\nHealthy (System, Active\nActions\nDisk Management\nMore Actions\nDisk 0\nBasic\n232.88 GB\nOnline\nSyst\n103\nHea\n103\nUna\n(C:)\n60.79 GB NTFS\nHealthy (Boot\n171.90 GB\nUnallocated\nDisk 1\nRemovable\n29.72 GB\nOnline\nADONIS (D:)\n29.71 GB NTFS\nHealthy (Primary Partition)\nUnallocated\nPrimary partition",
  "visual_description": [
- "پنجره Computer Management باز است و گزینه Disk Management در ستون چپ انتخاب شده",
- "لیست Volume ها شامل (C:)، ADONIS (D:) و System Reserved نمایش داده شده است",
- "در Disk 0 یک بخش با برچسب 171.90 GB Unallocated مشخص و کادر قرمز دور آن کشیده شده",
- "پیکان قرمز به گزینه Disk Management اشاره می کند",
- "در پایین Disk 1 به صورت Removable با پارتیشن ADONIS (D:) و وضعیت Healthy (Primary Partition) نمایش داده شده"
+ "اسکرین شات ابزار Computer Management ویندوز با انتخاب Storage > Disk Management",
+ "نمای لیست Volumeها شامل (C:)، ADONIS (D:)، و System Reserved با File System=NTFS و Status=Healthy",
+ "در Disk 0 یک پارتیشن (C:) با اندازه 60.79 GB NTFS و یک فضای 171.90 GB با وضعیت Unallocated نمایش داده شده",
+ "در Disk 1 (Removable) یک پارتیشن ADONIS (D:) با اندازه 29.71 GB NTFS نمایش داده شده",
+ "یک فلش/پیکان قرمز به گزینه Disk Management در پنل سمت چپ اشاره می کند",
+ "یک کادر قرمز فضای 171.90 GB Unallocated را در Disk 0 برجسته کرده است"
  ],
  "image_type": "screenshot"
 }
@@ -1706,7 +1721,7 @@ ATM- شماره ترمینال دستگاه
 3. سپس فضای Unallocated مربوط به هارد را انتخاب کنید.
 4. از منویAction، گزینه All Tasks>New Simple Volume را انتخاب کنید:
 
-![پنجره Disk Management با منوی ایجاد پارتیشن جدید روی فضای Unallocated](img_folder/image_060_image61.png)
+![اسکرین شات مدیریت دیسک ویندوز و منوی ایجاد ولوم جدید روی فضای Unallocated](img_folder/image_060_image61.png)
 
 **Image analysis**
 
@@ -1715,16 +1730,14 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image61.tmp",
  "rId": "rId74",
  "image_path": "img_folder/image_060_image61.png",
- "caption": "پنجره Disk Management با منوی ایجاد پارتیشن جدید روی فضای Unallocated",
- "ocr_text": "Computer Management\nFile Action View Help\nRefresh\nRescan Disks\nCreate VHD\nAttach VHD\nAll Tasks\nNew Simple Volume...\nNew Spanned Volume...\nNew Striped Volume...\nNew Mirrored Volume...\nNew RAID-5 Volume...\nProperties\nHelp\nDevice Manager\nStorage\nDisk Management\nServices and Applications\nVolume Layout Type File System Status\n(C:) Simple Basic NTFS Healthy (Boot, Page File\nADONIS (D:) Simple Basic NTFS Healthy (Primary Partition)\nSystem Reserv... Simple Basic NTFS Healthy (System, Active\nActions\nDisk Management\nMore Actions\nDisk 0\nBasic\n232.88 GB\nOnline\nSyst\n103\nHea\n103\nUna\n(C:)\n60.79 GB NTFS\nHealthy (Boot,\n171.90 GB\nUnallocated\nDisk 1\nRemovable\n297.2 GB\nOnline\nADONIS (D:)\n29.71 GB NTFS\nHealthy (Primary Partition)\nUnallocated\nPrimary partition\nNew Spa&nned Volume...",
+ "caption": "اسکرین شات مدیریت دیسک ویندوز و منوی ایجاد ولوم جدید روی فضای Unallocated",
+ "ocr_text": "Computer Management\nFile Action View Help\nRefresh\nRescan Disks\nCreate VHD\nAttach VHD\nAll Tasks >\nHelp\nDevice Manager\nStorage\nDisk Management\nServices and Applications\nVolume\nLayout\nType\nFile System\nStatus\n(C:)\nADONIS (D:)\nSystem Reserv...\nSimple\nSimple\nSimple\nBasic\nBasic\nBasic\nNTFS\nNTFS\nHealthy (Boot, Page Fi...\nHealthy (Primary Partiti...\nHealthy (System, Activ...\nActions\nDisk Management\nMore Actions\nNew Simple Volume...\nNew Spanned Volume...\nNew Striped Volume...\nNew Mirrored Volume...\nNew RAID-5 Volume...\nProperties\nDisk 0\nBasic\n232.88 GB\nOnline\nSyst\n103\nHea\n103\nUna\n(C:)\n60.79 GB NTFS\nHealthy (Boot,\n171.90 GB\nUnallocated\nDisk 1\nRemovable\n297.20 GB\nOnline\nADONIS (D:)\n29.71 GB NTFS\nHealthy (Primary Partition)\nUnallocated\nPrimary partition\nNew Spa&nned Volume...",
  "visual_description": [
- "اسکرین شات ابزار Computer Management در بخش Storage > Disk Management",
- "منوی راست کلیک روی فضای Unallocated با گزینه های New Simple/Spanned/Striped/Mirrored/RAID-5 Volume نمایش داده شده است",
- "یک فلش قرمز بزرگ به گزینه \"New Simple Volume...\" اشاره می کند",
- "Disk 0 با ظرفیت 232.88 GB و وضعیت Online نمایش داده شده است",
- "روی Disk 0 پارتیشن (C:) با 60.79 GB NTFS و بخش 171.90 GB با برچسب Unallocated دیده می شود",
- "Disk 1 به صورت Removable با ظرفیت 297.2 GB و پارتیشن ADONIS (D:) با 29.71 GB NTFS نمایش داده شده است",
- "پنل Actions در سمت راست شامل گزینه های Disk Management و More Actions است"
+ "پنجره Computer Management با بخش Disk Management نمایش داده شده است.",
+ "منوی Action باز است و گزینه New Simple Volume... با فلش قرمز مشخص شده.",
+ "در Disk 0 یک پارتیشن (C:) با 60.79 GB NTFS و یک فضای 171.90 GB Unallocated دیده می شود.",
+ "Disk 1 به صورت Removable با پارتیشن ADONIS (D:) 29.71 GB NTFS و وضعیت Healthy (Primary Partition) نمایش دارد.",
+ "ستون های Volume, Layout, Type, File System, Status در جدول بالایی قابل مشاهده اند."
  ],
  "image_type": "screenshot"
 }
@@ -1732,7 +1745,7 @@ ATM- شماره ترمینال دستگاه
 
 5. روی دکمه ی Next کلیک کنید:
 
-![پنجرهٔ ویزارد ساخت New Simple Volume در ویندوز با متن خوش آمدگویی و دکمه Next](img_folder/image_061_image62.png)
+![صفحه خوش آمدگویی ویزارد New Simple Volume برای ایجاد یک ولوم ساده روی دیسک](img_folder/image_061_image62.png)
 
 **Image analysis**
 
@@ -1741,12 +1754,13 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image62.png",
  "rId": "rId75",
  "image_path": "img_folder/image_061_image62.png",
- "caption": "پنجرهٔ ویزارد ساخت New Simple Volume در ویندوز با متن خوش آمدگویی و دکمه Next",
- "ocr_text": "New Simple Volume Wizard\nWelcome to the New Simple\nVolume Wizard\nThis wizard helps you create a simple volume on a disk.\n\nA simple volume can only be on a single disk.\n\nTo continue, click Next.\n< Back\nNext >\nCancel",
+ "caption": "صفحه خوش آمدگویی ویزارد New Simple Volume برای ایجاد یک ولوم ساده روی دیسک",
+ "ocr_text": "New Simple Volume Wizard\n\nWelcome to the New Simple\nVolume Wizard\n\nThis wizard helps you create a simple volume on a disk.\n\nA simple volume can only be on a single disk.\n\nTo continue, click Next.\n\n< Back\nNext >\nCancel",
  "visual_description": [
- "اسکرین شات یک پنجرهٔ Windows Wizard با عنوان New Simple Volume Wizard",
- "متن اصلی شامل تیتر Welcome to the New Simple Volume Wizard و توضیح ایجاد simple volume روی یک دیسک است",
- "سه دکمه پایین پنجره: < Back (غیرفعال)، Next > (فعال)، Cancel"
+ "پنجره ویزارد با عنوان New Simple Volume Wizard نمایش داده شده است",
+ "متن توضیح می دهد simple volume فقط روی یک دیسک می تواند باشد",
+ "دکمه های < Back، Next > و Cancel در پایین پنجره وجود دارد",
+ "بخش سمت چپ یک نوار عمودی گرادیانی/تزئینی دارد و سمت راست متن راهنما قرار دارد"
  ],
  "image_type": "screenshot"
 }
@@ -1754,7 +1768,7 @@ ATM- شماره ترمینال دستگاه
 
 6. در این مرحله نیز بدون تغییر اطلاعات موجود، فقط روی Next کلیک کنید:
 
-![پنجره New Simple Volume Wizard برای تعیین اندازه Simple volume در دیسک](img_folder/image_062_image63.png)
+![پنجره New Simple Volume Wizard برای تعیین اندازه Simple Volume با مقادیر حداقل و حداکثر](img_folder/image_062_image63.png)
 
 **Image analysis**
 
@@ -1763,15 +1777,13 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image63.png",
  "rId": "rId76",
  "image_path": "img_folder/image_062_image63.png",
- "caption": "پنجره New Simple Volume Wizard برای تعیین اندازه Simple volume در دیسک",
+ "caption": "پنجره New Simple Volume Wizard برای تعیین اندازه Simple Volume با مقادیر حداقل و حداکثر",
  "ocr_text": "New Simple Volume Wizard\nSpecify Volume Size\nChoose a volume size that is between the maximum and minimum sizes.\n\nMaximum disk space in MB: 59997\nMinimum disk space in MB: 8\nSimple volume size in MB: 59997\n\n< Back\nNext >\nCancel",
  "visual_description": [
- "پنجره ویندوزی New Simple Volume Wizard در مرحله Specify Volume Size نمایش داده شده است",
- "متن راهنما برای انتخاب اندازه بین حداقل و حداکثر نمایش داده می شود",
- "Maximum disk space in MB برابر 59997 نمایش داده شده است",
- "Minimum disk space in MB برابر 8 نمایش داده شده است",
- "فیلد عددی Simple volume size in MB مقدار 59997 را نشان می دهد و دارای دکمه های افزایش/کاهش است",
- "دکمه های < Back، Next > و Cancel در پایین پنجره وجود دارند"
+ "پنجره ویزارد «New Simple Volume Wizard» در مرحله «Specify Volume Size» نمایش داده شده است.",
+ "حداکثر فضای دیسک 59997 مگابایت و حداقل 8 مگابایت درج شده است.",
+ "فیلد ورودی «Simple volume size in MB» مقدار 59997 دارد و کنترل افزایش/کاهش (spinner) کنار آن دیده می شود.",
+ "دکمه های ناوبری «< Back»، «Next >» و «Cancel» در پایین پنجره قرار دارند."
  ],
  "image_type": "screenshot"
 }
@@ -1779,7 +1791,7 @@ ATM- شماره ترمینال دستگاه
 
 7. در پنجره ی زیر، همانند شکل زیر از منوی Assign the following drive letter، حرف D را به عنوان نام درایو انتخاب و سپس روی دکمه ی Next کلیک نمایید:
 
-![پنجره ویزارد ایجاد ولوم جدید برای تخصیص حرف درایو یا مسیر](img_folder/image_063_image64.png)
+![پنجره ویزارد ایجاد ولوم جدید برای انتخاب حرف درایو یا مسیر مونت](img_folder/image_063_image64.png)
 
 **Image analysis**
 
@@ -1788,14 +1800,14 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image64.png",
  "rId": "rId77",
  "image_path": "img_folder/image_063_image64.png",
- "caption": "پنجره ویزارد ایجاد ولوم جدید برای تخصیص حرف درایو یا مسیر",
- "ocr_text": "New Simple Volume Wizard\nAssign Drive Letter or Path\nFor easier access, you can assign a drive letter or drive path to your partition.\nAssign the following drive letter:\nD\nMount in the following empty NTFS folder:\nBrowse...\nDo not assign a drive letter or drive path\n< Back\nNext >\nCancel",
+ "caption": "پنجره ویزارد ایجاد ولوم جدید برای انتخاب حرف درایو یا مسیر مونت",
+ "ocr_text": "New Simple Volume Wizard\n\nAssign Drive Letter or Path\nFor easier access, you can assign a drive letter or drive path to your partition.\n\nAssign the following drive letter:\nD\n\nMount in the following empty NTFS folder:\nBrowse...\n\nDo not assign a drive letter or drive path\n\n< Back\nNext >\nCancel",
  "visual_description": [
- "پنجره New Simple Volume Wizard با مرحله Assign Drive Letter or Path نمایش داده شده است",
- "سه گزینه رادیویی برای تخصیص حرف درایو، Mount در پوشه NTFS خالی، یا عدم تخصیص وجود دارد",
- "گزینه Assign the following drive letter فعال است و مقدار کشویی روی D تنظیم شده",
- "فیلد مسیر NTFS و دکمه Browse... غیرفعال هستند",
- "دکمه های < Back، Next > و Cancel در پایین پنجره دیده می شوند"
+ "اسکرین شات «New Simple Volume Wizard» در ویندوز با مرحله «Assign Drive Letter or Path»",
+ "سه گزینه رادیویی برای تخصیص حرف درایو، مونت در پوشه NTFS، یا عدم تخصیص نمایش داده شده است",
+ "حرف درایو انتخاب شده در یک منوی کشویی روی «D» قرار دارد",
+ "دکمه «Browse...» کنار گزینه مونت در پوشه NTFS وجود دارد",
+ "دکمه های پایین پنجره شامل «< Back»، «Next >» و «Cancel» هستند"
  ],
  "image_type": "screenshot"
 }
@@ -1803,7 +1815,7 @@ ATM- شماره ترمینال دستگاه
 
 8. در مرحله ی بعدی تنظیمات زیر را انجام دهید و روی دکمه ی Next کلیک کنید:
 
-![پنجره ویزارد ساخت ولوم جدید ویندوز برای فرمت پارتیشن با NTFS و گزینه Quick Format](img_folder/image_064_image65.png)
+![پنجره New Simple Volume Wizard برای فرمت پارتیشن با NTFS و گزینه Quick format](img_folder/image_064_image65.png)
 
 **Image analysis**
 
@@ -1812,18 +1824,17 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image65.png",
  "rId": "rId78",
  "image_path": "img_folder/image_064_image65.png",
- "caption": "پنجره ویزارد ساخت ولوم جدید ویندوز برای فرمت پارتیشن با NTFS و گزینه Quick Format",
- "ocr_text": "New Simple Volume Wizard\n\nFormat Partition\nTo store data on this partition, you must format it first.\n\nChoose whether you want to format this volume, and if so, what settings you want to use.\n\nDo not format this volume\n\nFormat this volume with the following settings:\n\nFile system:\nNTFS\n\nAllocation unit size:\nDefault\n\nVolume label:\nNew Volume\n\nPerform a quick format\n\nEnable file and folder compression\n\n< Back\nNext >\nCancel",
+ "caption": "پنجره New Simple Volume Wizard برای فرمت پارتیشن با NTFS و گزینه Quick format",
+ "ocr_text": "New Simple Volume Wizard\nFormat Partition\nTo store data on this partition, you must format it first.\nChoose whether you want to format this volume, and if so, what settings you want to use.\nDo not format this volume\nFormat this volume with the following settings:\nFile system:\nNTFS\nAllocation unit size:\nDefault\nVolume label:\nNew Volume\nPerform a quick format\nEnable file and folder compression\n< Back\nNext >\nCancel",
  "visual_description": [
  "پنجره «New Simple Volume Wizard» در مرحله «Format Partition» نمایش داده شده است",
  "گزینه «Format this volume with the following settings» انتخاب شده است",
- "File system روی «NTFS» قرار دارد",
- "Allocation unit size روی «Default» قرار دارد",
- "Volume label برابر «New Volume» است",
- "گزینه «Perform a quick format» تیک خورده است",
- "گزینه «Enable file and folder compression» بدون تیک است",
- "دکمه های «< Back»، «Next >» و «Cancel» در پایین پنجره دیده می شوند",
- "چند کادر/حاشیه قرمز دور فیلد NTFS و گزینه Quick format ترسیم شده است"
+ "فهرست کشویی «File system» روی «NTFS» قرار دارد",
+ "فهرست کشویی «Allocation unit size» روی «Default» قرار دارد",
+ "فیلد «Volume label» مقدار «New Volume» دارد",
+ "چک باکس «Perform a quick format» تیک خورده است",
+ "چک باکس «Enable file and folder compression» بدون تیک است",
+ "دکمه های «< Back»، «Next >» و «Cancel» در پایین پنجره دیده می شوند"
  ],
  "image_type": "screenshot"
 }
@@ -1831,7 +1842,7 @@ ATM- شماره ترمینال دستگاه
 
 9. در آخر روی دکمه ی Finish کلیک نمایید:
 
-![پنجره تکمیل New Simple Volume Wizard با تنظیمات ایجاد پارتیشن NTFS و درایو E:](img_folder/image_065_image66.png)
+![پایان ویزارد ساخت Simple Volume با تنظیمات NTFS و درایو E در ویندوز](img_folder/image_065_image66.png)
 
 **Image analysis**
 
@@ -1840,15 +1851,13 @@ ATM- شماره ترمینال دستگاه
  "image_name": "image66.png",
  "rId": "rId79",
  "image_path": "img_folder/image_065_image66.png",
- "caption": "پنجره تکمیل New Simple Volume Wizard با تنظیمات ایجاد پارتیشن NTFS و درایو E:",
- "ocr_text": "New Simple Volume Wizard\nCompleting the New Simple\nVolume Wizard\nYou have successfully completed the New Simple Volume\nWizard.\nYou selected the following settings:\nVolume type: Simple Volume\nDisk selected: Disk 0\nVolume size: 59997 MB\nDrive letter or path: E:\nFile system: NTFS\nAllocation unit size: Default\nVolume label: New Volume\nEnable file and folder compression: No\nTo close this wizard, click Finish.\n< Back\nFinish\nCancel",
+ "caption": "پایان ویزارد ساخت Simple Volume با تنظیمات NTFS و درایو E در ویندوز",
+ "ocr_text": "New Simple Volume Wizard\nCompleting the New Simple\nVolume Wizard\nYou have successfully completed the New Simple Volume\nWizard.\nYou selected the following settings:\nVolume type: Simple Volume\nDisk selected: Disk 0\nVolume size: 59997 MB\nDrive letter or path: E:\nFile system: NTFS\nAllocation unit size: Default\nVolume label: New Volume\nQuick format: Yes\nTo close this wizard, click Finish.\n< Back\nFinish\nCancel",
  "visual_description": [
- "پنجره «New Simple Volume Wizard» در مرحله «Completing the New Simple Volume Wizard» نمایش داده شده است.",
- "کادر تنظیمات شامل: Volume type: Simple Volume، Disk selected: Disk 0، Volume size: 59997 MB.",
- "Drive letter or path برابر E: و File system برابر NTFS است.",
- "Allocation unit size روی Default و Volume label روی New Volume تنظیم شده است.",
- "گزینه Enable file and folder compression روی No قرار دارد.",
- "دکمه های پایین پنجره: < Back، Finish، Cancel."
+ "پنجره New Simple Volume Wizard در مرحله Completing نمایش داده شده است",
+ "تنظیمات انتخاب شده شامل Disk 0، اندازه 59997 MB، حرف درایو E: و فایل سیستم NTFS است",
+ "Allocation unit size روی Default و Quick format روی Yes تنظیم شده است",
+ "دکمه های < Back، Finish و Cancel در پایین پنجره دیده می شوند"
  ],
  "image_type": "screenshot"
 }
@@ -1879,7 +1888,7 @@ C:\Program Files\Adonis\Camera\CameraConfiguration
  Run As Administrator را انتخاب کنید.
 6. صبر کنید تا پیغام Successfully به نمایش درآید؛ روی دکمه ی OK کلیک کنید:
 
-![تنظیم آدرس سرور KMS با دستور slmgr و پیام موفقیت Windows Script Host](img_folder/image_066_image67.jpg)
+![تنظیم آدرس KMS با دستور slmgr /skms در خط فرمان ویندوز](img_folder/image_066_image67.jpg)
 
 **Image analysis**
 
@@ -1888,20 +1897,20 @@ C:\Program Files\Adonis\Camera\CameraConfiguration
  "image_name": "image67.jpg",
  "rId": "rId80",
  "image_path": "img_folder/image_066_image67.jpg",
- "caption": "تنظیم آدرس سرور KMS با دستور slmgr و پیام موفقیت Windows Script Host",
+ "caption": "تنظیم آدرس KMS با دستور slmgr /skms در خط فرمان ویندوز",
  "ocr_text": "C:\\Windows\\system32\\cmd.exe\n\nE:\\_Unprotected>cd c:\\windows\\system32\n\nE:\\_Unprotected>slmgr /skms 10.15.2.105\n\nWindows Script Host\n\nKey Management Service machine name set to 10.15.2.105 successfully.\n\nOK",
  "visual_description": [
- "پنجره Command Prompt ویندوز با مسیر E:\\_Unprotected نمایش داده شده است",
+ "پنجره Command Prompt با مسیر E:\\_Unprotected نمایش داده شده است",
  "دستور cd c:\\windows\\system32 اجرا شده است",
- "دستور slmgr /skms 10.15.2.105 اجرا شده است",
- "پنجره Windows Script Host پیام موفقیت تنظیم KMS به 10.15.2.105 را نشان می دهد",
- "یک دکمه OK در پنجره پیام وجود دارد"
+ "دستور slmgr /skms 10.15.2.105 وارد شده است",
+ "پنجره Windows Script Host پیام موفقیت تنظیم نام ماشین KMS به 10.15.2.105 را نشان می دهد",
+ "دکمه OK در پنجره پیام وجود دارد"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![خطای فعال سازی ویندوز با slmgr /ato و عدم دسترسی به KMS](img_folder/image_067_image68.jpg)
+![اجرای slmgr /ato در CMD و نمایش خطای فعال سازی KMS با کد 0xC004F074](img_folder/image_067_image68.jpg)
 
 **Image analysis**
 
@@ -1910,14 +1919,13 @@ C:\Program Files\Adonis\Camera\CameraConfiguration
  "image_name": "image68.jpg",
  "rId": "rId81",
  "image_path": "img_folder/image_067_image68.jpg",
- "caption": "خطای فعال سازی ویندوز با slmgr /ato و عدم دسترسی به KMS",
- "ocr_text": "C:\\Windows\\system32\\cmd.exe\n\nE:\\__Unprotected>cd c:\\windows\\system32\n\nE:\\__Unprotected>slmgr /ato\n\nWindows Script Host\n\nActivating Windows(R), EnterpriseS edition\n(32d2fab3-e4a8-42c2-923b-4bf4fd13e6ee) ...\nError: 0xC004F074 The Software Licensing Service reported that the\ncomputer could not be activated. No Key Management Service (KMS)\ncould be contacted. Please see the Application Event Log for additional\ninformation.\n\nOK",
+ "caption": "اجرای slmgr /ato در CMD و نمایش خطای فعال سازی KMS با کد 0xC004F074",
+ "ocr_text": "C:\\Windows\\system32\\cmd.exe\n\nE:\\_Unprotected>cd c:\\windows\\system32\n\nE:\\_Unprotected>slmgr /ato\n\nWindows Script Host\n\nActivating Windows(R), EnterpriseS edition\n(32d2fab3-e4a8-42c2-923b-4bf4fd13e6ee) ...\nError: 0xC004F074 The Software Licensing Service reported that the\ncomputer could not be activated. No Key Management Service (KMS)\ncould be contacted. Please see the Application Event Log for additional\ninformation.\n\nOK",
  "visual_description": [
- "پنجره Command Prompt با اجرای دستور slmgr /ato نمایش داده شده است",
- "پنجره Windows Script Host پیام فعال سازی Windows(R) EnterpriseS edition را نشان می دهد",
- "کد خطا 0xC004F074 و پیام عدم امکان تماس با Key Management Service (KMS) قابل مشاهده است",
- "شناسه GUID (32d2fab3-e4a8-42c2-923b-4bf4fd13e6ee) در پیام نمایش داده شده است",
- "دکمه OK در پنجره خطا وجود دارد"
+ "پنجره Command Prompt با مسیر E:\\_Unprotected و اجرای دستور cd c:\\windows\\system32 و سپس slmgr /ato",
+ "نمایش پنجره Windows Script Host با پیام Activating Windows(R), EnterpriseS edition",
+ "نمایش خطای فعال سازی 0xC004F074 و ذکر عدم امکان تماس با Key Management Service (KMS)",
+ "وجود دکمه OK در پنجره خطا"
  ],
  "image_type": "screenshot"
 }
@@ -1935,7 +1943,7 @@ Telnet 10.15.2.105 1688
 
 سریال NDCSecure، انحصاری و مختص همان دستگاه است و در دستگاه های مختلف، متفاوت می باشد.
 
-![نمایش فایل تنظیمات PooyaForwardServer با پورت ها، آدرس سرور و مسیرهای سرویس Agent](img_folder/image_004_image5.png)
+![نمایش فایل تنظیمات PooyaForwardServer.properties در Notepad++ با پورت ها و آدرس های سرویس](img_folder/image_004_image5.png)
 
 **Image analysis**
 
@@ -1944,10 +1952,17 @@ Telnet 10.15.2.105 1688
  "image_name": "image5.png",
  "rId": "rId18",
  "image_path": "img_folder/image_004_image5.png",
- "caption": "نمایش فایل تنظیمات PooyaForwardServer با پورت ها، آدرس سرور و مسیرهای سرویس Agent",
+ "caption": "نمایش فایل تنظیمات PooyaForwardServer.properties در Notepad++ با پورت ها و آدرس های سرویس",
  "ocr_text": "PooyaForwardServer.properties\n\nListeneringPort = 9005\n\nServer = 10.15.0.66:9600\nProtocolHeader = 2B\n\nLogFile = c:/ndcsecure/log/ndcSecure\n\nAgentPropertiesServiceAddress = http://10.15.45.100:9600/atmAgent/properties\nAgentGetLastVersionServiceAddress = http://10.15.45.100:9600/atmAgent/getLastVersion\nSerialNumber = 994429903926 N",
  "visual_description": [
- "اسکرین شات Notepad++ از فایل PooyaForwardServer.properties با تنظیمات ListeneringPort، Server IP:Port، ProtocolHeader، LogFile و URLهای سرویس های Agent"
+ "اسکرین شات Notepad++ از فایل PooyaForwardServer.properties با ۱۲ خط",
+ "پارامتر ListeneringPort برابر 9005 نمایش داده شده است",
+ "Server برابر 10.15.0.66:9600 تنظیم شده است",
+ "ProtocolHeader مقدار 2B دارد",
+ "مسیر LogFile برابر c:/ndcsecure/log/ndcSecure است",
+ "آدرس AgentPropertiesServiceAddress برابر http://10.15.45.100:9600/atmAgent/properties است",
+ "آدرس AgentGetLastVersionServiceAddress برابر http://10.15.45.100:9600/atmAgent/getLastVersion است",
+ "SerialNumber برابر 994429903926 N نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -1966,7 +1981,7 @@ Telnet 10.15.2.105 1688
 به منظور انجام تنظیمات مربوط به کاست 000/000/1 ریالی و 000/000/2 ریالی، فایل
  Change Value V 1.0.0.2 را اجرا نمایید. سپس تنظیمات لازم را با توجه به پروفایل انتخابی، اعمال نمایید:
 
-![اسکرین شات کنسول RefahChangeValue با مقادیر Type 1 تا 4 برای دو ستون](img_folder/image_068_image69.jpg)
+![نمایش منوی متنی RefahChangeValue با انواع و مقادیر برای دو ستون 1 و 2](img_folder/image_068_image69.jpg)
 
 **Image analysis**
 
@@ -1975,13 +1990,14 @@ Telnet 10.15.2.105 1688
  "image_name": "image69.jpg",
  "rId": "rId82",
  "image_path": "img_folder/image_068_image69.jpg",
- "caption": "اسکرین شات کنسول RefahChangeValue با مقادیر Type 1 تا 4 برای دو ستون",
- "ocr_text": "Administrator: Pasargad Noor KarAfarin Refah Change Value\n\n[ *** :: ADONIS ESD COMPANY :: *** ]\n[ *** :: SECOND LEVEL Technical Support Group :: *** ]\n\n***:: RefahChangeValue ::***\n\n.::1:. .:2:.\n\nType 1 : 1,000,000 Type 1 : 2,000,000\nType 2 : 500,000 Type 2 : 1,000,000\nType 3 : 100,000 (New) Type 3 : 500,000\nType 4 : 100,000 (Old) Type 4 : 100,000\n\nFor Opening First Menu press X and clicking Enter.\n\nType Number and Press Enter:",
+ "caption": "نمایش منوی متنی RefahChangeValue با انواع و مقادیر برای دو ستون 1 و 2",
+ "ocr_text": "*** :: ADONIS ESD COMPANY :: ***\n*** :: SECOND LEVEL Technical Support Group :: ***\n\n***:: RefahChangeValue ::***\n\n.:1:. .:2:.\n\nType 1 : 1,000,000 Type 1 : 2,000,000\nType 2 : 500,000 Type 2 : 1,000,000\nType 3 : 100,000 (New) Type 3 : 500,000\nType 4 : 100,000 (Old) Type 4 : 100,000\n\n\nFor Opening First Menu press X and clicking Enter.\n\nType Number and Press Enter:",
  "visual_description": [
- "پنجره کنسول متنی با عنوان RefahChangeValue نمایش داده شده است",
- "دو بخش با برچسب های .::1:. و .:2:. شامل مقادیر Type 1 تا Type 4 است",
- "Type 3 در بخش 1 با برچسب (New) و Type 4 با برچسب (Old) نمایش داده شده",
- "دستورالعمل فشردن X و سپس Enter برای باز کردن منوی اول و دریافت Type Number وجود دارد"
+ "اسکرین شات یک پنجره کنسول با عنوان Pasargad Noor KarAfarin Refah Change Value",
+ "نمایش هدر ADONIS ESD COMPANY و SECOND LEVEL Technical Support Group",
+ "دو ستون گزینه ها با برچسب .:1:. و .:2:. شامل Type 1 تا Type 4 و مقادیر عددی",
+ "وجود برچسب های (New) و (Old) کنار Type 3 و Type 4 در ستون 1",
+ "نمایش دستورالعمل های پایانی برای فشار دادن X و Enter و سپس ورود شماره Type"
  ],
  "image_type": "screenshot"
 }
@@ -2006,7 +2022,7 @@ Telnet 10.15.2.105 1688
 2. روی فایل آنتی ویروس با نام installer.exe که در درایو D کپی نموده اید، دوکلیک کنید.
 3. در پنجره ای که گشوده می شود، Start Installation را با زدن کلیدSpace انتخاب نمایید:
 
-![پنجره نصب Kaspersky Security Center 13 با دکمه Start installation مشخص شده](img_folder/image_069_image70.jpg)
+![پنجره نصب Kaspersky Security Center 13 با دکمه Start installation مشخص شده است](img_folder/image_069_image70.jpg)
 
 **Image analysis**
 
@@ -2015,14 +2031,15 @@ Telnet 10.15.2.105 1688
  "image_name": "image70.jpeg",
  "rId": "rId83",
  "image_path": "img_folder/image_069_image70.jpg",
- "caption": "پنجره نصب Kaspersky Security Center 13 با دکمه Start installation مشخص شده",
- "ocr_text": "Kaspersky Security Center 13\nPreparing for administration task\nNew applications will be installed on your device: Kaspersky Embedded Systems Security 3.2.0.200 (3.2.0.200) and Kaspersky Security Center 13 Network Agent (13.0.0.11247).\n\nBefore installation, you must do the following:\n\n- Save your data\n\n- Close all running applications\n\nStart installation\nCancel",
+ "caption": "پنجره نصب Kaspersky Security Center 13 با دکمه Start installation مشخص شده است",
+ "ocr_text": "Kaspersky Security Center 13\nPreparing for administration task\nNew applications will be installed on your device: Kaspersky Embedded Systems Security 3.2.0.200\n(3.2.0.200) and Kaspersky Security Center 13 Network Agent (13.0.0.11247).\nBefore installation, you must do the following:\n- Save your data\n- Close all running applications\nStart installation\nCancel",
  "visual_description": [
- "پنجره نرم افزار Kaspersky Security Center 13 با عنوان Preparing for administration task نمایش داده شده است",
- "متن اعلام می کند دو برنامه Kaspersky Embedded Systems Security 3.2.0.200 و Network Agent 13.0.0.11247 نصب خواهند شد",
+ "پنجره نرم افزار Kaspersky Security Center 13 نمایش داده شده است",
+ "عنوان مرحله: Preparing for administration task",
+ "متن اعلام نصب دو برنامه: Kaspersky Embedded Systems Security 3.2.0.200 و Kaspersky Security Center 13 Network Agent (13.0.0.11247)",
  "دو مورد پیش نیاز به صورت بولت: Save your data و Close all running applications",
- "دو دکمه پایین پنجره: Start installation (هایلایت شده با کادر قرمز) و Cancel",
- "یک فلش قرمز به سمت دکمه Start installation اشاره می کند"
+ "دو دکمه پایین پنجره: Start installation (سبز) و Cancel",
+ "یک فلش قرمز به سمت دکمه Start installation اشاره می کند و دور دکمه کادر قرمز کشیده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -2030,7 +2047,7 @@ Telnet 10.15.2.105 1688
 
 منتظر شوید تا تمامی مراحل نصب تیک سبز را دریافت کنند:
 
-![صفحه نصب Kaspersky Security Center 12 با پیام تکمیل موفق و دکمه OK](img_folder/image_070_image71.jpg)
+![پنجره نصب Kaspersky Security Center 12 با پیام تکمیل موفق و دکمه OK](img_folder/image_070_image71.jpg)
 
 **Image analysis**
 
@@ -2039,15 +2056,16 @@ Telnet 10.15.2.105 1688
  "image_name": "image71.jpeg",
  "rId": "rId84",
  "image_path": "img_folder/image_070_image71.jpg",
- "caption": "صفحه نصب Kaspersky Security Center 12 با پیام تکمیل موفق و دکمه OK",
+ "caption": "پنجره نصب Kaspersky Security Center 12 با پیام تکمیل موفق و دکمه OK",
  "ocr_text": "Kaspersky Security Center 12\nInstallation completed successfully\nExtracting archive to temporary location\nInstalling: Kaspersky Security Center 12 Network Agent (12.0.0.7734)\nChecking connection to Administration Server\nInstalling: Kaspersky Embedded Systems Security 3.2 (3.2.0.200)\nOK",
  "visual_description": [
- "پنجره نرم افزار با عنوان Kaspersky Security Center 12 نمایش داده شده است",
- "متن «Installation completed successfully» در بالای پنجره دیده می شود",
- "چهار مرحله نصب با آیکون تیک سبز در سمت چپ هر خط نمایش داده شده اند",
- "مرحله ها شامل Extracting archive, نصب Network Agent نسخه 12.0.0.7734, بررسی اتصال به Administration Server, و نصب Embedded Systems Security نسخه 3.2.0.200 هستند",
+ "پنجره برنامه با عنوان «Kaspersky Security Center 12» نمایش داده شده است",
+ "متن وضعیت «Installation completed successfully» دیده می شود",
+ "چهار مرحله نصب به صورت فهرست با آیکن های تیک سبز نمایش داده شده اند",
+ "مرحله نصب Network Agent با نسخه (12.0.0.7734) ذکر شده است",
+ "مرحله نصب Embedded Systems Security 3.2 با نسخه (3.2.0.200) ذکر شده است",
  "دکمه «OK» در پایین پنجره وجود دارد",
- "یک فلش قرمز به سمت ناحیه مراحل نصب اشاره می کند و یک کادر قرمز دور دکمه OK کشیده شده است"
+ "یک فلش قرمز به ناحیه فهرست مراحل اشاره می کند و کادر قرمز دور بخش مراحل و دکمه OK کشیده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -2057,7 +2075,7 @@ Telnet 10.15.2.105 1688
 
 در صورت وقوع خطای The SHA-256 (SHA-2) digital signature support is missing… که در قالب پنجره ی زیر اعلام می شود، لازم است نصب نرم افزار کامل را انجام دهید:
 
-![پیام نصب کسپرسکی با نیاز به ری استارت و هشدار نبود پشتیبانی امضای SHA-256](img_folder/image_071_image72.png)
+![پیام نصب کسپرسکی: نیاز به راه اندازی مجدد و نبود پشتیبانی امضای SHA-256](img_folder/image_071_image72.png)
 
 **Image analysis**
 
@@ -2066,15 +2084,14 @@ Telnet 10.15.2.105 1688
  "image_name": "image72.png",
  "rId": "rId85",
  "image_path": "img_folder/image_071_image72.png",
- "caption": "پیام نصب کسپرسکی با نیاز به ری استارت و هشدار نبود پشتیبانی امضای SHA-256",
- "ocr_text": "Kaspersky Security Center 14\nRestart is required\nRestart the device.\nInstalling: Kaspersky Embedded Systems Security 3.2.0.200\nThe SHA-256 (SHA-2) digital signature support is missing on the computer, which may result in improper functioning of the application. Please, install the operating system updates to ensure that the SHA-256 digital signature is supported and run the Setup Wizard again. The list of required updates can be found here: https://support.kaspersky.com/15728.\nClose",
+ "caption": "پیام نصب کسپرسکی: نیاز به راه اندازی مجدد و نبود پشتیبانی امضای SHA-256",
+ "ocr_text": "Kaspersky Security Center 14\n\nRestart is required\nRestart the device.\n\nInstalling: Kaspersky Embedded Systems Security 3.2.0.200\n\nThe SHA-256 (SHA-2) digital signature support is missing on the computer, which may result in improper functioning of the application. Please, install the operating system updates to ensure that the SHA-256 digital signature is supported and run the Setup Wizard again. The list of required updates can be found here: https://support.kaspersky.com/15728.\n\nClose",
  "visual_description": [
- "پنجره نرم افزار Kaspersky Security Center 14 نمایش داده شده است",
- "عنوان پیام: Restart is required و متن Restart the device.",
- "وضعیت نصب: Installing: Kaspersky Embedded Systems Security 3.2.0.200",
- "هشدار: نبود پشتیبانی امضای دیجیتال SHA-256 (SHA-2) در سیستم",
- "لینک پشتیبانی نمایش داده شده: https://support.kaspersky.com/15728.",
- "دکمه قابل مشاهده: Close"
+ "پنجره نرم افزار Kaspersky Security Center 14 با پیام «Restart is required» نمایش داده شده است",
+ "وضعیت نصب: «Installing: Kaspersky Embedded Systems Security 3.2.0.200»",
+ "هشدار درباره نبود پشتیبانی امضای دیجیتال SHA-256 (SHA-2) در سیستم",
+ "لینک راهنما به https://support.kaspersky.com/15728 درج شده است",
+ "دکمه «Close» در پایین پنجره وجود دارد"
  ],
  "image_type": "screenshot"
 }
@@ -2086,7 +2103,7 @@ Telnet 10.15.2.105 1688
 
 1. در پوشه ی مربوط به آنتی ویروس، با توجه به محل نصب دستگاه، روی فایل KLMover-32bit راست کلیک کنید و از منویی که گشوده می شود، Run as administrator را انتخاب کنید تا فایل مذکور اجرا گردد و تنظیمات مربوطه اعمال شوند:
 
-![منوی راست کلیک ویندوز با گزینه «Run as administrator» مشخص شده](img_folder/image_072_image73.jpg)
+![منوی راست کلیک ویندوز با گزینه Run as administrator هایلایت شده](img_folder/image_072_image73.jpg)
 
 **Image analysis**
 
@@ -2095,12 +2112,12 @@ Telnet 10.15.2.105 1688
  "image_name": "image73.jpeg",
  "rId": "rId86",
  "image_path": "img_folder/image_072_image73.jpg",
- "caption": "منوی راست کلیک ویندوز با گزینه «Run as administrator» مشخص شده",
- "ocr_text": "KLMove\n32bit bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo",
+ "caption": "منوی راست کلیک ویندوز با گزینه Run as administrator هایلایت شده",
+ "ocr_text": "KLMover\n32-bit.bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo",
  "visual_description": [
- "آیکون فایل با نام KLMove و متن «32bit bat» روی دسکتاپ دیده می شود",
- "منوی زمینه ویندوز باز است و گزینه «Run as administrator» با کادر قرمز برجسته شده است",
- "گزینه های دیگر منو شامل Open، Edit، Print، Open in Media Player Classic و Open in MediaInfo هستند"
+ "آیکون فایل با نام KLMover و پسوند 32-bit.bat روی دسکتاپ دیده می شود",
+ "منوی زمینه شامل گزینه های Open، Edit، Print، Run as administrator، Open in Media Player Classic و Open in MediaInfo است",
+ "گزینه Run as administrator با کادر قرمز مشخص شده است"
  ],
  "image_type": "screenshot"
 }
@@ -2108,7 +2125,7 @@ Telnet 10.15.2.105 1688
 
 2. جهت بررسی ارتباط پایانه بانکی با سرور آنتی ویروس، روی فایل RunChecker-32bit راست کلیک و گزینه ی Run as administrator را انتخاب نمایید:
 
-![منوی راست کلیک ویندوز با گزینه Run as administrator برجسته شده است](img_folder/image_073_image74.jpg)
+![منوی راست کلیک ویندوز با گزینه Run as administrator برای فایل bat](img_folder/image_073_image74.jpg)
 
 **Image analysis**
 
@@ -2117,12 +2134,12 @@ Telnet 10.15.2.105 1688
  "image_name": "image74.jpeg",
  "rId": "rId87",
  "image_path": "img_folder/image_073_image74.jpg",
- "caption": "منوی راست کلیک ویندوز با گزینه Run as administrator برجسته شده است",
- "ocr_text": "RunChecker\n32bit.bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo",
+ "caption": "منوی راست کلیک ویندوز با گزینه Run as administrator برای فایل bat",
+ "ocr_text": "RunChecke\n32bit.bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo",
  "visual_description": [
- "آیکون فایل batch با نام RunChecker 32bit.bat روی دسکتاپ دیده می شود",
- "منوی زمینه ویندوز باز است و گزینه «Run as administrator» با کادر قرمز مشخص شده",
- "گزینه های منو شامل Open، Edit، Print، Open in Media Player Classic و Open in MediaInfo هستند"
+ "آیکون فایل با نام RunChecke 32bit.bat روی دسکتاپ دیده می شود",
+ "منوی راست کلیک ویندوز باز است و گزینه «Run as administrator» با کادر قرمز برجسته شده",
+ "گزینه های منو شامل Open، Edit، Print، Open in Media Player Classic و Open in MediaInfo است"
  ],
  "image_type": "screenshot"
 }
@@ -2130,7 +2147,7 @@ Telnet 10.15.2.105 1688
 
 حدوداً پس از گذشت **یک دقیقه**، پنجره ی زیر به نمایش گذاشته خواهد شد:
 
-![پنجره Network Agent با گزینه های heartbeat و اطلاعات نسخه و وضعیت حفاظت](img_folder/image_074_image75.png)
+![اسکرین شات پنجره Network Agent با گزینه های Send heartbeat و Run handshake utility](img_folder/image_074_image75.png)
 
 **Image analysis**
 
@@ -2139,13 +2156,13 @@ Telnet 10.15.2.105 1688
  "image_name": "image75.tmp",
  "rId": "rId88",
  "image_path": "img_folder/image_074_image75.png",
- "caption": "پنجره Network Agent با گزینه های heartbeat و اطلاعات نسخه و وضعیت حفاظت",
+ "caption": "اسکرین شات پنجره Network Agent با گزینه های Send heartbeat و Run handshake utility",
  "ocr_text": "Network Agent\nSend heartbeat\nRun handshake utility\nCurrent server\nCurrent profile\nLast connected 9/19/2023 8:49:00 AM\nNetwork Agent version 14.0.0.10902\nProtection Running (custom settings)\nAnti-virus database 10/24/2022 7:49:00 AM",
  "visual_description": [
- "یک فلش سیاه به سمت بخش سمت چپ با گزینه های «Send heartbeat» و «Run handshake utility» اشاره می کند",
- "پنجره عنوان «Network Agent» دارد",
- "لیست اطلاعات شامل «Network Agent version 14.0.0.10902» و «Protection Running (custom settings)» است",
- "زمان های «Last connected 9/19/2023 8:49:00 AM» و «Anti-virus database 10/24/2022 7:49:00 AM» نمایش داده شده اند"
+ "پنجره با عنوان «Network Agent» نمایش داده شده است",
+ "لینک های «Send heartbeat» و «Run handshake utility» در سمت چپ دیده می شود",
+ "یک پیکان سیاه به بخش «Send heartbeat» اشاره می کند",
+ "لیست اطلاعات شامل «Current server»، «Current profile»، «Last connected»، «Network Agent version»، «Protection» و «Anti-virus database» نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -2153,7 +2170,7 @@ Telnet 10.15.2.105 1688
 
 3. در پنجره ی فوق روی لینک آبی رنگ Send heartbeat کلیک کنید تا رنگ آن به طوسی تغییر نماید. چند ثانیه صبر کنید تا رنگ این لینک مجدداً آبی شود؛ در سمت راست پنجره، تاریخ و ساعت موجود در مقابل عبارت Last Connected به روز خواهند شد. وقوع این وضعیت بدون نمایش پیغام خطا، بیانگر این موضوع است که نصب آنتی ویروس به درستی انجام شده است و ارتباط آن با سرور برقرار می باشد.
 
-![پنجره Network Agent با گزینه های ارسال heartbeat و اطلاعات سرور و زمان اتصال](img_folder/image_075_image76.jpg)
+![پنجره Network Agent با اطلاعات سرور، آخرین اتصال و نسخه نرم افزار](img_folder/image_075_image76.jpg)
 
 **Image analysis**
 
@@ -2162,16 +2179,15 @@ Telnet 10.15.2.105 1688
  "image_name": "image76.jpg",
  "rId": "rId89",
  "image_path": "img_folder/image_075_image76.jpg",
- "caption": "پنجره Network Agent با گزینه های ارسال heartbeat و اطلاعات سرور و زمان اتصال",
- "ocr_text": "Network Agent\nSend heartbeat\nRun diagnostic utility\nCurrent server\t10.54.1.110\nCurrent profile\nLast connected\t3/11/2023 1:08:24 PM\nNetwork Agent version\t14.0.0.10902\nProtection application is not installed.\nAnti-virus database",
+ "caption": "پنجره Network Agent با اطلاعات سرور، آخرین اتصال و نسخه نرم افزار",
+ "ocr_text": "Network Agent\nSend heartbeat\nRun diagnostic utility\nCurrent server 10.54.1.110\nCurrent profile\nLast connected 3/11/2023 1:08:24 PM\nNetwork Agent version 14.0.0.10902\nProtection application is not installed.\nAnti-virus database\nLast full scan",
  "visual_description": [
  "پنجره با عنوان «Network Agent» نمایش داده شده است.",
- "در ستون چپ دو لینک «Send heartbeat» و «Run diagnostic utility» دیده می شود.",
- "در بخش راست فیلد «Current server» با مقدار «10.54.1.110» وجود دارد.",
- "فیلد «Last connected» با مقدار «3/11/2023 1:08:24 PM» نمایش داده شده است.",
- "نسخه «Network Agent version» برابر «14.0.0.10902» درج شده است.",
- "پیام «Protection application is not installed.» قابل مشاهده است.",
- "دو دایره قرمز شماره دار (1 و 2) بخش هایی از صفحه را علامت گذاری کرده اند."
+ "دو لینک/گزینه در سمت چپ: «Send heartbeat» و «Run diagnostic utility».",
+ "بخش اطلاعات شامل «Current server 10.54.1.110» و «Last connected 3/11/2023 1:08:24 PM».",
+ "نسخه عامل شبکه نمایش داده شده: «Network Agent version 14.0.0.10902».",
+ "متن وضعیت: «Protection application is not installed.»",
+ "دو دایره شماره دار قرمز «1» و «2» روی تصویر برای برجسته سازی بخش ها قرار دارد."
  ],
  "image_type": "screenshot"
 }
@@ -2182,7 +2198,7 @@ Telnet 10.15.2.105 1688
 * Current Server : آی پی مربوط به Agent آنتی ویروس را نمایش می دهد.
 * Last Connected : آخرین وضعیت ارتباط با Agent آنتی ویروس است و باید تاریخ و زمان جاری را نمایش دهد.
 
-![پنجره هشدار Network Agent با خطای Transport level و قطع شدن اتصال](img_folder/image_076_image77.png)
+![پیغام خطای Network Agent درباره قطع شدن اتصال در سطح انتقال](img_folder/image_076_image77.png)
 
 **Image analysis**
 
@@ -2191,14 +2207,13 @@ Telnet 10.15.2.105 1688
  "image_name": "image77.emf",
  "rId": "rId90",
  "image_path": "img_folder/image_076_image77.png",
- "caption": "پنجره هشدار Network Agent با خطای Transport level و قطع شدن اتصال",
- "ocr_text": "Network Agent\nSend heartbeat\nRun knaqch\n#1259 Transport level error: connection has been terminated..\nOK",
+ "caption": "پیغام خطای Network Agent درباره قطع شدن اتصال در سطح انتقال",
+ "ocr_text": "Network Agent\n#1259 Transport level error: connection has been terminated..\nOK",
  "visual_description": [
- "پنجره محاوره ای با عنوان «Network Agent» نمایش داده شده است",
- "یک آیکون هشدار مثلث زرد در کنار پیام خطا وجود دارد",
- "متن خطا شامل «#1259 Transport level error: connection has been terminated..» است",
- "یک دکمه «OK» برای بستن پیام وجود دارد",
- "در پس زمینه بخشی از رابط کاربری با لینک های «Send heartbeat» و «Run knaqch» دیده می شود"
+ "یک پنجره محاوره ای با عنوان Network Agent نمایش داده شده است",
+ "آیکون هشدار مثلث زرد کنار متن خطا دیده می شود",
+ "متن خطا شامل کد #1259 و عبارت connection has been terminated.. است",
+ "یک دکمه OK در پایین سمت راست پنجره وجود دارد"
  ],
  "image_type": "screenshot"
 }
@@ -2206,7 +2221,7 @@ Telnet 10.15.2.105 1688
 
 این خطا عموماً در دستگاه های با ارتباط بی سیم (سیم کارتی یا ماهواره) رخ می دهد. جهت برقراری ارتباط این نوع دستگاه ها با سرور آنتی ویروس بسته به نوع سیستم عامل باید از یکی از دو فایل 32bit.bat-کانفیگ جایگزین یا 64bit.bat-کانفیگ جایگزین که در پوشه ی حاوی فایل های نصب آنتی ویروس قرار دارند استفاده نمایید. بسته به نوع سیستم عامل (64 بیتی یا 32 بیتی) یک از فایل های فوق را اجرا نمایید با انجام این کار یک صفحه ی CMD به سرعت باز و بسته خواهد شد. حال جهت بررسی ارتباط پایانه بانکی با سرور آنتی ویروس(بسته به 32 یا 64 بیتی بودن سیستم عامل) روی فایل Run Checker مربوطه راست کلیک کنید و از منویی که گشوده می شود Run as administrator را انتخاب کنید:
 
-![منوی راست کلیک ویندوز با گزینه «Run as administrator» هایلایت و با فلش زرد مشخص شده است](img_folder/image_077_image78.png)
+![منوی راست کلیک ویندوز با گزینه Run as administrator هایلایت شده](img_folder/image_077_image78.png)
 
 **Image analysis**
 
@@ -2215,13 +2230,13 @@ Telnet 10.15.2.105 1688
  "image_name": "image78.tmp",
  "rId": "rId91",
  "image_path": "img_folder/image_077_image78.png",
- "caption": "منوی راست کلیک ویندوز با گزینه «Run as administrator» هایلایت و با فلش زرد مشخص شده است",
- "ocr_text": "RunChecker\n64-bit.bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo\nOpen in VLC Player\n7-Zip\nCRC SHA",
+ "caption": "منوی راست کلیک ویندوز با گزینه Run as administrator هایلایت شده",
+ "ocr_text": "RunChecker\n64bit.bat\nOpen\nEdit\nPrint\nRun as administrator\nOpen in Media Player Classic\nOpen in MediaInfo\nOpen in VLC Player\n7-Zip\nCRC SHA",
  "visual_description": [
- "اسکرین شات منوی زمینه ویندوز برای فایل «RunChecker 64-bit.bat»",
- "گزینه «Run as administrator» با کادر زرد هایلایت شده است",
+ "منوی زمینه ویندوز نمایش داده شده است",
+ "گزینه «Run as administrator» با کادر زرد مشخص شده",
  "یک فلش زرد به سمت گزینه «Run as administrator» اشاره می کند",
- "گزینه های منو شامل Open، Edit، Print، Open in Media Player Classic، Open in MediaInfo، Open in VLC Player، 7-Zip و CRC SHA هستند"
+ "آیکن یک فایل batch با نام «RunChecker 64bit.bat» دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -2229,7 +2244,7 @@ Telnet 10.15.2.105 1688
 
 پس از گذشت چند ثانیه (حدود 10 الی 40 ثانیه) پنجره ی زیر گشوده خواهد شد:
 
-![پنجره Network Agent با نمایش سرور، زمان اتصال اخیر و نسخه نرم افزار](img_folder/image_078_image79.jpg)
+![پنجره Network Agent با وضعیت اتصال و نسخه و دکمه های Send heartbeat و Run klnagchk](img_folder/image_078_image79.jpg)
 
 **Image analysis**
 
@@ -2238,16 +2253,15 @@ Telnet 10.15.2.105 1688
  "image_name": "image79.jpg",
  "rId": "rId92",
  "image_path": "img_folder/image_078_image79.jpg",
- "caption": "پنجره Network Agent با نمایش سرور، زمان اتصال اخیر و نسخه نرم افزار",
- "ocr_text": "Network Agent\nSend heartbeat\nRun klnagchk utility\nCurrent server 10.54.1.110\nCurrent profile\nLast connected 3/11/2023 1:08:24 PM\nNetwork Agent version 14.0.0.10902\nProtection status Security application is not installed.\nAnti-virus database\nLast full scan",
+ "caption": "پنجره Network Agent با وضعیت اتصال و نسخه و دکمه های Send heartbeat و Run klnagchk",
+ "ocr_text": "Network Agent\nSend heartbeat\nRun klnagchk utility\nCurrent server\n10.54.1.110\nCurrent profile\nLast connected\n3/11/2023 1:08:24 PM\nNetwork Agent version\n14.0.0.10902\nProtection status\nSecurity application is not installed.\nAnti-virus database\nLast full scan",
  "visual_description": [
- "پنجره برنامه با عنوان Network Agent نمایش داده شده است.",
- "دو گزینه در ستون چپ دیده می شود: Send heartbeat و Run klnagchk utility.",
- "مقدار Current server برابر 10.54.1.110 نمایش داده شده است.",
- "فیلد Last connected مقدار 3/11/2023 1:08:24 PM را نشان می دهد.",
- "نسخه Network Agent version برابر 14.0.0.10902 نمایش داده شده است.",
- "Protection status شامل پیام Security application is not installed. است.",
- "کادرها و فلش های قرمز برای برجسته سازی بخش ها وجود دارد و برچسب های A و B دیده می شوند."
+ "اسکرین شات پنجره Network Agent با بخش اطلاعات شامل Current server=10.54.1.110",
+ "فیلد Last connected با مقدار 3/11/2023 1:08:24 PM نمایش داده شده است",
+ "نسخه Network Agent برابر 14.0.0.10902 است",
+ "در Protection status پیام Security application is not installed. دیده می شود",
+ "دو دکمه در سمت چپ: Send heartbeat و Run klnagchk utility",
+ "کادرها و فلش های علامت گذاری شده A و B روی بخش های مشخص تصویر قرار دارند"
  ],
  "image_type": "screenshot"
 }
@@ -2271,7 +2285,7 @@ Telnet 10.15.2.105 1688
 
 پس از اتمام این عملیات، SOP محتوای زیر را به نمایش خواهد گذاشت:
 
-![صفحه وضعیت سرویس/عملیات دستگاه با نمایش خطاها و خالی بودن کاست ها](img_folder/image_079_image80.jpg)
+![صفحه وضعیت سرویس و کارکرد دستگاه با خطاهای کارت خوان و خالی بودن کاست ها](img_folder/image_079_image80.jpg)
 
 **Image analysis**
 
@@ -2280,16 +2294,14 @@ Telnet 10.15.2.105 1688
  "image_name": "image80.jpeg",
  "rId": "rId93",
  "image_path": "img_folder/image_079_image80.jpg",
- "caption": "صفحه وضعیت سرویس/عملیات دستگاه با نمایش خطاها و خالی بودن کاست ها",
+ "caption": "صفحه وضعیت سرویس و کارکرد دستگاه با خطاهای کارت خوان و خالی بودن کاست ها",
  "ocr_text": "SERVICE & OPERATING\n\nSERVICE & OPERATING\nMODE: OUT OF SERVICE\nLINE: ONLINE\nCARD RDR: ERROR\nMOUTH PIECE: REMOVED\nCASSETTE 2: EMPTY\nCASSETTE 3: EMPTY\nCASSETTE 4: EMPTY\n\n01 OPERATING\n\n96 CANCEL\n\nSELECT:\nWINCOR\nNIXDORF",
  "visual_description": [
- "نمایشگر وضعیت با عنوان SERVICE & OPERATING دیده می شود",
- "حالت MODE برابر OUT OF SERVICE و وضعیت LINE برابر ONLINE است",
- "خطای CARD RDR: ERROR نمایش داده شده است",
- "پیام MOUTH PIECE: REMOVED نمایش داده شده است",
- "کاست های 2، 3 و 4 با وضعیت EMPTY مشخص شده اند",
- "در ستون سمت راست گزینه 01 OPERATING و کلید 96 CANCEL نمایش داده شده اند",
- "نام WINCOR NIXDORF در پایین صفحه دیده می شود"
+ "نمایشگر متنی با عنوان SERVICE & OPERATING شامل فهرست وضعیت ها و خطاها",
+ "گزینه های منویی در ستون راست با برچسب 01 OPERATING و 96 CANCEL",
+ "وضعیت ها: MODE OUT OF SERVICE، LINE ONLINE، CARD RDR ERROR، MOUTH PIECE REMOVED",
+ "کاست های 2 تا 4 با وضعیت EMPTY نمایش داده شده اند",
+ "لوگوی WINCOR NIXDORF در پایین سمت راست دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -2335,7 +2347,7 @@ SELECT
 
 1. در منوی 06 ACCESS، گزینه 08 ENTER A را اجرا نمایید:
 
-![نمودار مراحل دسترسی و ورود کلید A با نمایش رقم جاری](img_folder/image_080_image81.png)
+![راهنمای ورود کلید A با مراحل دسترسی و وارد کردن رقم جاری](img_folder/image_080_image81.png)
 
 **Image analysis**
 
@@ -2344,12 +2356,13 @@ SELECT
  "image_name": "image81.png",
  "rId": "rId94",
  "image_path": "img_folder/image_080_image81.png",
- "caption": "نمودار مراحل دسترسی و ورود کلید A با نمایش رقم جاری",
+ "caption": "راهنمای ورود کلید A با مراحل دسترسی و وارد کردن رقم جاری",
  "ocr_text": "06 ACCESS\n08 ENTER A\nENCRYPYION KEY A\nCURRENT DIGIT = 01\nENTER KEY A - _",
  "visual_description": [
- "دیاگرام شامل دو فلش از «06 ACCESS» به «08 ENTER A» و سپس به بخش «ENCRYPYION KEY A» است",
- "متن «CURRENT DIGIT = 01» در بخش مربوط به کلید A نمایش داده شده است",
- "فیلد ورودی با برچسب «ENTER KEY A - _» نشان داده شده است"
+ "سه بلوک متنی با پیکان های جهت دار از «06 ACCESS» به «08 ENTER A» و سپس به متن سمت راست متصل شده اند",
+ "در بلوک سمت راست عبارت «ENCRYPYION KEY A» نمایش داده شده است",
+ "عبارت «CURRENT DIGIT = 01» به صورت متن جداگانه در بلوک سمت راست آمده است",
+ "خط «ENTER KEY A - _» نشان دهنده محل ورود یک مقدار کلید است"
  ],
  "image_type": "diagram"
 }
@@ -2363,7 +2376,7 @@ SELECT
 
 3. با اجرای مسیر زیر، KEY A را ذخیره کنید:
 
-![نمودار جریان با فلش بین مراحل ACCESS و WRITE A تا پیام KEY A STORED](img_folder/image_081_image82.png)
+![نمودار پله ای با فلش های جهت دار از ACCESS به WRITE و پیام ذخیره کلید](img_folder/image_081_image82.png)
 
 **Image analysis**
 
@@ -2372,11 +2385,14 @@ SELECT
  "image_name": "image82.tmp",
  "rId": "rId95",
  "image_path": "img_folder/image_081_image82.png",
- "caption": "نمودار جریان با فلش بین مراحل ACCESS و WRITE A تا پیام KEY A STORED",
+ "caption": "نمودار پله ای با فلش های جهت دار از ACCESS به WRITE و پیام ذخیره کلید",
  "ocr_text": "06 ACCESS\n09 WRITE A\nKEY A STORED\n>01 OK",
  "visual_description": [
- "سه برچسب متنی «06 ACCESS»، «09 WRITE A» و «KEY A STORED» با فلش های جهت دار از چپ به راست نمایش داده شده اند",
- "در زیر عبارت «KEY A STORED» متن «>01 OK» دیده می شود"
+ "نمودار پله ای با دو فلش رو به راست بین سه بلوک متنی",
+ "بلوک اول شامل متن «06 ACCESS»",
+ "فلش از «06 ACCESS» به بلوک دوم «09 WRITE A»",
+ "فلش از «09 WRITE A» به بلوک سوم «KEY A STORED»",
+ "زیر «KEY A STORED» متن «>01 OK» دیده می شود"
  ],
  "image_type": "diagram"
 }
@@ -2386,7 +2402,7 @@ SELECT
 
 اگر همه ی مراحل را به درستی انجام داده باشید و مشکل سخت افزاری هم وجود نداشته باشد، همانند شکل زیر، Mode در وضعیت Out of service و Line در وضعیت Online قرار خواهند گرفت:
 
-![متن وضعیت سرویس و بهره برداری با خط آنلاین و حالت خارج از سرویس](img_folder/image_082_image83.jpg)
+![نمایش وضعیت سرویس و حالت عملکرد؛ خط آنلاین و حالت خارج از سرویس](img_folder/image_082_image83.jpg)
 
 **Image analysis**
 
@@ -2395,11 +2411,10 @@ SELECT
  "image_name": "image83.jpeg",
  "rId": "rId96",
  "image_path": "img_folder/image_082_image83.jpg",
- "caption": "متن وضعیت سرویس و بهره برداری با خط آنلاین و حالت خارج از سرویس",
+ "caption": "نمایش وضعیت سرویس و حالت عملکرد؛ خط آنلاین و حالت خارج از سرویس",
  "ocr_text": "Service & Operating\n\nLine: online\n\nMode: out of service",
  "visual_description": [
- "متن انگلیسی درباره وضعیت سرویس و بهره برداری نمایش داده شده است",
- "دو خط وضعیت شامل «Line: online» و «Mode: out of service» دیده می شود"
+ "متن وضعیت شامل «Service & Operating»، «Line: online» و «Mode: out of service» نمایش داده شده است"
  ],
  "image_type": "screenshot"
 }
@@ -2443,7 +2458,7 @@ Telnet 10.15.0.66 9600
 
 * **پروفایل 1**
 
-![فهرست گزینه ها با ستون های ID، CUR، DEN و STA و دستورات تایید و خروج](img_folder/image_083_image84.jpg)
+![نمایش فهرست گزینه ها با ستون های ID، CUR، DEN، STA و گزینه های CONFIRM، EXIT، LOGOFF](img_folder/image_083_image84.jpg)
 
 **Image analysis**
 
@@ -2452,12 +2467,13 @@ Telnet 10.15.0.66 9600
  "image_name": "image84.jpg",
  "rId": "rId97",
  "image_path": "img_folder/image_083_image84.jpg",
- "caption": "فهرست گزینه ها با ستون های ID، CUR، DEN و STA و دستورات تایید و خروج",
+ "caption": "نمایش فهرست گزینه ها با ستون های ID، CUR، DEN، STA و گزینه های CONFIRM، EXIT، LOGOFF",
  "ocr_text": "ID CUR DEN STA\n01 1 RLS 1000000 NA\n02 2 RLS 500000 NA\n03 3 RLS 100001 NA\n04 4 RLS 100002 NA\n97 CONFIRM\n98 EXIT\n99 LOGOFF",
  "visual_description": [
- "نمایش جدول متنی با سرستون های ID، CUR، DEN و STA",
- "چهار ردیف داده با مقادیر CUR=RLS و DEN شامل 1000000، 500000، 100001، 100002",
- "گزینه های منویی 97 CONFIRM، 98 EXIT و 99 LOGOFF در پایین"
+ "متن به صورت جدولی با چهار ستون ID، CUR، DEN و STA نمایش داده شده است",
+ "چهار ردیف با شناسه های 01 تا 04 و مقادیر CUR=RLS و DEN شامل 1000000، 500000، 100001 و 100002 وجود دارد",
+ "در ستون STA برای ردیف های 01 تا 04 مقدار NA نمایش داده شده است",
+ "گزینه های 97 CONFIRM، 98 EXIT و 99 LOGOFF زیر جدول فهرست شده اند"
  ],
  "image_type": "screenshot"
 }
@@ -2465,7 +2481,7 @@ Telnet 10.15.0.66 9600
 
 * **پروفایل 2**
 
-![نمایش جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج](img_folder/image_084_image85.jpg)
+![جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج و خروج از حساب](img_folder/image_084_image85.jpg)
 
 **Image analysis**
 
@@ -2474,21 +2490,21 @@ Telnet 10.15.0.66 9600
  "image_name": "image85.jpg",
  "rId": "rId98",
  "image_path": "img_folder/image_084_image85.jpg",
- "caption": "نمایش جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج",
- "ocr_text": "REFRENCE VALUES\n\nCUR DEN ST\n\n01 1 RLS 2000000 EMPT\n02 2 RLS 1000000 LOW\n03 3 RLS 500000 MISS\n04 4 RLS 100000 MISS\n\n98 EXIT\n99 LOGOFF",
+ "caption": "جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج و خروج از حساب",
+ "ocr_text": "REFRENCE VALUES\n\nCUR DEN ST\n01 1 RLS 2000000 EMPT\n02 2 RLS 1000000 LOW\n03 3 RLS 500000 MISS\n04 4 RLS 100000 MISS\n\n98 EXIT\n99 LOGOFF",
  "visual_description": [
- "عنوان بالای تصویر: REFRENCE VALUES",
+ "یک جدول با عنوان REFRENCE VALUES نمایش داده شده است",
  "ستون های جدول شامل CUR، DEN و ST هستند",
- "ردیف ها با شماره های 01 تا 04 شامل مقدار CUR=RLS و مقادیر DEN و وضعیت ST هستند",
- "دو گزینه منویی در پایین: 98 EXIT و 99 LOGOFF"
+ "ردیف های 01 تا 04 دارای CUR=RLS و DEN به ترتیب 2000000، 1000000، 500000، 100000 و وضعیت های ST برابر EMPT، LOW، MISS، MISS هستند",
+ "در پایین جدول گزینه های 98 EXIT و 99 LOGOFF وجود دارد"
  ],
- "image_type": "screenshot"
+ "image_type": "scan"
 }
 ```
 
 با انتخاب هر یک از شماره های01 تا 04 کاست های 1 تا 4 انتخاب می شوند و شما می توانید ارزش و واحد پول مربوط به آن کاست را طبق دستورالعمل بانک تنظیم نمایید. پس ازاینکه پارامترهای مربوط به هر کاست تنظیم شد باید گزینه 97 CONFIRM را انتخاب کنید تا تنظیمات مربوط به همه کاست ها اعمال شوند. با انتخاب شماره 97 پیغام زیر نمایش داده می شود:
 
-![صفحهٔ منو برای مقداردهی اولیه کاست با گزینه های بله و خیر](img_folder/image_085_image86.png)
+![صفحهٔ منوی راه اندازی کاست با گزینه های بله و خیر](img_folder/image_085_image86.png)
 
 **Image analysis**
 
@@ -2497,13 +2513,12 @@ Telnet 10.15.0.66 9600
  "image_name": "image86.png",
  "rId": "rId99",
  "image_path": "img_folder/image_085_image86.png",
- "caption": "صفحهٔ منو برای مقداردهی اولیه کاست با گزینه های بله و خیر",
+ "caption": "صفحهٔ منوی راه اندازی کاست با گزینه های بله و خیر",
  "ocr_text": "INIT CASSETTE?\n> 01 YES\n02 NO",
  "visual_description": [
- "متن منو «INIT CASSETTE?» نمایش داده شده است",
- "نشانگر «>» قبل از گزینه «01 YES» قرار دارد",
- "گزینه دوم «02 NO» زیر گزینه اول نمایش داده شده است",
- "متن ها داخل یک کادر مستطیلی قرار دارند"
+ "نمایشگر تک رنگ با کادر مستطیلی دور متن",
+ "متن منو شامل سؤال «INIT CASSETTE?» و دو گزینه «01 YES» و «02 NO»",
+ "نشانگر انتخاب به شکل «>» در کنار گزینه «01 YES» قرار دارد"
  ],
  "image_type": "screenshot"
 }
@@ -2513,7 +2528,7 @@ Telnet 10.15.0.66 9600
 
 سپس شکل زیر نمایش داده می شود :
 
-![صفحه تنظیمات: سؤال درباره تغییر شناسه های کاست با گزینه های YES و NO](img_folder/image_086_image87.png)
+![صفحه متنی انتخاب برای تغییر شناسه های کاست](img_folder/image_086_image87.png)
 
 **Image analysis**
 
@@ -2522,14 +2537,13 @@ Telnet 10.15.0.66 9600
  "image_name": "image87.png",
  "rId": "rId100",
  "image_path": "img_folder/image_086_image87.png",
- "caption": "صفحه تنظیمات: سؤال درباره تغییر شناسه های کاست با گزینه های YES و NO",
- "ocr_text": "CASSETTE INIT\nDO YOU WANT TO CHANGE THE\nCASSETTE IDS?\n> 01 YES\n02 NO",
+ "caption": "صفحه متنی انتخاب برای تغییر شناسه های کاست",
+ "ocr_text": "CASSETTE INIT\nDO YOU WANT TO CHANGE THE\nCASSETTE IDS?\n> 01 YES\n 02 NO",
  "visual_description": [
- "نمایش متن منوی دستگاه با عنوان CASSETTE INIT",
- "پرسش DO YOU WANT TO CHANGE THE CASSETTE IDS? روی صفحه",
- "دو گزینه فهرست شده: 01 YES و 02 NO",
- "علامت > نشانگر انتخاب روی گزینه 01 YES",
- "متن داخل یک کادر مستطیلی با حاشیه مشکی قرار دارد"
+ "نمایش یک منوی متنی با عنوان CASSETTE INIT",
+ "سؤال درباره تغییر CASSETTE IDS با دو گزینه 01 YES و 02 NO",
+ "نشانگر '>' کنار گزینه 01 YES قرار دارد",
+ "کادر مستطیلی دور متن دیده می شود"
  ],
  "image_type": "screenshot"
 }
@@ -2539,7 +2553,7 @@ Telnet 10.15.0.66 9600
 
 با انتخاب گزینه ی Yes مطابق شکل زیر ID کاست ها را تغییر دهید:
 
-![نمایش چهار ردیف متن قرمز شامل اعداد در دو ستون](img_folder/image_087_image88.jpg)
+![نمایش چند سطر متن قرمز شامل اعداد و دو ستون مقدار](img_folder/image_087_image88.jpg)
 
 **Image analysis**
 
@@ -2548,13 +2562,13 @@ Telnet 10.15.0.66 9600
  "image_name": "image88.jpg",
  "rId": "rId101",
  "image_path": "img_folder/image_087_image88.jpg",
- "caption": "نمایش چهار ردیف متن قرمز شامل اعداد در دو ستون",
+ "caption": "نمایش چند سطر متن قرمز شامل اعداد و دو ستون مقدار",
  "ocr_text": "0 1 11111\n0 2 22222\n0 3 33333\n0 4 44444",
  "visual_description": [
- "پس زمینه سفید با نوشته های قرمز در دو ستون",
- "چهار ردیف متن: ستون چپ «0 1» تا «0 4» و ستون راست «11111» تا «44444»"
+ "پس زمینه سفید با متن قرمز در دو ستون دیده می شود",
+ "چهار سطر شامل «0 1» تا «0 4» در ستون چپ و «11111» تا «44444» در ستون راست وجود دارد"
  ],
- "image_type": "unknown"
+ "image_type": "screenshot"
 }
 ```
 
@@ -2567,7 +2581,7 @@ Telnet 10.15.0.66 9600
 جهت انجام ADD CASH مطابق مسیر زیر به منوی 04 REPLENISH بروید و در آنجا گزینه
  08 ADD CASH را انتخاب کنید. صفحه زیر ظاهر می شود.
 
-![نمودار مسیر منو از REPLENISH به ADD CASH و صفحه ADD BILLS با شمارنده ها](img_folder/image_088_image89.png)
+![نمودار جریان افزودن وجه با صفحه «ADD BILLS» و جدول REM/REJ](img_folder/image_088_image89.png)
 
 **Image analysis**
 
@@ -2576,14 +2590,14 @@ Telnet 10.15.0.66 9600
  "image_name": "image89.png",
  "rId": "rId102",
  "image_path": "img_folder/image_088_image89.png",
- "caption": "نمودار مسیر منو از REPLENISH به ADD CASH و صفحه ADD BILLS با شمارنده ها",
+ "caption": "نمودار جریان افزودن وجه با صفحه «ADD BILLS» و جدول REM/REJ",
  "ocr_text": "04 REPLENISH\n08 ADD CASH\nADD BILLS\n# REM REJ\n> 01 1 0000 0000\n02 2 0000 0000\n03 3 0000 0000\n04 4 0000 0000\n05 OK",
  "visual_description": [
- "دو فلش پله ای مسیر را از «04 REPLENISH» به «08 ADD CASH» و سپس به یک کادر نشان می دهند",
- "داخل کادر عنوان «ADD BILLS» و جدول با ستون های «#», «REM», «REJ» دیده می شود",
- "سطر انتخاب شده با نشانگر «>» برای «01» نمایش داده شده است",
- "برای ردیف های 01 تا 04 مقدار REM و REJ برابر «0000» است",
- "ردیف «05» دارای گزینه «OK» است"
+ "فلش از «04 REPLENISH» به «08 ADD CASH» و سپس به یک کادر با عنوان «ADD BILLS» رسم شده است",
+ "داخل کادر «ADD BILLS» یک جدول با ستون های «#»، «REM»، «REJ» نمایش داده می شود",
+ "ردیف های 01 تا 04 در جدول دارای مقادیر REM=0000 و REJ=0000 هستند",
+ "نماد انتخاب «>» در کنار ردیف «01» دیده می شود",
+ "ردیف «05» شامل متن «OK» است"
  ],
  "image_type": "diagram"
 }
@@ -2599,7 +2613,7 @@ Telnet 10.15.0.66 9600
 
 * دستگاه های پروفایل 1:
 
-![فهرست گزینه ها با ستون های ID، CUR، DEN و STA و دستورات تایید و خروج](img_folder/image_083_image84.jpg)
+![نمایش فهرست گزینه ها با ستون های ID، CUR، DEN، STA و گزینه های CONFIRM، EXIT، LOGOFF](img_folder/image_083_image84.jpg)
 
 **Image analysis**
 
@@ -2608,12 +2622,13 @@ Telnet 10.15.0.66 9600
  "image_name": "image84.jpg",
  "rId": "rId97",
  "image_path": "img_folder/image_083_image84.jpg",
- "caption": "فهرست گزینه ها با ستون های ID، CUR، DEN و STA و دستورات تایید و خروج",
+ "caption": "نمایش فهرست گزینه ها با ستون های ID، CUR، DEN، STA و گزینه های CONFIRM، EXIT، LOGOFF",
  "ocr_text": "ID CUR DEN STA\n01 1 RLS 1000000 NA\n02 2 RLS 500000 NA\n03 3 RLS 100001 NA\n04 4 RLS 100002 NA\n97 CONFIRM\n98 EXIT\n99 LOGOFF",
  "visual_description": [
- "نمایش جدول متنی با سرستون های ID، CUR، DEN و STA",
- "چهار ردیف داده با مقادیر CUR=RLS و DEN شامل 1000000، 500000، 100001، 100002",
- "گزینه های منویی 97 CONFIRM، 98 EXIT و 99 LOGOFF در پایین"
+ "متن به صورت جدولی با چهار ستون ID، CUR، DEN و STA نمایش داده شده است",
+ "چهار ردیف با شناسه های 01 تا 04 و مقادیر CUR=RLS و DEN شامل 1000000، 500000، 100001 و 100002 وجود دارد",
+ "در ستون STA برای ردیف های 01 تا 04 مقدار NA نمایش داده شده است",
+ "گزینه های 97 CONFIRM، 98 EXIT و 99 LOGOFF زیر جدول فهرست شده اند"
  ],
  "image_type": "screenshot"
 }
@@ -2621,7 +2636,7 @@ Telnet 10.15.0.66 9600
 
 * دستگاه های پروفایل 2:
 
-![نمایش جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج](img_folder/image_084_image85.jpg)
+![جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج و خروج از حساب](img_folder/image_084_image85.jpg)
 
 **Image analysis**
 
@@ -2630,15 +2645,15 @@ Telnet 10.15.0.66 9600
  "image_name": "image85.jpg",
  "rId": "rId98",
  "image_path": "img_folder/image_084_image85.jpg",
- "caption": "نمایش جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج",
- "ocr_text": "REFRENCE VALUES\n\nCUR DEN ST\n\n01 1 RLS 2000000 EMPT\n02 2 RLS 1000000 LOW\n03 3 RLS 500000 MISS\n04 4 RLS 100000 MISS\n\n98 EXIT\n99 LOGOFF",
+ "caption": "جدول مقادیر مرجع با ستون های CUR، DEN و ST و گزینه های خروج و خروج از حساب",
+ "ocr_text": "REFRENCE VALUES\n\nCUR DEN ST\n01 1 RLS 2000000 EMPT\n02 2 RLS 1000000 LOW\n03 3 RLS 500000 MISS\n04 4 RLS 100000 MISS\n\n98 EXIT\n99 LOGOFF",
  "visual_description": [
- "عنوان بالای تصویر: REFRENCE VALUES",
+ "یک جدول با عنوان REFRENCE VALUES نمایش داده شده است",
  "ستون های جدول شامل CUR، DEN و ST هستند",
- "ردیف ها با شماره های 01 تا 04 شامل مقدار CUR=RLS و مقادیر DEN و وضعیت ST هستند",
- "دو گزینه منویی در پایین: 98 EXIT و 99 LOGOFF"
+ "ردیف های 01 تا 04 دارای CUR=RLS و DEN به ترتیب 2000000، 1000000، 500000، 100000 و وضعیت های ST برابر EMPT، LOW، MISS، MISS هستند",
+ "در پایین جدول گزینه های 98 EXIT و 99 LOGOFF وجود دارد"
  ],
- "image_type": "screenshot"
+ "image_type": "scan"
 }
 ```
 
@@ -2646,7 +2661,7 @@ Telnet 10.15.0.66 9600
 
 با انتخاب گزینه 01، پیغام های زیر به نمایش گذاشته خواهند شد:
 
-![فلوچارت راهنمای شمارش اسکناس و تکرار عملیات در صورت نابرابری تعداد با ۸](img_folder/image_089_image90.png)
+![نمودار تصمیم گیری شمارش اسکناس و تکرار عملکرد در صورت عدم تطابق](img_folder/image_089_image90.png)
 
 **Image analysis**
 
@@ -2655,14 +2670,15 @@ Telnet 10.15.0.66 9600
  "image_name": "image90.png",
  "rId": "rId103",
  "image_path": "img_folder/image_089_image90.png",
- "caption": "فلوچارت راهنمای شمارش اسکناس و تکرار عملیات در صورت نابرابری تعداد با ۸",
- "ocr_text": "REFRENCE VALUE\n\nPULL OUT DISPENSER\n\nAND COUNT THE MONEY.\n\nAFTER COUNTING PUT\n\nTHE MONEY BACK!\n\n> 01 OK\n\n01 OK\n\nIF NO. OF NOTES\n\nDOESN’T EQUAL 8\n\nREPEAT THE FUNCTION!\n\nNO. OF NOTES = 8?\n\n> 01 YES\n\n02 NO\n\n01 YES\n\nREFRENCE VALUE\n\nPLEASE PUSH IN CASH\n\nDISPENSER AND WAIT\n\nFOR RESTART\n\n> 01 OK",
+ "caption": "نمودار تصمیم گیری شمارش اسکناس و تکرار عملکرد در صورت عدم تطابق",
+ "ocr_text": "REFRENCE VALUE\nPULL OUT DISPENSER\nAND COUNT THE MONEY.\nAFTER COUNTING PUT\nTHE MONEY BACK!\n> 01 OK\n01 OK\nIF NO. OF NOTES\nDOESN’T EQUAL 8\nREPEAT THE FUNCTION!\nNO. OF NOTES = 8?\n> 01 YES\n02 NO\n01 YES\nREFRENCE VALUE\nPLEASE PUSH IN CASH\nDISPENSER AND WAIT\nFOR RESTART\n> 01 OK",
  "visual_description": [
- "سه باکس مستطیلی با متن انگلیسی و گزینه های عددی 01/02 نمایش داده شده اند",
- "بین باکس اول و دوم یک فلش به راست با برچسب «01 OK» وجود دارد",
- "در باکس دوم پرسش «NO. OF NOTES = 8?» با گزینه های «> 01 YES» و «02 NO» آمده است",
- "بین باکس دوم و سوم یک فلش به راست با برچسب «01 YES» وجود دارد",
- "باکس سوم دستور «PLEASE PUSH IN CASH DISPENSER AND WAIT FOR RESTART» و گزینه «> 01 OK» دارد"
+ "سه کادر متنی با فلش های جهت دار از چپ به راست نمایش داده شده اند",
+ "در کادر چپ دستور بیرون کشیدن دیسپنسر و شمارش پول و سپس برگرداندن پول نوشته شده است",
+ "بین کادر چپ و میانی یک فلش با برچسب «01 OK» وجود دارد",
+ "کادر میانی شرط «NO. OF NOTES = 8?» با گزینه های «> 01 YES» و «02 NO» را نشان می دهد",
+ "بین کادر میانی و راست یک فلش با برچسب «01 YES» وجود دارد",
+ "کادر راست دستور «PLEASE PUSH IN CASH DISPENSER AND WAIT FOR RESTART» و گزینه «> 01 OK» را نشان می دهد"
  ],
  "image_type": "diagram"
 }
@@ -2675,7 +2691,7 @@ Telnet 10.15.0.66 9600
 
 اگر در زمان Reference کردن هریک از کاست ها، کاست خالی از اسکناس باشد یا تعداد اسکناس ها کافی نباشد و یا کاست در جای خود قرار نداشته باشد با پیغام خطای مواجه خواهید شد:
 
-![نمایشگر با متن خطای عملکرد و وضعیت OK](img_folder/image_090_image91.jpg)
+![نمایشگر با پیام خطا و وضعیت OK](img_folder/image_090_image91.jpg)
 
 **Image analysis**
 
@@ -2684,20 +2700,19 @@ Telnet 10.15.0.66 9600
  "image_name": "image91.jpg",
  "rId": "rId104",
  "image_path": "img_folder/image_090_image91.jpg",
- "caption": "نمایشگر با متن خطای عملکرد و وضعیت OK",
- "ocr_text": "REFRENCE VALUE\nFUNCTION FAILED\n>01 OK",
+ "caption": "نمایشگر با پیام خطا و وضعیت OK",
+ "ocr_text": "REFRENCE VALUE\nFUNCTION FAILED\n> 01 OK",
  "visual_description": [
- "نمای نزدیک از یک نمایشگر/صفحه با پس زمینه خاکستری روشن و متن سیاه",
- "سه خط متن در بالا شامل «REFRENCE VALUE» و «FUNCTION FAILED»",
- "یک خط وضعیت با نماد «>» و مقدار «01 OK»"
+ "متن سیاه روی پس زمینه خاکستری روشن نمایش داده شده است",
+ "سه خط متن شامل عبارت REFRENCE VALUE، FUNCTION FAILED و '> 01 OK' دیده می شود"
  ],
- "image_type": "photo"
+ "image_type": "screenshot"
 }
 ```
 
 در هنگام انجام عملیات Reference و در زمان انتخاب یک کاست، اگر درب گاوصندوق بسته باشد با پیغام زیر مواجه خواهید شد؛ درب گاوصندوق را بازکنید تا عملیات Reference انجام شود.
 
-![نمایشگر با پیام باز کردن درِ صندوق و گزینه OK](img_folder/image_091_image92.jpg)
+![نمایش پیام خطا و درخواست باز کردن درِ گاوصندوق روی صفحه دستگاه](img_folder/image_091_image92.jpg)
 
 **Image analysis**
 
@@ -2706,11 +2721,13 @@ Telnet 10.15.0.66 9600
  "image_name": "image92.jpg",
  "rId": "rId105",
  "image_path": "img_folder/image_091_image92.jpg",
- "caption": "نمایشگر با پیام باز کردن درِ صندوق و گزینه OK",
- "ocr_text": "REFRENCE VALUE\nPLEASE OPEN THE SAFE\nDOOR!\n> 01 OK",
+ "caption": "نمایش پیام خطا و درخواست باز کردن درِ گاوصندوق روی صفحه دستگاه",
+ "ocr_text": "REFRENCE VALUE\nPLEASE OPEN THE SAFE\nDOOR!\n>01 OK",
  "visual_description": [
- "نمایشگر تک رنگ با پس زمینه روشن و متن تیره",
- "چهار خط متن شامل عنوان، دستور باز کردن در، و یک ردیف با نشانگر > و گزینه OK"
+ "پس زمینه روشن با متن مشکی در چند خط",
+ "نمایش عبارت «REFRENCE VALUE» در بالای تصویر",
+ "نمایش پیام «PLEASE OPEN THE SAFE DOOR!»",
+ "نمایش گزینه «>01 OK» در خط آخر با علامت >"
  ],
  "image_type": "screenshot"
 }
@@ -2720,11 +2737,11 @@ Telnet 10.15.0.66 9600
 
 در بانک رفاه، 3 فولدر با اسامی Journal، Campic و Bitmap می باید Share شده باشند؛ دسترسی به فولدرهای Journal و Campic می باید فقط Read باشد. فقط پوشه ی Bitmap می باید به طور کامل در دسترس (Read/Write) باشد. یوزرهای Administrator و Bankuser می باید به هر سه فولدر دسترسی داشته باشند؛ این دسترسی ها را بررسی و در صورت مشاهده مغایرت، مراحل زیر را جهت اصلاح آنها انجام دهید:
 
-1. پس از پایان مراحل نصب، حتماً می باید از Share بودن فولدرهای مربوطه اطمینان حاصل کنید و در صورت نبودن یوزرهای موردنیاز، دسترسی ها را با انجام مراحل بعدی تنظیم نمایید:
+پس از پایان مراحل نصب، حتماً می باید از Share بودن فولدرهای مربوطه اطمینان حاصل کنید و در صورت نبودن یوزرهای موردنیاز، دسترسی ها را با انجام مراحل بعدی تنظیم نمایید:
  1. به منظور مشاهده یوزرها و میزان دسترسی تعیین شده برای آنها، روی فولدر موردنظر راست کلیک کنید و از منویی که گشوده می شود Properties را انتخاب کنید.
  2. در قسمت فوقانی پنجره ای که گشوده می شود روی تب Sharing و سپس دکمه ی Advanced Sharing کلیک کنید:
 
-![پنجره Properties پوشه JOURNAL با گزینه Advanced Sharing مشخص شده است.](img_folder/image_092_image93.png)
+![پنجره Properties پوشه JOURNAL با گزینه Advanced Sharing مشخص شده است](img_folder/image_092_image93.png)
 
 **Image analysis**
 
@@ -2733,24 +2750,24 @@ Telnet 10.15.0.66 9600
  "image_name": "image93.png",
  "rId": "rId106",
  "image_path": "img_folder/image_092_image93.png",
- "caption": "پنجره Properties پوشه JOURNAL با گزینه Advanced Sharing مشخص شده است.",
- "ocr_text": "JOURNAL Properties\nGeneral Sharing Security Previous Versions Customize\nNetwork File and Folder Sharing\nJOURNAL\nNot Shared\nNetwork Path:\nNot Shared\nShare...\nAdvanced Sharing\nSet custom permissions, create multiple shares, and set other\nadvanced sharing options.\nAdvanced Sharing...\nPassword Protection\nPeople must have a user account and password for this\ncomputer to access shared folders.\nTo change this setting, use the Network and Sharing Center.\nOK Cancel Apply",
+ "caption": "پنجره Properties پوشه JOURNAL با گزینه Advanced Sharing مشخص شده است",
+ "ocr_text": "JOURNAL Properties\nGeneral Sharing Security Previous Versions Customize\nNetwork File and Folder Sharing\nJOURNAL\nNot Shared\nNetwork Path:\nNot Shared\nShare...\nAdvanced Sharing\nSet custom permissions, create multiple shares, and set other\nadvanced sharing options.\nAdvanced Sharing...\nPassword Protection\nPeople must have a user account and password for this\ncomputer to access shared folders.\nTo change this setting, use the Network and Sharing Center.\nOK\nCancel\nApply",
  "visual_description": [
- "پنجره «JOURNAL Properties» با تب های General، Sharing، Security، Previous Versions و Customize نمایش داده شده است.",
- "در بخش Network File and Folder Sharing وضعیت «JOURNAL Not Shared» و «Network Path: Not Shared» دیده می شود.",
- "دکمه «Advanced Sharing...» با کادر قرمز هایلایت شده است.",
- "بخش Password Protection شامل متن راهنما و لینک «Network and Sharing Center» است.",
- "دکمه های OK، Cancel و Apply در پایین پنجره وجود دارد."
+ "اسکرین شات پنجره JOURNAL Properties در ویندوز با تب های General, Sharing, Security, Previous Versions, Customize",
+ "در بخش Network File and Folder Sharing وضعیت JOURNAL: Not Shared و Network Path: Not Shared نمایش داده شده است",
+ "دکمه های Share... و Advanced Sharing... وجود دارد و دکمه Advanced Sharing... با کادر قرمز هایلایت شده است",
+ "بخش Password Protection شامل توضیح نیاز به حساب کاربری و گذرواژه و لینک Network and Sharing Center است",
+ "دکمه های OK، Cancel و Apply در پایین پنجره دیده می شود"
  ],
  "image_type": "screenshot"
 }
 ```
 
-* 1. در پنجره Advanced Sharing، همانند شکل زیر روی دکمه ی Permissions کلیک کنید:
+3. در پنجره Advanced Sharing، همانند شکل زیر روی دکمه ی Permissions کلیک کنید:
 
 در پنجره ی زیر و در قسمت Share name، برای فولدر دوربین باید عبارت VideoArchive درج شده باشد؛ در صورتیکه چنین نیست، عبارت موجود را اصلاح نمایید.
 
-![پنجره Advanced Sharing ویندوز با نام اشتراک VideoArchive و دکمه Permissions مشخص شده](img_folder/image_093_image94.jpg)
+![پنجره Advanced Sharing ویندوز برای اشتراک گذاری پوشه با نام VideoArchive و تنظیم Permissions](img_folder/image_093_image94.jpg)
 
 **Image analysis**
 
@@ -2759,17 +2776,15 @@ Telnet 10.15.0.66 9600
  "image_name": "image94.jpg",
  "rId": "rId107",
  "image_path": "img_folder/image_093_image94.jpg",
- "caption": "پنجره Advanced Sharing ویندوز با نام اشتراک VideoArchive و دکمه Permissions مشخص شده",
- "ocr_text": "JOURNAL Properties\nAdvanced Sharing\nShare this folder\nSettings\nShare name:\nVideoArchive\nAdd\nRemove\nLimit the number of simultaneous users to:\n20\nComments:\nPermissions\nCaching\nOK\nCancel\nApply\nTo change these settings, use the Network and Sharing Center.\nOK\nCancel\nApply",
+ "caption": "پنجره Advanced Sharing ویندوز برای اشتراک گذاری پوشه با نام VideoArchive و تنظیم Permissions",
+ "ocr_text": "JOURNAL Properties\nAdvanced Sharing\nShare this folder\nSettings\nShare name:\nVideoArchive\nAdd\nRemove\nLimit the number of simultaneous users to:\n20\nComments:\nPermissions\nCaching\nOK\nCancel\nApply\nOK\nCancel\nApply\nTo change this setting, use the Network and Sharing Center.",
  "visual_description": [
- "پنجره Advanced Sharing برای یک پوشه در ویندوز نمایش داده شده است",
- "گزینه Share this folder فعال است",
- "فیلد Share name مقدار VideoArchive دارد",
- "محدودیت کاربران همزمان روی 20 تنظیم شده است",
- "دکمه Permissions با کادر قرمز برجسته شده است",
- "یک فلش قرمز به سمت فیلد نام اشتراک اشاره می کند",
- "دکمه های Add و Remove خاکستری/غیرفعال دیده می شوند",
- "دکمه های OK، Cancel و Apply در پایین پنجره وجود دارد"
+ "پنجره «Advanced Sharing» در بخش Properties نمایش داده شده است.",
+ "گزینه «Share this folder» تیک خورده است.",
+ "فیلد «Share name» مقدار «VideoArchive» دارد و با پیکان قرمز مشخص شده است.",
+ "کنترل عددی «Limit the number of simultaneous users to» روی 20 تنظیم شده است.",
+ "دکمه «Permissions» با کادر قرمز برجسته شده و کنار دکمه «Caching» قرار دارد.",
+ "در پایین پنجره دکمه های «OK»، «Cancel»، و «Apply» دیده می شوند."
  ],
  "image_type": "screenshot"
 }
@@ -2779,7 +2794,7 @@ Telnet 10.15.0.66 9600
 
 تصویر زیر مربوط به پوشه Bitmap است که دسترسی کامل به یوزر Administrator داده شده است:
 
-![پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با کاربران و گزینه های Allow/Deny](img_folder/image_094_image95.png)
+![پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با لیست کاربران و تیک های Allow](img_folder/image_094_image95.png)
 
 **Image analysis**
 
@@ -2788,16 +2803,17 @@ Telnet 10.15.0.66 9600
  "image_name": "image95.png",
  "rId": "rId108",
  "image_path": "img_folder/image_094_image95.png",
- "caption": "پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با کاربران و گزینه های Allow/Deny",
- "ocr_text": "Permissions for BITMAPS\nShare Permissions\nGroup or user names:\nAdministrator [ADONISTECH\\Administrator]\nBANKUser [ADONISTECH\\BANKUser]\nAdd...\nRemove\nPermissions for Administrator\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
+ "caption": "پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با لیست کاربران و تیک های Allow",
+ "ocr_text": "Permissions for BITMAPS\nShare Permissions\nGroup or user names:\nAdministrator [ADONISTECH\\administrator]\nBANKUser [ADONISTECH\\BANKUser]\nAdd...\nRemove\nPermissions for Administrator\nFull Control\nChange\nRead\nAllow\nDeny\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "پنجره Windows با عنوان «Permissions for BITMAPS» نمایش داده شده است",
- "بخش «Group or user names» شامل Administrator و BANKUser با دامنه ADONISTECH است",
- "در بخش «Permissions for Administrator» گزینه های Full Control، Change و Read در ستون Allow تیک خورده اند",
- "ستون Deny برای مجوزهای نمایش داده شده خالی است",
- "دکمه های Add... و Remove و همچنین OK، Cancel و Apply دیده می شوند",
- "لینک «Learn about access control and permissions» در پایین پنجره وجود دارد",
- "دو کادر قرمز برای برجسته سازی فهرست کاربران و بخش تیک های Allow روی تصویر قرار داده شده است"
+ "اسکرین شات پنجره Windows با عنوان «Permissions for BITMAPS» و تب «Share Permissions»",
+ "بخش «Group or user names» شامل دو کاربر: Administrator و BANKUser با دامنه ADONISTECH",
+ "دکمه های «Add...» و «Remove» در بخش کاربران",
+ "بخش «Permissions for Administrator» با گزینه های Full Control، Change، Read",
+ "سه چک باکس ستون Allow برای Full Control، Change و Read تیک خورده است",
+ "ستون Deny دارای چک باکس های خالی برای همان مجوزها است",
+ "در پایین لینک «Learn about access control and permissions» و دکمه های OK، Cancel، Apply دیده می شود",
+ "دو کادر قرمز دور بخش لیست کاربران و ستون Allow قرار گرفته است"
  ],
  "image_type": "screenshot"
 }
@@ -2805,7 +2821,7 @@ Telnet 10.15.0.66 9600
 
 تصویر زیر نیز مربوط به پوشه Journal است که دسترسی فقط خواندن (Read) برای یوزر Administrator تعیین شده است:
 
-![پنجره تنظیم مجوزهای Share برای JOURNAL با گزینه های Allow/Deny و دکمه OK](img_folder/image_095_image96.png)
+![پنجره تنظیم مجوزهای اشتراک گذاری برای JOURNAL با انتخاب های Allow/Deny و دکمه OK](img_folder/image_095_image96.png)
 
 **Image analysis**
 
@@ -2814,25 +2830,24 @@ Telnet 10.15.0.66 9600
  "image_name": "image96.png",
  "rId": "rId109",
  "image_path": "img_folder/image_095_image96.png",
- "caption": "پنجره تنظیم مجوزهای Share برای JOURNAL با گزینه های Allow/Deny و دکمه OK",
- "ocr_text": "Permissions for JOURNAL\nShare Permissions\nGroup or user names:\nAdministrator (ADONISTECH\\Administrator)\nBANKUser (ADONISTECH\\BANKUser)\nAdd...\nRemove\nPermissions for Administrator\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
+ "caption": "پنجره تنظیم مجوزهای اشتراک گذاری برای JOURNAL با انتخاب های Allow/Deny و دکمه OK",
+ "ocr_text": "Permissions for JOURNAL\nShare Permissions\nGroup or user names:\nAdministrator {ADONISTECH\\Administrator}\nBANKUser {ADONISTECH\\BANKUser}\nAdd...\nRemove\nPermissions for Administrator\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "اسکرین شات پنجره «Permissions for JOURNAL» در ویندوز",
- "فهرست کاربران/گروه ها شامل Administrator و BANKUser نمایش داده شده است",
- "جدول مجوزها با ردیف های Full Control، Change و Read و ستون های Allow و Deny وجود دارد",
- "یک کادر قرمز ستون Allow را برجسته کرده و تیک ردیف Read در Allow فعال است",
- "دکمه های Add...، Remove، OK، Cancel و Apply قابل مشاهده هستند"
+ "تصویر یک پنجره تنظیمات «Permissions for JOURNAL» با دو تب/بخش «Share Permissions» نمایش می دهد.",
+ "لیست «Group or user names» شامل Administrator و BANKUser با دامنه ADONISTECH است.",
+ "بخش «Permissions for Administrator» دارای ستون های Allow و Deny و ردیف های Full Control، Change، Read است.",
+ "یک کادر قرمز دور ستون Allow و یک کادر قرمز دور دکمه OK قرار دارد."
  ],
  "image_type": "screenshot"
 }
 ```
 
-* 1. درصورتی که هریک از یوزرهای لازم در کادر بالایی وجود ندارد روی گزینه Add کلیک کنید:
+4. درصورتی که هریک از یوزرهای لازم در کادر بالایی وجود ندارد روی گزینه Add کلیک کنید:
 
 <!-- TABLE_START -->
 | | |
 | --- | --- |
-|![پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با گزینه Add و تیک های Allow](img_folder/image_096_image97.png)
+|![پنجره تنظیم مجوزهای پوشه BITMAPS با کاربر BANKUser و گزینه Add مشخص شده](img_folder/image_096_image97.png)
 
 **Image analysis**
 
@@ -2841,21 +2856,19 @@ Telnet 10.15.0.66 9600
  "image_name": "image97.png",
  "rId": "rId110",
  "image_path": "img_folder/image_096_image97.png",
- "caption": "پنجره تنظیم مجوزهای Share برای پوشه BITMAPS با گزینه Add و تیک های Allow",
+ "caption": "پنجره تنظیم مجوزهای پوشه BITMAPS با کاربر BANKUser و گزینه Add مشخص شده",
  "ocr_text": "Permissions for BITMAPS\nShare Permissions\nGroup or user names:\nBANKUser (ADONISTECH\\BANKUser)\nAdd...\nRemove\nPermissions for BANKUser\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "پنجره ویندوز با عنوان «Permissions for BITMAPS» نمایش داده شده است",
- "بخش «Group or user names» شامل «BANKUser (ADONISTECH\\BANKUser)» است",
+ "پنجره Windows برای Share Permissions با عنوان «Permissions for BITMAPS» نمایش داده شده است",
+ "در بخش Group or user names کاربر «BANKUser (ADONISTECH\\BANKUser)» فهرست شده است",
  "دکمه «Add...» با کادر قرمز برجسته شده است",
- "دکمه «Remove» کنار «Add...» قرار دارد",
- "جدول مجوزها با ستون های «Allow» و «Deny» و ردیف های «Full Control»، «Change»، «Read» دیده می شود",
- "در ستون Allow برای هر سه مورد چک باکس ها تیک خورده اند و ستون Deny خالی است",
- "لینک «Learn about access control and permissions» در پایین پنجره وجود دارد",
- "دکمه های «OK»، «Cancel»، «Apply» در پایین پنجره نمایش داده شده اند"
+ "جدول مجوزها شامل «Full Control»، «Change»، «Read» با ستون های «Allow» و «Deny» است",
+ "برای هر سه مجوز در ستون Allow تیک خورده و در ستون Deny خالی است",
+ "دکمه های پایین پنجره شامل «OK»، «Cancel»، «Apply» هستند"
  ],
  "image_type": "screenshot"
 }
-``` |![پنجره تنظیمات دسترسی پوشه BITMAPS و مجوزهای کاربر BANKUser](img_folder/image_097_image98.png)
+``` |![پنجره تنظیم مجوزهای اشتراک با کاربر BANKUser و گزینه های Full Control، Change و Read](img_folder/image_097_image98.png)
 
 **Image analysis**
 
@@ -2864,25 +2877,27 @@ Telnet 10.15.0.66 9600
  "image_name": "image98.png",
  "rId": "rId111",
  "image_path": "img_folder/image_097_image98.png",
- "caption": "پنجره تنظیمات دسترسی پوشه BITMAPS و مجوزهای کاربر BANKUser",
+ "caption": "پنجره تنظیم مجوزهای اشتراک با کاربر BANKUser و گزینه های Full Control، Change و Read",
  "ocr_text": "Permissions for BITMAPS\nShare Permissions\nGroup or user names:\nBANKUser (ADONISTECH\\BANKUser)\nAdd...\nRemove\nPermissions for BANKUser\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "پنجره Windows با عنوان «Permissions for BITMAPS» نمایش داده شده است",
- "در بخش «Group or user names» کاربر «BANKUser (ADONISTECH\\BANKUser)» انتخاب شده است",
- "گزینه های مجوز «Full Control»، «Change»، و «Read» در ستون Allow تیک خورده اند",
- "ستون Deny برای هر سه مجوز بدون تیک است",
- "دکمه های Add... و Remove و پایین پنجره OK، Cancel، Apply دیده می شوند",
- "یک کادر قرمز دور بخش نام کاربر/گروه ترسیم شده است"
+ "پنجره ویندوز با عنوان «Permissions for BITMAPS» نمایش داده شده است",
+ "در بخش «Group or user names» یک کاربر با نام «BANKUser (ADONISTECH\\BANKUser)» انتخاب شده است",
+ "دکمه های «Add...» و «Remove» در کنار لیست کاربران وجود دارد",
+ "در بخش «Permissions for BANKUser» ستون های «Allow» و «Deny» وجود دارد",
+ "برای «Full Control»، «Change» و «Read» در ستون Allow تیک خورده و ستون Deny خالی است",
+ "لینک «Learn about access control and permissions» در پایین پنجره دیده می شود",
+ "دکمه های «OK»، «Cancel» و «Apply» در پایین پنجره موجود است",
+ "کادر قرمز دور قسمت نام کاربر/گروه در بالای پنجره کشیده شده است"
  ],
  "image_type": "screenshot"
 }
 ``` |
 <!-- TABLE_END -->
 
-* 1. در قسمت Enter the object name … نام یوزر موردنظر را تایپ کنید.
- 3. روی دکمه ی Check Name کلیک نمایید؛ درصورتی که یوزر درج شده وجود داشته باشد، نام کامل آن به نمایش گذاشته خواهد شد:
+5. در قسمت Enter the object name … نام یوزر موردنظر را تایپ کنید.
+ 6. روی دکمه ی Check Name کلیک نمایید؛ درصورتی که یوزر درج شده وجود داشته باشد، نام کامل آن به نمایش گذاشته خواهد شد:
 
-![پنجره انتخاب کاربر یا گروه در ویندوز برای تعیین مجوزها و بررسی نام کاربری](img_folder/image_098_image99.png)
+![پنجره انتخاب کاربر/گروه در ویندوز با وارد کردن administrator و دکمه Check Names](img_folder/image_098_image99.png)
 
 **Image analysis**
 
@@ -2891,20 +2906,21 @@ Telnet 10.15.0.66 9600
  "image_name": "image99.png",
  "rId": "rId112",
  "image_path": "img_folder/image_098_image99.png",
- "caption": "پنجره انتخاب کاربر یا گروه در ویندوز برای تعیین مجوزها و بررسی نام کاربری",
- "ocr_text": "Permissions for BITMAPS\nSelect Users or Groups\nSelect this object type:\nUsers, Groups, or Built-in security principals\nObject Types...\nFrom this location:\nADONISTECH\nLocations...\nEnter the object names to select (examples):\nadministrator\nCheck Names\nAdvanced...\nOK\nCancel\nLearn about access control and permissions\nOK\nCancel\nApply",
+ "caption": "پنجره انتخاب کاربر/گروه در ویندوز با وارد کردن administrator و دکمه Check Names",
+ "ocr_text": "Permissions for BITMAPS\nSelect Users or Groups\nSelect this object type:\nUsers, Groups, or Built-in security principals\nObject Types...\nFrom this location:\nADONISTECH\nLocations...\nEnter the object names to select (examples):\nadministrator\nCheck Names\nAdvanced...\nOK\nCancel\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "اسکرین شات پنجره ویندوز «Select Users or Groups» با فیلد «Enter the object names» شامل مقدار «administrator».",
- "دکمه «Check Names» در سمت راست با کادر قرمز مشخص شده است.",
- "بخش «From this location» مقدار «ADONISTECH» را نشان می دهد.",
- "پنجره پس زمینه عنوان «Permissions for BITMAPS» و لینک «Learn about access control and permissions» دارد.",
- "دکمه های «OK»، «Cancel»، «Apply» در پایین پنجره پس زمینه قابل مشاهده اند."
+ "اسکرین شات پنجره Windows «Select Users or Groups» در بخش Permissions for BITMAPS",
+ "فیلد «From this location» مقدار ADONISTECH را نشان می دهد",
+ "در کادر «Enter the object names to select» متن administrator وارد شده است",
+ "دکمه «Check Names» در سمت راست قابل مشاهده است",
+ "دکمه های «Advanced...»، «OK» و «Cancel» در پنجره وجود دارند",
+ "پنجره «Permissions for BITMAPS» در پس زمینه با گزینه های «OK»، «Cancel»، «Apply» و لینک «Learn about access control and permissions» دیده می شود"
  ],
  "image_type": "screenshot"
 }
 ```
 
-![پنجره انتخاب کاربران/گروه ها برای مجوزهای BITMAPS با کاربر ADONISTECH\Administrator و دکمه OK](img_folder/image_099_image100.png)
+![پنجره انتخاب کاربر/گروه برای تعیین مجوزهای BITMAP$ با حساب ADONISTECH\Administrator](img_folder/image_099_image100.png)
 
 **Image analysis**
 
@@ -2913,22 +2929,22 @@ Telnet 10.15.0.66 9600
  "image_name": "image100.png",
  "rId": "rId113",
  "image_path": "img_folder/image_099_image100.png",
- "caption": "پنجره انتخاب کاربران/گروه ها برای مجوزهای BITMAPS با کاربر ADONISTECH\\Administrator و دکمه OK",
- "ocr_text": "Permissions for BITMAPS\nSelect Users or Groups\nSelect this object type:\nUsers, Groups, or Built-in security principals\nObject Types...\nFrom this location:\nADONISTECH\nLocations...\nEnter the object names to select (examples):\nADONISTECH\\Administrator\nCheck Names\nAdvanced...\nOK\nCancel\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
+ "caption": "پنجره انتخاب کاربر/گروه برای تعیین مجوزهای BITMAP$ با حساب ADONISTECH\\Administrator",
+ "ocr_text": "Permissions for BITMAP$\nSelect Users or Groups\nSelect this object type:\nUsers, Groups, or Built-in security principals\nObject Types...\nFrom this location:\nADONISTECH\nLocations...\nEnter the object names to select (examples):\nADONISTECH\\Administrator\nCheck Names\nAdvanced...\nOK\nCancel\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "اسکرین شات پنجره Windows با عنوان «Select Users or Groups» برای تنظیم مجوزهای BITMAPS",
- "فیلد «From this location» مقدار ADONISTECH را نشان می دهد",
- "در کادر نام شیء، مقدار «ADONISTECH\\Administrator» وارد شده و با کادر قرمز مشخص شده است",
- "دکمه «OK» با کادر قرمز برجسته شده است",
- "دکمه های «Object Types...»، «Locations...»، «Check Names»، «Advanced...»، «Cancel» قابل مشاهده اند",
- "پس زمینه پنجره مجوزها گزینه های «Change» و «Read» و لینک «Learn about access control and permissions» و دکمه های «OK»، «Cancel»، «Apply» را نشان می دهد"
+ "پنجره ویندوز با عنوان «Permissions for BITMAP$» و دیالوگ «Select Users or Groups» نمایش داده شده است",
+ "فیلد «From this location» مقدار «ADONISTECH» را نشان می دهد",
+ "در کادر «Enter the object names to select» متن «ADONISTECH\\Administrator» وارد شده است",
+ "دکمه های «Object Types...»، «Locations...»، «Check Names»، «Advanced...»، «OK»، «Cancel» قابل مشاهده اند",
+ "دو کادر قرمز دور نام کاربری واردشده و دکمه «OK» کشیده شده است",
+ "در پس زمینه بخشی از پنجره مجوزها با گزینه های «Change» و «Read» و لینک «Learn about access control and permissions» دیده می شود"
  ],
  "image_type": "screenshot"
 }
 ```
 
-* 1. در پایان روی دکمه ی OK کلیک کنید.
- 4. در صفحه Permissions میزان دسترسی یوزر مذکور را تعیین نمایید:
+7. در پایان روی دکمه ی OK کلیک کنید.
+ 8. در صفحه Permissions میزان دسترسی یوزر مذکور را تعیین نمایید:
 
 ![پنجره تنظیم مجوزهای اشتراک پوشه BITMAPS با کاربران و گزینه های Allow/Deny](img_folder/image_100_image101.png)
 
@@ -2942,19 +2958,19 @@ Telnet 10.15.0.66 9600
  "caption": "پنجره تنظیم مجوزهای اشتراک پوشه BITMAPS با کاربران و گزینه های Allow/Deny",
  "ocr_text": "Permissions for BITMAPS\nShare Permissions\nGroup or user names:\nAdministrator (ADONISTECH\\Administrator)\nBANKUser (ADONISTECH\\BANKUser)\nAdd...\nRemove\nPermissions for Administrator\nAllow\nDeny\nFull Control\nChange\nRead\nLearn about access control and permissions\nOK\nCancel\nApply",
  "visual_description": [
- "پنجره Windows با عنوان «Permissions for BITMAPS» و تب «Share Permissions» نمایش داده شده است",
- "در بخش «Group or user names» دو کاربر Administrator و BANKUser با دامنه ADONISTECH لیست شده اند",
- "بخش «Permissions for Administrator» شامل گزینه های Full Control، Change و Read است",
- "در ستون «Allow» سه چک باکس برای Full Control، Change و Read تیک خورده و ستون «Deny» بدون تیک است",
- "دکمه های Add..., Remove, OK, Cancel, Apply و لینک «Learn about access control and permissions» قابل مشاهده اند",
- "دو کادر قرمز دور بخش لیست کاربران و ستون Allow رسم شده است"
+ "اسکرین شات پنجره Windows «Permissions for BITMAPS» در تب Share Permissions",
+ "بخش Group or user names شامل دو حساب: Administrator (ADONISTECH\\Administrator) و BANKUser (ADONISTECH\\BANKUser)",
+ "بخش Permissions for Administrator دارای گزینه های Full Control، Change و Read",
+ "در ستون Allow برای هر سه گزینه (Full Control/Change/Read) تیک خورده و در ستون Deny خالی است",
+ "دکمه های Add..., Remove و پایین پنجره OK، Cancel، Apply دیده می شوند",
+ "دو کادر قرمز برای برجسته سازی لیست کاربران و ستون Allow رسم شده است"
  ],
  "image_type": "screenshot"
 }
 ```
 
-* 1. روی دکمه ی Apply و سپس OK کلیک کنید.
- 5. پس از اتمام مراحل فوق و بررسی هر سه فولدر از اپراتور دستگاه و همچنین انفورماتیک بانک بخواهید دسترسی یوزرهایشان به فولدرهای مذکور را بررسی و از صحت عملکردشان مطمئن شوند.
+9. روی دکمه ی Apply و سپس OK کلیک کنید.
+ 10. پس از اتمام مراحل فوق و بررسی هر سه فولدر از اپراتور دستگاه و همچنین انفورماتیک بانک بخواهید دسترسی یوزرهایشان به فولدرهای مذکور را بررسی و از صحت عملکردشان مطمئن شوند.
 
 پس از نصب کامل پکیج، جهت دستیابی به اطلاعات هارد و اشتراک گذاری پوشه تصاویر، می باید نام پارتیشن هارد قبلی را به E تغییر دهید و جهت جلوگیری از بروز اختلال در عملکرد ویندوز، ویندوز هارد قبلی را حذف کنید.
 
@@ -3018,7 +3034,7 @@ Telnet 10.15.0.66 9600
 
 # پیوست 1
 
-#### چک لیست نصب نرم افزار
+## چک لیست نصب نرم افزار
 
 <!-- TABLE_START -->
 | | | |
