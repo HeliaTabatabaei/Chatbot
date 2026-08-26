@@ -142,7 +142,8 @@ class DocumentAgent:
 
     def handle_stream(
         self,
-        message: str,
+        message: str,  #rewritten_query
+        original_query:str,
         on_chunk: StreamCallback,
         query_vector: Any,
         temperature: float = 0.1,
@@ -161,11 +162,26 @@ class DocumentAgent:
             on_chunk({"type": "token", "content": "هیچ سند مرتبطی یافت نشد."})
             return
         append_qa_to_filetest(results)
+        
+        #  def rerank_results(
+        #     self,
+        #     original_query: str,
+        #     rewritten_query: str,
+        #     results: list[Any],
+        #     score_threshold: float = 0.7,
+        #     top_k: int = 10,
+        
+        
+        # reranked_results = self.rag_service.rerank_results(
+        #     original_query=message,
+        #     results=results,
+        #     history=history,
+        # )
         reranked_results = self.rag_service.rerank_results(
-            query=message,
-            results=results,
-            history=history,
-        )
+                    original_query=original_query,
+                    rewritten_query=message,
+                    results=results,        
+                )
         append_qa_to_file(f"Rank Query Time: {time.time() - start:.2f} seconds")
         append_qa_to_filetest(reranked_results)
         start=time.time()
@@ -186,7 +202,7 @@ class DocumentAgent:
         decision = analysis.get("decision")
 
         if decision == "answer":
-            append_qa_to_file(f"start genrate stream: {time.time():.2f} ")
+            append_qa_to_file(f"start genrate stream: {time.time():.2f} seconds ")
             self.rag_service.answer_with_rag_stream(
                 query=message,
                 results=reranked_results,
