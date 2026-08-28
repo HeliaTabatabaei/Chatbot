@@ -8,6 +8,7 @@ from typing import Any, Optional
 from qdrant_client import models
 
 from Models.mainModels import SearchFilters
+from Prompt.promt_Rerank import RERANK_SYSTEM_PROMPT, build_rerank_user_prompt
 from SQlDB.IngestionQuery import load_chunks_from_dbByDocId
 from config import COLLECTION_NAME, BaseUrl,COLLECTION_NAME_Meta
 from Utility.log import append_qa_to_filetest
@@ -24,11 +25,15 @@ class RAGService:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         qdrant_client: Any,
         collection_name: Optional[str] = None,
         collection_name_meta: Optional[str] = None,
     ) -> None:
         self.llm = llm
+        self.second_llm = second_llm
+
         self.qdrant_client = qdrant_client
         self.collection_name = collection_name or COLLECTION_NAME
         self.collection_name_meta = collection_name_meta or COLLECTION_NAME_Meta
@@ -286,14 +291,121 @@ class RAGService:
             on_chunk=on_chunk,
             temperature=temperature,
         )
+#     def rerank_results(
+#     self,
+#     original_query: str,
+#     rewritten_query: str,
+#     results: list[Any],
+#     score_threshold: float = 0.7,
+#     top_k: int = 10,
+# ) -> list[Any]:
+#         if not results:
+#             return []
+
+#         candidates = self._build_rerank_condidate(results)
+#         if not candidates:
+#             return results[:top_k]
+
+#         system_prompt = """
+#     You are a technical document reranker. Your job is to score relevance on a scale of 0.0 to 1.0.
+
+#     Instructions:
+#     - 1.0: The chunk contains the exact answer, error code explanation, or step-by-step solution.
+#     - 0.8-0.9: Highly relevant. Provides critical context or strong supporting evidence for the answer.
+#     - 0.5: Marginally relevant. Contains the right topic but lacks specific actionable details.
+#     - 0.0-0.3: Irrelevant. Wrong device, wrong topic, or gibberish.
+
+#     Rules:
+#     - You MUST score every candidate.
+#     - Return ONLY valid JSON array: [{"id": "...", "score": ...}]
+#     - Do not add explanations.
+#     """.strip()
+
+#         user_prompt = (
+#             f"Original User Query:\n{original_query}\n\n"
+#             f"Rewritten/Target Query:\n{rewritten_query}\n\n"
+#             f"Results to Score:\n{json.dumps(candidates, ensure_ascii=False, indent=2)}\n\n"
+#             f"Return exactly {len(candidates)} JSON items. One score for each ID."
+#         )
+
+#         try:
+#             response = self.second_llm.chat(
+#                 messages=[
+#                     {"role": "system", "content": system_prompt},
+#                     {"role": "user", "content": user_prompt},
+#                 ],
+#                 temperature=0,
+#             )
+
+#             content = (response.content or "").strip()
+#             scored_items = self._parse_json_array(content)
+
+#             # استخراج امتیازها در دیکشنری
+#             score_map: dict[str, float] = {}
+#             for item in scored_items:
+#                 if isinstance(item, dict) and "id" in item:
+#                     try:
+#                         score_map[str(item["id"])] = float(item.get("score", 0.0))
+#                     except (TypeError, ValueError):
+#                         continue
+
+#             # ذخیره و به‌روزرسانی امتیازها روی آبجکت‌ها
+#             processed_results = []
+#             for result in results:
+#                 res_id = str(self._get_result_id(result))
+#                 initial_score = self._get_result_score(result)
+#                 llm_score = score_map.get(res_id, 0.0)
+
+#                 # ذخیره امتیاز rerank
+#                 if hasattr(result, "score"):
+#                     result.score = llm_score
+#                 elif isinstance(result, dict):
+#                     result["score"] = llm_score
+
+#                 # ذخیره در payload برای دیباگ و مراحل بعد
+#                 payload = self._get_payload(result)
+#                 if isinstance(payload, dict):
+#                     payload["rerank_score"] = llm_score
+#                     payload["retrieval_score"] = initial_score
+
+#                 processed_results.append(result)
+
+#             # ۱. مرتب‌سازی بر اساس امتیاز LLM Rerank
+#             processed_results.sort(
+#                 key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0),
+#                 reverse=True,
+#             )
+
+#             # ۲. اعمال فیلتر بر اساس آستانه (score_threshold)
+#             filtered_results = [
+#                 r for r in processed_results
+#                 if score_map.get(str(self._get_result_id(r)), 0.0) >= score_threshold
+#             ]
+#             final_output = filtered_results[:top_k]
+
+#             # فال‌بک در صورتی که هیچ آیتمی بالای آستانه نبود
+#             if not final_output and processed_results:
+#                 final_output = processed_results[:top_k]
+
+#             print(
+#                 f"[RERANK] Expected: {len(results)}, Received: {len(score_map)}, "
+#                 f"Filtered (>={score_threshold}): {len(filtered_results)}"
+#             )
+#             return final_output
+
+#         except Exception as exc:
+#             print(f"[RERANK ERROR] Fallback to retrieval scores: {exc}")
+#             return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
+ 
+
     def rerank_results(
-    self,
-    original_query: str,
-    rewritten_query: str,
-    results: list[Any],
-    score_threshold: float = 0.7,
-    top_k: int = 10,
-) -> list[Any]:
+        self,
+        original_query: str,
+        rewritten_query: str,
+        results: list[Any],
+        score_threshold: float = 0.7,
+        top_k: int = 10,
+    ) -> list[Any]:
         if not results:
             return []
 
@@ -301,32 +413,16 @@ class RAGService:
         if not candidates:
             return results[:top_k]
 
-        system_prompt = """
-    You are a technical document reranker. Your job is to score relevance on a scale of 0.0 to 1.0.
-
-    Instructions:
-    - 1.0: The chunk contains the exact answer, error code explanation, or step-by-step solution.
-    - 0.8-0.9: Highly relevant. Provides critical context or strong supporting evidence for the answer.
-    - 0.5: Marginally relevant. Contains the right topic but lacks specific actionable details.
-    - 0.0-0.3: Irrelevant. Wrong device, wrong topic, or gibberish.
-
-    Rules:
-    - You MUST score every candidate.
-    - Return ONLY valid JSON array: [{"id": "...", "score": ...}]
-    - Do not add explanations.
-    """.strip()
-
-        user_prompt = (
-            f"Original User Query:\n{original_query}\n\n"
-            f"Rewritten/Target Query:\n{rewritten_query}\n\n"
-            f"Results to Score:\n{json.dumps(candidates, ensure_ascii=False, indent=2)}\n\n"
-            f"Return exactly {len(candidates)} JSON items. One score for each ID."
+        user_prompt = build_rerank_user_prompt(
+            original_query=original_query,
+            rewritten_query=rewritten_query,
+            candidates=candidates,
         )
 
         try:
-            response = self.llm.chat(
+            response = self.second_llm.chat(
                 messages=[
-                    {"role": "system", "content": system_prompt},
+                    {"role": "system", "content": RERANK_SYSTEM_PROMPT},
                     {"role": "user", "content": user_prompt},
                 ],
                 temperature=0,
@@ -335,7 +431,6 @@ class RAGService:
             content = (response.content or "").strip()
             scored_items = self._parse_json_array(content)
 
-            # استخراج امتیازها در دیکشنری
             score_map: dict[str, float] = {}
             for item in scored_items:
                 if isinstance(item, dict) and "id" in item:
@@ -344,20 +439,17 @@ class RAGService:
                     except (TypeError, ValueError):
                         continue
 
-            # ذخیره و به‌روزرسانی امتیازها روی آبجکت‌ها
             processed_results = []
             for result in results:
                 res_id = str(self._get_result_id(result))
                 initial_score = self._get_result_score(result)
                 llm_score = score_map.get(res_id, 0.0)
 
-                # ذخیره امتیاز rerank
                 if hasattr(result, "score"):
                     result.score = llm_score
                 elif isinstance(result, dict):
                     result["score"] = llm_score
 
-                # ذخیره در payload برای دیباگ و مراحل بعد
                 payload = self._get_payload(result)
                 if isinstance(payload, dict):
                     payload["rerank_score"] = llm_score
@@ -365,20 +457,17 @@ class RAGService:
 
                 processed_results.append(result)
 
-            # ۱. مرتب‌سازی بر اساس امتیاز LLM Rerank
             processed_results.sort(
                 key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0),
                 reverse=True,
             )
 
-            # ۲. اعمال فیلتر بر اساس آستانه (score_threshold)
             filtered_results = [
                 r for r in processed_results
                 if score_map.get(str(self._get_result_id(r)), 0.0) >= score_threshold
             ]
             final_output = filtered_results[:top_k]
 
-            # فال‌بک در صورتی که هیچ آیتمی بالای آستانه نبود
             if not final_output and processed_results:
                 final_output = processed_results[:top_k]
 
@@ -392,29 +481,6 @@ class RAGService:
             print(f"[RERANK ERROR] Fallback to retrieval scores: {exc}")
             return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
 
-    # def _build_context(self, results: list[Any]) -> str:
-    #     chunks = []   
-    #     for i, r in enumerate(results, start=1):
-    #         if isinstance(r, dict):
-    #             payload = r["payload"]
-    #         else:
-    #             payload = r.payload
-    #         # text = payload.get("text", "")
-    #         maintext=payload.get("maintext", "")
-    #         doc_id = payload.get("doc_id", "نامشخص")
-    #         title = payload.get("title", "")
-    #         heading = payload.get("heading", "")
-    #         header = f"[سند {i}"
-    #         if doc_id:
-    #             header += f" - {doc_id}"
-    #         if title:
-    #             header += f" - {title}"
-    #         if heading:
-    #             header += f" > {heading}"
-    
-    #         header += "]"
-    #         chunks.append(f"{header}\n{maintext}")
-    #     return "\n\n".join(chunks)
     @staticmethod
     def _get_payload(result: Any) -> dict[str, Any]:
         if isinstance(result, dict):

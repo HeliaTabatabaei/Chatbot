@@ -30,6 +30,8 @@ class RouterAgent:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         chat_agent: ChatAgent,
         document_agent: DocumentAgent,
         dashboard_agent=DashboardAgent
@@ -39,6 +41,8 @@ class RouterAgent:
         self.chat_agent = chat_agent
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
+        self.second_llm = second_llm
+
     def build_qdrant_filter(self,
             customer_name: str | None = None,
             device_type: str | None = None,
@@ -139,7 +143,7 @@ class RouterAgent:
         # append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
-        
+        append_qa_to_file(f"rewrite_query time:  {time.time() - start1:.2f} seconds ")
         append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)

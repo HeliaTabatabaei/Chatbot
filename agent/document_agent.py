@@ -10,8 +10,12 @@ from providers.base import LLMProvider, StreamCallback
 from Prompt.prompt_Analiys import system_promptAnaliys
 
 class DocumentAgent:
-    def __init__(self, llm_provider: LLMProvider, rag_service):
+    def __init__(self, llm_provider: LLMProvider,second_llm: LLMProvider,
+ rag_service):
         self.llm_provider = llm_provider
+        self.second_llm = second_llm
+
+
         self.rag_service = rag_service
 
     # -------------------
@@ -203,6 +207,10 @@ class DocumentAgent:
 
         if decision == "answer":
             append_qa_to_file(f"start genrate stream: {time.time():.2f} seconds ")
+            on_chunk({
+                            "type": "token",
+                            "content": f"سوال:{message}"
+                        })
             self.rag_service.answer_with_rag_stream(
                 query=message,
                 results=reranked_results,

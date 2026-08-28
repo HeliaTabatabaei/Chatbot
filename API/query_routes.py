@@ -15,7 +15,7 @@ from agent.dashboard_agent import DashboardAgent
 from fastapi import APIRouter, BackgroundTasks
 from fastapi.responses import StreamingResponse
 from qdrant_client import QdrantClient
-from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, provider_URL
+from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
 from Models.mainModels import QueryRequestStream, QueryRequestStreamٌwithConversionId
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
@@ -101,6 +101,15 @@ def build_router_agent() -> RouterAgent:
         model=LLM_MODEL,
         embed_model=EMBED_MODEL,
     )
+    DeepSeekProvider = create_provider(
+            provider_name="deepSeek",
+            #base_uri="https://api.gapgpt.app/v1",
+            base_uri=DeepSeek_URL,
+            api_key=DeepSeek_API_KEY,
+            model=DeepSeekModel,
+            embed_model=EMBED_MODEL,
+        )
+
 
     if not QDRANT_HOST:
         raise RuntimeError(
@@ -119,6 +128,8 @@ def build_router_agent() -> RouterAgent:
 
     rag_service = RAGService(
         llm=provider,
+        second_llm=DeepSeekProvider,
+
         qdrant_client=qdrant_client,
     )
 
@@ -128,12 +139,16 @@ def build_router_agent() -> RouterAgent:
 
     document_agent = DocumentAgent(
         llm_provider=provider,
+        second_llm=DeepSeekProvider,
+
         rag_service=rag_service,
     )
     # dashboard_llm_service=dashboard_llm_service(llm=provider)
     dashboard_agent=DashboardAgent(llm_provider=provider)
     return RouterAgent(
         llm=provider,
+        second_llm=DeepSeekProvider,
+
         chat_agent=chat_agent,
         document_agent=document_agent,
         dashboard_agent=dashboard_agent
