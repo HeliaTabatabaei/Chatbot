@@ -5,6 +5,7 @@ import os
 import sys
 from tqdm import tqdm
 from qdrant_client.models import PointStruct, Filter, FieldCondition, MatchValue
+from Utility.utiliy import generate_optimized_embedding_text
 from config import LLM_MODEL, OPENAI_API_KEY
 from  providers.factory import create_provider
 from RAG_Management.vectorstore   import get_client, ensure_collection
@@ -79,6 +80,7 @@ def ingestQdrant(docid):
             
         text = chunk["embedding_text"].strip()
         maintext= chunk["main_text"].strip()
+       # text=generate_optimized_embedding_text(chunk)
         id=chunk["id"]
         if not text:
             continue

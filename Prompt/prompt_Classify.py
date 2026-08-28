@@ -39,7 +39,7 @@ system_promptClassify = (
     "conversation fillers such as 'سلام', 'ممنون', 'باشه', 'بله', 'اوکی' WHEN they are "
     "not continuing a restricted topic.\n\n"
 
-    "4. no_authorize: Any query outside the banking technical support scope, including "
+    "4. no_authorize: Any query including "
     "weather, temperature, forecast, climate, politics, political opinions, elections, "
     "economics, macroeconomics, inflation, currency market analysis, gold/stock/crypto price analysis, "
     "system security bypasses, sensitive non-technical banking account information, "

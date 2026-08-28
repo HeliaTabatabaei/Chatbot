@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from logging import Filter
 import time
 from typing import Any, Callable, Optional, Tuple
 import uuid
@@ -9,11 +10,19 @@ from SQlDB.db import DatabaseConnection
 from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
 from Utility.log import append_qa_to_file,append_qa_to_filetest
 from providers.base import LLMProvider
+from service.customer_config import load_customers, resolve_customer_from_query
+
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
 from .dashboard_agent import DashboardAgent
 from Prompt.prompt_RewriteQuery import rewriteQueryPrompt 
 from Prompt.prompt_Classify import system_promptClassify
+from qdrant_client.models import (
+    FieldCondition,
+    Filter,
+    MatchAny,
+    MatchValue,
+)
 ChunkCallback = Callable[[Any], None]
 
 
@@ -30,34 +39,57 @@ class RouterAgent:
         self.chat_agent = chat_agent
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
-   
+    def build_qdrant_filter(self,
+            customer_name: str | None = None,
+            device_type: str | None = None,
+            device_model: str | None = None,
+        ) -> Filter | None:
+        must_conditions = []
+
+        # (customer_name = مقدار کاربر OR customer_name = General)
+        if customer_name:
+            must_conditions.append(
+                FieldCondition(
+                    key="customer_name",
+                    match=MatchAny(any=[customer_name, "General"]),
+                )
+            )
+
+        # (device_type = مقدار کاربر OR device_type = General)
+        if device_type:
+            must_conditions.append(
+                FieldCondition(
+                    key="device_type",
+                    match=MatchAny(any=[device_type, "General"]),
+                )
+            )
+
+        # (device_model = مقدار کاربر OR device_model = General)
+        if device_model:
+            must_conditions.append(
+                FieldCondition(
+                    key="device_model",
+                    match=MatchAny(any=[device_model, "General"]),
+                )
+            )
+
+        return Filter(must=must_conditions) if must_conditions else None
     def rewrite_query(self, query: str, history_text: str) -> str:
         if not history_text:
             return query
 
         prompt = rewriteQueryPrompt.format(
         history_text=history_text,
-        query=query,
-       )
-
-
+        query=query,)
         messages = [
             {"role": "system", "content": prompt},
         ]
-
         response = self.llm.chat(
             messages=messages,
             temperature=0,
         )
         return response.content.strip()
-
-
     def classify(self, query: str, history: str | None = None) -> str:
-         
-      
-        
-      
-
         system_prompt=system_promptClassify
 
         history_text = history.strip() if history else "No previous conversation."
@@ -107,6 +139,7 @@ class RouterAgent:
         # append_qa_to_file(history_text)
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
+        
         append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
@@ -136,10 +169,44 @@ class RouterAgent:
         start=time.time()
         query_vector = self.llm.embed_query(rewrite_query)
         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
+        query_filter = None
+        # customers = load_customers()
+        
+        # resolved_customer = resolve_customer_from_query(
+        # query=rewrite_query,
+        # customers=customers,
+        # )
+        # if resolved_customer:
+     
+        #     query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
+        #     append_qa_to_file(query_filter)      
+        # # append_qa_to_file(resolved_customer)  
+        query_filter = None
+        customers = load_customers()
+        
+        resolved_customer = resolve_customer_from_query(
+        query=rewrite_query,
+        customers=customers,
+        )
+        if resolved_customer:
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="customer_name",
+                        match=MatchValue(
+                            value=resolved_customer["qdrant_customer_name"],
+                        ),
+                    )
+                ]
+            )
+        append_qa_to_file(query_filter)      
+        append_qa_to_file(resolved_customer)    
         self.document_agent.handle_stream(
-            message=rewrite_query,        
+            message=rewrite_query,
+            original_query=  query,      
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
             history=history_text,
+            query_filter=query_filter
         )
