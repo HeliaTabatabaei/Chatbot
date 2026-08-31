@@ -29,8 +29,7 @@ ENV/
 
 # Project Specific
 logs/
-*.log
-data/*.json
+*.lo/*.json
 data/**/*.json
 !data/example_format.json  # اگر فایل نمونه‌ای دارید که باید باشد، با علامت ! استثنا کنید
 
