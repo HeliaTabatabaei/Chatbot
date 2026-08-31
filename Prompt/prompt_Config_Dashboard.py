@@ -256,44 +256,49 @@ Return only the SQL query without explanation.
 ############################## نرخ خرابی/تعداد خرابی/ تعداد دستگاه/ میانگین تاخیر/دلایل تکرار خرابی
 METRICS = """
 ================================================================
-CRITICAL RULE: OFFICE & SATELLITES FILTERING (اقماری)
-================================================================
-- When the user asks for an office (e.g. "دفتر اهواز"), you MUST NEVER write:
-  ❌ AreaTitle = N'دفتر اهواز'
-  ❌ AreaTitle LIKE N'%اهواز%'
-  (Because satellite offices like Abadan, Mahshahr, Dezful DO NOT have 'اهواز' in their name!)
-
-- Instead, you MUST filter by Area_Id and ParentId using the office ID (Ahvaz ID = 67):
-  ✅ WHERE (f.Area_Id = 67 OR f.ParentId = 67)
-  OR
-  ✅ WHERE f.Area_Id IN (SELECT 67 UNION SELECT DISTINCT Area_Id FROM dbo.ai_request_analysis WHERE ParentId = 67)
-
-----------------------------------------------------------------
-TEMPLATE: REPEATED FAILURES / CAUSES (علت تکرار خرابی)
-----------------------------------------------------------------
-When answering failure reasons for Ahvaz (ID = 67) in Tir 1405:
-
-SELECT 
-    f.AreaTitle,
-    f.FailureReason,         -- or the exact column name for failure cause in your schema
-    COUNT(*) AS RepeatCount
-FROM dbo.ai_request_analysis AS f
-WHERE (f.Area_Id = 67 OR f.ParentId = 67)
-  AND f.PersianDate >= '1405/04/01' 
-  AND f.PersianDate <= '1405/04/31'
-GROUP BY 
-    f.AreaTitle,
-    f.FailureReason
-ORDER BY 
-    RepeatCount DESC;
-
-================================================================
-MANDATORY CONSTRAINTS:
-1. Do NOT put `AreaTitle LIKE` or `AreaTitle =` anywhere in the query.
-2. If the user asks for a table, include `f.AreaTitle` in SELECT and GROUP BY so satellite offices (آبادان، ماهشهر، دزفول) clearly appear in the table rows.
-3. Ahvaz Area_Id is 67. All its satellite offices have `ParentId = 67`.
+CRITICAL RULE: OFFICE & SATELLITES FILTERING
 ================================================================
 
+All office information is available in `ai_request_analyse`.
+
+Columns:
+- `AreaTitle` = office name
+- `Area_Id` = ID of that same office
+- `ParentId` = ID of its parent office
+
+When the user asks about an office:
+
+1. Find the requested office by `AreaTitle` and get its `Area_Id`
+   from `ai_request_analyse`.
+
+2. NEVER guess or hard-code the `Area_Id`.
+
+3. For all calculations, include:
+   - records where `Area_Id` equals the requested office's `Area_Id`
+   - records where `ParentId` equals the requested office's `Area_Id`
+
+Therefore:
+
+Requested Office
++
+All its child/satellite offices
+
+must be included.
+
+Example:
+If the user asks for "دفتر ارومیه":
+- First find the `Area_Id` of "دفتر ارومیه".
+- Then include ارومیه itself.
+- Also include every office whose `ParentId` equals ارومیه's `Area_Id`.
+- Therefore, if دفتر خوی has that `ParentId`, دفتر خوی must also be included.
+
+IMPORTANT:
+- `Area_Id` belongs to the `AreaTitle` in the same record.
+- `ParentId` is the ID of that office's parent.
+- NEVER use `AreaTitle LIKE` to find satellite offices.
+- NEVER reuse an Area_Id from another office or from an example.
+- If the user explicitly asks for "فقط خود دفتر", do not include satellites.
+================================================================
 
 
 Business Metrics Definitions
@@ -398,66 +403,95 @@ MAX(DelayMinute)
 
 Data source:
 ai_request_analysis
-
-
-
-
-
 ================================================================
-REPEAT FAILURE RATE
-نرخ خرابی‌های تکراری
+REPEAT FAILURE RATEنرخ تکرار خرابی
 ================================================================
 
-Repeat Failure Rate (نرخ خرابی‌های تکراری):
-The number of repeat failure requests divided by the total number of damage/failure requests for the same office and time period, expressed as a percentage.
-
-Formula:
+Data source: ai_request_analysis
 
 Repeat Failure Rate =
-(Repeat Failure Count * 100) / Count all Damage
+(Repeat Failure Count * 100.0) / Total Failure Count
 
-Repeat Failure Count source:
-ai_request_analysis
-Conditions:
+Repeat Failure Count:
+- COUNT(DISTINCT Requests_Id)
 - RepeatRequest_Id IS NOT NULL
 - State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
 
-Count all Damage source:
-ai_request_analysis
-Conditions:
+Total Failure Count:
+- COUNT(DISTINCT Requests_Id)
 - State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
 
-Important:
-- Both Repeat Failure Count and Count all Damage come from the same view: ai_request_analysis.
-- State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11) must be applied to both numerator and denominator.
-- Office filtering (such as AreaTitle) and time period filtering (InsertedDate) must be applied identically to both numerator and denominator.
-- Do NOT use AreaTitle for office filtering when Area_Id / ParentId is available.
-- Use Area_Id and ParentId for office filtering.
-- Multiply the numerator by 100.0 to prevent integer division in SQL Server.
-- Use NULLIF(..., 0) for the denominator to prevent divide-by-zero errors.
+OFFICE RULE:
 
-Example SQL logic:
+- Find the requested office using AreaTitle LIKE N'%<requested office name>%'.
+- Do NOT use AreaTitle = for resolving the requested office.
+- MainAreaId = Area_Id of the matched office.
+- Include:
+  Area_Id = MainAreaId
+  OR ParentId = MainAreaId
 
-SELECT 
-(
-    SELECT COUNT(Requests_Id)
-    FROM ai_request_analysis
-    WHERE RepeatRequest_Id IS NOT NULL
-      AND State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
-      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
-      AND InsertedDate BETWEEN 14050101 AND 14050131
-) * 100.0
-/
-NULLIF(
-(
-    SELECT COUNT(Requests_Id)
-    FROM ai_request_analysis
-    WHERE State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
-      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
-      AND InsertedDate BETWEEN 14050101 AND 14050131
-), 0) AS RepeatFailureRate
+IMPORTANT:
+- Always count DISTINCT Requests_Id in BOTH numerator and denominator.
+- Apply the same office and InsertedDate filters to both.
+- Do NOT apply any IsCancel condition.
+- Do NOT use IsCancel = 0 or IsCancel = 1.#چون نرخ با داشبورد دفتر یکی بشه
+- If Total Failure Count = 0, return 0.
+================================================================
+================================================================
+================================================================
+PERSIAN YEAR RULE
+================================================================
 
+"پارسال" and "سال گذشته" ALWAYS mean the Persian year
+immediately before the current Persian year.
 
+PreviousYear = CurrentPersianYear - 1
+
+Example:
+If CurrentPersianYear = 1405:
+"پارسال" = 1404
+"سال گذشته" = 1404
+
+DATA AVAILABILITY:
+Data is available only from Persian year 1404 onward.
+
+- Never answer or calculate metrics for year 1403 or earlier.
+- If the user requests 1403 or any earlier year, state that
+  data is not available for that period.
+- The earliest allowed Persian year is 1404.
+
+IMPORTANT:
+"سال گذشته" means ONLY the year immediately before the current
+Persian year, not any older year.
+
+NEVER interpret Persian year expressions using the Gregorian calendar.
+================================================================
+PERSIAN YEAR DATA LIMIT
+================================================================
+
+The minimum supported Persian year is 1404.
+
+If the user requests Persian year 1403 or any earlier year:
+
+- DO NOT generate SQL.
+- DO NOT query ai_request_analysis.
+- DO NOT calculate any metric.
+- DO NOT return 0 as the result.
+- Stop processing the analytical request immediately.
+
+Return only:
+"اطلاعات فقط از سال 1404 به بعد در دسترس است."
+
+For year 1404 or later, continue normally.
+
+"پارسال" and "سال گذشته" mean:
+PreviousYear = CurrentPersianYear - 1
+
+Example:
+If CurrentPersianYear = 1405:
+"پارسال" = 1404
+"سال گذشته" = 1404
+================================================================
 """
 ##############################################
 CALENDAR = """
