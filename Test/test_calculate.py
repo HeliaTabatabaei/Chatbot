@@ -8,14 +8,13 @@ from agent.chat_agent import ChatAgent
 from agent.document_agent import DocumentAgent
 from agent.router import RouterAgent
 from config import OPENAI_API_KEY,provider_URL,LLM_MODEL,EMBED_MODEL
-from Utility.log import append_qa_to_file
+
 from providers.factory import create_provider
 from service.rag_service import RAGService
 
 
 
-# from RAG_Management.ingestMetaData import ingestBank
-# from log import append_qa_to_file
+
 
 def build_router_agent() -> RouterAgent:
     """

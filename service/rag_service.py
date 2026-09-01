@@ -10,7 +10,7 @@ from qdrant_client import models
 from Models.mainModels import SearchFilters
 from SQlDB.IngestionQuery import load_chunks_from_dbByDocId
 from config import COLLECTION_NAME, BaseUrl,COLLECTION_NAME_Meta
-from Utility.log import append_qa_to_filetest
+
 from Prompt.prompts_config import SYSTEM_PROMPT, USER_PROMPT
 from providers.base import LLMProvider, StreamCallback
 
@@ -75,7 +75,7 @@ class RAGService:
         chunks,t,path = load_chunks_from_dbByDocId(docid)
         filename = source.replace("\\", "/").rsplit("/", 1)[-1]
 
-        append_qa_to_filetest(filename)
+    
         return  BaseUrl+ '/'+ path + '/' + filename
     def getListofImagepath(self,imageList: list[Any],docid):
         chunks,t,path = load_chunks_from_dbByDocId(docid)
@@ -267,8 +267,8 @@ class RAGService:
         history: str | None = None,
     ) -> None:
         context = self.buildResponseCondidate(results)#self._build_context(results)
-        #test
-        append_qa_to_filetest(context)
+       
+       
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
             {
