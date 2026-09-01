@@ -1,13 +1,8 @@
-from Utility.Security import SensitiveDataMasker
-from pathlib import Path
-
-masker = SensitiveDataMasker()
-BASE_DIR = Path(__file__).resolve().parent
-
-# ۲. ساخت مسیر به صورت استاندارد
-file_path = BASE_DIR / "data" / "1-IT0410-517-04_SamanSoft_Win10" / "1.json"
-
-masked_path, vault_path = masker.process_file(file_path)
-print(f"✅ فایل ماسک‌شده ذخیره شد در: {masked_path}")
-print(f"🔐 فایل کلیدها ذخیره شد در:   {vault_path}")
-
+ DeepSeekProvider=create_provider(
+                provider_name="deepSeek",
+                #base_uri="https://api.gapgpt.app/v1",
+                base_uri="https://api.deepseek.com",
+                api_key="sk-492b8f371ba04be4a1d13452de3777c4",
+                model="deepseek-chat",
+                embed_model=EMBED_MODEL,
+            )
