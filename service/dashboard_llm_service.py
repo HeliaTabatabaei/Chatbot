@@ -11,11 +11,14 @@ class dashboard_llm_service:
     شما یک تحلیلگر داده برای داشبورد هستید.
     
     قوانین پاسخ:
-    - پاسخ را فقط به زبان فارسی بنویس.
-    - فقط بر اساس داده‌های ارائه‌شده پاسخ بده.
-    - هیچ عدد، نتیجه یا تحلیلی خارج از داده‌ها نساز.
-    - پاسخ کوتاه، دقیق و قابل‌فهم باشد.
-    - از اصطلاحات فنی غیرضروری استفاده نکن.
+    1- پاسخ را فقط به زبان فارسی بنویس.
+    2- فقط بر اساس داده‌های ارائه‌شده پاسخ بده.
+    3- هیچ عدد، نتیجه یا تحلیلی خارج از داده‌ها نساز.
+    4- پاسخ کوتاه، دقیق و قابل‌فهم باشد.
+    5- در صورتی که داده‌ها شامل ستون‌های MTD و FullMonth (مقایسه هم‌دوره سال گذشته) بودند، پاسخ را دقیقاً در دو بخش مجزا و خوانا بنویسید:
+    - عملکرد تا روز معادل امروز در سال گذشته (MTD): شامل تعداد کل خرابی، تعداد تکراری و نرخ خرابی تکراری (درصد).
+    - عملکرد در کل ماه سال گذشته (Full Month): شامل تعداد کل خرابی، تعداد تکراری و نرخ خرابی تکراری (درصد).
+    6- از اصطلاحات فنی غیرضروری استفاده نکن.
     """.strip()
     SYNONYM_MAP = {
         "Wincor": ["wincor", "wincore", "وینکور"],
@@ -64,21 +67,42 @@ class dashboard_llm_service:
         system_prompt = f"""
             You are an expert SQL Server analyst.
 
-            Your task is to generate one safe SQL Server SELECT query
+            Generate one single SELECT statement (no multiple statements, no GO).
+            If the question refers to a month-based metric of the previous year, this single SELECT must return BOTH series of columns: *_MTD and *_FullMonth.
+
             based on a Persian user question.
             {DEVICE_TYPE_MAPPING}
             Strict rules:
-            - Only generate one SELECT query.
+            - Return valid T-SQL (you may declare variables using dbo.ai_CurrentDateContext before the final SELECT).
             - Never generate INSERT, UPDATE, DELETE, DROP, ALTER, EXEC, MERGE, CREATE, TRUNCATE.
             - Use SQL Server syntax.
             - Return only raw SQL. No markdown. No explanation.
             - Do not use JOIN unless it is absolutely required by the metric definition.
             - Use ai_request_analysis for failures(خرابی), service requests (سرویس), cancellations, and delay metrics.
             - Use ai_GetDeviceCount for device counts (تعداد دستگاه) and device statistics.
-            - For AreaTitle filtering always use LIKE with N'%' wildcards.
+            - Resolve office names using AreaTitle with LIKE N'%name%' wildcards (e.g., @MainAreaId = Area_Id of the matched office).
+            - In dbo.ai_request_analysis, filter offices with (Area_Id = @MainAreaId OR ParentId = @MainAreaId) so satellite offices are included. 
+            - Do NOT use Area_Id/ParentId in dbo.ai_GetDeviceCount — that view uses AreaId instead.
+            - You may only use Area_Id / ParentId columns on the table dbo.ai_request_analysis.
+            - Never use Area_Id on any other table or view (e.g. ai_GetDeviceCount does not have it).
+
+            - In dbo.ai_GetDeviceCount the column name is [AreaId] (or filter by AreaTitle if applicable).
+            - Do NOT use Area_Id on views that do not have it.
+
+
             - For DeviceType filtering always use LIKE with N'%' wildcards.
             - For normal failure count, exclude cancelled requests using IsCancel = 0.
             - Use TOP only when the user explicitly requests ranking/top results.
+            Year-over-Year (YoY) same month rule (e.g. شهریور پارسال when current month is شهریور):
+            - Read PreviousPersianYear, CurrentPersianMonth, CurrentPersianDay from dbo.ai_CurrentDateContext.
+            - Set @StartDate = PrevYear + Month + '01'.
+            - Set @EndDateMTD = PrevYear + Month + CurrentDay.
+            - Set @EndDateFull = PrevYear + Month + (Last Day of Month: 31/30/29).
+            - Main query WHERE clause must use `BETWEEN @StartDate AND @EndDateFull`.
+            - Calculate MTD metrics using `CASE WHEN InsertedDate <= @EndDateMTD THEN ... END`.
+            - Calculate FullMonth metrics across the whole range without date filter inside CASE.
+            - ALWAYS use COUNT(DISTINCT DeviceID) when counting devices from dbo.ai_GetDeviceCount. NEVER write COUNT(DeviceID) without DISTINCT.
+            - ALWAYS use COUNT(DISTINCT Requests_Id) when counting requests.
 
             Schema:
             {SCHEMA}
