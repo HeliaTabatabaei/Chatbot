@@ -13,8 +13,11 @@ import traceback
 import sys
 import traceback
 from datetime import datetime, time
+from pathlib import Path
 
-
+from Utility.GlobalSensitiveDataMasker import GlobalSensitiveDataMasker
+BASE_DIR = Path(__file__).resolve().parent.parent  # متناسب با ساختار پروژه شما
+VAULT_FILE_PATH = BASE_DIR / "data" / "vault.json"
 def exception_handler(exception_type, exception, traceback_obj):
    
     traceback.print_exception(exception_type, exception, traceback_obj)
@@ -108,22 +111,31 @@ async def get_vector_store_stats():
 async def ingest_document_by_path(file_path: str, background_tasks: BackgroundTasks):
     """ثبت در SQL و بلافاصله پردازش وکتورها (مطابق ساختار حذف)"""
     try:
-      
-
-        error_message = None
-        Doc_id = -1
         try:
-           
-            Doc_id=InsertDocsToSql(file_path)
+            masker = GlobalSensitiveDataMasker(vault_file_path=VAULT_FILE_PATH)
+            masked_file_path = masker.process_file(file_path)
+        except Exception as e:
+            LogStatus(
+                _DocID=-1,
+                _ActionName='Insert',
+                _FileName=file_path,
+                _Step='Masking',
+                _Status='FAILED',
+                _ErrorMessage=str(e),
+                _Timestamp=None
+            )
+            return -1
+        error_message=None
+        Doc_id=-1
+        try:   
+            Doc_id=InsertDocsToSql(masked_file_path)
 
         except Exception as e:
             # اگر InsertDocsToSql خطا داد
             Doc_id = -1
             error_message = str(e)
             
-        if Doc_id ==-1:#Doc_id!= -1:
-
-          
+        if Doc_id ==-1:#Doc_id!= -1: 
             print(f" Error: {error_message}", flush=True)
             LogStatus(
                 _DocID=-1,
@@ -150,7 +162,7 @@ async def ingest_document_by_path(file_path: str, background_tasks: BackgroundTa
             )
         #return Doc_id
 
-        background_tasks.add_task( InsertDocsPipeLine, file_path,Doc_id)
+        background_tasks.add_task( InsertDocsPipeLine, masked_file_path,Doc_id)
 
         return {
             "message": f"Document with ID:{Doc_id}  has been successfully processed and stored in SQL and Qdrant.",

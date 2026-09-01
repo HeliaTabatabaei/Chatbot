@@ -8,7 +8,7 @@ import uuid
 from SQlDB.db import DatabaseConnection
 # from SQlDB.message import update_and_get_bank_name
 from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
-from Utility.log import append_qa_to_file,append_qa_to_filetest
+from Utility.log import append_qa_to_file,append_qa_to_filetest,append_qa_to_fileWithConvertion
 from providers.base import LLMProvider
 from service.customer_config import load_customers, resolve_customer_from_query
 
@@ -30,6 +30,8 @@ class RouterAgent:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         chat_agent: ChatAgent,
         document_agent: DocumentAgent,
         dashboard_agent=DashboardAgent
@@ -39,6 +41,7 @@ class RouterAgent:
         self.chat_agent = chat_agent
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
+        self.second_llm = second_llm
     def build_qdrant_filter(self,
             customer_name: str | None = None,
             device_type: str | None = None,
@@ -84,7 +87,7 @@ class RouterAgent:
         messages = [
             {"role": "system", "content": prompt},
         ]
-        response = self.llm.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0,
         )
@@ -107,7 +110,7 @@ class RouterAgent:
             {"role": "user", "content": user_content},
         ]
 
-        response = self.llm.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0, # برای دقت بالاتر در دسته‌بندی
         )
@@ -136,15 +139,15 @@ class RouterAgent:
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-        # append_qa_to_file(history_text)
+      
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
         
-        append_qa_to_file(f"rewrite_query: {rewrite_query} ")
+        append_qa_to_fileWithConvertion(f"rewrite_query: {rewrite_query} ",convertionId)
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
-        append_qa_to_file(f"check question type Time: {time.time() - start1:.2f} seconds")
-        append_qa_to_file(f"intent: {intent} ")
+        append_qa_to_fileWithConvertion(f"check question type Time: {time.time() - start1:.2f} seconds",convertionId)
+        append_qa_to_fileWithConvertion(f"intent: {intent} ",convertionId)
         if intent == "general":
             self.chat_agent.answer_stream(
                 message=rewrite_query,
@@ -168,7 +171,7 @@ class RouterAgent:
             return
         start=time.time()
         query_vector = self.llm.embed_query(rewrite_query)
-        append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
+        append_qa_to_fileWithConvertion(f"vector Query Time: {time.time() - start:.2f} seconds",convertionId)
         query_filter = None
         # customers = load_customers()
         
@@ -199,10 +202,11 @@ class RouterAgent:
                     )
                 ]
             )
-        append_qa_to_file(query_filter)      
-        append_qa_to_file(resolved_customer)    
+        append_qa_to_fileWithConvertion(query_filter,convertionId)      
+        append_qa_to_fileWithConvertion(resolved_customer,convertionId)    
         self.document_agent.handle_stream(
             message=rewrite_query,
+            convertionId=convertionId,
             original_query=  query,      
             on_chunk=on_chunk,
             query_vector=query_vector,
