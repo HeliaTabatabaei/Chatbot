@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from logging import Filter
 import os
 from typing import Any, Optional
 
@@ -9,20 +10,29 @@ from qdrant_client import models
 from Models.mainModels import SearchFilters
 from SQlDB.IngestionQuery import load_chunks_from_dbByDocId
 from config import COLLECTION_NAME, BaseUrl,COLLECTION_NAME_Meta
-from log import append_qa_to_filetest
-from prompts_config import SYSTEM_PROMPT, USER_PROMPT
+
+from Prompt.prompts_config import SYSTEM_PROMPT, USER_PROMPT
 from providers.base import LLMProvider, StreamCallback
-
-
+from Prompt.promt_Rerank import RERANK_SYSTEM_PROMPT, build_rerank_user_prompt
+from qdrant_client.models import (
+    FieldCondition,
+    Filter,
+    MatchAny,
+    MatchValue,
+)
 class RAGService:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         qdrant_client: Any,
         collection_name: Optional[str] = None,
         collection_name_meta: Optional[str] = None,
     ) -> None:
         self.llm = llm
+        self.second_llm = second_llm
+
         self.qdrant_client = qdrant_client
         self.collection_name = collection_name or COLLECTION_NAME
         self.collection_name_meta = collection_name_meta or COLLECTION_NAME_Meta
@@ -30,66 +40,21 @@ class RAGService:
     def embed_query(self, text: str) -> list[float]:
         return self.llm.embed_query(text)
 
-    @staticmethod
-    def build_filter(
-        filters: Optional[SearchFilters],
-    ) -> Optional[models.Filter]:
-        if not filters:
-            return None
-
-        conditions: list[models.FieldCondition] = []
-
-        if getattr(filters, "doc_ids", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="doc_id",
-                    match=models.MatchAny(any=filters.doc_ids),
-                )
-            )
-
-        if getattr(filters, "tags", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="tags",
-                    match=models.MatchAny(any=filters.tags),
-                )
-            )
-
-        if getattr(filters, "date_from", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="date",
-                    range=models.Range(gte=filters.date_from),
-                )
-            )
-
-        if getattr(filters, "date_to", None):
-            conditions.append(
-                models.FieldCondition(
-                    key="date",
-                    range=models.Range(lte=filters.date_to),
-                )
-            )
-
-        if not conditions:
-            return None
-
-        return models.Filter(must=conditions)
 
     def search(
         self,
         query_vector: list[float],
         limit: int = 5,
-        filters: Optional[SearchFilters] = None,
+        filters:  dict[str, Any] | None = None,
     ) -> list[Any]:
-        query_filter = self.build_filter(filters)
+      
 
         hits = self.qdrant_client.query_points(
             collection_name=self.collection_name,
             query=query_vector,
             using="dense",
             limit=limit,
-            query_filter=query_filter,
+            query_filter=filters,
         )
 
         return getattr(hits, "points", []) or []
@@ -114,7 +79,7 @@ class RAGService:
         chunks,t,path = load_chunks_from_dbByDocId(docid)
         filename = source.replace("\\", "/").rsplit("/", 1)[-1]
 
-        append_qa_to_filetest(filename)
+    
         return  BaseUrl+ '/'+ path + '/' + filename
     def getListofImagepath(self,imageList: list[Any],docid):
         chunks,t,path = load_chunks_from_dbByDocId(docid)
@@ -127,27 +92,52 @@ class RAGService:
 
    
         
-    def _build_rerank_condidate(self,results: list[Any]) :
-            candidates: list[dict[str, Any]] = []
-            if not results:
-                    return json.dumps([], ensure_ascii=False, indent=2)
+    # def _build_rerank_condidate(self,results: list[Any]) :
+    #         candidates: list[dict[str, Any]] = []
+    #         if not results:
+    #                 return json.dumps([], ensure_ascii=False, indent=2)
         
             
-            for result in results:
-                payload = self._get_payload(result)
+    #         for result in results:
+    #             payload = self._get_payload(result)
                
-                candidates.append({
+    #             candidates.append({
+    #             "id": str(self._get_result_id(result)),
+    #             "text": payload.get("maintext", ""),
+    #             "customer_name": payload.get("customer_name", ""),
+    #             "device_type": payload.get("device_type", ""),
+    #             "device_model": payload.get("device_model", ""),
+    #             "service_type": payload.get("service_type", ""),
+    #             "service_name": payload.get("service_name", ""),
+    #             "service_group": payload.get("service_group", ""),
+    #             "keywords": payload.get("keywords", []),
+    #             "heading": payload.get("heading_path", ""),
+                
+    #     })
+   
+    #         return   json.dumps(candidates, ensure_ascii=False, indent=2)      
+    def _build_rerank_condidate(self, results: list[Any]):
+        candidates: list[dict[str, Any]] = []
+        if not results:
+            return candidates
+
+        for result in results:
+            payload = self._get_payload(result)
+
+            candidates.append({
                 "id": str(self._get_result_id(result)),
                 "text": payload.get("maintext", ""),
                 "customer_name": payload.get("customer_name", ""),
-                "vendor_name": payload.get("vendor_name", ""),
+                "device_type": payload.get("device_type", ""),
+                "device_model": payload.get("device_model", ""),
                 "service_type": payload.get("service_type", ""),
+                "service_name": payload.get("service_name", ""),
+                "service_group": payload.get("service_group", ""),
                 "keywords": payload.get("keywords", []),
                 "heading": payload.get("heading_path", ""),
-                
-        })
-   
-            return   json.dumps(candidates, ensure_ascii=False, indent=2)      
+            })
+
+        return candidates
     def buildResponseCondidate(self,results: list[Any]) :
         candidates: list[dict[str, Any]] = []
         if not results:
@@ -162,8 +152,11 @@ class RAGService:
             "text": payload.get("maintext", ""),
             "meta": {
                 "customer_name": payload.get("customer_name", ""),
-                "vendor_name": payload.get("vendor_name", ""),
+                "device_type": payload.get("device_type", ""),
+                "device_model": payload.get("device_model", ""),
                 "service_type": payload.get("service_type", ""),
+                "service_name": payload.get("service_name", ""),
+                "service_group": payload.get("service_group", ""),
                 "keywords": payload.get("keywords", []),
                 "heading": payload.get("heading_path", ""),
                 "source_file": self.getSourceFilePath(payload.get("source_file", ""), docid),
@@ -173,101 +166,101 @@ class RAGService:
         return   json.dumps(candidates, ensure_ascii=False, indent=2)  
     
         
-    def rerank_results(
-        self,
-        query: str,
-        results: list[Any],
-        history: str | None = None,
-    ) -> list[Any]:
-        candidates=self._build_rerank_condidate(results)
+#     def rerank_results(
+#         self,
+#         query: str,
+#         results: list[Any],
+#         history: str | None = None,
+#     ) -> list[Any]:
+#         candidates=self._build_rerank_condidate(results)
        
-        system_prompt = """
-You are a technical document reranker. Your job is to score relevance on a scale of 0.0 to 1.0.
+#         system_prompt = """
+# You are a technical document reranker. Your job is to score relevance on a scale of 0.0 to 1.0.
 
-Instructions:
-- 1.0: The chunk contains the exact answer, error code explanation, or step-by-step solution.
-- 0.8-0.9: Highly relevant. Provides critical context or strong supporting evidence for the answer.
-- 0.5: Marginally relevant. Contains the right topic but lacks specific actionable details.
-- 0.0-0.3: Irrelevant. Wrong device, wrong topic, or gibberish.
+# Instructions:
+# - 1.0: The chunk contains the exact answer, error code explanation, or step-by-step solution.
+# - 0.8-0.9: Highly relevant. Provides critical context or strong supporting evidence for the answer.
+# - 0.5: Marginally relevant. Contains the right topic but lacks specific actionable details.
+# - 0.0-0.3: Irrelevant. Wrong device, wrong topic, or gibberish.
 
-Examples:
-Query: "How to fix ATM error 404?"
-Chunk: "Error 404 indicates a network timeout in the X-500 module. Reset the router." -> Score: 1.0
-Chunk: "The X-500 module operates at 24V power supply." -> Score: 0.3
+# Examples:
+# Query: "How to fix ATM error 404?"
+# Chunk: "Error 404 indicates a network timeout in the X-500 module. Reset the router." -> Score: 1.0
+# Chunk: "The X-500 module operates at 24V power supply." -> Score: 0.3
 
-Rules:
-- You MUST score every candidate.
-- Return ONLY valid JSON array: [{"id": "...", "score": ...}]
-- Do not add explanations.
-""".strip()
+# Rules:
+# - You MUST score every candidate.
+# - Return ONLY valid JSON array: [{"id": "...", "score": ...}]
+# - Do not add explanations.
+# """.strip()
 
-        history_text = history.strip() if history else "No previous conversation."
-        user_prompt = (
-            f"Conversation History:\n{history_text}\n\n"
-            f"Query:\n{query}\n\n"
-            f"Results to Score:\n{json.dumps(candidates, ensure_ascii=False, indent=2)}\n\n"
-            f"Return exactly {len(candidates)} JSON items. One score for each ID."
-        )
+#         history_text = history.strip() if history else "No previous conversation."
+#         user_prompt = (
+#             f"Conversation History:\n{history_text}\n\n"
+#             f"Query:\n{query}\n\n"
+#             f"Results to Score:\n{json.dumps(candidates, ensure_ascii=False, indent=2)}\n\n"
+#             f"Return exactly {len(candidates)} JSON items. One score for each ID."
+#         )
 
-        try:
-            response = self.llm.chat(
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                temperature=0,
-            )
+#         try:
+#             response = self.llm.chat(
+#                 messages=[
+#                     {"role": "system", "content": system_prompt},
+#                     {"role": "user", "content": user_prompt},
+#                 ],
+#                 temperature=0,
+#             )
 
-            content = (response.content or "").strip()
-            scored_items = self._parse_json_array(content)
+#             content = (response.content or "").strip()
+#             scored_items = self._parse_json_array(content)
 
-            # استخراج امتیازها در یک دیکشنری
-            score_map: dict[str, float] = {}
-            for item in scored_items:
-                if isinstance(item, dict) and "id" in item:
-                    try:
-                        score_map[str(item["id"])] = float(item.get("score", 0.0))
-                    except (TypeError, ValueError):
-                        continue
+#             # استخراج امتیازها در یک دیکشنری
+#             score_map: dict[str, float] = {}
+#             for item in scored_items:
+#                 if isinstance(item, dict) and "id" in item:
+#                     try:
+#                         score_map[str(item["id"])] = float(item.get("score", 0.0))
+#                     except (TypeError, ValueError):
+#                         continue
 
-            # --- بخش مهم: آپدیت کردن امتیاز واقعی روی آبجکت‌ها ---
-            processed_results = []
-            for result in results:
-                res_id = str(self._get_result_id(result))
-                # گرفتن امتیاز از LLM، اگر نبود از امتیاز اولیه استفاده شود
-                llm_score = score_map.get(res_id, 0.0)
+#             # --- بخش مهم: آپدیت کردن امتیاز واقعی روی آبجکت‌ها ---
+#             processed_results = []
+#             for result in results:
+#                 res_id = str(self._get_result_id(result))
+#                 # گرفتن امتیاز از LLM، اگر نبود از امتیاز اولیه استفاده شود
+#                 llm_score = score_map.get(res_id, 0.0)
                 
-                # تزریق امتیاز ریرنک به فیلد اسکور (بسته به ساختار آبجکت Qdrant شما)
-                if hasattr(result, 'score'):
-                    result.score = llm_score
-                elif isinstance(result, dict):
-                    result['score'] = llm_score
+#                 # تزریق امتیاز ریرنک به فیلد اسکور (بسته به ساختار آبجکت Qdrant شما)
+#                 if hasattr(result, 'score'):
+#                     result.score = llm_score
+#                 elif isinstance(result, dict):
+#                     result['score'] = llm_score
                 
-                # همچنین ذخیره در payload برای اطمینان در مراحل بعدی
-                payload = self._get_payload(result)
-                payload["rerank_score"] = llm_score
-                payload["retrieval_score"] = self._get_result_score(result) # ذخیره امتیاز اولیه برای دیباگ
+#                 # همچنین ذخیره در payload برای اطمینان در مراحل بعدی
+#                 payload = self._get_payload(result)
+#                 payload["rerank_score"] = llm_score
+#                 payload["retrieval_score"] = self._get_result_score(result) # ذخیره امتیاز اولیه برای دیباگ
                 
-                processed_results.append(result)
+#                 processed_results.append(result)
 
-            # ۱. مرتب‌سازی بر اساس امتیاز جدید (LLM Score)
-            processed_results.sort(key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0), reverse=True)
+#             # ۱. مرتب‌سازی بر اساس امتیاز جدید (LLM Score)
+#             processed_results.sort(key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0), reverse=True)
 
-            #۲. اعمال فیلتر 0.7 و محدودیت 5 عدد
-            filtered_results = [r for r in processed_results if score_map.get(str(self._get_result_id(r)), 0.0) >= 0.2]
-            final_output = filtered_results[:10]
+#             #۲. اعمال فیلتر 0.7 و محدودیت 5 عدد
+#             filtered_results = [r for r in processed_results if score_map.get(str(self._get_result_id(r)), 0.0) >= 0.2]
+#             final_output = filtered_results[:10]
 
-           # فال‌بک در صورتی که هیچکدام بالای 0.7 نبودند (برای خالی نماندن پاسخ)
-            if not final_output and processed_results:
-                final_output = processed_results[:10]
+#            # فال‌بک در صورتی که هیچکدام بالای 0.7 نبودند (برای خالی نماندن پاسخ)
+#             if not final_output and processed_results:
+#                 final_output = processed_results[:10]
            
-            print(f"[RERANK] Expected: {len(results)}, Received: {len(score_map)}, Filtered (>=0.7): {len(filtered_results)}")
-            return final_output
+#             print(f"[RERANK] Expected: {len(results)}, Received: {len(score_map)}, Filtered (>=0.7): {len(filtered_results)}")
+#             return final_output
 
-        except Exception as exc:
-            print(f"Rerank failed: {exc}")
-            # در صورت خطا، همان لیست اولیه را بر اساس امتیاز اولیه مرتب و برگردان
-            return sorted(results, key=self._get_result_score, reverse=True)[:10]
+#         except Exception as exc:
+#             print(f"Rerank failed: {exc}")
+#             # در صورت خطا، همان لیست اولیه را بر اساس امتیاز اولیه مرتب و برگردان
+#             return sorted(results, key=self._get_result_score, reverse=True)[:10]
   
     def answer_with_rag_stream(
         self,
@@ -278,7 +271,8 @@ Rules:
         history: str | None = None,
     ) -> None:
         context = self.buildResponseCondidate(results)#self._build_context(results)
-        append_qa_to_filetest(context)
+       
+       
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
             {
@@ -296,7 +290,112 @@ Rules:
             on_chunk=on_chunk,
             temperature=temperature,
         )
+#     def rerank_results(
+#     self,
+#     original_query: str,
+#     rewritten_query: str,
+#     results: list[Any],
+#     score_threshold: float = 0.7,
+#     top_k: int = 10,
+# ) -> list[Any]:
+#         if not results:
+#             return []
 
+#         candidates = self._build_rerank_condidate(results)
+#         if not candidates:
+#             return results[:top_k]
+
+#         system_prompt = """
+#     You are a technical document reranker. Your job is to score relevance on a scale of 0.0 to 1.0.
+
+#     Instructions:
+#     - 1.0: The chunk contains the exact answer, error code explanation, or step-by-step solution.
+#     - 0.8-0.9: Highly relevant. Provides critical context or strong supporting evidence for the answer.
+#     - 0.5: Marginally relevant. Contains the right topic but lacks specific actionable details.
+#     - 0.0-0.3: Irrelevant. Wrong device, wrong topic, or gibberish.
+
+#     Rules:
+#     - You MUST score every candidate.
+#     - Return ONLY valid JSON array: [{"id": "...", "score": ...}]
+#     - Do not add explanations.
+#     """.strip()
+
+#         user_prompt = (
+#             f"Original User Query:\n{original_query}\n\n"
+#             f"Rewritten/Target Query:\n{rewritten_query}\n\n"
+#             f"Results to Score:\n{json.dumps(candidates, ensure_ascii=False, indent=2)}\n\n"
+#             f"Return exactly {len(candidates)} JSON items. One score for each ID."
+#         )
+
+#         try:
+#             response = self.llm.chat(
+#                 messages=[
+#                     {"role": "system", "content": system_prompt},
+#                     {"role": "user", "content": user_prompt},
+#                 ],
+#                 temperature=0,
+#             )
+
+#             content = (response.content or "").strip()
+#             scored_items = self._parse_json_array(content)
+
+#             # استخراج امتیازها در دیکشنری
+#             score_map: dict[str, float] = {}
+#             for item in scored_items:
+#                 if isinstance(item, dict) and "id" in item:
+#                     try:
+#                         score_map[str(item["id"])] = float(item.get("score", 0.0))
+#                     except (TypeError, ValueError):
+#                         continue
+
+#             # ذخیره و به‌روزرسانی امتیازها روی آبجکت‌ها
+#             processed_results = []
+#             for result in results:
+#                 res_id = str(self._get_result_id(result))
+#                 initial_score = self._get_result_score(result)
+#                 llm_score = score_map.get(res_id, 0.0)
+
+#                 # ذخیره امتیاز rerank
+#                 if hasattr(result, "score"):
+#                     result.score = llm_score
+#                 elif isinstance(result, dict):
+#                     result["score"] = llm_score
+
+#                 # ذخیره در payload برای دیباگ و مراحل بعد
+#                 payload = self._get_payload(result)
+#                 if isinstance(payload, dict):
+#                     payload["rerank_score"] = llm_score
+#                     payload["retrieval_score"] = initial_score
+
+#                 processed_results.append(result)
+
+#             # ۱. مرتب‌سازی بر اساس امتیاز LLM Rerank
+#             processed_results.sort(
+#                 key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0),
+#                 reverse=True,
+#             )
+
+#             # ۲. اعمال فیلتر بر اساس آستانه (score_threshold)
+#             filtered_results = [
+#                 r for r in processed_results
+#                 if score_map.get(str(self._get_result_id(r)), 0.0) >= score_threshold
+#             ]
+#             final_output = filtered_results[:top_k]
+
+#             # فال‌بک در صورتی که هیچ آیتمی بالای آستانه نبود
+#             if not final_output and processed_results:
+#                 final_output = processed_results[:top_k]
+
+#             print(
+#                 f"[RERANK] Expected: {len(results)}, Received: {len(score_map)}, "
+#                 f"Filtered (>={score_threshold}): {len(filtered_results)}"
+#             )
+#             return final_output
+
+#         except Exception as exc:
+#             print(f"[RERANK ERROR] Fallback to retrieval scores: {exc}")
+#             return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
+    
     # def _build_context(self, results: list[Any]) -> str:
     #     chunks = []   
     #     for i, r in enumerate(results, start=1):
@@ -320,6 +419,89 @@ Rules:
     #         header += "]"
     #         chunks.append(f"{header}\n{maintext}")
     #     return "\n\n".join(chunks)
+    def rerank_results(
+        self,
+        original_query: str,
+        rewritten_query: str,
+        results: list[Any],
+        score_threshold: float = 0.7,
+        top_k: int = 10,
+    ) -> list[Any]:
+        if not results:
+            return []
+
+        candidates = self._build_rerank_condidate(results)
+        if not candidates:
+            return results[:top_k]
+
+        user_prompt = build_rerank_user_prompt(
+            original_query=original_query,
+            rewritten_query=rewritten_query,
+            candidates=candidates,
+        )
+
+        try:
+            response = self.second_llm.chat(
+                messages=[
+                    {"role": "system", "content": RERANK_SYSTEM_PROMPT},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0,
+            )
+
+            content = (response.content or "").strip()
+            scored_items = self._parse_json_array(content)
+
+            score_map: dict[str, float] = {}
+            for item in scored_items:
+                if isinstance(item, dict) and "id" in item:
+                    try:
+                        score_map[str(item["id"])] = float(item.get("score", 0.0))
+                    except (TypeError, ValueError):
+                        continue
+
+            processed_results = []
+            for result in results:
+                res_id = str(self._get_result_id(result))
+                initial_score = self._get_result_score(result)
+                llm_score = score_map.get(res_id, 0.0)
+
+                if hasattr(result, "score"):
+                    result.score = llm_score
+                elif isinstance(result, dict):
+                    result["score"] = llm_score
+
+                payload = self._get_payload(result)
+                if isinstance(payload, dict):
+                    payload["rerank_score"] = llm_score
+                    payload["retrieval_score"] = initial_score
+
+                processed_results.append(result)
+
+            processed_results.sort(
+                key=lambda r: score_map.get(str(self._get_result_id(r)), 0.0),
+                reverse=True,
+            )
+
+            filtered_results = [
+                r for r in processed_results
+                if score_map.get(str(self._get_result_id(r)), 0.0) >= score_threshold
+            ]
+            final_output = filtered_results[:top_k]
+
+            if not final_output and processed_results:
+                final_output = processed_results[:top_k]
+
+            print(
+                f"[RERANK] Expected: {len(results)}, Received: {len(score_map)}, "
+                f"Filtered (>={score_threshold}): {len(filtered_results)}"
+            )
+            return final_output
+
+        except Exception as exc:
+            print(f"[RERANK ERROR] Fallback to retrieval scores: {exc}")
+            return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
+
     @staticmethod
     def _get_payload(result: Any) -> dict[str, Any]:
         if isinstance(result, dict):
@@ -370,4 +552,5 @@ Rules:
         if not isinstance(parsed, list):
             raise ValueError("Reranker response must be a JSON array")
 
-        return parsed
+            return parsed
+   

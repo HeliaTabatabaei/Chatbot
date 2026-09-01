@@ -1,11 +1,12 @@
 from openai import OpenAI
 
 from .openai_provider import OpenAIProvider
-
+from .deepseewk_provider import DeepSeekProvider
 
 
 PROVIDER_MAP = {
     "openai": OpenAIProvider,
+    "deepSeek":DeepSeekProvider
 }
 
 
@@ -20,7 +21,7 @@ def create_provider(
         provider_name.lower(),
         OpenAIProvider,
     )
-
+    
     if provider_cls is OpenAIProvider:
         client = OpenAI(
             base_url=base_uri,
@@ -39,3 +40,5 @@ def create_provider(
         model=model,
         embed_model=embed_model,
     )
+    
+    

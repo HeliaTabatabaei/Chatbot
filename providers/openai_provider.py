@@ -5,7 +5,7 @@ from .base import ChatResponse, LLMProvider, StreamCallback
 
 class OpenAIProvider(LLMProvider):
     def __init__(self, client: OpenAI, chat_model: str, embedding_model: str):
-        print("OpenAIProvider",flush=True)
+        
         self.client = client
         self.chat_model = chat_model
         self.embedding_model = embedding_model
@@ -16,7 +16,16 @@ class OpenAIProvider(LLMProvider):
             input=text
         )
         return response.data[0].embedding
-
+    def embed_batch(self, texts: list[str]) -> list[list[float]]:
+        """برای امبدینگ دسته‌ای از متن‌ها جهت ذخیره در Qdrant"""
+        if not texts:
+            return []
+            
+        response = self.client.embeddings.create(
+            model=self.embedding_model,
+            input=texts
+        )
+        return [item.embedding for item in response.data]
     def chat(self, messages: list[dict[str, str]], temperature: float = 0.3) -> ChatResponse:
         response = self.client.chat.completions.create(
             model=self.chat_model,
