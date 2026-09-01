@@ -5,12 +5,13 @@ import re
 import time
 from typing import Any
 
-from Utility.log import append_qa_to_file, append_qa_to_filetest
+from Utility.log import append_qa_to_file, append_qa_to_filetest,append_qa_to_fileWithConvertion
+
 from providers.base import LLMProvider, StreamCallback
 from Prompt.prompt_Analiys import system_promptAnaliys
 
 class DocumentAgent:
-    def __init__(self, llm_provider: LLMProvider, rag_service):
+    def __init__(self, llm_provider: LLMProvider, rag_service:rag_service):
         self.llm_provider = llm_provider
         self.rag_service = rag_service
 
@@ -143,6 +144,7 @@ class DocumentAgent:
     def handle_stream(
         self,
         message: str,  #rewritten_query
+        convertionId:str,
         original_query:str,
         on_chunk: StreamCallback,
         query_vector: Any,
@@ -156,34 +158,17 @@ class DocumentAgent:
             limit=10,
             filters=query_filter,
         ) 
-        append_qa_to_file(f"Rag search: {time.time() - start:.2f} seconds")
+        append_qa_to_fileWithConvertion(f"Rag search: {time.time() - start:.2f} seconds",convertionId)
         start=time.time()
         if not results:
             on_chunk({"type": "token", "content": "هیچ سند مرتبطی یافت نشد."})
             return
-        append_qa_to_filetest(results)
-        
-        #  def rerank_results(
-        #     self,
-        #     original_query: str,
-        #     rewritten_query: str,
-        #     results: list[Any],
-        #     score_threshold: float = 0.7,
-        #     top_k: int = 10,
-        
-        
-        # reranked_results = self.rag_service.rerank_results(
-        #     original_query=message,
-        #     results=results,
-        #     history=history,
-        # )
         reranked_results = self.rag_service.rerank_results(
                     original_query=original_query,
                     rewritten_query=message,
                     results=results,        
                 )
-        append_qa_to_file(f"Rank Query Time: {time.time() - start:.2f} seconds")
-        append_qa_to_filetest(reranked_results)
+        append_qa_to_fileWithConvertion(f"Rank Query Time: {time.time() - start:.2f} seconds",convertionId)
         start=time.time()
         
         prepared_chunks =self.prepare_chunks(reranked_results)
@@ -192,13 +177,13 @@ class DocumentAgent:
             "type": "source_chunks",
             "chunks": prepared_chunks,
         })
-        append_qa_to_file("anylis start")
+        append_qa_to_fileWithConvertion("anylis start",convertionId)
         analysis = self.analyze(
             message=message,
             chunks=prepared_chunks,
             history=history,
         )
-        append_qa_to_file(f"analysis time: {time.time() - start:.2f} seconds")
+        append_qa_to_fileWithConvertion(f"analysis time: {time.time() - start:.2f} seconds",convertionId)
         decision = analysis.get("decision")
 
         if decision == "answer":
