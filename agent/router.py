@@ -30,6 +30,8 @@ class RouterAgent:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         chat_agent: ChatAgent,
         document_agent: DocumentAgent,
         dashboard_agent=DashboardAgent
@@ -39,6 +41,7 @@ class RouterAgent:
         self.chat_agent = chat_agent
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
+        self.second_llm = second_llm
     def build_qdrant_filter(self,
             customer_name: str | None = None,
             device_type: str | None = None,
@@ -84,7 +87,7 @@ class RouterAgent:
         messages = [
             {"role": "system", "content": prompt},
         ]
-        response = self.llm.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0,
         )
@@ -107,7 +110,7 @@ class RouterAgent:
             {"role": "user", "content": user_content},
         ]
 
-        response = self.llm.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0, # برای دقت بالاتر در دسته‌بندی
         )

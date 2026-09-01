@@ -19,7 +19,7 @@ from fastapi import Depends, FastAPI, HTTPException
 
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from qdrant_client import QdrantClient
-from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, provider_URL
+from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
 from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversionId,QueryRequestStreamWithConversationIdAndUserkey
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
@@ -48,50 +48,6 @@ STREAM_HEADERS = {
     "X-Accel-Buffering": "no",
 }
 
- 
-# def get_recent_history(
-        
-#         conversation_id: str,
-#         query:str,
-#         user_key:str,
-#         limit: int = 6
-#     ):
-#         conversation_id, is_new_chat = normalize_conversation_id(conversation_id)
-
-        
-#         with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
-#             if not is_new_chat:
-#                 cursor.execute(
-#                     "SELECT 1 FROM dbo.Conversations WHERE chatId = ?",
-#                     (conversation_id,)
-#                 )
-#                 if not cursor.fetchone():
-#                     is_new_chat = True
-
-
-#             if is_new_chat:
-#                 conversation_id=save_conversation(
-#                     cursor=cursor,
-#                     conversation_id=conversation_id,
-#                     title=query,
-#                     user_key=user_key,
-#                     model_id=1
-#                 )
-
-#             history = get_conversation_history(
-#                 cursor=cursor,
-#                 conversation_id=conversation_id,
-#                 limit=6
-#             )
-
-#             save_message(
-#                 cursor=cursor,
-#                 conversation_id=conversation_id,
-#                 role="user",
-#                 content=query
-#             )
-#             # "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-#             return history,conversation_id
 
 def build_router_agent() -> RouterAgent:
     """
@@ -106,7 +62,26 @@ def build_router_agent() -> RouterAgent:
         model=LLM_MODEL,
         embed_model=EMBED_MODEL,
     )
-
+    # DeepSeekProvider =  create_provider(
+    #     provider_name="openai",
+    #     #base_uri="https://api.gapgpt.app/v1",
+    #     base_uri=provider_URL,
+    #     api_key=OPENAI_API_KEY,
+    #     model=LLM_MODEL,
+    #     embed_model=EMBED_MODEL,
+    # )
+    
+    DeepSeekProvider=create_provider(
+                provider_name="deepSeek",
+                #base_uri="https://api.gapgpt.app/v1",
+                base_uri=DeepSeek_URL,
+                api_key=DeepSeek_API_KEY,
+                model=DeepSeekModel,
+                embed_model=EMBED_MODEL,
+            )
+    
+    
+  
     if not QDRANT_HOST:
         raise RuntimeError(
             "QDRANT_HOST is not configured"
@@ -124,8 +99,11 @@ def build_router_agent() -> RouterAgent:
 
     rag_service = RAGService(
         llm=provider,
+        second_llm=DeepSeekProvider,
+
         qdrant_client=qdrant_client,
     )
+
 
     chat_agent = ChatAgent(
         llm=provider,
@@ -133,12 +111,15 @@ def build_router_agent() -> RouterAgent:
 
     document_agent = DocumentAgent(
         llm_provider=provider,
-        rag_service=rag_service
+        second_llm=DeepSeekProvider,
+
+        rag_service=rag_service,
     )
     # dashboard_llm_service=dashboard_llm_service(llm=provider)
     dashboard_agent=DashboardAgent(llm_provider=provider)
     return RouterAgent(
         llm=provider,
+        second_llm=DeepSeekProvider,
         chat_agent=chat_agent,
         document_agent=document_agent,
         dashboard_agent=dashboard_agent

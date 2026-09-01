@@ -11,9 +11,14 @@ from providers.base import LLMProvider, StreamCallback
 from Prompt.prompt_Analiys import system_promptAnaliys
 
 class DocumentAgent:
-    def __init__(self, llm_provider: LLMProvider, rag_service:rag_service):
+    def __init__(self, llm_provider: LLMProvider,second_llm: LLMProvider,
+ rag_service):
         self.llm_provider = llm_provider
+        self.second_llm = second_llm
+
+
         self.rag_service = rag_service
+
 
     # -------------------
 
@@ -52,7 +57,7 @@ class DocumentAgent:
             },
         ]
 
-        response = self.llm_provider.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0,
         )
