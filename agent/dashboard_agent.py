@@ -15,7 +15,16 @@ class DashboardAgent:
         on_chunk: StreamCallback,
     ) -> None:
         sql_query = self.dashboard_llm_service.generate_sql( user_question=question)
-        # ارسال خود SQL به خروجی Stream
+        
+        if "اطلاعات فقط از سال 1404 به بعد در دسترس است" in sql_query:
+            on_chunk({
+                "type": "token",
+                "content": "اطلاعات فقط از سال 1404 به بعد در دسترس است."
+        })
+            return
+       
+        
+        # ارسال خود SQL به خرجی Stream
         on_chunk({
             "type": "sql",
             "content": sql_query,
