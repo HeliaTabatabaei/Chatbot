@@ -169,13 +169,16 @@ class DocumentAgent:
             on_chunk({"type": "token", "content": "هیچ سند مرتبطی یافت نشد."})
             return
         reranked_results = self.rag_service.rerank_results(
-                    original_query=original_query,
-                    rewritten_query=message,
-                    results=results,        
-                )
+            original_query=original_query,
+            rewritten_query=message,
+            results=results,
+        ) or []
+        if not reranked_results and results:
+            append_qa_to_fileWithConvertion("not reranked_results and results",convertionId)
+            reranked_results = results
         append_qa_to_fileWithConvertion(f"Rank Query Time: {time.time() - start:.2f} seconds",convertionId)
         start=time.time()
-        
+        append_qa_to_fileWithConvertion(f"reranked_results: {reranked_results} ",convertionId)
         prepared_chunks =self.prepare_chunks(reranked_results)
         
         on_chunk({
@@ -192,7 +195,7 @@ class DocumentAgent:
         decision = analysis.get("decision")
 
         if decision == "answer":
-            append_qa_to_file(f"start genrate stream: {time.time():.2f} seconds ")
+            append_qa_to_fileWithConvertion(f"start genrate stream: {time.time() - start:.2f} seconds",convertionId)
             self.rag_service.answer_with_rag_stream(
                 query=message,
                 results=reranked_results,
