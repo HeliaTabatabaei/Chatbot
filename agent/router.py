@@ -1,18 +1,28 @@
 from __future__ import annotations
 
+from logging import Filter
 import time
 from typing import Any, Callable, Optional, Tuple
 import uuid
 
 from SQlDB.db import DatabaseConnection
-from SQlDB.message import update_and_get_bank_name
-from dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
-from log import append_qa_to_file
+# from SQlDB.message import update_and_get_bank_name
+from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
+from Utility.log import append_qa_to_file,append_qa_to_filetest,append_qa_to_fileWithConvertion
 from providers.base import LLMProvider
+from service.customer_config import load_customers, resolve_customer_from_query
+
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
-
- 
+from .dashboard_agent import DashboardAgent
+from Prompt.prompt_RewriteQuery import rewriteQueryPrompt 
+from Prompt.prompt_Classify import system_promptClassify
+from qdrant_client.models import (
+    FieldCondition,
+    Filter,
+    MatchAny,
+    MatchValue,
+)
 ChunkCallback = Callable[[Any], None]
 
 
@@ -20,121 +30,70 @@ class RouterAgent:
     def __init__(
         self,
         llm: LLMProvider,
+        second_llm: LLMProvider,
+
         chat_agent: ChatAgent,
         document_agent: DocumentAgent,
+        dashboard_agent=DashboardAgent
 
     ):
         self.llm = llm
         self.chat_agent = chat_agent
         self.document_agent = document_agent
-    # def prepare_final_query(self, history, current_user_message):
-    #     if not isinstance(history, list):
-    #      return current_user_message
+        self.dashboard_agent = dashboard_agent
+        self.second_llm = second_llm
+    def build_qdrant_filter(self,
+            customer_name: str | None = None,
+            device_type: str | None = None,
+            device_model: str | None = None,
+        ) -> Filter | None:
+        must_conditions = []
 
-    # # ۱. پیدا کردن آخرین پیام دستیار و موقعیت (Index) آن در تاریخچه
-    #     last_assistant_idx = -1
-    #     last_assistant_msg = None
-        
-    #     for idx, msg in enumerate(history):
-    #         if isinstance(msg, dict) and msg.get("role") == "assistant":
-    #             last_assistant_idx = idx
-    #             last_assistant_msg = msg
+        # (customer_name = مقدار کاربر OR customer_name = General)
+        if customer_name:
+            must_conditions.append(
+                FieldCondition(
+                    key="customer_name",
+                    match=MatchAny(any=[customer_name, "General"]),
+                )
+            )
 
-    #     # اگر پیام دستیاری پیدا نشد، همان پیام فعلی را برگردان
-    #     if not last_assistant_msg:
-    #             return current_user_message
+        # (device_type = مقدار کاربر OR device_type = General)
+        if device_type:
+            must_conditions.append(
+                FieldCondition(
+                    key="device_type",
+                    match=MatchAny(any=[device_type, "General"]),
+                )
+            )
 
-    #     assistant_content = str(last_assistant_msg.get("content") or "").strip()
-        
-    #     # بررسی اینکه آیا دستیار سوال پرسیده بود (پشتیبانی از هر دو علامت سوال فارسی و انگلیسی)
-    #     is_question = "؟" in assistant_content or "?" in assistant_content
-    #     is_short_answer = len(current_user_message.strip().split()) < 5
+        # (device_model = مقدار کاربر OR device_model = General)
+        if device_model:
+            must_conditions.append(
+                FieldCondition(
+                    key="device_model",
+                    match=MatchAny(any=[device_model, "General"]),
+                )
+            )
 
-    #     if is_question and is_short_answer:
-    #         # ۲. پیدا کردن سوال اصلی کاربر (اولین پیامِ کاربرِ قبل از پیام دستیار)
-    #         original_user_msg = None
-    #         for idx in range(last_assistant_idx - 1, -1, -1):
-    #             if isinstance(history[idx], dict) and history[idx].get("role") == "user":
-    #                 original_user_msg = history[idx]
-    #                 break
-
-    #         if original_user_msg:
-    #             previous_query = str(original_user_msg.get("content") or "").strip()
-    #             # ترکیب سوال اصلی با پاسخ شفاف‌سازی کاربر
-    #             return f"{previous_query} {current_user_message}".strip()
-
-    #     return current_user_message
+        return Filter(must=must_conditions) if must_conditions else None
     def rewrite_query(self, query: str, history_text: str) -> str:
-       if not history_text:
-         return query
-       prompt = f"""
-       شما یک بازنویس کوئری هستید. وظیفه شما فقط شفاف‌سازی ضمیرها و الحاق نام بانک/موضوع به پیام کاربر است.
-       
-       قوانین:
-       - به هیچ وجه فرض نکن راهکارهای قبلی انجام شده یا شکست خورده است.
-       - اگر کاربر گفت "درست نشد" یا "نشد"، سوال را به صورت کلی بازنویسی کن.
-       - مثال: 
-           تاریخچه: "عکس زرد است" -> کاربر: "نشد" 
-           بازنویسی: "راه حل مشکل زرد بودن عکس در بانک فلان چیست؟" (فقط همین)
-       - از عباراتی مثل "چه راهکار دیگری وجود دارد" یا "با وجود انجام فلان کار" استفاده نکن.
-       
-       تاریخچه: {history_text}
-       آخرین پیام: {query}
-       کوئری مستقل:"""
-       
-       messages = [
-        {"role": "system", "content": prompt},
-    ]
-    
-       response = self.llm.chat(
-        messages=messages,
-        temperature=0, 
-    )
-       return response.content.strip()
+        if not history_text:
+            return query
 
-
-    def classify(self, query: str, history: str | None = None) -> str:
-         
-      
-        # system_prompt = (
-        #     "You are a specialized classifier for a Banking Technical Support system.\n"
-        #     "Classify the user query into EXACTLY one of these three labels:\n\n"
-
-        #     "1. technical: Questions about ATM hardware, banking equipment, device errors, "
-        #     "troubleshooting, installation, maintenance, printer, pinpad, dispenser,camera "
-        #     "card reader, cash handling, or software configuration.\n\n"
-
-        #     "2. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
-            
-        #     "3. no_authorize: Any questions regarding politics, macroeconomics, "
-        #     "system security bypasses, or sensitive non-technical banking information.\n\n"
-
-        #     "Rules:\n"
-        #     "- Use the conversation history only to resolve pronouns or context.\n"
-        #     "- If the query is political or economic, it MUST be 'no_authorize'.\n"
-        #     "- Return ONLY the label: technical, general, or no_authorize."
-        # )
-        system_prompt = (
-            "You are a specialized classifier for a Banking Technical Support system.\n"
-            "Classify the user query into EXACTLY one of these three labels:\n\n"
-
-            "1. technical: Questions about ATM hardware, banking equipment, device errors, "
-            "troubleshooting, installation, maintenance, printer, pinpad, dispenser, camera, "
-            "card reader, cash handling, software configuration, AND inquiries about "
-            "support contacts, help-desk numbers, and technical assistance procedures.\n\n"
-
-            "2. general: Greetings (hi, hello), thanks, and polite small talk.\n\n"
-            
-            "3. no_authorize: Any questions regarding politics, macroeconomics, "
-            "system security bypasses, sensitive non-technical banking account information, "
-            "or personal financial details.\n\n"
-
-            "Rules:\n"
-            "- Use the conversation history only to resolve pronouns or context.\n"
-            "- If the query is political or economic, it MUST be 'no_authorize'.\n"
-            "- If the query is about support contact information, phone numbers, or how to get help for banking equipment, it MUST be 'technical'.\n"
-            "- Return ONLY the label: technical, general, or no_authorize."
+        prompt = rewriteQueryPrompt.format(
+        history_text=history_text,
+        query=query,)
+        messages = [
+            {"role": "system", "content": prompt},
+        ]
+        response = self.second_llm.chat(
+            messages=messages,
+            temperature=0,
         )
+        return response.content.strip()
+    def classify(self, query: str, history: str | None = None) -> str:
+        system_prompt=system_promptClassify
 
         history_text = history.strip() if history else "No previous conversation."
 
@@ -151,64 +110,24 @@ class RouterAgent:
             {"role": "user", "content": user_content},
         ]
 
-        response = self.llm.chat(
+        response = self.second_llm.chat(
             messages=messages,
             temperature=0, # برای دقت بالاتر در دسته‌بندی
         )
 
         result = (response.content or "").strip().lower()
 
-        # برای دیباگ در کنسول
-        print(f"--- Classification result: {result} ---", flush=True)
+        
 
         # اعتبارسنجی خروجی برای جلوگیری از خطاهای احتمالی
-        valid_labels = {"technical", "general", "no_authorize"}
+        valid_labels = {"technical", "general", "no_authorize","dashboard"}
         
         if result not in valid_labels:
             # در صورت خروجی نامعتبر، برای امنیت بیشتر روی no_authorize یا برای کارکرد روی technical ست کنید
             return "no_authorize" 
 
         return result
-    # def resolve_customer_name(self, user_text: str) -> str | None:
-        
-    #     user_text = str(user_text or "").strip()
-    #     if not user_text:
-    #         return None
-
-    #     try:
-            
-    #         query_vector = self.llm_provider.embed_query(user_text)
-    #         append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
-    #                 start=time.time()
-    #                 results = self.rag_service.search(
-    #                     query_vector=query_vector,
-    #                     limit=20,
-    #                     filters=None,
-    #                 )
-
-    #         # ۲. جستجو در کالکشن BankName
-    #         search_result = self.qdrant.query_points(
-    #             collection_name="BankName",
-    #             query=query_vector,
-    #             using="dense",
-    #             limit=1,
-    #             with_payload=True,
-    #             score_threshold=0.80  # آستانه شباهت (قابل تنظیم)
-    #         )
-
-    #         if not search_result.points:
-    #             return None
-
-    #         # ۳. استخراج نام بانک از Payload (فیلد text در تصویر شما موجود است)
-    #         payload = search_result.points[0].payload
-    #         bank_name = payload.get("text")
-            
-    #         return bank_name.strip() if bank_name else None
-
-    #     except Exception as e:
-    #         print(f"Error in resolve_customer_name: {e}", flush=True)
-    #         return None
-
+   
     
     def handle_stream(
         self,
@@ -220,26 +139,15 @@ class RouterAgent:
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
-        append_qa_to_file(history_text)
-        # start=time.time()
-        # query_vector = self.llm.embed_query(query)
-        # append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
-        #meta_hits= self.document_agent.rag_service.searchMetaData(
- 
-
-
+      
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
-        append_qa_to_file(f"rewrite_query : {rewrite_query}")
-        append_qa_to_file(f"rewriteQuery: {time.time() - start1:.2f} seconds")
-
+        
+        append_qa_to_fileWithConvertion(f"rewrite_query: {rewrite_query} ",convertionId)
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
-        append_qa_to_file(f"check question type Time: {time.time() - start1:.2f} seconds")
-        append_qa_to_file(f"intent: {intent} ")
-        print (intent,flush=True)
-
-
+        append_qa_to_fileWithConvertion(f"check question type Time: {time.time() - start1:.2f} seconds",convertionId)
+        append_qa_to_fileWithConvertion(f"intent: {intent} ",convertionId)
         if intent == "general":
             self.chat_agent.answer_stream(
                 message=rewrite_query,
@@ -248,6 +156,13 @@ class RouterAgent:
                 history=history_text
             )
             return
+        elif intent=="dashboard":
+            self.dashboard_agent.handle_stream(
+                    question=query,        
+                    on_chunk=on_chunk,
+                    
+                )    
+            return  
         elif intent=="no_authorize":
             on_chunk({
                             "type": "token",
@@ -256,11 +171,46 @@ class RouterAgent:
             return
         start=time.time()
         query_vector = self.llm.embed_query(rewrite_query)
-        append_qa_to_file(f"vector Query Time: {time.time() - start:.2f} seconds")
+        append_qa_to_fileWithConvertion(f"vector Query Time: {time.time() - start:.2f} seconds",convertionId)
+        query_filter = None
+        # customers = load_customers()
+        
+        # resolved_customer = resolve_customer_from_query(
+        # query=rewrite_query,
+        # customers=customers,
+        # )
+        # if resolved_customer:
+     
+        #     query_filter=self.build_qdrant_filter(customer_name=resolved_customer["qdrant_customer_name"])
+        #     append_qa_to_file(query_filter)      
+        # # append_qa_to_file(resolved_customer)  
+        query_filter = None
+        customers = load_customers()
+        
+        resolved_customer = resolve_customer_from_query(
+        query=rewrite_query,
+        customers=customers,
+        )
+        if resolved_customer:
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="customer_name",
+                        match=MatchValue(
+                            value=resolved_customer["qdrant_customer_name"],
+                        ),
+                    )
+                ]
+            )
+        append_qa_to_fileWithConvertion(query_filter,convertionId)      
+        append_qa_to_fileWithConvertion(resolved_customer,convertionId)    
         self.document_agent.handle_stream(
-            message=query,        
+            message=rewrite_query,
+            convertionId=convertionId,
+            original_query=  query,      
             on_chunk=on_chunk,
             query_vector=query_vector,
             temperature=temperature,
             history=history_text,
+            query_filter=query_filter
         )

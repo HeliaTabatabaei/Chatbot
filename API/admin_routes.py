@@ -5,23 +5,25 @@ from   RAG_Management.vectorstore import get_client
 
 from RAG_Management.ingestion import InsertDocsToSql,LogStatus
 
-from RAG_Management.ingestion import DeleteDocPipLine, ingest, ingestQdrant, RebuildSparse, reset_rag, delete_doc_chunks,InsertDocsPipeLine,COLLECTION_NAME
+from RAG_Management.ingestion import DeleteDocPipLine,  ingestQdrant,  reset_rag, InsertDocsPipeLine,COLLECTION_NAME
 import logging
-# from ingestion import COLLECTION_NAME
-#print("--- LOADING ADMIN_ROUTES ---")
-import traceback # حتماً این بالا باشد
-####################
+
+import traceback 
+
 import sys
 import traceback
 from datetime import datetime, time
+from pathlib import Path
 
-
+from Utility.GlobalSensitiveDataMasker import GlobalSensitiveDataMasker
+BASE_DIR = Path(__file__).resolve().parent.parent  # متناسب با ساختار پروژه شما
+VAULT_FILE_PATH = BASE_DIR / "data" / "vault.json"
 def exception_handler(exception_type, exception, traceback_obj):
-    print("--- FATAL ERROR DETECTED ---")
+   
     traceback.print_exception(exception_type, exception, traceback_obj)
 
 sys.excepthook = exception_handler
-#################################
+
 
 
 
@@ -30,43 +32,12 @@ router = APIRouter(prefix="/api/admin", tags=["02-Admin / Vector Store Managemen
 
 ingest_progress = {"status": "idle", "message": "No task running"}
 
-def run_ingest_safely():
-    global ingest_progress
-    ingest_progress["status"] = "running"
-    ingest_progress["message"] = "Ingesting data from DB..."
-    try:
-        # صدا زدن تابع اصلی از فایل ingestion.py
-        ingest()
-        ingest_progress["status"] = "success"
-        ingest_progress["message"] = "Full ingestion completed successfully."
-    except Exception as e:
-        ingest_progress["status"] = "error"
-        ingest_progress["message"] = f"Failed: {str(e)}"
-
-@router.post("/ingest-all")
-async def trigger_full_ingest(background_tasks: BackgroundTasks):
-    if ingest_progress["status"] == "running":
-        return {"message": "A task is already running. Please wait."}
-
-    background_tasks.add_task(ingest())
-    return {"message": "Full ingestion started in background."}
-
-@router.get("/ingest-status")
-async def get_ingest_status():
-    """از این API برای چک کردن وضعیت نهایی استفاده کن"""
-    return ingest_progress
 @router.post("/ingest/{doc_id}")
 async def ingest_single_doc(doc_id: int, background_tasks: BackgroundTasks):
     """اینجست یک سند خاص بر اساس شناسه دیتابیس"""
     # توجه: تابع ingestQdrant در فایل شما تعریف شده بود
     background_tasks.add_task(ingestQdrant, doc_id)
     return {"message": f"Ingestion for doc_id {doc_id} started."}
-
-@router.post("/rebuild-sparse")
-async def rebuild_sparse_index(background_tasks: BackgroundTasks):
-    """بازسازی مدل BM25 و اندیس‌های Sparse"""
-    background_tasks.add_task(RebuildSparse)
-    return {"message": "Sparse index rebuild started."}
 
 @router.delete("/delete/{doc_id}")
 async def delete_document(doc_id: int):
@@ -85,8 +56,8 @@ async def reset_vector_store():
     try:
         qdrant = get_client()
         result=reset_rag(qdrant)
-        print("resultresultresultresultresultresultresultresult",flush=True)
-        print(result,flush=True)
+        
+       
         if result==1:
             # ثبت لاگ موفقیت
             LogStatus(
@@ -140,23 +111,32 @@ async def get_vector_store_stats():
 async def ingest_document_by_path(file_path: str, background_tasks: BackgroundTasks):
     """ثبت در SQL و بلافاصله پردازش وکتورها (مطابق ساختار حذف)"""
     try:
-      
-
-        error_message = None
-        Doc_id = -1
         try:
-            print(file_path)
-            Doc_id=InsertDocsToSql(file_path)
+            masker = GlobalSensitiveDataMasker(vault_file_path=VAULT_FILE_PATH)
+            masked_file_path = masker.process_file(file_path)
+        except Exception as e:
+            LogStatus(
+                _DocID=-1,
+                _ActionName='Insert',
+                _FileName=file_path,
+                _Step='Masking',
+                _Status='FAILED',
+                _ErrorMessage=str(e),
+                _Timestamp=None
+            )
+            return -1
+        error_message=None
+        Doc_id=-1
+        try:   
+            Doc_id=InsertDocsToSql(masked_file_path)
 
         except Exception as e:
             # اگر InsertDocsToSql خطا داد
             Doc_id = -1
             error_message = str(e)
             
-        if Doc_id ==-1:#Doc_id!= -1:
-
-          
-            print(f"❌ Error: {error_message}", flush=True)
+        if Doc_id ==-1:#Doc_id!= -1: 
+            print(f" Error: {error_message}", flush=True)
             LogStatus(
                 _DocID=-1,
                 _ActionName='Insert',
@@ -182,7 +162,7 @@ async def ingest_document_by_path(file_path: str, background_tasks: BackgroundTa
             )
         #return Doc_id
 
-        background_tasks.add_task( InsertDocsPipeLine, file_path,Doc_id)
+        background_tasks.add_task( InsertDocsPipeLine, masked_file_path,Doc_id)
 
         return {
             "message": f"Document with ID:{Doc_id}  has been successfully processed and stored in SQL and Qdrant.",

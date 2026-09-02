@@ -24,7 +24,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+DeepSeek_API_KEY = os.getenv("DeepSeek_API_KEY")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 COLLECTION_NAME_Meta=os.getenv("COLLECTION_NAME_Meta")
 VECTOR_SIZE = int(os.getenv("VECTOR_SIZE"))
@@ -40,3 +40,7 @@ JSON_PATH = os.getenv("JSON_PATH")
     # ساخت کانکشن استرینگ در پایتون
 connection_string=os.getenv("connection_string")
 connection_string_Dashboard=os.getenv("connection_string_Dashboard")
+BaseUrl= os.getenv("BaseUrl")
+provider_URL=os.getenv("provider_URL")
+DeepSeek_URL=os.getenv("DeepSeek_URL")
+DeepSeekModel=os.getenv("DeepSeekModel")
