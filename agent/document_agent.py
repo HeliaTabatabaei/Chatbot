@@ -193,6 +193,10 @@ class DocumentAgent:
 
         if decision == "answer":
             append_qa_to_file(f"start genrate stream: {time.time():.2f} seconds ")
+            on_chunk({
+                            "type": "token",
+                            "content": f"سوال:{message}"
+                        })
             self.rag_service.answer_with_rag_stream(
                 query=message,
                 results=reranked_results,

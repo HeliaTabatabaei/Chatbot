@@ -8,6 +8,7 @@ from typing import Any, Optional
 from qdrant_client import models
 
 from Models.mainModels import SearchFilters
+from Prompt.promt_Rerank import RERANK_SYSTEM_PROMPT, build_rerank_user_prompt
 from SQlDB.IngestionQuery import load_chunks_from_dbByDocId
 from config import COLLECTION_NAME, BaseUrl,COLLECTION_NAME_Meta
 
@@ -328,7 +329,7 @@ class RAGService:
 #         )
 
 #         try:
-#             response = self.llm.chat(
+#             response = self.second_llm.chat(
 #                 messages=[
 #                     {"role": "system", "content": system_prompt},
 #                     {"role": "user", "content": user_prompt},
@@ -395,30 +396,8 @@ class RAGService:
 #         except Exception as exc:
 #             print(f"[RERANK ERROR] Fallback to retrieval scores: {exc}")
 #             return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
-    
-    # def _build_context(self, results: list[Any]) -> str:
-    #     chunks = []   
-    #     for i, r in enumerate(results, start=1):
-    #         if isinstance(r, dict):
-    #             payload = r["payload"]
-    #         else:
-    #             payload = r.payload
-    #         # text = payload.get("text", "")
-    #         maintext=payload.get("maintext", "")
-    #         doc_id = payload.get("doc_id", "نامشخص")
-    #         title = payload.get("title", "")
-    #         heading = payload.get("heading", "")
-    #         header = f"[سند {i}"
-    #         if doc_id:
-    #             header += f" - {doc_id}"
-    #         if title:
-    #             header += f" - {title}"
-    #         if heading:
-    #             header += f" > {heading}"
-    
-    #         header += "]"
-    #         chunks.append(f"{header}\n{maintext}")
-    #     return "\n\n".join(chunks)
+ 
+
     def rerank_results(
         self,
         original_query: str,

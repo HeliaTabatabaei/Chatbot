@@ -42,6 +42,7 @@ class RouterAgent:
         self.document_agent = document_agent
         self.dashboard_agent = dashboard_agent
         self.second_llm = second_llm
+
     def build_qdrant_filter(self,
             customer_name: str | None = None,
             device_type: str | None = None,
@@ -142,8 +143,8 @@ class RouterAgent:
       
         start1=time.time()
         rewrite_query=self.rewrite_query(query,history_text)
-        
-        append_qa_to_fileWithConvertion(f"rewrite_query: {rewrite_query} ",convertionId)
+        append_qa_to_file(f"rewrite_query time:  {time.time() - start1:.2f} seconds ")
+        append_qa_to_file(f"rewrite_query: {rewrite_query} ")
         start1=time.time()
         intent = self.classify(rewrite_query,history_text)
         append_qa_to_fileWithConvertion(f"check question type Time: {time.time() - start1:.2f} seconds",convertionId)
