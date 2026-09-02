@@ -20,7 +20,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from qdrant_client import QdrantClient
 from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
-from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversionId,QueryRequestStreamWithConversationIdAndUserkey
+from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversationIdAndUserkey
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
 from config import QDRANT_HOST, QDRANT_PORT
@@ -62,26 +62,16 @@ def build_router_agent() -> RouterAgent:
         model=LLM_MODEL,
         embed_model=EMBED_MODEL,
     )
-    # DeepSeekProvider =  create_provider(
-    #     provider_name="openai",
-    #     #base_uri="https://api.gapgpt.app/v1",
-    #     base_uri=provider_URL,
-    #     api_key=OPENAI_API_KEY,
-    #     model=LLM_MODEL,
-    #     embed_model=EMBED_MODEL,
-    # )
-    
-    DeepSeekProvider=create_provider(
-                provider_name="deepSeek",
-                #base_uri="https://api.gapgpt.app/v1",
-                base_uri=DeepSeek_URL,
-                api_key=DeepSeek_API_KEY,
-                model=DeepSeekModel,
-                embed_model=EMBED_MODEL,
-            )
-    
-    
-  
+    DeepSeekProvider = create_provider(
+            provider_name="deepSeek",
+            #base_uri="https://api.gapgpt.app/v1",
+            base_uri=DeepSeek_URL,
+            api_key=DeepSeek_API_KEY,
+            model=DeepSeekModel,
+            embed_model=EMBED_MODEL,
+        )
+
+
     if not QDRANT_HOST:
         raise RuntimeError(
             "QDRANT_HOST is not configured"
@@ -120,6 +110,7 @@ def build_router_agent() -> RouterAgent:
     return RouterAgent(
         llm=provider,
         second_llm=DeepSeekProvider,
+
         chat_agent=chat_agent,
         document_agent=document_agent,
         dashboard_agent=dashboard_agent
@@ -132,7 +123,7 @@ VAULT_FILE_PATH = os.getenv("VAULT_FILE_PATH", "/app/Data/vault.json")
 
 # @router.post("/StreamQueryHistory")
 # async def stream_queryHistory_endpoint(
-#     request: QueryRequestStreamٌwithConversionId,
+#     request: QueryRequeststreamWithConversionId,
 #     background_tasks: BackgroundTasks
 # ):
 #     user_key='9a6b7ba9-abfe-4207-97fe-02a1da750cb7'
