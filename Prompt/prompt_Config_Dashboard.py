@@ -373,51 +373,75 @@ IMPORTANT:
 - NEVER use `AreaTitle LIKE` to find satellite offices.
 - NEVER reuse an Area_Id from another office or from an example.
 - If the user explicitly asks for "فقط خود دفتر", do not include satellites.
-================================================================
-CRITICAL DATE & TIMEFRAME RULES (قوانین یکپارچه و جامع تاریخ)
-================================================================
-همیشه اطلاعات پایه تقویم را فقط و فقط از ویوی dbo.ai_CurrentDateContext بخوانید. هرگز سال یا تاریخ را هاردکد نکنید.
-
-بازه زمانی بر اساس درخواست کاربر دقیقاً طبق یکی از ۴ حالت زیر تعیین می‌شود:
-
-۱. ماه سپری‌شده در سال جاری یا سال‌های گذشته (مانند "خرداد سال جاری"، "اردیبهشت ۱۴۰۴"):
-   - تاریخ شروع: روز اول همان ماه (مثلاً YYYY0301)
-   - تاریخ پایان: آخرین روز همان ماه بر اساس تقویم شمسی (روز ۳۱ برای ماه‌های ۰۱ تا ۰۶ | روز ۳۰ برای ماه‌های ۰۷ تا ۱۱ | روز ۲۹ یا ۳۰ برای ماه ۱۲)
-   - خروجی: یک بازه کامل از روز ۱ تا آخر ماه.
-
-۲. ماه جاری فعال (ماهی که اکنون در آن هستیم و هنوز تمام نشده است):
-   - تاریخ شروع: روز اول ماه جاری (مثلاً CurrentPersianYear + CurrentPersianMonth + '01')
-   - تاریخ پایان: تاریخ دقیق روز جاری یعنی CurrentPersianDate (بازه MTD تا امروز).
 
 ================================================================
-۳. همان ماه جاری در سال گذشته (مقایسه هم‌دوره YoY - مانند "شهریور سال گذشته/پارسال"):
+CRITICAL DATE & TIMEFRAME RULES (UNIFIED DATE LOGIC) قوانین یکپارچه تاریخ
 ================================================================
+ALWAYS read base calendar and date information ONLY from the view `dbo.ai_CurrentDateContext`. NEVER hardcode any year, month, or date!
+
+Evaluate the user's intent and apply EXACTLY ONE of the following 5 timeframe modes:
+
+----------------------------------------------------------------
+MODE 1: PAST COMPLETED MONTH (e.g., "خرداد امسال", "اردیبهشت ۱۴۰۴", "تیر پارسال")
+# ماه سپری‌شده و کامل (مانند "خرداد امسال"، "اردیبهشت ۱۴۰۴"، "تیر پارسال")
+----------------------------------------------------------------
+Applies when the requested month is already fully completed (either in current year or past years):
+- Start Date: Day 01 of that month (e.g., YYYYMM01).
+- End Date: The absolute last calendar day of that month (Day 31 for months 01-06 | Day 30 for months 07-11 | Day 29/30 for month 12).
+- Scope: Single Full Month only (Days 01 to 30/31). NEVER apply MTD or @CurDay here!
+
+----------------------------------------------------------------
+MODE 2: CURRENT ACTIVE MONTH (ماه جاری فعال - e.g., "شهریور امسال", "ماه جاری")
+# ماه جاری فعال (ماهی که در آن هستیم - مانند "شهریور امسال"، "ماه جاری")
+----------------------------------------------------------------
+Applies when the user asks for the currently ongoing month (Month == CurrentPersianMonth):
+- Start Date: Day 01 of the current month (@CurYear * 10000 + @CurMonth * 100 + 1).
+- End Date: Current date today (CurrentPersianDate / @CurYear * 10000 + @CurMonth * 100 + @CurDay).
+- Scope: MTD (Month-To-Date) only.
+
+----------------------------------------------------------------
+MODE 3: SAME MONTH IN PREVIOUS YEAR (مقایسه هم‌دوره سال گذشته - e.g., "شهریور پارسال")
+#همان ماه جاری در سال گذشته (مقایسه هم‌دوره سال گذشته - مانند "شهریور پارسال")
+----------------------------------------------------------------
+Applies ONLY when user asks for a single month in Previous Year that EXACTLY matches the current month number (Target Month == CurrentPersianMonth):
+1. SQL Query Requirements:
+   - Date filter WHERE clause MUST cover the entire month (@StartDate to @EndDateFull).
+   - In the SELECT clause, output BOTH metrics simultaneously:
+     a) MTD Columns: Filtered with `CASE WHEN InsertedDate <= @EndDateMTD THEN ... END` (Equivalent day in last year).
+     b) Full Month Columns: Without the day constraint, aggregating the entire month (1 to 30/31).
+2. Answer Requirements:
+   - The final textual answer MUST clearly present both perspectives:
+     * Section 1: Performance up to equivalent day today (MTD).# تا تاریخ جاری ماه جاری
+     * Section 2: Performance of the full completed month.
+
+----------------------------------------------------------------
+MODE 4: OTHER PAST MONTHS IN PREVIOUS YEAR (e.g., in شهریور user asks for "خرداد پارسال")
+# سایر ماه‌های گذشته در سال قبل (مثلاً در شهریور بگوید "خرداد پارسال")
+----------------------------------------------------------------
+Applies when the requested past-year month is NOT the current month number (Target Month != CurrentPersianMonth):
+- Exactly follow MODE 1: Calculate Full Month only (Day 01 to Day 30/31 of that month in PreviousPersianYear).
+
+----------------------------------------------------------------
+MODE 5: MONTHLY TREND & YEAR-OVER-YEAR COMPARISON (روند ماه‌ها و مقایسه ۱۲ ماهه)
+#روند ماهانه و مقایسه سال به سال (روند ماه‌ها و مقایسه ۱۲ ماهه)
+----------------------------------------------------------------
+ EXCLUSIVE TRIGGER: Apply this mode ONLY if the user explicitly asks for "trend" (روند), "all months" (تمام ماه‌ها), or "month-by-month breakdown" (به تفکیک ماه).
+ DO NOT apply this mode for single-month queries (e.g., "تیر پارسال" or "شهریور پارسال").
+
+When calculating trend across all months (Months 1 to 12):
+1. For past completed months (Month < CurrentPersianMonth):
+   - Compare Full Month of current year with Full Month of previous year.
+2. For current active month (Month == CurrentPersianMonth):
+   - Current Year: MTD data (up to @CurDay).
+   - Previous Year: MTD data up to the exact equivalent day (@PrevYear * 10000 + @CurMonth * 100 + @CurDay) for an apple-to-apple comparison.
+3. For future months (Month > CurrentPersianMonth):
+   - Return 0 or NULL for current year.
+
 ================================================================
-قانون مقایسه هم‌دوره سال گذشته (YoY / همان ماه جاری در سال قبل):
+MANDATORY DATE ENFORCEMENT RULES:
+- Date boundary variables (@StartDate and @EndDate) must be applied identically across all sub-clauses, numerators, and denominators.
+- No date range query should ever be left without an explicit End Date boundary.
 ================================================================
-هنگامی که کاربر آماری برای ماهی از سال گذشته درخواست می‌کند که دقیقاً با ماه جاری برابر است (مثلاً در شهریور بگوید «شهریور پارسال»):
-
-۱. الزامات کوئری SQL:
-   - بازه تاریخ WHERE باید از اول ماه تا انتهای ماه سال قبل باشد (@StartDate تا @EndDateFull).
-   - باید همزمان دو سری ستون در یک SELECT خروجی داده شود:
-     الف) ستون‌های MTD (تا تاریخ معادل امروز در سال قبل): با شرط `InsertedDate <= @EndDateMTD`
-     ب) ستون‌های کل ماه (Full Month): بدون شرط روز، برای کل داده‌های ماه.
-
-۲. الزامات پاسخ نهایی کاربر (Answer):
-   - مدل موظف است در متن پاسخ، هر دو گزارش را به تفکیک و شفاف بیان کند:
-     * بخش اول: عملکرد تا روز معادل امروز (MTD).
-     * بخش دوم: عملکرد کل ماه سپری‌شده.
-================================================================
-
-۴. سایر ماه‌های گذشته در سال قبل (مثلاً در شهریور بگوید "خرداد پارسال"):
-   - فقط یک بازه کامل محاسبه می‌شود: از روز ۰۱ تا روز آخر همان ماه در PreviousPersianYear.
-
-قوانین قطعی و الزامی تاریخ:
-- متغیرهای بازه تاریخ شروع (@StartDate) و پایان (@EndDate) باید دقیقاً یکسان در تمام شروط (هم صورت و هم مخرج کسرها) اعمال شوند.
-- هیچ بازه‌ای نباید بدون تاریخ پایان مشخص رها شود.
-================================================================
-
-
 
 
 ================================================================
@@ -903,7 +927,61 @@ WHERE a.State_Id IN (1, 2, 5, 6, 7, 8, 9, 10, 11)
   AND a.InsertedDate >= '14050501' AND a.InsertedDate <= '14050531'
 GROUP BY YEAR(a.InsertedDate), MONTH(a.InsertedDate), a.FullName
 ORDER BY ServiceCount DESC;
+#----------------------------------
+### Example 13: "روند تعداد خرابی برای تمام ماه‌ها در سال 1405 را در دفتر اصفهان با سال گذشته مقایسه کن" (یا روند سال جاری با سال گذشته)
+SQL:
+DECLARE @MainAreaId INT = (SELECT TOP 1 Area_Id FROM dbo.ai_request_analysis WHERE AreaTitle LIKE N'%اصفهان%');
+DECLARE @CurYear INT, @PrevYear INT, @CurMonth INT, @CurDay INT;
 
+SELECT TOP 1 
+    @CurYear = CurrentPersianYear,
+    @PrevYear = PreviousPersianYear,
+    @CurMonth = CAST(CurrentPersianMonth AS INT),
+    @CurDay = CAST(CurrentPersianDay AS INT)
+FROM dbo.ai_CurrentDateContext;
+
+-- جدول اعداد ۱ تا ۱۲ برای ماه‌ها
+WITH Months AS (
+    SELECT 1 AS MonthNum UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+    UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8
+    UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12
+),
+CurYearData AS (
+    SELECT 
+        CAST(SUBSTRING(CAST(InsertedDate AS VARCHAR(8)), 5, 2) AS INT) AS MonthNum,
+        COUNT(DISTINCT Requests_Id) AS FailureCount_CurYear
+    FROM dbo.ai_request_analysis
+    WHERE IsCancel = 0
+      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
+      AND InsertedDate BETWEEN (@CurYear * 10000 + 101) AND (@CurYear * 10000 + @CurMonth * 100 + @CurDay)
+    GROUP BY CAST(SUBSTRING(CAST(InsertedDate AS VARCHAR(8)), 5, 2) AS INT)
+),
+PrevYearData AS (
+    SELECT 
+        CAST(SUBSTRING(CAST(InsertedDate AS VARCHAR(8)), 5, 2) AS INT) AS MonthNum,
+        -- برای ماه جاری تا همان روز، برای ماه‌های قبل کل ماه
+        COUNT(DISTINCT Requests_Id) AS FailureCount_PrevYear
+    FROM dbo.ai_request_analysis
+    WHERE IsCancel = 0
+      AND (Area_Id = @MainAreaId OR ParentId = @MainAreaId)
+      AND (
+          -- ماه‌های گذشته پارسال (کامل)
+          (InsertedDate BETWEEN (@PrevYear * 10000 + 101) AND (@PrevYear * 10000 + (@CurMonth - 1) * 100 + 31))
+          OR
+          -- ماه جاری پارسال (دقیقاً تا همان روز جاری)
+          (InsertedDate BETWEEN (@PrevYear * 10000 + @CurMonth * 100 + 01) AND (@PrevYear * 10000 + @CurMonth * 100 + @CurDay))
+      )
+    GROUP BY CAST(SUBSTRING(CAST(InsertedDate AS VARCHAR(8)), 5, 2) AS INT)
+)
+SELECT 
+    m.MonthNum AS [Month],
+    ISNULL(c.FailureCount_CurYear, 0) AS [FailureCount_1405],
+    ISNULL(p.FailureCount_PrevYear, 0) AS [FailureCount_1404]
+FROM Months m
+LEFT JOIN CurYearData c ON m.MonthNum = c.MonthNum
+LEFT JOIN PrevYearData p ON m.MonthNum = p.MonthNum
+WHERE m.MonthNum <= @CurMonth  -- فقط تا ماه جاری نمایش داده شود
+ORDER BY m.MonthNum;
 
 
 """
