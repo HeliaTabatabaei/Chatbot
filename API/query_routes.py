@@ -20,7 +20,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from qdrant_client import QdrantClient
 from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
-from Models.mainModels import QueryRequestStream, QueryRequestStreamٌwithConversionId
+from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversationIdAndUserkey
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
 from config import QDRANT_HOST, QDRANT_PORT
@@ -123,7 +123,7 @@ VAULT_FILE_PATH = os.getenv("VAULT_FILE_PATH", "/app/Data/vault.json")
 
 # @router.post("/StreamQueryHistory")
 # async def stream_queryHistory_endpoint(
-#     request: QueryRequestStreamٌwithConversionId,
+#     request: QueryRequeststreamWithConversionId,
 #     background_tasks: BackgroundTasks
 # ):
 #     user_key='9a6b7ba9-abfe-4207-97fe-02a1da750cb7'
