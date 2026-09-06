@@ -20,7 +20,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from qdrant_client import QdrantClient
 from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
-from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversationIdAndUserkey
+from Models.mainModels import QueryRequestStream, QueryRequestStreamWithConversationIdAndUserkey, QueryRequestStreamWithConversionId
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
 from config import QDRANT_HOST, QDRANT_PORT
@@ -63,11 +63,11 @@ def build_router_agent() -> RouterAgent:
         embed_model=EMBED_MODEL,
     )
     DeepSeekProvider = create_provider(
-            provider_name="deepSeek",
+            provider_name="openai",#"deepSeek",
             #base_uri="https://api.gapgpt.app/v1",
-            base_uri=DeepSeek_URL,
-            api_key=DeepSeek_API_KEY,
-            model=DeepSeekModel,
+            base_uri=provider_URL,#DeepSeek_URL,
+            api_key=OPENAI_API_KEY,#DeepSeek_API_KEY,
+            model=LLM_MODEL,#DeepSeekModel,
             embed_model=EMBED_MODEL,
         )
 

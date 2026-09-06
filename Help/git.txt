@@ -72,13 +72,13 @@ git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 
 ----------------------------------feat/debug
-1-git branch feat/addQuestionMdtFullMonth
-2-git checkout feat/addQuestionMdtFullMonth 
-3-git push origin feat/addQuestionMdtFullMonth
+1-git branch feat/AddUsedModule
+2-git checkout feat/AddUsedModule 
+3-git push origin feat/AddUsedModule
 4-git pull origin master
 5-working...
-6-git push origin feat/addQuestionMdtFullMonth
+6-git push origin feat/AddUsedModule
 7- Azure--->pull request
 8-git checkout master
-9-git branch -D feat/addQuestionMdtFullMonth
+9-git branch -D feat/AddUsedModule
 -------------------------
