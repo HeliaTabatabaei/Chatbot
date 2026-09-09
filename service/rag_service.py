@@ -137,9 +137,10 @@ class RAGService:
         results: list[Any],
         score_threshold: float = 0.7,
         top_k: int = 10,
-    ) -> list[Any]:
+    ) -> tuple[ list[Any], dict]:
+
         if not results:
-            return []
+            return [],{}
 
         candidates = self._build_rerank_condidate(results) or []
         if not candidates:
@@ -220,11 +221,11 @@ class RAGService:
             if not final_output:
                 final_output = sorted(results, key=self._get_result_score, reverse=True)[:top_k]
 
-            return final_output
+            return final_output,(response.usage)
 
         except Exception as exc:
             print(f"[RERANK ERROR 1] Fallback to retrieval scores: {exc}")
-            return sorted(results, key=self._get_result_score, reverse=True)[:top_k]
+            return sorted(results, key=self._get_result_score, reverse=True)[:top_k],{}
 
     def answer_with_rag_stream(
         self,
@@ -247,7 +248,7 @@ class RAGService:
             },
         ]
 
-        self.llm.chat_stream(
+        self.second_llm.chat_stream(
             messages=messages,
             on_chunk=on_chunk,
             temperature=temperature,

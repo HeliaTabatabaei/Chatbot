@@ -54,7 +54,7 @@ def build_router_agent() -> RouterAgent:
     ساخت کامل Provider، Qdrant، RAGService و Agentها.
     """
 
-    provider = create_provider(
+    openai_provider  = create_provider(
         provider_name="openai",
         #base_uri="https://api.gapgpt.app/v1",
         base_uri=provider_URL,
@@ -62,8 +62,8 @@ def build_router_agent() -> RouterAgent:
         model=LLM_MODEL,
         embed_model=EMBED_MODEL,
     )
-    DeepSeekProvider = create_provider(
-            provider_name="openai",#"deepSeek",
+    deepseek_provider  = create_provider(
+            provider_name="deepSeek",
             #base_uri="https://api.gapgpt.app/v1",
             base_uri=provider_URL,#DeepSeek_URL,
             api_key=OPENAI_API_KEY,#DeepSeek_API_KEY,
@@ -88,28 +88,28 @@ def build_router_agent() -> RouterAgent:
     )
 
     rag_service = RAGService(
-        llm=provider,
-        second_llm=DeepSeekProvider,
+        llm=openai_provider ,
+        second_llm=deepseek_provider,
 
         qdrant_client=qdrant_client,
     )
 
 
     chat_agent = ChatAgent(
-        llm=provider,
+        llm=openai_provider ,
     )
 
     document_agent = DocumentAgent(
-        llm_provider=provider,
-        second_llm=DeepSeekProvider,
+        llm_provider=openai_provider ,
+        second_llm=deepseek_provider,
 
         rag_service=rag_service,
     )
     # dashboard_llm_service=dashboard_llm_service(llm=provider)
-    dashboard_agent=DashboardAgent(llm_provider=provider)
+    dashboard_agent=DashboardAgent(llm_provider=openai_provider )
     return RouterAgent(
-        llm=provider,
-        second_llm=DeepSeekProvider,
+        llm=openai_provider ,
+        second_llm=deepseek_provider,
 
         chat_agent=chat_agent,
         document_agent=document_agent,
@@ -300,11 +300,14 @@ async def stream_queryHistory_endpoint(
     def produce() -> None:
         try:
             router_agent.handle_stream(
+                background_tasks=background_tasks,
                 query=request.query,
                 convertionId=c_id,
+                UserKey=user_key,
                 on_chunk=on_chunk,
                 history=history,
-                temperature=request.temperature,           
+                temperature=request.temperature
+                     
             )
         except Exception as error:
             chunks.put(
@@ -437,7 +440,9 @@ async def stream_queryHistory_endpoint(
                 final_usage.get("output_tokens", 0),
                 final_usage.get("input_tokens", 0),
                 user_key,
-                final_response_id
+                c_id,
+                final_usage.get("Provider"),
+                "result"
             )                              
 
         # ارسال سیگنال پایان قطعی استریم
@@ -455,6 +460,7 @@ async def stream_queryHistory1_endpoint(
 ):
     user_key = '9a6b7ba9-abfe-4207-97fe-02a1da750cb7'
     #append_qa_to_file(f"VAULT_FILE_PATH:{VAULT_FILE_PATH}\n")
+    print("1",flush=True)
     history, c_id = get_recent_history(
         conversation_id=request.conversation_id,
         query=request.query,
@@ -467,11 +473,14 @@ async def stream_queryHistory1_endpoint(
     def produce() -> None:
         try:
             router_agent.handle_stream(
+                background_tasks=background_tasks,
                 query=request.query,
                 convertionId=c_id,
+                UserKey=user_key,
                 on_chunk=on_chunk,
                 history=history,
-                temperature=request.temperature,           
+                temperature=request.temperature 
+                    
             )
         except Exception as error:
             chunks.put(
@@ -597,16 +606,17 @@ async def stream_queryHistory1_endpoint(
         except Exception as e:
             print(f"Failed to save QA log: {e}", flush=True)    
 
-        if final_usage and final_response_id:
+        if final_usage and final_response_id:                      
             background_tasks.add_task(
-                InsertIntoWallet,
-                final_usage.get("total_tokens", 0) * -1,
-                final_usage.get("output_tokens", 0),
-                final_usage.get("input_tokens", 0),
-                user_key,
-                final_response_id
-            )                              
-
+                            InsertIntoWallet,
+                            final_usage.get("total_tokens", 0) * -1,
+                            final_usage.get("output_tokens", 0),
+                            final_usage.get("input_tokens", 0),
+                            user_key,
+                            c_id,
+                            final_usage.get("Provider"),
+                            "result"
+                        )                  
         # ارسال سیگنال پایان قطعی استریم
         yield "event: done\ndata: [DONE]\n\n"
 
@@ -627,12 +637,6 @@ async def query_history_endpoint(
     start = time.time()
    #append_qa_to_fileWithConvertion(f"===================================================",c_id)
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # #append_qa_to_fileWithConvertion(
-    #             question=request.query ,c_id        
-    #         )
-    #append_qa_to_fileWithConvertion(f"Time: {timestamp}\n",c_id)
-      # f.write()
-                # f.write(f"Time: {timestamp}\n")
     history, c_id = get_recent_history(
         conversation_id=request.conversation_id,
         query=request.query,
@@ -677,11 +681,14 @@ async def query_history_endpoint(
 
     try:
         router_agent.handle_stream(
+            background_tasks=background_tasks,
             query=request.query,
             convertionId=c_id,
+            UserKey=user_key,
             on_chunk=on_chunk,
             history=history,
-            temperature=request.temperature,
+            temperature=request.temperature
+           
         )
     except Exception as error:
         return {"status": "error", "message": str(error)}
@@ -710,14 +717,17 @@ async def query_history_endpoint(
         print(f"Failed to save QA log: {e}", flush=True)
 
     if final_usage:
+        
         background_tasks.add_task(
-            InsertIntoWallet,
-            final_usage.get("total_tokens", 0) * -1,
-            final_usage.get("output_tokens", 0),
-            final_usage.get("input_tokens", 0),
-            user_key,
-            final_response_id
-        )
+                        InsertIntoWallet,
+                        final_usage.get("total_tokens", 0) * -1,
+                        final_usage.get("output_tokens", 0),
+                        final_usage.get("input_tokens", 0),
+                        user_key,
+                        c_id,
+                        final_usage.get("Provider"),
+                        "result"
+                    )                  
 
     return {
         "status": "success",

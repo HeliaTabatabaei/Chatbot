@@ -3,12 +3,11 @@ from openai import OpenAI
 from .openai_provider import OpenAIProvider
 from .deepseewk_provider import DeepSeekProvider
 
-
+# تغییر کلیدها به حروف کوچک
 PROVIDER_MAP = {
     "openai": OpenAIProvider,
-    "deepSeek":DeepSeekProvider
+    "deepseek": DeepSeekProvider  # <--- اینجا را اصلاح کردم
 }
-
 
 def create_provider(
     provider_name: str,
@@ -17,28 +16,29 @@ def create_provider(
     model: str,
     embed_model: str,
 ):
+    # حالا چون کلیدها در مپ کوچک هستند، با .lower() دقیقاً مچ می‌شوند
     provider_cls = PROVIDER_MAP.get(
         provider_name.lower(),
         OpenAIProvider,
     )
     
+    print(f"DEBUG: Selected provider class -> {provider_cls}", flush=True)
+
     if provider_cls is OpenAIProvider:
         client = OpenAI(
             base_url=base_uri,
             api_key=api_key,
         )
-
         return provider_cls(
             client=client,
             chat_model=model,
             embedding_model=embed_model,
         )
-
+    
+    # برای DeepSeekProvider (که از OpenAI ارث‌بری نمی‌کند یا کلاینت متفاوت دارد)
     return provider_cls(
         base_uri=base_uri,
         api_key=api_key,
         model=model,
         embed_model=embed_model,
     )
-    
-    
