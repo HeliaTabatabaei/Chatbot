@@ -252,6 +252,23 @@ SELECT
     @CurDay   = CAST(CurrentPersianDay AS INT)
 FROM dbo.ai_CurrentDateContext;
 
+--------------------------------------------------
+View name: ai_ModuleUsageAnalysis
+--------------------------------------------------
+
+Description: اطلاعات مصرف، تعویض و فراوانی مدل ماژول‌ها و قطعات استفاده‌شده در درخواست‌ها.
+
+Columns:
+- Request_Id (BIGINT): شناسه درخواست
+- DeviceModuleModelId (INT): شناسه مدل ماژول
+- DeviceModuleModelTitle (NVARCHAR): نام یا عنوان مدل ماژول (مانند 'Atlas LVDS Cable Margarita')
+- Actions (VARCHAR): نوع عملیات ('add' برای قطعات/ماژول‌های مصرفی و افزوده شده)
+- InsertedDate (INT): تاریخ شمسی ثبت به صورت عدد ۸ رقمی (YYYYMMDD)
+- Area_Id (INT): شناسه دفتر یا ناحیه
+- AreaTitle (NVARCHAR): عنوان دفتر یا ناحیه
+- ParentId (NVARCHAR): شناسه والد دفتر
+- FailureReasonTitle (NVARCHAR): عنوان علت خرابی
+
 
 --------------------------------------------------
 Important SQL generation rules
@@ -702,7 +719,23 @@ EXPERT SERVICE FREQUENCY METRICS: (فراوانی انجام سرویس  توس�
     - Do NOT apply the DelayReasonID filter to this metric.
     - Area filtering rules are the same as all other metrics: resolve by AreaTitle, then
       `Area_Id = @MainAreaId OR ParentId = @MainAreaId` (only inside ai_request_analysis).
-  
+================================================================
+ModuleModelUse METRICS: (فراوانی مدل ماژول مصرفی)
+================================================================ 
+Data source:ai_ModuleUsageAnalysis
+Rules for Module Usage:
+- برای ماژول‌ها/قطعات مصرفی همیشه شرط Actions = 'add' را اعمال کنید.
+- برای محاسبه فراوانی/تعداد مصرف از COUNT(Request_Id) یا COUNT(*) به همراه GROUP BY DeviceModuleModelTitle استفاده کنید.
+- همیشه از WITH (NOLOCK) استفاده کنید.
+================================================================
+ModuleGroupUse METRICS: (فراوانی گروه ماژول مصرفی)
+================================================================ 
+
+منبع داده: OP.FactDeviceConfigHistory
+قوانین اختصاصی:
+- اعمال شرط Actions = 'add'
+- گروه‌بندی بر اساس: op.DimDeviceModuleGroup.DimDeviceModuleGroupTitle
+- نام ستون شمارش: UsageCount با ترتیب نزولی
 
 """
 ##############################################
@@ -982,6 +1015,33 @@ LEFT JOIN CurYearData c ON m.MonthNum = c.MonthNum
 LEFT JOIN PrevYearData p ON m.MonthNum = p.MonthNum
 WHERE m.MonthNum <= @CurMonth  -- فقط تا ماه جاری نمایش داده شود
 ORDER BY m.MonthNum;
+#----------------------------------
+### Example 14: "پنج تا مدل ماژول پرمصرف در دفتر اصفهان در مرداد 1405  "
+SELECT TOP 5
+    v.DeviceModuleModelTitle,
+    COUNT(v.Request_Id) AS UsageCount
+FROM dbo.ai_ModuleUsageAnalysis v WITH (NOLOCK)
+WHERE v.Actions = 'add'
+  AND v.InsertedDate >= 14050501 
+  AND v.InsertedDate <= 14050531 
+  AND (v.Area_Id = 41 OR  v.ParentId = 41 ) 
+GROUP BY v.DeviceModuleModelTitle
+ORDER BY UsageCount DESC
+#------------------------------------------------------
+### Example 15: "پنج تا گروه ماژول پرمصرف در دفتر اصفهان در مرداد 1405  "
+SELECT distinct 
+    op.DimDeviceModuleGroup.DimDeviceModuleGroupTitle
 
+	,COUNT(v.deviceModuleModelId)AS UsageCount
+FROM OP.FactDeviceConfigHistory v WITH (NOLOCK)
 
+inner join op.DimDeviceModuleModel on op.DimDeviceModuleModel.DeviceModuleModel_Id=v.DeviceModuleModelId
+inner join op.DimDeviceModuleGroup WITH (NOLOCK) on op.DimDeviceModuleGroup.DimDeviceModuleGroup_Id=op.DimDeviceModuleModel.DeviceModuleGroupId
+left join ai_request_analysis on ai_request_analysis.Requests_Id=v.RequestsId
+WHERE v.Actions = 'add'
+  AND ai_request_analysis.InsertedDate >= 14050501 
+  AND ai_request_analysis.InsertedDate <= 14050531 
+  AND (ai_request_analysis.Area_Id = 41  or ai_request_analysis.ParentId=41  ) 
+GROUP BY op.DimDeviceModuleGroup.DimDeviceModuleGroupTitle
+ORDER BY UsageCount DESC
 """

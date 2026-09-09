@@ -65,9 +65,9 @@ def build_router_agent() -> RouterAgent:
     deepseek_provider  = create_provider(
             provider_name="deepSeek",
             #base_uri="https://api.gapgpt.app/v1",
-            base_uri=DeepSeek_URL,
-            api_key=DeepSeek_API_KEY,
-            model=DeepSeekModel,
+            base_uri=provider_URL,#DeepSeek_URL,
+            api_key=OPENAI_API_KEY,#DeepSeek_API_KEY,
+            model=LLM_MODEL,#DeepSeekModel,
             embed_model=EMBED_MODEL,
         )
 
