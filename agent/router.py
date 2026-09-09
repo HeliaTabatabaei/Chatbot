@@ -8,10 +8,11 @@ import uuid
 from SQlDB.db import DatabaseConnection
 # from SQlDB.message import update_and_get_bank_name
 from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING, get_conversation_history, save_conversation, save_message
+from SQlDB.wallet import InsertIntoWallet
 from Utility.log import append_qa_to_file,append_qa_to_filetest,append_qa_to_fileWithConvertion
 from providers.base import LLMProvider
 from service.customer_config import load_customers, resolve_customer_from_query
-
+from fastapi import APIRouter, BackgroundTasks
 from .chat_agent import ChatAgent
 from .document_agent import DocumentAgent
 from .dashboard_agent import DashboardAgent
@@ -78,10 +79,9 @@ class RouterAgent:
             )
 
         return Filter(must=must_conditions) if must_conditions else None
-    def rewrite_query(self, query: str, history_text: str) -> str:
+    def rewrite_query(self, query: str, history_text: str) -> tuple[str, dict]:
         if not history_text:
-            return query
-
+            return query, {}
         prompt = rewriteQueryPrompt.format(
         history_text=history_text,
         query=query,)
@@ -92,8 +92,13 @@ class RouterAgent:
             messages=messages,
             temperature=0,
         )
-        return response.content.strip()
-    def classify(self, query: str, history: str | None = None) -> str:
+        print ("13333333",flush=True)
+        print (response,flush=True)
+        return str(response.content).strip(), (response.usage)
+        
+    
+    
+    def classify(self, query: str, history: str | None = None) ->  tuple[str, dict]:
         system_prompt=system_promptClassify
 
         history_text = history.strip() if history else "No previous conversation."
@@ -104,7 +109,7 @@ class RouterAgent:
 
     Current user query:
     {query}
-    """
+    """                                                                                                                                   
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -127,26 +132,57 @@ class RouterAgent:
             # در صورت خروجی نامعتبر، برای امنیت بیشتر روی no_authorize یا برای کارکرد روی technical ست کنید
             return "no_authorize" 
 
-        return result
+        return result,(response.usage)
    
     
     def handle_stream(
         self,
+        background_tasks: BackgroundTasks,
         query: str,
         convertionId:str,
+        UserKey:str,
         on_chunk: ChunkCallback,
         history: any,
-        temperature: float = 0.1,
+        temperature: float = 0.1
+       
         
     ) -> None:
         history_text= "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in history])
       
         start1=time.time()
-        rewrite_query=self.rewrite_query(query,history_text)
+        print("12222",flush=True)
+        rewrite_query,final_usage=self.rewrite_query(query,history_text)
+        print("3333",flush=True)
+        print(final_usage)
+        #save usage 0   state provider
+        background_tasks.add_task(
+                        InsertIntoWallet,
+                        final_usage.get("total_tokens", 0) * -1,
+                        final_usage.get("output_tokens", 0),
+                        final_usage.get("input_tokens", 0),
+                        UserKey,
+                        convertionId,
+                        final_usage.get("Provider"),
+                        "rewrite_query"
+                    )                            
+        
+        print("4444",flush=True)
         append_qa_to_fileWithConvertion(f"rewrite_query time:  {time.time() - start1:.2f} seconds ",convertionId)
         append_qa_to_fileWithConvertion(f"rewrite_query: {rewrite_query} ",convertionId)
         start1=time.time()
-        intent = self.classify(rewrite_query,history_text)
+        intent,ClassifyUsage = self.classify(rewrite_query,history_text)
+        print("55555",flush=True)
+        #save usage 1   state provider
+        background_tasks.add_task(
+                                InsertIntoWallet,
+                                ClassifyUsage.get("total_tokens", 0) * -1,
+                                ClassifyUsage.get("output_tokens", 0),
+                                ClassifyUsage.get("input_tokens", 0),
+                                UserKey,
+                                convertionId,
+                                ClassifyUsage.get("Provider"),
+                                "classify"
+                            )                        
         append_qa_to_fileWithConvertion(f"check question type Time: {time.time() - start1:.2f} seconds",convertionId)
         append_qa_to_fileWithConvertion(f"intent: {intent} ",convertionId)
         if intent == "general":
@@ -156,6 +192,12 @@ class RouterAgent:
                 temperature=temperature,
                 history=history_text
             )
+            
+            # self.second_llm.chat_stream(
+            #                 message=rewrite_query,
+            #                 on_chunk=on_chunk,
+            #                 temperature=temperature
+            #             )
             return
         elif intent=="dashboard":
             self.dashboard_agent.handle_stream(
@@ -172,9 +214,9 @@ class RouterAgent:
             return
         start=time.time()
         query_vector = self.llm.embed_query(rewrite_query)
+        #save usage 2  state provider   ????
         append_qa_to_fileWithConvertion(f"vector Query Time: {time.time() - start:.2f} seconds",convertionId)
         query_filter = None
-     
         query_filter = None
         customers = load_customers()
         
@@ -196,6 +238,8 @@ class RouterAgent:
         append_qa_to_fileWithConvertion(f"query_filter{query_filter}",convertionId)      
         append_qa_to_fileWithConvertion(f"query_filter{query_filter}",convertionId)    
         self.document_agent.handle_stream(
+            background_tasks= background_tasks,
+            UserKey=UserKey,
             message=rewrite_query,
             convertionId=convertionId,
             original_query=  query,      
@@ -203,5 +247,4 @@ class RouterAgent:
             query_vector=query_vector,
             temperature=temperature,
             history=history_text,
-            query_filter=query_filter
-        )
+            query_filter=query_filter)

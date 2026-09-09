@@ -5,7 +5,7 @@ from .base import ChatResponse, LLMProvider, StreamCallback
 
 class OpenAIProvider(LLMProvider):
     def __init__(self, client: OpenAI, chat_model: str, embedding_model: str):
-        
+        print("OpenAIProvider",flush=True)
         self.client = client
         self.chat_model = chat_model
         self.embedding_model = embedding_model
@@ -42,7 +42,8 @@ class OpenAIProvider(LLMProvider):
             usage = {
                 "input_tokens": response.usage.prompt_tokens or 0,
                 "output_tokens": response.usage.completion_tokens or 0,
-                "total_tokens": response.usage.total_tokens or 0
+                "total_tokens": response.usage.total_tokens or 0,
+                "Provider":"OpenAi"
             }
             
         return ChatResponse(
@@ -85,7 +86,8 @@ class OpenAIProvider(LLMProvider):
                 usage_data = {
                     "input_tokens": chunk.usage.prompt_tokens,
                     "output_tokens": chunk.usage.completion_tokens,
-                    "total_tokens": chunk.usage.total_tokens
+                    "total_tokens": chunk.usage.total_tokens,
+                    "Provider":"OpenAi"
                 }
                 # ارسال متادیتا به عنوان چانک نهایی
                 on_chunk({

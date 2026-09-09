@@ -5,11 +5,12 @@ import re
 import time
 from typing import Any
 
+from SQlDB.wallet import InsertIntoWallet
 from Utility.log import append_qa_to_file, append_qa_to_filetest,append_qa_to_fileWithConvertion
 
 from providers.base import LLMProvider, StreamCallback
 from Prompt.prompt_Analiys import system_promptAnaliys
-
+from fastapi import  BackgroundTasks
 class DocumentAgent:
     def __init__(self, llm_provider: LLMProvider,second_llm: LLMProvider,
  rag_service):
@@ -91,6 +92,7 @@ class DocumentAgent:
                 "input_tokens": usage.get("input_tokens", 0),
                 "output_tokens": usage.get("output_tokens", 0),
                 "total_tokens": usage.get("total_tokens", 0),
+                "Provider":usage.get("Provider", "")
     },
             }
 
@@ -105,6 +107,7 @@ class DocumentAgent:
                 "input_tokens": usage.get("input_tokens", 0),
                 "output_tokens": usage.get("output_tokens", 0),
                 "total_tokens": usage.get("total_tokens", 0),
+                "Provider":usage.get("Provider", "")
     },
             }
 
@@ -148,6 +151,8 @@ class DocumentAgent:
 
     def handle_stream(
         self,
+        background_tasks: BackgroundTasks,
+        UserKey:str,
         message: str,  #rewritten_query
         convertionId:str,
         original_query:str,
@@ -168,11 +173,25 @@ class DocumentAgent:
         if not results:
             on_chunk({"type": "token", "content": "هیچ سند مرتبطی یافت نشد."})
             return
-        reranked_results = self.rag_service.rerank_results(
+        reranked_results,final_usage = self.rag_service.rerank_results(
             original_query=original_query,
             rewritten_query=message,
             results=results,
-        ) or []
+        ) or ([], {})
+        #save usage 3   state provider
+        background_tasks.add_task(
+                        InsertIntoWallet,
+                        final_usage.get("total_tokens", 0) * -1,
+                        final_usage.get("output_tokens", 0),
+                        final_usage.get("input_tokens", 0),
+                        UserKey,
+                        convertionId,
+                        final_usage.get("Provider"),
+                        "rerank"
+                    )             
+        
+        
+        
         if not reranked_results and results:
             append_qa_to_fileWithConvertion("not reranked_results and results",convertionId)
             reranked_results = results
@@ -191,9 +210,31 @@ class DocumentAgent:
             chunks=prepared_chunks,
             history=history,
         )
+       
+        
         append_qa_to_fileWithConvertion(f"analysis time: {time.time() - start:.2f} seconds",convertionId)
         decision = analysis.get("decision")
-
+        usage_data = analysis.get("usage")
+        if usage_data:
+            
+            #save usage 4   state provider
+            background_tasks.add_task(
+                    InsertIntoWallet,
+                    usage_data.get("total_tokens", 0) * -1,
+                    usage_data.get("output_tokens", 0),
+                    usage_data.get("input_tokens", 0),
+                    UserKey,
+                    convertionId,
+                    usage_data.get("Provider"),
+                    "analyze"
+                )             
+                    
+                
+        # on_chunk({
+        #     "type": "meta",
+        #     "response_id": "1111",
+        #     "usage": usage_data
+        # })
         if decision == "answer":
             append_qa_to_fileWithConvertion(f"start genrate stream: {time.time() - start:.2f} seconds",convertionId)
             self.rag_service.answer_with_rag_stream(
@@ -204,14 +245,6 @@ class DocumentAgent:
                 history=history
             )
             return
-
-        usage_data = analysis.get("usage")
-        if usage_data:
-            on_chunk({
-                "type": "meta",
-                "response_id": "1111",
-                "usage": usage_data
-            })
 
         if decision == "clarify":
             question = analysis.get("clarification_question")

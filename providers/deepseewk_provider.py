@@ -13,6 +13,7 @@ class DeepSeekProvider(LLMProvider):
         model: str = "deepseek-chat",
         embed_model: str | None = None,
     ):
+        print("DeepSeekProvider",flush=True)
         self.client = OpenAI(api_key=api_key, base_url=base_uri)
         self.chat_model = model
         self.embedding_model = embed_model
@@ -53,6 +54,7 @@ class DeepSeekProvider(LLMProvider):
                 "input_tokens": response.usage.prompt_tokens or 0,
                 "output_tokens": response.usage.completion_tokens or 0,
                 "total_tokens": response.usage.total_tokens or 0,
+                "Provider":"DeepSeek"
             }
             prompt_tokens_details = getattr(
                 response.usage, "prompt_tokens_details", None
@@ -107,6 +109,7 @@ class DeepSeekProvider(LLMProvider):
                     "input_tokens": chunk.usage.prompt_tokens or 0,
                     "output_tokens": chunk.usage.completion_tokens or 0,
                     "total_tokens": chunk.usage.total_tokens or 0,
+                    "Provider":"DeepSeek"
                 }
                 prompt_tokens_details = getattr(
                     chunk.usage, "prompt_tokens_details", None
