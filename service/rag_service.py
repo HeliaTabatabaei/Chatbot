@@ -136,7 +136,7 @@ class RAGService:
         rewritten_query: str,
         results: list[Any],
         score_threshold: float = 0.7,
-        top_k: int = 10,
+        top_k: int = 5,
     ) -> tuple[ list[Any], dict]:
 
         if not results:
@@ -242,8 +242,8 @@ class RAGService:
                 "role": "user",
                 "content": USER_PROMPT.format(
                     context=context,
-                    query=query,
-                    history=history,
+                    query=query
+                 
                 ),
             },
         ]
