@@ -292,7 +292,7 @@ async def stream_queryHistory_endpoint(
         conversation_id=request.conversation_id,
         query=request.query,
         user_key=user_key,
-        limit=10
+        limit=5
     )
     chunks: Queue[Any] = Queue()
     def on_chunk(chunk: Any) -> None:    
@@ -465,7 +465,7 @@ async def stream_queryHistory1_endpoint(
         conversation_id=request.conversation_id,
         query=request.query,
         user_key=user_key,
-        limit=10
+        limit=5
     )
     chunks: Queue[Any] = Queue()
     def on_chunk(chunk: Any) -> None:    
@@ -641,10 +641,14 @@ async def query_history_endpoint(
         conversation_id=request.conversation_id,
         query=request.query,
         user_key=user_key,
-        limit=3
+        limit=5
     )
+    
     append_qa_to_fileWithConvertion(f"===================================================",c_id)
     append_qa_to_fileWithConvertion(f"GetHistory Time: {time.time() - start:.2f} seconds",c_id)
+    append_qa_to_fileWithConvertion(f"c_id: {c_id}",c_id)
+    append_qa_to_fileWithConvertion(f"ًquery: {request.query}",c_id)
+    append_qa_to_fileWithConvertion(f"history: {history}",c_id)
     answer_parts = []
     final_usage = {}
     final_response_id = "1111"#شناسه پیش‌فرض پاسخ

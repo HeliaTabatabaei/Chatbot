@@ -9,11 +9,10 @@ from SQlDB.wallet import InsertIntoWallet
 from Utility.log import append_qa_to_file, append_qa_to_filetest,append_qa_to_fileWithConvertion
 
 from providers.base import LLMProvider, StreamCallback
-from Prompt.prompt_Analiys import system_promptAnaliys
+from Prompt.prompt_Analiys import build_analyze_user_prompt, system_promptAnaliys
 from fastapi import  BackgroundTasks
 class DocumentAgent:
-    def __init__(self, llm_provider: LLMProvider,second_llm: LLMProvider,
- rag_service):
+    def __init__(self, llm_provider: LLMProvider,second_llm: LLMProvider,rag_service):
         self.llm_provider = llm_provider
         self.second_llm = second_llm
 
@@ -30,32 +29,15 @@ class DocumentAgent:
     def analyze(
         self,
         message: str,     
-        chunks: list[dict[str, Any]],
-        history : str | None = None
+        chunks: list[dict[str, Any]]
+      
     ) -> dict[str, Any]:
-        system_prompt =system_promptAnaliys
+      
+        chunks_json = json.dumps(chunks, ensure_ascii=False, separators=(",", ":"))
 
         messages = [
-            {
-                "role": "system",
-                "content": system_prompt.format(
-                    query=message,
-                    history=json.dumps(
-                        history or [],
-                        ensure_ascii=False,
-                        indent=2
-                    ),
-                    chunks=json.dumps(
-                        chunks,
-                        ensure_ascii=False,
-                        indent=2
-                    ),
-                ),
-            },
-            {
-                "role": "user",
-                "content": message,
-            },
+            {"role": "system", "content": system_promptAnaliys},
+            {"role": "user", "content": build_analyze_user_prompt(query=message, chunks_data=chunks_json)}
         ]
 
         response = self.second_llm.chat(
@@ -165,7 +147,7 @@ class DocumentAgent:
         start=time.time()
         results = self.rag_service.search(
             query_vector=query_vector,
-            limit=10,
+            limit=5,
             filters=query_filter,
         ) 
         append_qa_to_fileWithConvertion(f"Rag search: {time.time() - start:.2f} seconds",convertionId)
@@ -207,8 +189,8 @@ class DocumentAgent:
         append_qa_to_fileWithConvertion("anylis start",convertionId)
         analysis = self.analyze(
             message=message,
-            chunks=prepared_chunks,
-            history=history,
+            chunks=prepared_chunks
+         
         )
        
         

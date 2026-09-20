@@ -98,24 +98,11 @@ class RouterAgent:
         
     
     
-    def classify(self, query: str, history: str | None = None) ->  tuple[str, dict]:
-        system_prompt=system_promptClassify
-
-        history_text = history.strip() if history else "No previous conversation."
-
-        user_content = f"""
-    Conversation history:
-    {history_text}
-
-    Current user query:
-    {query}
-    """                                                                                                                                   
-
+    def classify(self, query: str) ->  tuple[str, dict]:
         messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_content},
-        ]
-
+        {"role": "system", "content": system_promptClassify},
+        {"role": "user", "content": query.strip()},
+    ]
         response = self.second_llm.chat(
             messages=messages,
             temperature=0, # برای دقت بالاتر در دسته‌بندی
@@ -135,6 +122,42 @@ class RouterAgent:
         return result,(response.usage)
    
     
+        # def classify(self, query: str, history: str | None = None) ->  tuple[str, dict]:
+        #     system_prompt=system_promptClassify
+    
+        #     history_text = history.strip() if history else "No previous conversation."
+    
+        #     user_content = f"""
+        # Conversation history:
+        # {history_text}
+    
+        # Current user query:
+        # {query}
+        # """                                                                                                                                   
+    
+        #     messages = [
+        #         {"role": "system", "content": system_prompt},
+        #         {"role": "user", "content": user_content},
+        #     ]
+    
+        #     response = self.second_llm.chat(
+        #         messages=messages,
+        #         temperature=0, # برای دقت بالاتر در دسته‌بندی
+        #     )
+    
+        #     result = (response.content or "").strip().lower()
+    
+            
+    
+        #     # اعتبارسنجی خروجی برای جلوگیری از خطاهای احتمالی
+        #     valid_labels = {"technical", "general", "no_authorize","dashboard"}
+            
+        #     if result not in valid_labels:
+        #         # در صورت خروجی نامعتبر، برای امنیت بیشتر روی no_authorize یا برای کارکرد روی technical ست کنید
+        #         return "no_authorize" 
+    
+        #     return result,(response.usage)
+       
     def handle_stream(
         self,
         background_tasks: BackgroundTasks,
@@ -170,7 +193,7 @@ class RouterAgent:
         append_qa_to_fileWithConvertion(f"rewrite_query time:  {time.time() - start1:.2f} seconds ",convertionId)
         append_qa_to_fileWithConvertion(f"rewrite_query: {rewrite_query} ",convertionId)
         start1=time.time()
-        intent,ClassifyUsage = self.classify(rewrite_query,history_text)
+        intent,ClassifyUsage = self.classify(rewrite_query)
         print("55555",flush=True)
         #save usage 1   state provider
         background_tasks.add_task(

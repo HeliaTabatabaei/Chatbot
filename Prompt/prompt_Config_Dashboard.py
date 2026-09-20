@@ -151,7 +151,7 @@ ParentId (int)
 Parent identifier.
 
 AreaTitle (string)
-Office name (دفتر).
+=Office name (دفتر).
 
 Brand (string)
 Device brand.
@@ -269,6 +269,37 @@ Columns:
 - ParentId (NVARCHAR): شناسه والد دفتر
 - FailureReasonTitle (NVARCHAR): عنوان علت خرابی
 
+================================================================
+PERSIAN YEAR DATA LIMIT
+================================================================
+
+The minimum supported Persian year is 1404.
+
+If the user requests Persian year 1403 or any earlier year:
+
+- DO NOT generate SQL.
+- DO NOT query ai_request_analysis.
+
+
+Return only:
+"اطلاعات فقط از سال 1404 به بعد در دسترس است."
+
+Note:
+For relative terms like "امروز", "ماه جاری", "امسال", "پارسال" or "سال گذشته", ALWAYS generate the SQL query using dbo.ai_CurrentDateContext.
+
+================================================================
+OFFICE RULE:
+================================================================
+- Find the requested office using AreaTitle LIKE N'%<requested office name>%'.
+- Do NOT use AreaTitle = for resolving the requested office.
+- MainAreaId = Area_Id of the matched office.
+- Include:
+  Area_Id = MainAreaId
+  OR ParentId = MainAreaId
+================================================================
+
+
+
 
 --------------------------------------------------
 Important SQL generation rules
@@ -281,18 +312,16 @@ Users may type partial or incomplete office names.
 Never use equality (=) for AreaTitle.
 
 Always use LIKE with wildcards.
-
+- Find the requested office using AreaTitle LIKE N'%<requested office name>%'.
+- Do NOT use AreaTitle = for resolving the requested office.
+- MainAreaId = Area_Id of the matched office.
+- Include:
+  Area_Id = MainAreaId
+  OR ParentId = MainAreaId
 Correct filter example:
 
-AreaTitle LIKE N'%تهران%'
+Area_Id = @MainAreaId OR ParentId = @MainAreaId
 
-Example:
-
-User question:
-تعداد خرابی در دفتر تهران
-
-SQL condition:
-WHERE AreaTitle LIKE N'%تهران%'
 
 --------------------------------------------------
 
@@ -307,7 +336,8 @@ Example:
 
 SELECT COUNT(Distinct DeviceID)
 FROM ai_GetDeviceCount
-WHERE AreaTitle LIKE N'%تهران%'
+WHERE 
+Area_Id = @MainAreaId OR ParentId = @MainAreaId
 
 --------------------------------------------------
 
@@ -322,7 +352,8 @@ Example:
 
 SELECT COUNT(Requests_Id)
 FROM ai_request_analysis
-WHERE AreaTitle LIKE N'%تهران%'
+WHERE 
+Area_Id = @MainAreaId OR ParentId = @MainAreaId
 AND IsCancel = 0
 
 --------------------------------------------------
@@ -459,37 +490,6 @@ MANDATORY DATE ENFORCEMENT RULES:
 - Date boundary variables (@StartDate and @EndDate) must be applied identically across all sub-clauses, numerators, and denominators.
 - No date range query should ever be left without an explicit End Date boundary.
 ================================================================
-
-
-================================================================
-PERSIAN YEAR DATA LIMIT
-================================================================
-
-The minimum supported Persian year is 1404.
-
-If the user requests Persian year 1403 or any earlier year:
-
-- DO NOT generate SQL.
-- DO NOT query ai_request_analysis.
-
-
-Return only:
-"اطلاعات فقط از سال 1404 به بعد در دسترس است."
-
-Note:
-For relative terms like "امروز", "ماه جاری", "امسال", "پارسال" or "سال گذشته", ALWAYS generate the SQL query using dbo.ai_CurrentDateContext.
-
-================================================================
-OFFICE RULE:
-================================================================
-- Find the requested office using AreaTitle LIKE N'%<requested office name>%'.
-- Do NOT use AreaTitle = for resolving the requested office.
-- MainAreaId = Area_Id of the matched office.
-- Include:
-  Area_Id = MainAreaId
-  OR ParentId = MainAreaId
-================================================================
-
 
 
 
