@@ -240,7 +240,7 @@ class RouterAgent:
         #save usage 2  state provider   ????
         append_qa_to_fileWithConvertion(f"vector Query Time: {time.time() - start:.2f} seconds",convertionId)
         query_filter = None
-        query_filter = None
+       
         customers = load_customers()
         
         resolved_customer = resolve_customer_from_query(
@@ -259,7 +259,7 @@ class RouterAgent:
                 ]
             )
         append_qa_to_fileWithConvertion(f"query_filter{query_filter}",convertionId)      
-        append_qa_to_fileWithConvertion(f"query_filter{query_filter}",convertionId)    
+       
         self.document_agent.handle_stream(
             background_tasks= background_tasks,
             UserKey=UserKey,
