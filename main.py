@@ -36,6 +36,11 @@ app = FastAPI(
 patch_fastapi(app, docs_url="/docs")
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=[
+        "http://taftantest.adonistech.ir",  # آدرس فرانت‌اند
+        "http://10.44.4.12",
+        # یا برای محیط توسعه: "*"
+    ],
     allow_origins=["*"],  # برای محیط توسعه؛ در محیط پروداکشن دامنه‌های خود را مشخص کنید
     allow_credentials=True,
     allow_methods=["*"],  # اجازه به تمام متدها (POST, GET, OPTIONS و...)

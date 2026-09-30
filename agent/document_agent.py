@@ -147,7 +147,7 @@ class DocumentAgent:
         start=time.time()
         results = self.rag_service.search(
             query_vector=query_vector,
-            limit=5,
+            limit=10,
             filters=query_filter,
         ) 
         append_qa_to_fileWithConvertion(f"Rag search: {time.time() - start:.2f} seconds",convertionId)

@@ -136,7 +136,7 @@ class RAGService:
         rewritten_query: str,
         results: list[Any],
         score_threshold: float = 0.7,
-        top_k: int = 5,
+        top_k: int = 10,
     ) -> tuple[ list[Any], dict]:
 
         if not results:
