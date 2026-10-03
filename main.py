@@ -3,28 +3,20 @@ import sys
 import time
 import traceback
 
-
-
-from fastapi import  FastAPI, HTTPException
-
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.security import HTTPBearer
-
 from fastapi.staticfiles import StaticFiles
 from fastapi_swagger import patch_fastapi
+from fastapi.middleware.cors import CORSMiddleware
 
-
-from Models.mainModels import  QueryRequest,     SearchResult
+from Models.mainModels import QueryRequest, SearchResult
 import uvicorn
 
-from fastapi.middleware.cors import CORSMiddleware
-#-----------
 from API.admin_routes import router as admin_router
 from API.Wallet_routes import router as wallet_router
 from API.query_routes import router as query_router
-#--------------------
-import json
+
 from pathlib import Path
-from fastapi import HTTPException
 
 app = FastAPI(
     docs_url=None,
@@ -34,23 +26,35 @@ app = FastAPI(
     version="1.0.0"
 )
 patch_fastapi(app, docs_url="/docs")
+
+# ✅ CORSMiddleware باید اولین (و آخرین) میدل‌ور اضافه‌شده باشد
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://taftantest.adonistech.ir",  # آدرس فرانت‌اند
+        "http://taftantest.adonistech.ir",
+        "https://taftantest.adonistech.ir",
+        "http://taftantest.adonistech.ir:8000",
+        "https://taftantest.adonistech.ir:8000",
         "http://10.44.4.12",
-        # یا برای محیط توسعه: "*"
+        "https://10.44.4.12",
+        "http://localhost:4200",
     ],
-    allow_origins=["*"],  # برای محیط توسعه؛ در محیط پروداکشن دامنه‌های خود را مشخص کنید
     allow_credentials=True,
-    allow_methods=["*"],  # اجازه به تمام متدها (POST, GET, OPTIONS و...)
-    allow_headers=["*"],  # اجازه به تمام هدرها
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],
+    allow_private_network=True,  # 👈 این پارامتر کافی است
 )
+
+# ❌ میدل‌ور سفارشی add_private_network_header را حذف کنید
+# @app.middleware("http")
+# async def add_private_network_header(request: Request, call_next):
+#     ...
+
 security = HTTPBearer()
 
-
-BASE_DIR = Path(__file__).resolve().parent # تعریف مسیر پایه پروژه
-MEDIA_ROOT = BASE_DIR / "data"  # مسیر دقیق پوشه داده‌ها
+BASE_DIR = Path(__file__).resolve().parent
+MEDIA_ROOT = BASE_DIR / "data"
 
 app.mount("/media", StaticFiles(directory=str(MEDIA_ROOT)), name="media")
 
@@ -70,6 +74,6 @@ async def root():
             "health": "/health"
         }
     }
+
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-   
