@@ -1,32 +1,44 @@
 from __future__ import annotations
 
-import asyncio
 import json
 import os
 from queue import Queue
 
 from threading import Thread
 from typing import Any
-import uuid
+
 import time
 import datetime
 
 from agent.dashboard_agent import DashboardAgent
-from fastapi import APIRouter, BackgroundTasks
+from fastapi import (APIRouter,
+                     BackgroundTasks,
+                     Depends,
+                     HTTPException)
 from fastapi.responses import StreamingResponse
-
-from fastapi import Depends, FastAPI, HTTPException
-
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import (HTTPBearer,
+                              HTTPAuthorizationCredentials)
 from qdrant_client import QdrantClient
-from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
-from Models.mainModels import QueryRequestStreamWithConversationIdAndUserkey, QueryRequestStreamWithConversionId
+from config import (
+    EMBED_MODEL, 
+    LLM_MODEL,
+    OPENAI_API_KEY, 
+    DeepSeek_API_KEY, 
+    DeepSeek_URL,
+    DeepSeekModel,
+    provider_URL,
+    QDRANT_HOST,
+    QDRANT_PORT)
+from Models.mainModels import(QueryRequestStreamWithConversationIdAndUserkey,
+                              QueryRequestStreamWithConversionId)
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
-from config import QDRANT_HOST, QDRANT_PORT
 
-from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING,get_recent_history, save_message
-from Utility.log import append_qa_to_file,append_qa_to_fileWithConvertion
+
+from SQlDB.dbManagement import (SQL_SERVER_CONNECTION_STRING,
+                                get_recent_history,
+                                save_message)
+from Utility.log import append_qa_to_fileWithConvertion
 from providers.factory import create_provider
 
 from agent.chat_agent import ChatAgent
@@ -49,6 +61,8 @@ STREAM_HEADERS = {
     "Connection": "keep-alive",
     "X-Accel-Buffering": "no",
 }
+
+
 
 
 def build_router_agent() -> RouterAgent:
