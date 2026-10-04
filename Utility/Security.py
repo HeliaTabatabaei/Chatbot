@@ -101,3 +101,4 @@ class SensitiveDataMasker:
         print(f"Masked {len(ip_map)} unique IPs, {len(pass_map)} passwords.")
         print(f"Generated: {masked_path.name} & {vault_path.name}")
         return str(masked_path), str(vault_path)
+   

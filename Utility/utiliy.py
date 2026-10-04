@@ -9,7 +9,13 @@ from typing import Any, Dict, Tuple
 from typing import Any, Dict, List, Optional
 import uuid
 import redis
+from fastapi import Depends, HTTPException, status
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from jose import ExpiredSignatureError, JWTError
 
+
+
+security = HTTPBearer()
 r = redis.Redis(host="10.44.4.13", port=6379, db=1, decode_responses=True)
 
 def get_current_user_payload(
@@ -261,3 +267,28 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
+def get_current_user_key(
+        credentials: HTTPAuthorizationCredentials = Depends(security),
+    ) -> str:
+        """
+        اعتبارسنجی توکن و بازگرداندن شناسه کاربر.
+        """
+        token = credentials.credentials
+        try:
+            is_valid, message, user_key = get_current_user_payload(token)
+            if not is_valid:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail=message,
+                )
+            return user_key
+        except ExpiredSignatureError:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Token expired",
+            )
+        except JWTError as e:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=f"Invalid token: {str(e)}",
+            )

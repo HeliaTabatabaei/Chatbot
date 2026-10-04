@@ -1,32 +1,44 @@
 from __future__ import annotations
 
-import asyncio
 import json
 import os
 from queue import Queue
 
 from threading import Thread
-from typing import Any
-import uuid
+from typing import Any, Optional
+
 import time
 import datetime
 
 from agent.dashboard_agent import DashboardAgent
-from fastapi import APIRouter, BackgroundTasks
+from fastapi import (APIRouter,
+                     BackgroundTasks,
+                     Depends,
+                     HTTPException)
 from fastapi.responses import StreamingResponse
-
-from fastapi import Depends, FastAPI, HTTPException
-
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import (HTTPBearer,
+                              HTTPAuthorizationCredentials)
 from qdrant_client import QdrantClient
-from config import EMBED_MODEL, LLM_MODEL, OPENAI_API_KEY, DeepSeek_API_KEY, DeepSeek_URL, DeepSeekModel, provider_URL
-from Models.mainModels import QueryRequestStreamWithConversationIdAndUserkey, QueryRequestStreamWithConversionId
+from config import (
+    EMBED_MODEL, 
+    LLM_MODEL,
+    OPENAI_API_KEY, 
+    DeepSeek_API_KEY, 
+    DeepSeek_URL,
+    DeepSeekModel,
+    provider_URL,
+    QDRANT_HOST,
+    QDRANT_PORT)
+from Models.mainModels import(QueryRequestStreamWithConversationIdAndUserkey,
+                              QueryRequestStreamWithConversionId)
 from SQlDB.db import DatabaseConnection
 from SQlDB.wallet import InsertIntoWallet
-from config import QDRANT_HOST, QDRANT_PORT
 
-from SQlDB.dbManagement import SQL_SERVER_CONNECTION_STRING,get_recent_history, save_message
-from Utility.log import append_qa_to_file,append_qa_to_fileWithConvertion
+
+from SQlDB.dbManagement import (SQL_SERVER_CONNECTION_STRING,
+                                get_recent_history,
+                                save_message)
+from Utility.log import append_qa_to_fileWithConvertion
 from providers.factory import create_provider
 
 from agent.chat_agent import ChatAgent
@@ -34,8 +46,8 @@ from agent.document_agent import DocumentAgent
 from agent.router import RouterAgent
 from service.rag_service import RAGService
 from Utility.StreamUnmasker import StreamUnmasker
-from Utility.utiliy import get_current_user_payload
-
+# from Utility.utiliy import get_current_user_payload
+from Utility.utiliy import get_current_user_key
 
 security = HTTPBearer()
 router = APIRouter(
@@ -49,6 +61,55 @@ STREAM_HEADERS = {
     "Connection": "keep-alive",
     "X-Accel-Buffering": "no",
 }
+
+def save_interaction_history(
+    conversation_id: str,
+    query: str,
+    answer: str,
+    response_id: str = "1111"
+) -> None:
+    """ذخیره پاسخ دستیار در دیتابیس SQL Server و ثبت تاریخچه در فایل لاگ."""
+    try:
+        with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
+            save_message(
+                cursor=cursor,
+                conversation_id=conversation_id,
+                role="assistant",
+                content=answer,
+                provider_response_id=response_id,
+            )
+    except Exception as e:
+        print(f"Failed to save message to DB: {e}", flush=True)
+
+    try:
+        append_qa_to_fileWithConvertion(query, conversation_id)
+        append_qa_to_fileWithConvertion(answer, conversation_id)
+    except Exception as e:
+        print(f"Failed to save QA log: {e}", flush=True)
+
+
+def record_wallet_usage(
+    background_tasks: BackgroundTasks,
+    usage: dict,
+    user_key: str,
+    conversation_id: str,
+    response_id: Optional[str] = None
+) -> None:
+    """ثبت هزینه توکن‌ها در تسک پس‌زمینه کیف‌پول."""
+    if not usage:
+        return
+
+    background_tasks.add_task(
+        InsertIntoWallet,
+        usage.get("total_tokens", 0) * -1,
+        usage.get("output_tokens", 0),
+        usage.get("input_tokens", 0),
+        user_key,
+        conversation_id,
+        usage.get("Provider"),
+        "result"
+    )
+
 
 
 def build_router_agent() -> RouterAgent:
@@ -127,19 +188,22 @@ VAULT_FILE_PATH = os.getenv("VAULT_FILE_PATH", "/app/Data/vault.json")
 async def stream_queryHistory_endpoint(
     request: QueryRequestStreamWithConversionId,
     background_tasks: BackgroundTasks,
-    credentials: HTTPAuthorizationCredentials = Depends(security)
+    # credentials: HTTPAuthorizationCredentials = Depends(security)
+    user_key: str = Depends(get_current_user_key),
 ):
-    user_key = ""
+    # user_key = ""
+  
+    # token = credentials.credentials
+    # try:
+    #     is_valid, message, user_key = get_current_user_payload(token)
+    #     if not is_valid:
+    #         raise HTTPException(status_code=401, detail=message)
+    # except ExpiredSignatureError:
+    #     raise HTTPException(status_code=401, detail="Token expired")
+    # except JWTError as e:
+    #     raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
 
-    token = credentials.credentials
-    try:
-        is_valid, message, user_key = get_current_user_payload(token)
-        if not is_valid:
-            raise HTTPException(status_code=401, detail=message)
-    except ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token expired")
-    except JWTError as e:
-        raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
+
 
     #user_key = '9a6b7ba9-abfe-4207-97fe-02a1da750cb7'
     #append_qa_to_file(f"VAULT_FILE_PATH:{VAULT_FILE_PATH}\n")
@@ -271,15 +335,20 @@ async def stream_queryHistory_endpoint(
         # متن خام برای ذخیره در دیتابیس (بدون دیتای حساس)
         final_answer = "".join(answer_parts).strip()
     
-        with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
-            save_message(
-                cursor=cursor,
-                conversation_id=c_id,
-                role="assistant",
-                content=final_answer,
-                provider_response_id="1111"
-            )
-
+        # with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
+        #     save_message(
+        #         cursor=cursor,
+        #         conversation_id=c_id,
+        #         role="assistant",
+        #         content=final_answer,
+        #         provider_response_id="1111"
+        #     )
+        save_interaction_history(
+            conversation_id=c_id,
+            query=request.query,
+            answer=final_answer,
+            response_id=final_response_id or "1111"
+        )
         # ذخیره سؤال و جواب در فایل لاگ
         try:         
             append_qa_to_fileWithConvertion(request.query,c_id)
@@ -288,17 +357,23 @@ async def stream_queryHistory_endpoint(
             print(f"Failed to save QA log: {e}", flush=True)    
 
         if final_usage and final_response_id:
-            background_tasks.add_task(
-                InsertIntoWallet,
-                final_usage.get("total_tokens", 0) * -1,
-                final_usage.get("output_tokens", 0),
-                final_usage.get("input_tokens", 0),
-                user_key,
-                c_id,
-                final_usage.get("Provider"),
-                "result"
-            )                              
-
+            # background_tasks.add_task(
+            #     InsertIntoWallet,
+            #     final_usage.get("total_tokens", 0) * -1,
+            #     final_usage.get("output_tokens", 0),
+            #     final_usage.get("input_tokens", 0),
+            #     user_key,
+            #     c_id,
+            #     final_usage.get("Provider"),
+            #     "result"
+            # )                              
+            record_wallet_usage(
+                background_tasks=background_tasks,
+                usage=final_usage,
+                user_key=user_key,
+                conversation_id=c_id,
+                response_id=final_response_id
+            )
         # ارسال سیگنال پایان قطعی استریم
         yield "event: done\ndata: [DONE]\n\n"
 
@@ -444,15 +519,20 @@ async def stream_queryHistory1_endpoint(
         # متن خام برای ذخیره در دیتابیس (بدون دیتای حساس)
         final_answer = "".join(answer_parts).strip()
       
-        with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
-            save_message(
-                cursor=cursor,
-                conversation_id=c_id,
-                role="assistant",
-                content=final_answer,
-                provider_response_id="1111"
-            )
-
+        # with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
+        #     save_message(
+        #         cursor=cursor,
+        #         conversation_id=c_id,
+        #         role="assistant",
+        #         content=final_answer,
+        #         provider_response_id="1111"
+        #     )
+        save_interaction_history(
+                    conversation_id=c_id,
+                    query=request.query,
+                    answer=final_answer,
+                    response_id=final_response_id or "1111"
+                )
         # ذخیره سؤال و جواب در فایل لاگ
         try:         
             append_qa_to_fileWithConvertion(request.query,c_id)
@@ -461,16 +541,23 @@ async def stream_queryHistory1_endpoint(
             print(f"Failed to save QA log: {e}", flush=True)    
 
         if final_usage and final_response_id:                      
-            background_tasks.add_task(
-                            InsertIntoWallet,
-                            final_usage.get("total_tokens", 0) * -1,
-                            final_usage.get("output_tokens", 0),
-                            final_usage.get("input_tokens", 0),
-                            user_key,
-                            c_id,
-                            final_usage.get("Provider"),
-                            "result"
-                        )                  
+            # background_tasks.add_task(
+            #                 InsertIntoWallet,
+            #                 final_usage.get("total_tokens", 0) * -1,
+            #                 final_usage.get("output_tokens", 0),
+            #                 final_usage.get("input_tokens", 0),
+            #                 user_key,
+            #                 c_id,
+            #                 final_usage.get("Provider"),
+            #                 "result"
+            #             )                  
+            record_wallet_usage(
+                            background_tasks=background_tasks,
+                            usage=final_usage,
+                            user_key=user_key,
+                            conversation_id=c_id,
+                            response_id=final_response_id
+                        )
         # ارسال سیگنال پایان قطعی استریم
         yield "event: done\ndata: [DONE]\n\n"
 
@@ -554,19 +641,24 @@ async def query_history_endpoint(
     final_answer = "".join(answer_parts).strip()
 
     try:
-        with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
-            save_message(
-                cursor=cursor,
-                conversation_id=c_id,
-                role="assistant",
-                content=final_answer,
-                provider_response_id=final_response_id
-            )
+        # with DatabaseConnection(SQL_SERVER_CONNECTION_STRING) as cursor:
+        #     save_message(
+        #         cursor=cursor,
+        #         conversation_id=c_id,
+        #         role="assistant",
+        #         content=final_answer,
+        #         provider_response_id=final_response_id
+        #     )
+        save_interaction_history(
+                    conversation_id=c_id,
+                    query=request.query,
+                    answer=final_answer,
+                    response_id=final_response_id or "1111"
+                )
     except Exception as e:
         print(f"Database save error: {e}", flush=True)
 
     try:
-       
         append_qa_to_fileWithConvertion(
                     final_answer ,c_id              
                 )
@@ -576,17 +668,23 @@ async def query_history_endpoint(
 
     if final_usage:
         
-        background_tasks.add_task(
-                        InsertIntoWallet,
-                        final_usage.get("total_tokens", 0) * -1,
-                        final_usage.get("output_tokens", 0),
-                        final_usage.get("input_tokens", 0),
-                        user_key,
-                        c_id,
-                        final_usage.get("Provider"),
-                        "result"
-                    )                  
-
+        # background_tasks.add_task(
+        #                 InsertIntoWallet,
+        #                 final_usage.get("total_tokens", 0) * -1,
+        #                 final_usage.get("output_tokens", 0),
+        #                 final_usage.get("input_tokens", 0),
+        #                 user_key,
+        #                 c_id,
+        #                 final_usage.get("Provider"),
+        #                 "result"
+        #             )                  
+        record_wallet_usage(
+                        background_tasks=background_tasks,
+                        usage=final_usage,
+                        user_key=user_key,
+                        conversation_id=c_id,
+                        response_id=final_response_id
+                    )
     return {
         "status": "success",
         "conversation_id": c_id,
